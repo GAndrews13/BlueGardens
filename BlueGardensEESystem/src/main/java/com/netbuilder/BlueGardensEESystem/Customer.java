@@ -1,4 +1,4 @@
-package com.netbuilder.test;
+package com.netbuilder.BlueGardensEESystem;
 
 public class Customer {
 	/**
