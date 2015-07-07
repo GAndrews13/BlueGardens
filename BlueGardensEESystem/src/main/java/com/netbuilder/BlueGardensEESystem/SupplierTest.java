@@ -6,17 +6,9 @@ import org.junit.Test;
 
 public class SupplierTest {
 
-	@Test public void testSupplier(){
-	Supplier testing = new Supplier();
-	assertNull(testing.getName());
-	}
 	@Test public void testSupplierName(){
 		Supplier testing = new Supplier();
 		assertNotNull(testing.getName());
-	}
-	@Test public void testSupplierAddress(){
-		Supplier testing = new Supplier();
-		assertNull(testing.getAddress());
 	}
 	@Test public void testSupplierGetName(){
 		Supplier testing = new Supplier();
