@@ -1,5 +1,10 @@
 package com.netbuilder.BlueGardensEESystem;
 
+/**
+ * 
+ * @author gandrews
+ *
+ */
 public class CustomerOrder {
 	
 	private int customerOrderID;
