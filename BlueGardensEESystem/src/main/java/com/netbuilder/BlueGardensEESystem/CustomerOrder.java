@@ -2,9 +2,12 @@ package com.netbuilder.BlueGardensEESystem;
 
 /**
  * 
- * @author gandrews
+ * @author jmander
+ * 
+ * Contains information regarding the customer, what they ordered, if a worker has been assigned to check out the stock,
+ * the type of delivery (first class etc.) that the customer has requested and a means of tracking the differing states of the order  
  *
- */
+ **/
 public class CustomerOrder {
 	
 	private int customerOrderID;
