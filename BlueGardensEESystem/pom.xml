@@ -36,7 +36,7 @@
   	</dependency>
   	<dependency>
   		<groupId>org.hibernate</groupId>
-  		<artifactId>hibernate-annptations</artifactId>
+  		<artifactId>hibernate-annotations</artifactId>
   		<version>3.5.6-Final</version>
   	</dependency>
   	<dependency>
