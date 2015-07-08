@@ -3,7 +3,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.netbuilder.entities.Supplier;
+
+import com.netbuilder.entities.WarehouseWorker;
 public class WarehouseWorkerTesting {
 	
 	public WarehouseWorkerTesting(){
@@ -16,7 +17,7 @@ public class WarehouseWorkerTesting {
 	 */
 	@Test 
 	public void testWorkerName(){
-		Supplier testing = new Supplier();
+		WarehouseWorker testing = new WarehouseWorker();
 		testing.setName("a");
 		assertEquals("a", testing.getName());
 		assertNotNull(testing.getName());
@@ -27,7 +28,7 @@ public class WarehouseWorkerTesting {
 	 */
 	@Test 
 	public void testWorkerAddress(){
-		Supplier testing = new Supplier();
+		WarehouseWorker testing = new WarehouseWorker();
 		testing.setAddress("a");
 		assertEquals("a",testing.getAddress());
 		assertNotNull(testing.getAddress());
