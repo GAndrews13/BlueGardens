@@ -1,25 +1,19 @@
 package com.netbuilder.BlueGardensEESystem;
-/**
- * @author lczornyj
- * Attempting to do some testing for the supplier
- * havent got a clue what im doing, just hashing it together
- */
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-public class SupplierTest {
+public class WarehouseWorkerTesting {
 	
-	public SupplierTest(){	
-		//Supplier supplier = new Supplier();
-		//supplier.getName();
+	public WarehouseWorkerTesting(){
+	//	WarehouseWorker warehouseWorker = new WarehouseWorker();
 	}
+
 	/**
 	 * @author lczornyj
 	 * I think this is testing if the supplier name is null
 	 */
-	@Test  
-	public void testSupplierName(){
+	@Test 
+	public void testWorkerName(){
 		Supplier testing = new Supplier();
 		testing.setName("a");
 		assertEquals("a", testing.getName());
@@ -30,7 +24,7 @@ public class SupplierTest {
 	 * I think this one tests if the address is null
 	 */
 	@Test 
-	public void testSupplierGetAddress(){
+	public void testWorkerAddress(){
 		Supplier testing = new Supplier();
 		testing.setAddress("a");
 		assertEquals("a",testing.getAddress());
