@@ -1,5 +1,6 @@
 package com.netbuilder.BlueGardensEESystem;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -15,13 +16,18 @@ import javax.validation.constraints.NotNull;
 @Table (name = "WeeklySales")
 public class WeeklySales {
 
-	//Create a default instance in which the date of the products sales are provided
+	/**
+	 * Create a default instance in which the date of the products sales are provided
+	 * @param inDate This is the date at which the sales of the product are going to be tracked from for the duration of a week
+	 */
 	public WeeklySales(Date inDate)
 	{
 		this.dateSold = inDate;
 	}
 	
-	//Creates a weekly sale based on todays date and time
+	/**
+	 * Creates an instance of weekly sales using the time it was created as its Date
+	 */
 	public WeeklySales()
 	{
 		this(Calendar.getInstance().getTime());
@@ -29,11 +35,13 @@ public class WeeklySales {
 	
 	@Column (name = "amountSold",nullable = true)
 	private int amountSold;
+	
 	@Column (name = "productID",nullable = false)
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name="productID")
 	private int productID;
+	
 	@Column (name = "dateSold",nullable = false)
 	@NotNull
 	private Date dateSold;
@@ -52,6 +60,13 @@ public class WeeklySales {
 	}
 	public int getProductID() {
 		return productID;
+	}
+	
+	@Override
+	public String toString()
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
+		return sdf.format(dateSold) + ": " + amountSold;
 	}
 	
 }

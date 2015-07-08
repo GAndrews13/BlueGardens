@@ -14,6 +14,7 @@ public class Wishlist {
 	
 	/**
 	 * A default constructor that replies on being provided a customer ID
+	 * @param customerID This is an integer that refers to the Customer who has created this wishlist
 	 */
 	public Wishlist(int customerID)
 	{
@@ -53,6 +54,17 @@ public class Wishlist {
 	}
 	public void setProducts(ArrayList<Products> products) {
 		this.products = products;
+	}
+	
+	@Override
+	public String toString()
+	{
+		String returner = customerID +": ";
+		for(Products product : products)
+		{
+			returner += "\n" + product.getProductName() + "(" + product.getProductID() + ")";
+		}
+		return returner;
 	}
 	
 }
