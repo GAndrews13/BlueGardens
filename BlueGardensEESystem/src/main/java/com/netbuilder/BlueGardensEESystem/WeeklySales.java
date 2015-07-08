@@ -62,6 +62,9 @@ public class WeeklySales {
 		return productID;
 	}
 	
+	/**
+	 * Returns the date that represents the start of the week and the number that have been sold within that week
+	 */
 	@Override
 	public String toString()
 	{
