@@ -24,34 +24,15 @@ public class ProductTest {
 	 * Tests that products custom constructor assigns the values correctly
 	 */
 	@Test
-	public boolean testProductCustomCreation()
+	public void testProductCustomCreation()
 	{
 		Products product = new Products("TestName",14,13,15,false,10.00);
-		if(product.getProductName()!="TestName")
-		{
-			return false;
-		}
-		if(product.getStockLevel() != 14)
-		{
-			return false;
-		}
-		if(product.getMinimumThreshold() != 13)
-		{
-			return false;
-		}
-		if(product.getRecommendedLevel() != 15)
-		{
-			return false;
-		}
-		if(product.isPorousware() != false)
-		{
-			return false;
-		}
-		if(product.getPrice() != 10.00)
-		{
-			return false;
-		}
-		return true;
+		assertNotSame(product.getProductName(),"TestName");
+		assertNotSame(product.getStockLevel(),14);
+		assertNotSame(product.getMinimumThreshold(),13);
+		assertNotSame(product.getRecommendedLevel(), 15);
+		assertNotSame(product.isPorousware(),false);
+		assertNotSame(product.getPrice(), 10.00);
 	}
 	
 	/**
