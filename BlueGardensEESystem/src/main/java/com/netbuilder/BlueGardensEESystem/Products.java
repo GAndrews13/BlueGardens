@@ -1,40 +1,83 @@
 package com.netbuilder.BlueGardensEESystem;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
 
 /**
  * 
- * @author gandrews
- * Represents the products that are stored and can be sold to the client
+ * @author JamesThompson
+ * This Entity is used as the mapping for the products table
  */
+@Entity
+@Table(name = "Products")
 public class Products {
-
-	/**
-	 * The unique ID associated with that particular product (product and if porouswared)
-	 */
+	
+	@Id
+	@Column(name = "productID", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private int productID;
-	/**
-	 * The name that is used to represent the product within the system and catalogue
-	 */
+	
+	@Column(name = "productName", nullable = false, length = 45)
+	@NotNull
+	@Size(min=2, max = 45)
 	private String productName;
-	/**
-	 * The number of items that are currently avaliable to be sold
-	 */
-	private int stockLevel;
-	/**
-	 * The Level at which stock should be reordered
-	 */
+ 
+	@Column(name = "stockLevel", nullable = false)
+	@NotNull
+	private int stockLevel;	
+
+	@Column(name = "minimumThreshold", nullable = false)
+	@NotNull
 	private int minimumThreshold;
-	/**
-	 * The level at which stock should be reordered to when it reaches the minimumThreshold
-	 */
+
+	@Column(name = "recomendedLevel", nullable = false)
+	@NotNull
 	private int recommendedLevel;
-	/**
-	 * If the item is pre-porouswared this is true
-	 */
+
+	@Column(name = "isPorousware", nullable = false)
+	@NotNull
 	private boolean isPorousware;
-	/**
-	 * The price of the item that is given to the customer
-	 */
+
+	@Column(name = "price", nullable = false)
+	@NotNull
 	private double price;
+	
+	/**
+	 * This is the default constructor for the Product entity. It sets all of the properties to their default values.
+	 */
+	public Products() {
+		this("test", 0, 0, 0, false, 0.0);
+	}
+	
+	/**
+	 * This is the preferred constructor implementation as it forces us to specify all of the values that are not nullable
+	 * @param productName This is a String for the name of the product
+	 * @param stockLevel This is the number of stock that is currently being held for this product
+	 * @param minimumThreshold This is the minimum level of stock that can be held before more stock needs to be ordered
+	 * @param recommendedLevel This is the level of stock that will be ordered to when stock reaches the minimum threshold
+	 * @param isPorousware This indicates whether this item should be treated for porousware
+	 * @param price This is the price of the product
+	 */
+	public Products(String productName, int stockLevel, int minimumThreshold,
+			int recommendedLevel, boolean isPorousware, double price) {
+		this.productName = productName;
+		this.stockLevel = stockLevel;
+		this.minimumThreshold = minimumThreshold;
+		this.recommendedLevel = recommendedLevel;
+		this.isPorousware = isPorousware;
+		this.price = price;
+	}
 	
 	public String getProductName() {
 		return productName;
@@ -80,5 +123,15 @@ public class Products {
 	
 	public int getProductID() {
 		return productID;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Products [productID=" + productID + ", productName="
+				+ productName + ", stockLevel=" + stockLevel
+				+ ", minimumThreshold=" + minimumThreshold
+				+ ", recommendedLevel=" + recommendedLevel + ", isPorousware="
+				+ isPorousware + ", price=" + price + "]";
 	}
 }
