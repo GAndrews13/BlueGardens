@@ -1,32 +1,29 @@
 package com.netbuilder.BlueGardensEESystem;
-
+/**
+ * @author lczornyj
+ * Attempting to do some testing for the supplier
+ * havent got a clue what im doing, just hashing it together
+ */
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 public class SupplierTest {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
-		 
-	@Test public void testSupplier(String id, String name){
-	Supplier testing = new Supplier(id, name);
-	assertNull(testing.getName());
-	}
-	
+	/**
+	 * @author lczornyj
+	 * I think this is testing if the supplier name is null
+	 */
 	@Test public void testSupplierName(){
 		Supplier testing = new Supplier();
 		assertNotNull(testing.getName());
 	}
-	@Test public void testSupplierAddress(){
+	/**
+	 * @author lczornyj
+	 * I think this one tests if the address is null
+	 */
+	@Test public void testSupplierGetAddress(){
 		Supplier testing = new Supplier();
-		assertNull(testing.getAddress());
-	}
-	@Test public void testSupplierGetName(){
-		Supplier testing = new Supplier();
-		assertEquals("a", testing.getName());
+		assertNotNull(testing.getAddress());
 	}
 }
