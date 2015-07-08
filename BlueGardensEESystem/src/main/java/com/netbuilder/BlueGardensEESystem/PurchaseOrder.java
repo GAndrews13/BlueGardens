@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 /**
  * @author David Ogbonnah
+ * This entity is used for generating an purchase order
  **/
 public class PurchaseOrder {
 
