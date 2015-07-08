@@ -1,7 +1,6 @@
 package com.netbuilder.BlueGardensEESystem;
 
 import java.util.ArrayList;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +30,7 @@ public class Basket {
 	@NotNull
 	@OneToMany
 	private ArrayList<ProductOrderLine> ProductOrderLine;
-public Basket(int customerId, ArrayList<com.netbuilder.BlueGardensEESystem.ProductOrderLine> productOrderLine) {
+public Basket(int customerId, ArrayList<ProductOrderLine> productOrderLine) {
 	
 		this.customerId = customerId;
 		ProductOrderLine = productOrderLine;
