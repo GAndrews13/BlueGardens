@@ -2,6 +2,8 @@ package com.netbuilder.BlueGardensEESystem;
 
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -11,8 +13,13 @@ import javax.validation.constraints.Size;;
 
 @Entity
 @Table(name = "Customer")
-
-public class Customer {
+@NamedQueries
+({
+	@NamedQuery(name = Customer.FIND_BY_OUT_STOCK, query = "SELECT c FROM Customer c WHERE c.name = Jake")
+})
+public class Customer 
+{
+	public static final String FIND_BY_OUT_STOCK = "Customer.findByOutStock";
 	/**
 	 * @author Jake
 	 *	Attributes for customer including
