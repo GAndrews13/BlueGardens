@@ -19,6 +19,8 @@ public class WarehouseWorker {
  * locally.
  */
 
+	 
+	
 	@Id
 	@Column(name = "workerId", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
