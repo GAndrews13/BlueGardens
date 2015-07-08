@@ -1,11 +1,15 @@
 package com.netbuilder.BlueGardensEESystem;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Length;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * 
@@ -14,7 +18,11 @@ import org.hibernate.validator.constraints.Length;
  */
 @Entity
 @Table(name = "Products")
+@NamedQueries({
+	@NamedQuery(name = Products.FIND_BY_OUT_STOCK, query = "SELECT p FROM Products p WHERE p.stockLevel = p.minimumThreshold")
+})
 public class Products {
+	public static final String FIND_BY_OUT_STOCK = "Product.findByOutStock";
 	
 	@Id
 	@Column(name = "productID", nullable = false)
@@ -118,7 +126,6 @@ public class Products {
 	public int getProductID() {
 		return productID;
 	}
-
 	
 	@Override
 	public String toString() {
