@@ -1,13 +1,13 @@
 package com.netbuilder.BlueGardensEESystem;
 
 /**
- * Hello world!
+ * Program Entry Point
  *
  */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        
     }
 }
