@@ -1,4 +1,4 @@
-package com.netbuilder.BlueGardensEESystem;
+package com.netbuilder.entities;
 /**
  * @author Jake
  *

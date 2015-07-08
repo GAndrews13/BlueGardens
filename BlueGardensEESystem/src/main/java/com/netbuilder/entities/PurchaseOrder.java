@@ -1,4 +1,4 @@
-package com.netbuilder.BlueGardensEESystem;
+package com.netbuilder.entities;
 
 import java.util.ArrayList;
 
@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -24,8 +25,15 @@ public class PurchaseOrder {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
 	private int id;
+	@OneToMany
+	@Column(name = "POLID", nullable = false)
+	@NotNull
 	private ArrayList<ProductOrderLine> pol;
+	@Column(name = "DeliveryLocation", nullable = false)
+	@NotNull
 	private DeliveryLocation loc;
+	@Column(name = "SupplierID", nullable = false)
+	@NotNull
 	private Supplier supp;
 	
 	/**
@@ -39,33 +47,31 @@ public class PurchaseOrder {
 		supp = new Supplier(id, name);
 	}
 	
+	/**
+	 * @author David
+	 * 
+	 * @param p the ProductOrderLine object to be added to the collection pol
+	 */
 	public void addProductOrderLine(ProductOrderLine p)
 	{
 		pol.add(p);
 	}
 	
+	/**
+	 * @author David Ogbonnah
+	 * 
+	 * @return An array list collection of all the Product Order Lines added 
+	 * to the current Purchase Order
+	 */
 	public ArrayList<ProductOrderLine> getProductOrderLines()
 	{
 		return pol;
 	}
-	public ProductOrderLine getProductOrderLine(ProductOrderLine p)
-	{
-		int i = 0;
-	    ProductOrderLine polInstance = null;
-	    while (i < pol.size())
-	    {
-	    	polInstance = pol.get(i);
-	    	if(polInstance.equals(p))
-	    	{
-	    		return p;
-	    	}
-	    	
-	    	i++;
-	    }
-	    
-	    return null;
-	}
 	
+	/**
+	 * @author David Ogbonnah
+	 * @param s returns
+	 */
 	public void Supplier(Supplier s)
 	{
 		supp = s;

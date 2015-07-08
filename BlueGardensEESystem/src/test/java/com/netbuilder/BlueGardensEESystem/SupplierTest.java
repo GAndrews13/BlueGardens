@@ -8,6 +8,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.netbuilder.entities.Supplier;
+
 public class SupplierTest {
 	
 	public SupplierTest(){	

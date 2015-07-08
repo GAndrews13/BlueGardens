@@ -1,4 +1,4 @@
-package com.netbuilder.BlueGardensEESystem;
+package com.netbuilder.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;

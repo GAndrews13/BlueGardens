@@ -1,4 +1,4 @@
-package com.netbuilder.BlueGardensEESystem;
+package com.netbuilder.entities;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
