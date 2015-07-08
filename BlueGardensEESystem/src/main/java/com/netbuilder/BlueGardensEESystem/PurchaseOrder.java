@@ -2,8 +2,13 @@ package com.netbuilder.BlueGardensEESystem;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "nbgblue")
@@ -14,10 +19,20 @@ import javax.persistence.Table;
  **/
 public class PurchaseOrder {
 
-	
+	@Id
+	@Column(name = "POID", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
+	private int id;
 	private ArrayList<ProductOrderLine> pol;
-	public Supplier supp;
+	private DeliveryLocation loc;
+	private Supplier supp;
 	
+	/**
+	 * This is the preferred constructor implementation as it forces us to specify all of the values that are not nullable
+	 * @param id A unique id for the supplier
+	 * @param name The name of the supplier
+	 */
 	public PurchaseOrder(String id, String name)
 	{
 		pol = new ArrayList<ProductOrderLine>();

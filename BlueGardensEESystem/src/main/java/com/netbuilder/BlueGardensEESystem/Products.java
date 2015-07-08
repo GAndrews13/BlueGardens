@@ -120,6 +120,9 @@ public class Products {
 	}
 
 	
+	/**
+	 * Overrides the to wring method to return all the relevant information for the product alongside tags outlining what each piece of data represents
+	 */
 	@Override
 	public String toString() {
 		return "Products [productID=" + productID + ", productName="
