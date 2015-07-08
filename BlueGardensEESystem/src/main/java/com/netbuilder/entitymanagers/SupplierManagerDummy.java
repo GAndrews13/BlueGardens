@@ -34,7 +34,7 @@ public class SupplierManagerDummy implements SupplierManager {
 		return null;
 	}
 
-	public Supplier findById(int id)  {
+	public Supplier findById(int id) {
 		// TODO Auto-generated method stub
 		
 		return null;
