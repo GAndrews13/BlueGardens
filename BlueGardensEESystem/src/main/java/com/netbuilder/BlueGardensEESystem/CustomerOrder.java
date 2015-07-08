@@ -95,11 +95,9 @@ public class CustomerOrder {
 		this.isAssigned = isAssigned;
 	}
 	
-	
 	public int getTrackingID() {
 		return trackingID;
 	}
-
 	
 	public String getDeliveryType() {
 		return deliveryType;
