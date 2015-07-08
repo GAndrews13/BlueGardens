@@ -17,10 +17,10 @@ public class PurchaseOrder {
 	private ArrayList<ProductOrderLine> pol;
 	public Supplier supp;
 	
-	public PurchaseOrder()
+	public PurchaseOrder(String id, String name)
 	{
 		pol = new ArrayList<ProductOrderLine>();
-		supp = new Supplier();
+		supp = new Supplier(id, name);
 	}
 	
 	public void addProductOrderLine(ProductOrderLine p)
