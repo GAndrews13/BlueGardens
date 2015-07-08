@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.netbuilder</groupId>
-  <artifactId>test</artifactId>
+  <artifactId>BlueGardensEESystem</artifactId>
   <version>0.0.1</version>
   <packaging>jar</packaging>
   <name>test</name>
