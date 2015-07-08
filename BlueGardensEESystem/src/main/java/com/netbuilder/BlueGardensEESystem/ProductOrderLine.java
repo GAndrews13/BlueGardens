@@ -45,6 +45,7 @@ public class ProductOrderLine
 	@NotNull
 	private int quantity;
 	
+	
 	public ProductOrderLine(int productOrderLineID, int productID, int quantity) 
 	{
 		this.productOrderLineID = productOrderLineID;
