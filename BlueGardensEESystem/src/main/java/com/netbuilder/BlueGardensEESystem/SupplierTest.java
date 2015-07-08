@@ -28,5 +28,5 @@ public class SupplierTest {
 	@Test public void testSupplierGetName(){
 		Supplier testing = new Supplier();
 		assertEquals("a", testing.getName());
-
+	}
 }

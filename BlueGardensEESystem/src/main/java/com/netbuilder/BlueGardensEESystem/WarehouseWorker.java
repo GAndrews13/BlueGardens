@@ -33,7 +33,9 @@ public class WarehouseWorker {
 	@Size(min = 2, max = 45)
 	private String workerAddress;
 	
-	
+	public WarehouseWorker(){
+		
+	}
 /**
  * @author lczornyj
  * create getters and setters for the variables except the ID
