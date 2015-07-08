@@ -18,11 +18,15 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "Products")
+<<<<<<< HEAD:BlueGardensEESystem/src/main/java/com/netbuilder/BlueGardensEESystem/Product.java
+public class Product {
+=======
 @NamedQueries({
 	@NamedQuery(name = Products.FIND_BY_OUT_STOCK, query = "SELECT p FROM Products p WHERE p.stockLevel = p.minimumThreshold")
 })
 public class Products {
 	public static final String FIND_BY_OUT_STOCK = "Product.findByOutStock";
+>>>>>>> 3e1bdb209425106551fa50aef91c18de15cec0d2:BlueGardensEESystem/src/main/java/com/netbuilder/BlueGardensEESystem/Products.java
 	
 	@Id
 	@Column(name = "productID", nullable = false)
@@ -58,7 +62,7 @@ public class Products {
 	/**
 	 * This is the default constructor for the Product entity. It sets all of the properties to their default values.
 	 */
-	public Products() {
+	public Product() {
 		this("test", 0, 0, 0, false, 0.0);
 	}
 	
@@ -71,7 +75,7 @@ public class Products {
 	 * @param isPorousware This indicates whether this item should be treated for porousware
 	 * @param price This is the price of the product
 	 */
-	public Products(String productName, int stockLevel, int minimumThreshold,
+	public Product(String productName, int stockLevel, int minimumThreshold,
 			int recommendedLevel, boolean isPorousware, double price) {
 		this.productName = productName;
 		this.stockLevel = stockLevel;
