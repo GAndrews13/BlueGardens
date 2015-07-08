@@ -1,11 +1,15 @@
 package com.netbuilder.BlueGardensEESystem;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Length;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * 
@@ -14,7 +18,15 @@ import org.hibernate.validator.constraints.Length;
  */
 @Entity
 @Table(name = "Products")
+<<<<<<< HEAD:BlueGardensEESystem/src/main/java/com/netbuilder/BlueGardensEESystem/Product.java
 public class Product {
+=======
+@NamedQueries({
+	@NamedQuery(name = Products.FIND_BY_OUT_STOCK, query = "SELECT p FROM Products p WHERE p.stockLevel = p.minimumThreshold")
+})
+public class Products {
+	public static final String FIND_BY_OUT_STOCK = "Product.findByOutStock";
+>>>>>>> 3e1bdb209425106551fa50aef91c18de15cec0d2:BlueGardensEESystem/src/main/java/com/netbuilder/BlueGardensEESystem/Products.java
 	
 	@Id
 	@Column(name = "productID", nullable = false)
@@ -118,7 +130,6 @@ public class Product {
 	public int getProductID() {
 		return productID;
 	}
-
 	
 	/**
 	 * Overrides the to wring method to return all the relevant information for the product alongside tags outlining what each piece of data represents
