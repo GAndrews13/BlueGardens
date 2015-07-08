@@ -14,10 +14,16 @@ import javax.persistence.Table;
  **/
 public class PurchaseOrder {
 
-	
+	private int id;
 	private ArrayList<ProductOrderLine> pol;
+	private DeliveryLocation
 	public Supplier supp;
 	
+	/**
+	 * This is the preferred constructor implementation as it forces us to specify all of the values that are not nullable
+	 * @param id A unique id for the supplier
+	 * @param name The name of the supplier
+	 */
 	public PurchaseOrder(String id, String name)
 	{
 		pol = new ArrayList<ProductOrderLine>();
