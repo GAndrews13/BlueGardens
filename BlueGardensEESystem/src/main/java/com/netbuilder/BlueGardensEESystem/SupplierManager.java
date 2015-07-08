@@ -2,6 +2,8 @@ package com.netbuilder.BlueGardensEESystem;
 
 import java.util.ArrayList;
 
+import com.netbuilder.entities.Supplier;
+
 public interface SupplierManager {
 
 	///////// Create /////////
