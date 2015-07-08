@@ -35,11 +35,6 @@ public class WarehouseWorkerManagerDummy implements WarehouseWorkerManager {
 	public WarehouseWorker findById(int id) {
 		// TODO Auto-generated method stub
 		
-		ArrayList<WarehouseWorker> List = new ArrayList<WarehouseWorker>();
-		for (WarehouseWorker w : warehouseWorkers) { 
-			if (w.getName().equals(id))
-				List.add(w);
-		}
 		return null;
 	}
 
