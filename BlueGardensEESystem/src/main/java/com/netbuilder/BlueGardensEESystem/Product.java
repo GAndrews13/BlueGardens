@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.Length;
  */
 @Entity
 @Table(name = "Products")
-public class Products {
+public class Product {
 	
 	@Id
 	@Column(name = "productID", nullable = false)
@@ -50,7 +50,7 @@ public class Products {
 	/**
 	 * This is the default constructor for the Product entity. It sets all of the properties to their default values.
 	 */
-	public Products() {
+	public Product() {
 		this("test", 0, 0, 0, false, 0.0);
 	}
 	
@@ -63,7 +63,7 @@ public class Products {
 	 * @param isPorousware This indicates whether this item should be treated for porousware
 	 * @param price This is the price of the product
 	 */
-	public Products(String productName, int stockLevel, int minimumThreshold,
+	public Product(String productName, int stockLevel, int minimumThreshold,
 			int recommendedLevel, boolean isPorousware, double price) {
 		this.productName = productName;
 		this.stockLevel = stockLevel;

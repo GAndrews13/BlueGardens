@@ -41,7 +41,7 @@ public class Wishlist {
 	 */
 	@Column (name = "products")
 	@OneToMany
-	private ArrayList<Products> products;
+	private ArrayList<Product> products;
 	
 	public int getCustomerID() {
 		return customerID;
@@ -49,10 +49,10 @@ public class Wishlist {
 	public void setCustomerID(int customerID) {
 		this.customerID = customerID;
 	}
-	public ArrayList<Products> getProducts() {
+	public ArrayList<Product> getProducts() {
 		return products;
 	}
-	public void setProducts(ArrayList<Products> products) {
+	public void setProducts(ArrayList<Product> products) {
 		this.products = products;
 	}
 
@@ -63,7 +63,7 @@ public class Wishlist {
 	public String toString()
 	{
 		String returner = "Wishlist for customer "+ customerID +": ";
-		for(Products product : products)
+		for(Product product : products)
 		{
 			returner += "\n" + product.getProductName() + "(" + product.getProductID() + ")";
 		}

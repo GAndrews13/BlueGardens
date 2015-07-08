@@ -33,8 +33,8 @@ public class ProductTest {
 	 * The test product that will be used for the set of tests
 	 */
 	//					Desired Values	Name				Stock Level		Minimum Level		Recommended Level		Porousware				Cost
-	Products product = new Products(	testName,			testStockLevel,	testMinimumLevel,	testRecommendedLevel,	testPorouswareApplied,	testCost);
-	Products productError = new Products(	testNameError,		testStockLevelError,	testMinimumLevelError,	testRecommendedLevelError,	testPorouswareAppliedError,	testCostError);	
+	Product product = new Product(	testName,			testStockLevel,	testMinimumLevel,	testRecommendedLevel,	testPorouswareApplied,	testCost);
+	Product productError = new Product(	testNameError,		testStockLevelError,	testMinimumLevelError,	testRecommendedLevelError,	testPorouswareAppliedError,	testCostError);	
 	 
 	
 	/**
@@ -42,7 +42,7 @@ public class ProductTest {
 	 */
 	@Test
 	public void testProductCreation() {
-		Products product = new Products();
+		Product product = new Product();
 		assertNotNull(product);
 	}
 	

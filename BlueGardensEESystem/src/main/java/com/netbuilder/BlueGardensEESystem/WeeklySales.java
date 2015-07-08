@@ -12,10 +12,20 @@ import javax.validation.constraints.NotNull;
  *	Lists the number of a certain product that is sold within a working week
  */
 
+@NamedQueries
+(
+		{
+			@NamedQuery (name = WeeklySales.FIND_LOW_SELLERS, query = "SELECT v FROM WeeklySales v WHERE v.amountSold <= 30")
+		}
+)
+
 @Entity
 @Table (name = "WeeklySales")
 public class WeeklySales {
 
+	public static final String FIND_LOW_SELLERS = "WeeklySales.findLowSellers";
+	
+	
 	/**
 	 * Create a default instance in which the date of the products sales are provided
 	 * @param inDate This is the date at which the sales of the product are going to be tracked from for the duration of a week
