@@ -55,11 +55,14 @@ public class Wishlist {
 	public void setProducts(ArrayList<Products> products) {
 		this.products = products;
 	}
-	
+
+	/**
+	 * Overrides the toString method so that when returned it provides a list of products provided within the wishlist
+	 */
 	@Override
 	public String toString()
 	{
-		String returner = customerID +": ";
+		String returner = "Wishlist for customer "+ customerID +": ";
 		for(Products product : products)
 		{
 			returner += "\n" + product.getProductName() + "(" + product.getProductID() + ")";
