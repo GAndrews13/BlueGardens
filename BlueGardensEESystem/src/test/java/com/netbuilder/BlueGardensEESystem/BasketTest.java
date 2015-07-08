@@ -3,7 +3,11 @@ package com.netbuilder.BlueGardensEESystem;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+
 import org.junit.Test;
+
+import com.netbuilder.entities.Basket;
+import com.netbuilder.entities.ProductOrderLine;
 
 public class BasketTest {
 	Basket b;

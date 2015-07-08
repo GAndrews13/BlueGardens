@@ -1,7 +1,10 @@
 package com.netbuilder.BlueGardensEESystem;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
+import com.netbuilder.entities.Customer;
 
 /**
  * @author Jake
