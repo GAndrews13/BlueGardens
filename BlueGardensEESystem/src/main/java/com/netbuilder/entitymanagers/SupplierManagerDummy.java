@@ -36,6 +36,12 @@ public class SupplierManagerDummy implements SupplierManager {
 
 	public Supplier findById(int id) {
 		// TODO Auto-generated method stub
+		
+		ArrayList<Supplier> List = new ArrayList<Supplier>();
+		for (Supplier s : suppliers) {
+			if (s.getName().equals(id))
+				List.add(s);
+		}
 		return null;
 	}
 
