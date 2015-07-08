@@ -39,7 +39,9 @@ public class Supplier {
  * is no need to set a ID as it will be automatically generated
  * @return
  */
-	
+	public Supplier(){
+		
+	}
 
 	
 public Supplier(String supplierName, String supplierAddress) {
