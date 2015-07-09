@@ -70,7 +70,7 @@ public class SupplierManagerDb implements SupplierManager {
 	public Supplier findById(int id) {
 		// TODO Auto-generated method stub
 		EntityManager em = pm.CreateEntityManager();
-		TypedQuery<Supplier> tq = em.createNamedQuery(Supplier.FIND_OUT_BY_NAME, Supplier.class);
+		TypedQuery<Supplier> tq = em.createNamedQuery(Supplier.FIND_OUT_BY_ID, Supplier.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("id", id);
 		try{
