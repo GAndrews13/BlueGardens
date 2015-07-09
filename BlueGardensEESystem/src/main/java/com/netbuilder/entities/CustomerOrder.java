@@ -1,5 +1,7 @@
 package com.netbuilder.entities;
 
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,11 +26,20 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table (name = "Customer Order")
-/*@NamedQueries ({@NamedQuery (name = Customer.FIND_BY_NAME, query = "SELECT customerID FROM Customer customerID where customerID.Customer = :name"),
-	@NamedQuery (name = ProductOrderLine.FIND_BY_NAME, query = "SELECT POLID FROM ProductOrderLine POLID where POLID.ProductOrderLine = :name"),
-	@NamedQuery (name = WarehouseWorker.FIND_BY_NAME, query = "SELECT WorkerID FROM WarehouseWorker WorkerID where WorkerID.WarehouseWorker = :name"),})*/
+@NamedQueries ({@NamedQuery (name = CustomerOrder.FIND_BY_CUSTOMER_ORDER_ID, query = "SELECT co FROM CustomerOrder co WHERE co.customerOrderID = :id"),
+	@NamedQuery (name = CustomerOrder.FIND_BY_ASSIGNED, query = "SELECT co FROM CustomerOrder co WHERE co.isAssigned = :assigned"),
+	@NamedQuery (name = CustomerOrder.FIND_BY_TRACKING_ID, query = "SELECT co FROM CustomerOrder co WHERE co.trackingID = :id"),
+	@NamedQuery (name = CustomerOrder.FIND_BY_DELIVERY_TYPE, query = "SELECT co FROM CustomerOrder co WHERE co.DeliveryType = :deliveryType"),
+	@NamedQuery (name = CustomerOrder.FIND_BY_CUSTOMER, query = "SELECT co FROM CustomerOrder co WHERE co.customer = :customer"),
+	@NamedQuery (name = CustomerOrder.FIND_BY_WORKER, query = "SELECT co FROM CustomerOrder co WHERE co.worker = :worker")})
 public class CustomerOrder {
 	
+	public static final String FIND_BY_CUSTOMER_ORDER_ID = "CustomerOrder.findByCustomerOrderId";
+	public static final String FIND_BY_ASSIGNED = "CustomerOrder.findByAssigned";
+	public static final String FIND_BY_TRACKING_ID = "CustomerOrder.findByTrackingId";
+	public static final String FIND_BY_DELIVERY_TYPE = "CustomerOrder.findByDeliveryType";
+	public static final String FIND_BY_CUSTOMER = "CustomerOrder.findByCustomer";
+	public static final String FIND_BY_WORKER = "CustomerOrder.findByWorker";
 	
 	public CustomerOrder(){
 		
