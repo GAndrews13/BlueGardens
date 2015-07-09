@@ -28,23 +28,71 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
               customerOrders.set(customerOrders.indexOf(customerOrder), customerOrder);
        };
        
-       public CustomerOrder findByCustomerOrderId(int CustomerOrderId){
-              return null;
-       };  //any ID
-       public CustomerOrder findByisAssigned(boolean isAssigned){
-              return null;
-       };
-       public CustomerOrder findByTrackingId(int TrackingId){
-              return null;
-       };
-       public CustomerOrder findByDeliveryType(String DeliveryType){
+       public CustomerOrder findByCustomerOrderId(int customerOrderId){
+   		for(CustomerOrder co : customerOrders)
+   		{
+   			if(co.getCustomerOrderID() == customerOrderId )
+   			{
+   				return co;
+   			}
+   		}
               return null;
        };
-       public CustomerOrder findByCustomer(Customer customer){
-              return null;
+       
+       public ArrayList<CustomerOrder> findByisAssigned(boolean isAssigned){
+    	   ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
+    	   for(CustomerOrder co : customerOrders)
+      		{
+      			if(co.getIsAssigned() == isAssigned)
+      			{
+      				list.add(co);
+      			}
+      		}
+    	   return list;
+       }
+       
+       public CustomerOrder findByTrackingId(int trackingId){
+      		for(CustomerOrder co : customerOrders)
+       		{
+       			if(co.getTrackingID() == trackingId )
+       			{
+       				return co;
+       			}
+       		}
+      		return null;
        };
-       public CustomerOrder findByWorker(WarehouseWorker worker){
-              return null;
+       public ArrayList<CustomerOrder> findByDeliveryType(String deliveryType){
+      		ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
+       		for(CustomerOrder co : customerOrders)
+       		{
+       			if(co.getDeliveryType() == deliveryType)
+       			{
+       				list.add(co);
+       			}
+       		}
+       		return list;
+       };
+       public ArrayList<CustomerOrder> findByCustomer(Customer customer){
+      		ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
+       		for(CustomerOrder co : customerOrders)
+       		{
+       			if(co.getCustomer() == customer)
+       			{
+       				list.add(co);
+       			}
+       		}
+       		return list;
+       };
+       public ArrayList<CustomerOrder> findByWorker(WarehouseWorker worker){
+      		ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
+       		for(CustomerOrder co : customerOrders)
+       		{
+       			if(co.getWorker() == worker)
+       			{
+       				list.add(co);
+       			}
+       		}
+       		return list;
        };
        
 }

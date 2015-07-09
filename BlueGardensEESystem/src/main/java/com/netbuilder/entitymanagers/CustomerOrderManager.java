@@ -22,10 +22,10 @@ public interface CustomerOrderManager {
        public void updateCustomerOrder(CustomerOrder customerOrder);
        
        public CustomerOrder findByCustomerOrderId(int CustomerOrderId);  //any ID
-       public CustomerOrder findByisAssigned(boolean isAssigned);
+       public ArrayList<CustomerOrder> findByisAssigned(boolean isAssigned);
        public CustomerOrder findByTrackingId(int TrackingId);
-       public CustomerOrder findByDeliveryType(String DeliveryType);
-       public CustomerOrder findByCustomer(Customer customer);
-       public CustomerOrder findByWorker(WarehouseWorker worker);
+       public ArrayList<CustomerOrder> findByDeliveryType(String DeliveryType);
+       public ArrayList<CustomerOrder> findByCustomer(Customer customer);
+       public ArrayList<CustomerOrder> findByWorker(WarehouseWorker worker);
        
 }
