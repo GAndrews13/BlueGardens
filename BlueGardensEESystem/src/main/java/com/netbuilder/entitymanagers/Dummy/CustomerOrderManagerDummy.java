@@ -1,10 +1,11 @@
-package com.netbuilder.entitymanagers;
+package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.WarehouseWorker;
+import com.netbuilder.entitymanagers.CustomerOrderManager;
 
 /**
 * 
