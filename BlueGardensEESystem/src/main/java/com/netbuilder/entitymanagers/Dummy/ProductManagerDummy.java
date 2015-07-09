@@ -13,7 +13,7 @@ import com.netbuilder.entitymanagers.ProductManager;
 /**
  * 
  * @author gandrews
- *
+ * Uses a list of products to mimic database behaviour
  */
 @Default
 public class ProductManagerDummy implements ProductManager {

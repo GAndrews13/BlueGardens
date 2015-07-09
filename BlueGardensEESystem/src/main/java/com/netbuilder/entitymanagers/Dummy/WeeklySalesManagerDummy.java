@@ -13,7 +13,7 @@ import com.netbuilder.entitymanagers.WeeklySalesManager;
 /**
  * 
  * @author gandrews
- *
+ *	Uses a list of WeeklySales to mimic a database interaction
  */
 @Default
 public class WeeklySalesManagerDummy implements WeeklySalesManager {

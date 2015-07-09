@@ -15,7 +15,7 @@ import com.netbuilder.entitymanagers.WishListManager;
 /**
  * 
  * @author gandrews
- *
+ *	Uses a dummy wishlist object to imitate its real interactions with the system
  */
 @Default
 public class WishlistManagerDummy implements WishListManager {
