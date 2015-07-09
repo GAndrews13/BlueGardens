@@ -30,9 +30,9 @@ public class WarehouseWorker {
 	@NotNull
 	@Size(min = 2, max = 45)
 	private String workerName;
-	@Column(name = "workerAddress", nullable = false, length = 45)
+	@Column(name = "workerAddress", nullable = false, length = 145)
 	@NotNull
-	@Size(min = 2, max = 45)
+	@Size(min = 2, max = 145)
 	private String workerAddress;
 	
 	public WarehouseWorker(){
