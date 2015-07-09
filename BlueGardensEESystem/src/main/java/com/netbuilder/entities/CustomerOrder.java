@@ -27,11 +27,11 @@ import javax.validation.constraints.Size;
 @Entity
 @Table (name = "Customer Order")
 @NamedQueries ({@NamedQuery (name = CustomerOrder.FIND_BY_CUSTOMER_ORDER_ID, query = "SELECT co FROM CustomerOrder co WHERE co.customerOrderID = :id"),
-	@NamedQuery (name = CustomerOrder.FIND_BY_ASSIGNED, query = "SELECT co FROM CustomerOrder co WHERE co.isAssigned = :assigned"),
-	@NamedQuery (name = CustomerOrder.FIND_BY_TRACKING_ID, query = "SELECT co FROM CustomerOrder co WHERE co.trackingID = :id"),
+	@NamedQuery (name = CustomerOrder.FIND_BY_ASSIGNED, query = "SELECT co FROM CustomerOrder co WHERE co.Is_Assigned = :assigned"),
+	@NamedQuery (name = CustomerOrder.FIND_BY_TRACKING_ID, query = "SELECT co FROM CustomerOrder co WHERE co.TrackingID = :id"),
 	@NamedQuery (name = CustomerOrder.FIND_BY_DELIVERY_TYPE, query = "SELECT co FROM CustomerOrder co WHERE co.DeliveryType = :deliveryType"),
-	@NamedQuery (name = CustomerOrder.FIND_BY_CUSTOMER, query = "SELECT co FROM CustomerOrder co WHERE co.customer = :customer"),
-	@NamedQuery (name = CustomerOrder.FIND_BY_WORKER, query = "SELECT co FROM CustomerOrder co WHERE co.worker = :worker")})
+	@NamedQuery (name = CustomerOrder.FIND_BY_CUSTOMER, query = "SELECT co FROM CustomerOrder co WHERE Customer.CustomerID = :customer"),
+	@NamedQuery (name = CustomerOrder.FIND_BY_WORKER, query = "SELECT co FROM CustomerOrder co WHERE WarehouseWorker.WorkerID = :worker")})
 public class CustomerOrder {
 	
 	public static final String FIND_BY_CUSTOMER_ORDER_ID = "CustomerOrder.findByCustomerOrderId";
