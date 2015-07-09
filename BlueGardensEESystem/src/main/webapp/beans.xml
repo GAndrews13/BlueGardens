@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<alernatives>
+	<!--  Add all your dummy classes into this bracket -->
+		<class>
+			com.netbuilder.entities.Dummy.ProductManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.WeeklySalesManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.WishlistManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.BasketManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.CustomerOrderManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.SupplierProductManagerDummy
+		</class>
+		<!--  End of Dummy Bracket -->
+		<!--  Add all your SQL classes into this bracket -->
+		<!-- 
+		
+		
+		 -->
+		<!--  End of SQL bracket -->
+	</alernatives>
+</beans>
