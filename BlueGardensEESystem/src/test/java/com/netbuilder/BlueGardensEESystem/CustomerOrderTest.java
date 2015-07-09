@@ -1,6 +1,8 @@
 package com.netbuilder.BlueGardensEESystem;
-import org.junit.*;
-import com.netbuilder.entities.CustomerOrder;;
+import static org.junit.Assert.*;
+import org.junit.Test;
+import com.netbuilder.entities.CustomerOrder;
+import com.netbuilder.entities.Customer;
 /**
  * 
  * @author jmander
@@ -10,22 +12,25 @@ import com.netbuilder.entities.CustomerOrder;;
  **/
 
 public class CustomerOrderTest {
+	
+	CustomerOrder customerOrder;
 
 	public CustomerOrderTest(){
-		customerOrder = new CustomerOrder(true, 01245, "1st Class");
-		assertNotNull(testing.getTrackingID());
+		customerOrder = new CustomerOrder(true, 01245, "1st Class", null, null, null);
+		assertNotNull(customerOrder.getTrackingID());
+		
 	}
 	
 	@Test public void testgetCustomerId() {
-		assertEquals(customer.getProductId(), 1);
+		assertEquals(customerOrder.getCustomer(), null);
 	}	
 	
 	@Test public void testgetPOLID() {
-		assertEquals(ProductOrderLine.getProductId(), 1);
+		assertEquals(customerOrder.getProductOrderLine(), null);
 	}	
 	
 	@Test public void testgetWorkerId() {
-		assertEquals(WarehouseWorker.getProductId(), 1);
+		assertEquals(customerOrder.getWorker(), null);
 	}	
 	
 }
