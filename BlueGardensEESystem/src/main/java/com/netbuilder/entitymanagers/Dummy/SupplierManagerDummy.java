@@ -30,7 +30,7 @@ public class SupplierManagerDummy implements SupplierManager {
 	public Supplier findByName(String name) {
 		for(Supplier s : suppliers)
 		{
-			if(s.getName() == name)
+			if(s.getName().equals(name))
 			{
 				return s;
 			}

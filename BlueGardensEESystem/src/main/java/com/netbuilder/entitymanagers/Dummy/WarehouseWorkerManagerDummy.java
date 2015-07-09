@@ -35,7 +35,7 @@ public class WarehouseWorkerManagerDummy implements WarehouseWorkerManager {
 		// TODO Auto-generated method stub
 		for(WarehouseWorker w : warehouseWorkers)
 		{
-			if(w.getName() == name)
+			if(w.getName().equals(name))
 			{
 				return w;
 			}

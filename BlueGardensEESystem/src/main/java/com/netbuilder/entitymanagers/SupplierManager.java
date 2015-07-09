@@ -8,7 +8,7 @@ public interface SupplierManager {
 
 	///////// Create /////////
 	public void persistSupplier(Supplier supplier);
-	public void persistSupplier(ArrayList<Supplier> supplier);
+	public void persistSupplier(ArrayList<Supplier> suppliers);
 	
 	///////// UPDATE /////////
 	public void updateSupplier(Supplier supplier);

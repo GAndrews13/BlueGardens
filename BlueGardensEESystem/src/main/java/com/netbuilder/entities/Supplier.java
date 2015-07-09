@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -13,9 +14,14 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Supplier")
-@NamedQuery(name = Product.FIND_BY_OUT_STOCK, query = "SELECT p FROM Products p WHERE p.stockLevel = p.minimumThreshold")
+@NamedQueries({
+@NamedQuery(name = Supplier.FIND_OUT_BY_NAME, query = "SELECT p FROM Supplier p WHERE p.supplierName = :name"),
+@NamedQuery(name = Supplier.FIND_OUT_BY_ID, query = "SELECT p FROM Supplier p WHERE p.supplierId = :id"),
+})
 
 public class Supplier {
+	public static final String FIND_OUT_BY_NAME = "Supplier.findoutbyname";
+	public static final String FIND_OUT_BY_ID = "Supplier.findoutbyid";
 /**
  * @author lczornyj
  *  Create the variables for the supplier

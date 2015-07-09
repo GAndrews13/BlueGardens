@@ -30,8 +30,7 @@ private PersistenceManager pm;
 			
 	}
 
-	public void persistWarehouseWorker(
-			ArrayList<WarehouseWorker> warehouseWorkers) {
+	public void persistWarehouseWorker(ArrayList<WarehouseWorker> warehouseWorkers) {
 		// TODO Auto-generated method stub
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
