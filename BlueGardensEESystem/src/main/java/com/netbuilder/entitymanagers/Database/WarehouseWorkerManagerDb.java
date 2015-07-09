@@ -16,7 +16,9 @@ public class WarehouseWorkerManagerDb implements WarehouseWorkerManager {
 @Inject
 private PersistenceManager pm;
 
-
+/**
+ * @author lczornyj Created DB interface for warehouseworker class and its queries
+ */
 	public void persistWarehouseWorker(WarehouseWorker warehouseWorker) {
 		// TODO Auto-generated method stub
 		
