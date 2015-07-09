@@ -87,7 +87,7 @@ private PersistenceManager pm;
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 
-		pr = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE inName=Product.ProductName ",Product.class).getResultList();
+		pr = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE Product.ProductName=inName ",Product.class).getResultList();
 		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
