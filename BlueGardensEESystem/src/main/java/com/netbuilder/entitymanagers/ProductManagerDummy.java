@@ -30,23 +30,54 @@ ArrayList<Product> products = new ArrayList<Product>();
 	}
 
 	public ArrayList<Product> findByPrice(double price) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Product> list = new ArrayList<Product>();
+		for(Product p : products)
+		{
+			if(p.getPrice() == price)
+			{
+				list.add(p);
+			}
+		}
+		return list;
 	}
 
 	public ArrayList<Product> findByOutStock() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Product> list = new ArrayList<Product>();
+		for(Product p : products)
+		{
+			if(p.getStockLevel() == 0)
+			{
+				list.add(p);
+			}
+		}
+		return list;
 	}
 
 	public Product findById(long id) {
-		// TODO Auto-generated method stub
+		for(Product p : products)
+		{
+			if(p.getProductID() == id)
+			{
+				return p;
+			}
+		}
 		return null;
 	}
 
 	public ArrayList<Product> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return products;
 	}
 
+	public ArrayList<Product> findByPriceLessThan(double price)
+	{
+		ArrayList<Product> list = new ArrayList<Product>();
+		for(Product p : products)
+		{
+			if(p.getPrice() <= price)
+			{
+				list.add(p);
+			}
+		}
+		return list;
+	}
 }
