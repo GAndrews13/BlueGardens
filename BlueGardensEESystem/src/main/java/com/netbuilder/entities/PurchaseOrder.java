@@ -38,17 +38,17 @@ public class PurchaseOrder {
 	
 	/**
 	 * This is the preferred constructor implementation as it forces us to specify all of the values that are not nullable
-	 * @param id A unique id for the supplier
-	 * @param name The name of the supplier
+	 * @param name A name for the supplier of the purchase order
+	 * @param address The address of the supplier
 	 */
-	public PurchaseOrder(String id, String name)
+	public PurchaseOrder(String name, String address)
 	{
 		pol = new ArrayList<ProductOrderLine>();
-		supp = new Supplier(id, name);
+		supp = new Supplier(name, address);
 	}
 	
 	/**
-	 * @author David
+	 * @author David Ogbonnah
 	 * 
 	 * @param p the ProductOrderLine object to be added to the collection pol
 	 */
@@ -70,7 +70,7 @@ public class PurchaseOrder {
 	
 	/**
 	 * @author David Ogbonnah
-	 * @param s returns
+	 * @param s changes the supplier for the purchase order
 	 */
 	public void Supplier(Supplier s)
 	{
