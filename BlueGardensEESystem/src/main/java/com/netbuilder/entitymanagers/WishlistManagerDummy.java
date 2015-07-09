@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.Wishlist;
@@ -13,21 +14,22 @@ public class WishlistManagerDummy implements WishListManager {
 Wishlist wish = new Wishlist();
 	//TODO remove
 	@Inject
-	private PersistanceManager pm;
+	private PersistenceManager pm;
 
 	public void persistWishlist(Customer inCustomer) {
-		EntityManager em = pm.openEntityManager();
+		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
+		wish.setCustomerID(inCustomer.getCustomerID());
 		em.persist(wish);
 		
 		em.getTransaction().commit();
-		pm.closeEntityManager(em);
+		pm.CloseEntityManager(em);
 
 	}
 
 	public void updateWishlist(Product inProduct) {
-		EntityManager em = pm.openEntityManager();
+		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
 		for(int i = 0; i<wish.getProducts().size();i++)
@@ -40,11 +42,11 @@ Wishlist wish = new Wishlist();
 		}
 		
 		em.getTransaction().commit();
-		pm.closeEntityManager(em);
+		pm.CloseEntityManager(em);
 	}
 
 	public void updateWishlist(ArrayList<Product> inProductList) {
-		EntityManager em = pm.openEntityManager();
+		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
 		for(int j = 0; j<inProductList.size();j++)
@@ -59,27 +61,27 @@ Wishlist wish = new Wishlist();
 			}
 		}
 		em.getTransaction().commit();
-		pm.closeEntityManager(em);
+		pm.CloseEntityManager(em);
 	}
 
 	public void removeProduct(Product inProduct) {
-		EntityManager em = pm.openEntityManager();
+		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
 		wish.getProducts().remove(inProduct);
 		
 		em.getTransaction().commit();
-		pm.closeEntityManager(em);
+		pm.CloseEntityManager(em);
 	}
 
 	public void removeProducts(ArrayList<Product> inProductList) {
-		EntityManager em = pm.openEntityManager();
+		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
 		wish.getProducts().removeAll(inProductList);
 		
 		em.getTransaction().commit();
-		pm.closeEntityManager(em);
+		pm.CloseEntityManager(em);
 	}
 
 	public ArrayList<Product> findProductByName(String inName) {
@@ -88,10 +90,10 @@ Wishlist wish = new Wishlist();
 	}
 
 	public Product findProductByID(int inID) {
-		EntityManager em = pm.openEntityManager();
+		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
-		Product pr;
+		Product pr = null;
 		for(Product p : wish.getProducts())
 		{
 			if(p.getProductID() == inID)
@@ -102,18 +104,18 @@ Wishlist wish = new Wishlist();
 		}
 		
 		em.getTransaction().commit();
-		pm.closeEntityManager(em);
+		pm.CloseEntityManager(em);
 		return pr;
 	}
 
 	public ArrayList<Product> findAll() {
-		EntityManager em = pm.openEntityManager();
+		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
+		ArrayList<Product> pr = new ArrayList<Product>();
 		pr = wish.getProducts();
 		
 		em.getTransaction().commit();
-		pm.closeEntityManager(em);
+		pm.CloseEntityManager(em);
 		
 		return pr;
 	}
