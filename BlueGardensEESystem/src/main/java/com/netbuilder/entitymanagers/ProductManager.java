@@ -16,4 +16,5 @@ public interface ProductManager {
 	public ArrayList<Product> findByOutStock();
 	public Product findById(long id);
 	public ArrayList<Product> findAll();
+	public ArrayList<Product> findByPriceLessThan(double price);
 }
