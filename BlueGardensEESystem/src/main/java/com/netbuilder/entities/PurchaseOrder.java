@@ -82,4 +82,23 @@ public class PurchaseOrder {
 		return supp;
 	}
 	
+	public int getID()
+	{
+		return id;
+	}
+	
+	public void setID(int id)
+	{
+		this.id = id; 
+	}
+	
+	public DeliveryLocation getDeliveryLocation()
+	{
+		return loc;
+	}
+	
+	public void setDeliveryLocation(DeliveryLocation dl)
+	{
+		loc = dl;
+	}
 }

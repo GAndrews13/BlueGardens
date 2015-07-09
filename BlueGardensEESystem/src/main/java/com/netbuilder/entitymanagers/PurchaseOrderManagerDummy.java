@@ -3,7 +3,9 @@ package com.netbuilder.entitymanagers;
 import java.util.ArrayList;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
+import com.netbuilder.entities.DeliveryLocation;
 import com.netbuilder.entities.PurchaseOrder;
+import com.netbuilder.entities.Supplier;
 
 public class PurchaseOrderManagerDummy implements PurchaseOrderManager 
 {
@@ -16,33 +18,44 @@ public class PurchaseOrderManagerDummy implements PurchaseOrderManager
 	}
 	public void persistPurchaseOrders(ArrayList<PurchaseOrder> purchaseOrders)
 	{
+		pol.addAll(purchaseOrders);
+	}
+	
+	public void updatePurchaseOrder(PurchaseOrder po)
+	{
+		for(PurchaseOrder po1: pol)
+		{
+			pol.set(pol.indexOf(po1), po);
+		}
 		
 	}
 	
-	public void updateProduct(PurchaseOrder po)
+	public PurchaseOrder findByDeliveryLocation(DeliveryLocation dl)
 	{
-		
+		PurchaseOrder poInst = null;
+		for(PurchaseOrder po1: pol)
+		{
+			if(po1.getDeliveryLocation() == dl) poInst = po1;
+		}
+		return poInst;
 	}
-	
-	public ArrayList<PurchaseOrder> findByName(String name)
+	public PurchaseOrder findByOutSupplier(Supplier supp)
 	{
-		
+		PurchaseOrder poInst = null;
+		for(PurchaseOrder po1: pol)
+		{
+			if(po1.getSupplier().equals(supp)) poInst = po1;
+		}
+		return poInst;
 	}
-	public ArrayList<PurchaseOrder> findByDeliveryLocation(double price)
+	public PurchaseOrder findById(int id)
 	{
-		
-	}
-	public ArrayList<PurchaseOrder> findByOutSupplier()
-	{
-		
-	}
-	public PurchaseOrder findById(long id)
-	{
-		
-	}
-	public ArrayList<PurchaseOrder> findAll()
-	{
-		
+		PurchaseOrder poInst = null;
+		for(PurchaseOrder po1: pol)
+		{
+			if(po1.getID() == id) poInst = po1;
+		}
+		return poInst;
 	}
 
 }
