@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table (name = "nbgblue")
+@Table (name = "PurchaseOrder")
 
 /**
  * @author David Ogbonnah
