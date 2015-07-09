@@ -9,7 +9,6 @@ import javax.persistence.TypedQuery;
 import javax.validation.ValidationException;
 
 import com.netbuilder.entities.Supplier;
-import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entitymanagers.SupplierManager;
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 
@@ -30,12 +29,12 @@ public class SupplierManagerDb implements SupplierManager {
 		
 	}
 
-	public void persistSupplier(ArrayList<Supplier> supplier) {
+	public void persistSupplier(ArrayList<Supplier> suppliers) {
 		// TODO Auto-generated method stub
 			// TODO Auto-generated method stub
 			EntityManager em = pm.CreateEntityManager();
 			em.getTransaction().begin();
-			for (Supplier suppliers: supplier)
+			for (Supplier supplier : suppliers)
 			{
 			em.persist(supplier);
 			}
