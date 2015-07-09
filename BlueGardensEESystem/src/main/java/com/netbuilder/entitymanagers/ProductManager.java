@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import com.netbuilder.entities.Product;
 
+/**
+ * 
+ * @author James
+ *
+ */
 public interface ProductManager {
 
 	public void persistProduct(Product product);

@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Product;
 
+/**
+ * 
+ * @author gandrews
+ *
+ */
 public interface WishListManager {
 
 	public void persistWishlist(Customer inCustomer);

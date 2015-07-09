@@ -1,7 +1,8 @@
-package com.netbuilder.entitymanagers;
+package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
@@ -9,10 +10,16 @@ import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.Wishlist;
+import com.netbuilder.entitymanagers.WishListManager;
 
+/**
+ * 
+ * @author gandrews
+ *
+ */
+@Default
 public class WishlistManagerDummy implements WishListManager {
 Wishlist wish = new Wishlist();
-	//TODO remove
 	@Inject
 	private PersistenceManager pm;
 

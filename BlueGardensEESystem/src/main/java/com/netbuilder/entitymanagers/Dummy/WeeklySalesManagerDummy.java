@@ -1,13 +1,21 @@
-package com.netbuilder.entitymanagers;
+package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.WeeklySales;
+import com.netbuilder.entitymanagers.WeeklySalesManager;
 
+/**
+ * 
+ * @author gandrews
+ *
+ */
+@Default
 public class WeeklySalesManagerDummy implements WeeklySalesManager {
 	@Inject
 	private PersistenceManager pm;
