@@ -23,12 +23,11 @@ Wishlist wish = new Wishlist();
 	@Inject
 	private PersistenceManager pm;
 
-	public void persistWishlist(Customer inCustomer) {
+	public void persistWishlist(Wishlist inWishList) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
-		wish.setCustomerID(inCustomer.getCustomerID());
-		em.persist(wish);
+		wish = inWishList;
 		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);

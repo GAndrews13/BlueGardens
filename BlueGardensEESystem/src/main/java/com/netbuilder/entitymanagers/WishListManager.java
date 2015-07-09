@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Product;
+import com.netbuilder.entities.Wishlist;
 
 /**
  * 
@@ -12,7 +13,7 @@ import com.netbuilder.entities.Product;
  */
 public interface WishListManager {
 
-	public void persistWishlist(Customer inCustomer);
+	public void persistWishlist(Wishlist inWishList);
 	
 	public void updateWishlist(Product inProduct);
 	public void updateWishlist(ArrayList<Product> inProductList);

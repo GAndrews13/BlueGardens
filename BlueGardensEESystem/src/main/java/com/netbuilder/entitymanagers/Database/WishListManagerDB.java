@@ -7,8 +7,10 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
+import com.netbuilder.BlueGardensEESystem.SQLCreator;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Product;
+import com.netbuilder.entities.Wishlist;
 import com.netbuilder.entitymanagers.WishListManager;
 
 /**
@@ -21,12 +23,12 @@ public class WishListManagerDB implements WishListManager {
 @Inject
 private PersistenceManager pm;
 	
-	public void persistWishlist(Customer inCustomer) {
+	public void persistWishlist(Wishlist inWishList) {
 		// TODO Auto-generated method stub
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
-		//TODO
+		em.persist(inWishList);
 		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
@@ -36,7 +38,7 @@ private PersistenceManager pm;
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
-		em.persist(p);
+		//TODO help with persist
 		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
