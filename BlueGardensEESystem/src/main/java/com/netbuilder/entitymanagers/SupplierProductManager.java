@@ -3,6 +3,10 @@ package com.netbuilder.entitymanagers;
 import java.util.ArrayList;
 import com.netbuilder.entities.SupplierProduct;
 
+/**
+ * @author abalagel
+ *  maps the outline of the db
+ */
 public interface SupplierProductManager {
 
 	public void persistSupplierProduct(SupplierProduct supplierProduct);
