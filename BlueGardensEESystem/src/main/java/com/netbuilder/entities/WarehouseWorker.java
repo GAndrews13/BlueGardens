@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,7 +14,13 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "WarehouseWorker")
+@NamedQueries({
+@NamedQuery(name = WarehouseWorker.FIND_OUT_BY_NAME, query = "SELECT p FROM WarehouseWorker p WHERE p.workerName = :name"),
+@NamedQuery(name = WarehouseWorker.FIND_OUT_BY_ID, query = "SELECT p FROM WarehouseWorker p WHERE p.workerId = :id")
+})
 public class WarehouseWorker {
+	public static final String FIND_OUT_BY_NAME = "WarehouseWorker.findoutbyname";
+	public static final String FIND_OUT_BY_ID = "WarehouseWorker.findoutbyid";
 /**
  * @author lczornyj
  * Generate warehouse workers attributes and save the variables
