@@ -29,9 +29,9 @@ public class Supplier {
 	@Size(min = 2, max = 45)
 	private String supplierName;
 	
-	@Column(name = "supplierAddress", nullable = false, length = 45)
+	@Column(name = "supplierAddress", nullable = false, length = 145)
 	@NotNull
-	@Size(min = 2, max = 45)
+	@Size(min = 2, max = 145)
 	private String supplierAddress;
 /**
  * @author lczornyj
@@ -60,7 +60,7 @@ public Supplier(String supplierName, String supplierAddress) {
 	public void setAddress(String supplierAddress) {
 		this.supplierAddress = supplierAddress;
 	}
-	public int supplierId() {
+	public int getSupplierId() {
 		return supplierId;
 	}
 }

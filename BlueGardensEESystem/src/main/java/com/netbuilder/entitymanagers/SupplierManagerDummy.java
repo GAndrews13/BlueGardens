@@ -1,8 +1,13 @@
 package com.netbuilder.entitymanagers;
-
+/**
+ * Created Supplier manager with the methods below.
+ * There is no findId method as there is no setter for ID
+ * @author lczornyj
+ */
 import java.util.ArrayList;
 
 import com.netbuilder.entities.Supplier;
+
 
 public class SupplierManagerDummy implements SupplierManager {
 	ArrayList<Supplier> suppliers = new ArrayList<Supplier>();
@@ -19,25 +24,36 @@ public class SupplierManagerDummy implements SupplierManager {
 
 	public void updateSupplier(Supplier supplier) {
 		// TODO Auto-generated method stub
-		
-		suppliers.set(suppliers.indexOf(supplier), supplier);
+		for (int i = 0; i < suppliers.size(); i++){
+		this.suppliers.set(suppliers.indexOf(supplier), supplier);
+		}
 	}
 
 	public Supplier findByName(String name) {
 		// TODO Auto-generated method stub
 		
-		ArrayList<Supplier> List = new ArrayList<Supplier>();
-		for (Supplier s : suppliers) {
-			if (s.getName().equals(name))
-				List.add(s);
-		}	
+		for(Supplier s : suppliers)
+		{
+			if(s.getName() == name)
+			{
+				return s;
+			}
+		}
 		return null;
 	}
-
+	// keeping this here for future reference
 	public Supplier findById(int id) {
 		// TODO Auto-generated method stub
 		
+		for(Supplier s : suppliers)
+		{
+			if(s.getSupplierId() == id)
+			{
+				return s;
+			}
+			
+		}
 		return null;
-	}
 
+}
 }
