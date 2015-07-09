@@ -1,5 +1,7 @@
 package com.netbuilder.BlueGardensEESystem;
 
+import com.netbuilder.customannotations.MethodAuthor;
+
 /**
  * 
  * @author gandrews
@@ -15,6 +17,7 @@ public class SQLCreator {
 	 * The values that the instance will contain
 	 * @return
 	 */
+	@MethodAuthor (name = "GAndrews")
 	public static String Create(String TableName, String[] Values)
 	{
 		String SQL =  "";
@@ -37,6 +40,7 @@ public class SQLCreator {
 	 * The columns you are interested in
 	 * @return
 	 */
+	@MethodAuthor (name = "GAndrews")
 	public static String Select(String Table, String[] Columns)
 	{
 		String SQL = "";
@@ -55,6 +59,7 @@ public class SQLCreator {
 	 * @param Table
 	 * @return
 	 */
+	@MethodAuthor (name = "GAndrews")
 	public static String Select(String Table)
 	{
 		return "SELECT * FROM " + Table;
@@ -70,6 +75,7 @@ public class SQLCreator {
 	 * The value of the identifier of the item you wish to delete
 	 * @return
 	 */
+	@MethodAuthor (name = "GAndrews")
 	public static String Delete(String Table, String identiferName, String identifer)
 	{
 		String SQL = "DELETE FROM " + Table + " WHERE " + identiferName + " = " + identifer; 
@@ -85,6 +91,7 @@ public class SQLCreator {
 	 * @param IdentifyingValue
 	 * @return
 	 */
+	@MethodAuthor (name = "GAndrews")
 	public static String Update(String Table, String UpdateVariableIdentity, String UpdateVariable, String IdentifyingVariable, String IdentifyingValue)
 	{
 		String SQL = String.format("UPDATE %s SET %s = %s WHERE %s in (%s)",Table,UpdateVariableIdentity,UpdateVariable,IdentifyingVariable,IdentifyingValue);
@@ -105,6 +112,7 @@ public class SQLCreator {
 	 * The value that will be used to identify the object being updated
 	 * @return
 	 */
+	@MethodAuthor (name = "GAndrews")
 	public static String Update(String Table, String[] UpdateVariablesNames, String[] UpdateVariableValues, String IdentifyingName, String IdentifyingValue)
 	{
 		String set = "";
