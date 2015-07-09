@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.customannotations.MethodAuthor;
+import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
 /**
@@ -58,7 +61,7 @@ public class ProductManagerDB implements ProductManager {
 	@MethodAuthor (name = "Gandrews")
 	public ArrayList<Product> findByName(String name) {
 		EntityManager em = pm.CreateEntityManager();
-		ArrayList<Product> products = (ArrayList<Product>) em.createQuery("",Product.class).getResultList();
+		ArrayList<Product> products = (ArrayList<Product>) em.createQuery(Product.FIND_BY_NAME,Product.class).getResultList();
 		pm.CloseEntityManager(em);
 		try
 		{
@@ -70,30 +73,69 @@ public class ProductManagerDB implements ProductManager {
 		}
 	}
 
-	
+	/**
+	 * 
+	 * @author jmander
+	 * 
+	 */
 	public ArrayList<Product> findByPrice(double price) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Product> p = new ArrayList<Product>();
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+
+		p = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE Price = price",Product.class).getResultList();
+		
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return p;
 	}
 
 	public ArrayList<Product> findByOutStock() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Product> p = new ArrayList<Product>();
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+
+		p = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE Stock = 0",Product.class).getResultList();
+		
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return p;
 	}
 
 	public Product findById(long id) {
-		// TODO Auto-generated method stub
+		EntityManager em = pm.CreateEntityManager();
+		TypedQuery<Product> tq = em.createNamedQuery(Product.FIND_BY_PRODUCT_ID, Product.class);
+		pm.CloseEntityManager(em);
+		tq.setParameter("id", id);
+		try{
+		return tq.getSingleResult();
+		} catch (NoResultException nre) {
 		return null;
+		}
 	}
 
 	public ArrayList<Product> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Product> p = new ArrayList<Product>();
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+
+		p = (ArrayList<Product>) em.createQuery("SELECT * FROM Product ",Product.class).getResultList();
+		
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return p;
 	}
 
 	public ArrayList<Product> findByPriceLessThan(double price) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Product> p = new ArrayList<Product>();
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+
+		p = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE Price < price",Product.class).getResultList();
+		
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return p;
 	}
 
 }

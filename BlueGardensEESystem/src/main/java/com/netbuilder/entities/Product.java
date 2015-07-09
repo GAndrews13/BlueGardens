@@ -19,10 +19,14 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "Products")
 @NamedQueries({
-	@NamedQuery(name = Product.FIND_BY_OUT_STOCK, query = "SELECT p FROM Products p WHERE p.stockLevel = p.minimumThreshold")
+	@NamedQuery(name = Product.FIND_BY_OUT_STOCK, query = "SELECT p FROM Products p WHERE p.stockLevel = p.minimumThreshold"),
+	@NamedQuery(name = Product.FIND_BY_PRODUCT_ID, query = "SELECT p FROM Products p WHERE p.ProductID = :id"),
+	@NamedQuery(name = Product.FIND_BY_NAME, query = "SELECT p FROM Products p WHERE p.ProductName = :name")
 })
 public class Product {
 	public static final String FIND_BY_OUT_STOCK = "Product.findByOutStock";
+	public static final String FIND_BY_PRODUCT_ID = "Product.findByProductId";
+	public static final String FIND_BY_NAME = "Product.findByName";
 	@Id
 	@Column(name = "productID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
