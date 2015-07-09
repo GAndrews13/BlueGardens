@@ -27,7 +27,6 @@ public class PurchaseOrderManagerDummy implements PurchaseOrderManager
 		{
 			pol.set(pol.indexOf(po1), po);
 		}
-		
 	}
 	
 	public PurchaseOrder findByDeliveryLocation(DeliveryLocation dl)

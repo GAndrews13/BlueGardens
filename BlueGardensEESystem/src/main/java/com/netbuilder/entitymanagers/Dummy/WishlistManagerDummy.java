@@ -42,7 +42,7 @@ Wishlist wish = new Wishlist();
 		{
 			if(wish.getProducts().get(i).getProductID() == inProduct.getProductID())
 			{
-				break;
+				wish.getProducts().set(i,inProduct);
 			}
 			wish.getProducts().add(inProduct);
 		}
@@ -61,7 +61,7 @@ Wishlist wish = new Wishlist();
 			{
 				if(wish.getProducts().get(i).getProductID() == inProductList.get(j).getProductID())
 				{
-					break;
+					wish.getProducts().set(i,inProductList.get(j));
 				}
 				wish.getProducts().add(inProductList.get(j));
 			}

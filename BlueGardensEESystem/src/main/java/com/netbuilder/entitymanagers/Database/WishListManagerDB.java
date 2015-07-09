@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.BlueGardensEESystem.SQLCreator;
@@ -87,7 +89,16 @@ private PersistenceManager pm;
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 
-		pr = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE Product.ProductName=inName ",Product.class).getResultList();
+		//pr = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE Product.ProductName=inName ",Product.class).getResultList();
+		TypedQuery<Product> tq = em.createNamedQuery("SELECT * FROM Product WHERE Product.ProductName=inName ",Product.class);
+		try
+		{
+			pr = (ArrayList<Product>) tq.getResultList();
+		}
+		catch (NoResultException nre)
+		{
+			return null;
+		}
 		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);

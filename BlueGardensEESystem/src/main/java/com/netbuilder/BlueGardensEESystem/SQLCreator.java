@@ -55,6 +55,22 @@ public class SQLCreator {
 	}
 	
 	/**
+	 * Returns a certain object that matches the criteria from the table name provided 
+	 * @param Table
+	 * @param IdentifyVariable
+	 * The name of the column that you are going to be using as a unique identity
+	 * @param IdentityValue
+	 * The value of hte unique identity
+	 * @return
+	 */
+	@MethodAuthor (name = "GAndrews")
+	public static String Select(String Table, String IdentifyVariable, String IdentityValue)
+	{
+		String SQL = String.format("SELECT * FROM %s WHERE %s = %s",Table,IdentifyVariable,IdentityValue);
+		return SQL;
+	}
+	
+	/**
 	 * Returns the entire contents of a table
 	 * @param Table
 	 * @return
