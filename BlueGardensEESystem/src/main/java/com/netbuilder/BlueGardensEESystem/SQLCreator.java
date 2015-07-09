@@ -22,6 +22,8 @@ public class SQLCreator {
 		{
 			SQL += s+",";
 		}
+		//Remove the last comma
+		SQL = SQL.substring(0, SQL.length()-1);
 		String formattedString = String.format("INSERT INTO %s VALUES (%s);",TableName, SQL);
 		
 		return formattedString;
@@ -42,6 +44,8 @@ public class SQLCreator {
 		{
 			SQL += s+",";
 		}
+		//Remove the last comma
+		SQL = SQL.substring(0, SQL.length()-1);
 		String formattedString = String.format("SELECT %s FROM %s", SQL, Table);
 		return  formattedString;
 	}
@@ -106,8 +110,10 @@ public class SQLCreator {
 		String set = "";
 		for(int i = 0; i <UpdateVariablesNames.length;i++)
 		{
-			set += UpdateVariablesNames[i]+"="+UpdateVariableValues[i];
+			set += UpdateVariablesNames[i]+"="+UpdateVariableValues[i]+",";
 		}
+		//Remove the last comma
+		set = set.substring(0, set.length()-1);
 		
 		String formattedString = String.format("UPDATE %s SET %s WHERE %s=%s",Table,set,IdentifyingName,IdentifyingValue);
 		return formattedString;
