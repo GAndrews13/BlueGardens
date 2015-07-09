@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 import com.netbuilder.entities.Supplier;
 
+/**
+ * 
+ * @author lczornyj
+ *Supplier manager and its implementations
+ */
+
 public interface SupplierManager {
 
 	///////// Create /////////

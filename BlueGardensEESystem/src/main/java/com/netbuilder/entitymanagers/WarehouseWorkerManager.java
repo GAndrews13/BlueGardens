@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import com.netbuilder.entities.WarehouseWorker;
 
+/**
+ * 
+ * @author lczornyj
+ *Created the Warehouse	Entity interface.
+ */
 public interface WarehouseWorkerManager {
 
 	

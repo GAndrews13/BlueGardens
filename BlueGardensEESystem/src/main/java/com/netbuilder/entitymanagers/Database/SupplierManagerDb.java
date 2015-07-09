@@ -16,7 +16,11 @@ import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 public class SupplierManagerDb implements SupplierManager {
 	@Inject
 	private PersistenceManager pm;
-	
+	/**
+	 * @author lczornyj 
+	 * Created DB interface for supplier class and its queries
+	 * This includes the inplemented methods for searching for a worker by name and ID
+	 */
 	public void persistSupplier(Supplier supplier) {
 		// TODO Auto-generated method stub
 
