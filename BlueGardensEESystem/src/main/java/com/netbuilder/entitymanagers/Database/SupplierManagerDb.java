@@ -2,6 +2,7 @@ package com.netbuilder.entitymanagers.Database;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -12,7 +13,7 @@ import com.netbuilder.entities.Supplier;
 import com.netbuilder.entitymanagers.SupplierManager;
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 
-
+@Default
 public class SupplierManagerDb implements SupplierManager {
 	@Inject
 	private PersistenceManager pm;
