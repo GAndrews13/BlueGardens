@@ -1,7 +1,9 @@
-package com.netbuilder.entitymanagers;
+package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
+
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entitymanagers.BasketManager;
 
 
 /**

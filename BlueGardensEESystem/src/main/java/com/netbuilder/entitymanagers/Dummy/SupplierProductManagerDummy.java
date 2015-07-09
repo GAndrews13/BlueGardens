@@ -1,7 +1,9 @@
-package com.netbuilder.entitymanagers;
+package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
+
 import com.netbuilder.entities.SupplierProduct;
+import com.netbuilder.entitymanagers.SupplierProductManager;
 /**
  * @author abalagel
  *  links interface with db
