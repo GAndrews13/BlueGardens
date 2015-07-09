@@ -8,9 +8,12 @@ import java.util.ArrayList;
 
 
 
+
+import javax.enterprise.inject.Alternative;
+
 import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entitymanagers.WarehouseWorkerManager;
-
+@Alternative
 public class WarehouseWorkerManagerDummy implements WarehouseWorkerManager {
 	ArrayList<WarehouseWorker> warehouseWorkers = new ArrayList<WarehouseWorker>();
 	

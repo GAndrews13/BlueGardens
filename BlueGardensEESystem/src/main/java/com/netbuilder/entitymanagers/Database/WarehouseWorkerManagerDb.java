@@ -2,6 +2,7 @@ package com.netbuilder.entitymanagers.Database;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -11,7 +12,7 @@ import javax.validation.ValidationException;
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entitymanagers.WarehouseWorkerManager;
-
+@Default
 public class WarehouseWorkerManagerDb implements WarehouseWorkerManager {
 @Inject
 private PersistenceManager pm;

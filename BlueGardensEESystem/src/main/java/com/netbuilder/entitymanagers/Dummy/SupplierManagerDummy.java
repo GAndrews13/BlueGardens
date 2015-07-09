@@ -6,10 +6,12 @@ package com.netbuilder.entitymanagers.Dummy;
  */
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Alternative;
+
 import com.netbuilder.entities.Supplier;
 import com.netbuilder.entitymanagers.SupplierManager;
 
-
+@Alternative
 public class SupplierManagerDummy implements SupplierManager {
 	ArrayList<Supplier> suppliers = new ArrayList<Supplier>();
 	
