@@ -5,6 +5,8 @@ package com.netbuilder.entities;
  */
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -14,8 +16,17 @@ import javax.validation.constraints.Size;;
 
 @Entity
 @Table(name = "Product Order Line")
+@NamedQueries
+({
+	//@NamedQuery(name = Customer.FIND_BY_NAME , query = "SELECT * FROM Customer c"),
+	@NamedQuery(name = ProductOrderLine.FIND_BY_POL_ID, query = "SELECT c FROM ProductOrderLine c"),
+	@NamedQuery(name = ProductOrderLine.FIND_BY_CUSTOMER_ID, query = "SELECT c FROM ProductOrderLine c WHERE CUSTOMER ID = 1")
+
+})
 public class ProductOrderLine 
 {	
+	public static final String FIND_BY_POL_ID = "ProductOrderLine.findByPOLID";
+	public static final String FIND_BY_CUSTOMER_ID = "ProductOrderLine.findByCID";
 	/**
 	 * @author Jake
 	 * Attributes of the Product Order Line

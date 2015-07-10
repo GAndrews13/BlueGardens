@@ -15,11 +15,15 @@ import javax.validation.constraints.Size;;
 @Table(name = "Customer")
 @NamedQueries
 ({
+	@NamedQuery(name = Customer.FIND_BY_NAME , query = "SELECT * FROM Customer c"),
 	@NamedQuery(name = Customer.FIND_BY_OUT_STOCK, query = "SELECT c FROM Customer c WHERE c.name = Jake")
 })
+
 public class Customer 
 {
 	public static final String FIND_BY_OUT_STOCK = "Customer.findByOutStock";
+	public static final String FIND_BY_NAME = "Customer.findByName";
+
 	/**
 	 * @author Jake
 	 *	Attributes for customer including
