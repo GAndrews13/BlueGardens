@@ -2,7 +2,7 @@
 
 
 .menu{margin:0 auto; padding:0; height:30px; width:100%; display:block; background:url('topMenuImages.png') repeat-x;}
-.menu li{padding:0; margin:0; list-style:none; display:inline; width:15%;float:left;}
+.menu li{padding:0; margin:0; list-style:none; display:inline; width:16.6%;float:left;}
 .menu li a{float:left; padding-left:15px; display:block; color:rgb(255,255,255); text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif; cursor:pointer; background:url('topMenuImages.png') 0px -30px no-repeat;}
 .menu li a span{line-height:30px; float:left; display:block; padding-right:15px; background:url('topMenuImages.png') 100% -30px no-repeat;}
 .menu li a:hover{background-position:0px -60px; color:rgb(255,255,255);}
@@ -32,7 +32,7 @@
 	}
 	.page-wrap {
 		min-height: 100%;
-    	margin-bottom: -142px;
+    	margin-bottom: -60px;
 	}
 
 	.page-wrap:after {
@@ -41,7 +41,8 @@
 	}
 
 	.site-footer{
-		height: 142px;
+		height: 60px;
+		background-color: #89dcf5;
 	}
 
 	.leftStack{
