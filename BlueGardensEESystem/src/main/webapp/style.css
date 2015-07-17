@@ -12,9 +12,9 @@
 
 /* Generated via www.cssmenubuilder.com */
 
-.bottommenu{margin-bottom:875px auto; padding:0; height:30px; width:100%; display:block; background:url('bottomMenuImages.png') repeat-x;}
-.bottommenu li{padding:0; margin:0; list-style:none; display:inline;}
-.bottommenu li a{float:left; padding-left:15px; display:block; color:rgb(255,255,255); text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif; cursor:pointer; background:url('bottomMenuImages.png') 0px -30px no-repeat;}
+.bottommenu{margin-bottom:875px auto; padding:0; height:30px; width:100%; display:block; background:url('bottomMenuImages.png') repeat-x; magin:0 auto; width:300px;}
+.bottommenu li{padding:0; margin:0; list-style:none; display:inline-block;}
+.bottommenu li a{float:left; padding-left:15px; display:inline-block; color:rgb(255,255,255); text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif; cursor:pointer; background:url('bottomMenuImages.png') 0px -30px no-repeat;}
 .bottommenu li a span{line-height:30px; float:left; display:block; padding-right:15px; background:url('bottomMenuImages.png') 100% -30px no-repeat;}
 .bottommenu li a:hover{background-position:0px -60px; color:rgb(255,255,255);}
 .bottommenu li a:hover span{background-position:100% -60px;}
@@ -48,4 +48,8 @@
 	.leftStack{
 		float:left;
 		width:40%;
+	}
+	
+	.center{
+		text-align:center;
 	}
