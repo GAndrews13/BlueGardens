@@ -2,42 +2,48 @@
 <html 	xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:ui="http://java.sun.com/jsf/facelets"
 		xmlns:h="http://java.sun.com/jsf/html">
-<head>
+<header>
+<link rel="stylesheet" type="text/css" href="layout.css">
 	<meta charset="ISO-8859-1">
+	<!--<link rel="stylesheet" type="text/css" href="../style.css">-->
 	<title><ui:insert name = "pagetitle"></title>
-</head>
+</header>
 <body>
-	<div id="header">
-		<h1 id="logo">
-			<a href = ""><!--LOGO ADD--></a>
-		</h1>
-		<div id="navigation">
-			<!--NAVIGATION BAR ADD-->
-		</div>
-		<div id="cart">
-			<!--BASKET-->
+	<div class="page-wrap">
+		<div class="page-wrap">
+			<div id="header">
+				<h1 id="logo">
+					<a href = ""><!--LOGO ADD--></a>
+				</h1>
+				<div id="navigation">
+					<!--NAVIGATION BAR ADD-->
+				</div>
+				<div id="cart">
+					<!--BASKET-->
+				</div>
+			</div>
+			<div id="contentHeader">
+				<ui:insert name="sectiontitle">
+			</div>
+			<div id="content">
+				<div id="sidebarRight">
+					BLOG SECTION
+				</div>
+				<ui:insert name="body">
+			</div> 
 		</div>
 	</div>
-	<div id="contentHeader">
-		<ui:insert name="sectiontitle">
-	</div>
-	<div id="content">
-		<div id="sidebarRight">
-			BLOG SECTION
-		</div>
-		<ui:insert name="body">
-	</div> 
-	</div>
-	<div id="footer">
-		<div class="left">
+
+	<footer class="site-footer">
+	  <div class="left">
 			<div>
 			<!-- Add secondary navigation summary-->
 			</div>
 		</div>
 		<div class="right">
-			© 2015 NBGardens.
-			<a href="">Design by DelphiSoft Consultiing</a> 
+			2015 NBGardens.
+			<a href="">Design by DelphiSoft Consulting</a> 
 		</div>
-	</div>
+	</footer>
 </body>
 </html>
