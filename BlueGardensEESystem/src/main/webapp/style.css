@@ -20,10 +20,16 @@
 .bottommenu li a:hover span{background-position:100% -60px;}
 .bottommenu li a.active, .menu li a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; background:url('bottomMenuImages.png') 0px -90px no-repeat; color:rgb(255,255,255);}
 .bottommenu li a.active span, .menu li a.active:hover span{background:url('bottomMenuImages.png') 100% -90px no-repeat;}
-* {
 
-/* Sticky Footer code
-	
+
+/* Sticky Footer code */
+	* {
+	margin: 0;
+	}
+
+	html, body {
+    	height: 100%;
+	}
 	.page-wrap {
 		min-height: 100%;
     	margin-bottom: -142px;
@@ -37,4 +43,3 @@
 	.site-footer{
 		height: 142px;
 	}
-*/

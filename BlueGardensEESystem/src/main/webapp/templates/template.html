@@ -3,35 +3,33 @@
 		xmlns:ui="http://java.sun.com/jsf/facelets"
 		xmlns:h="http://java.sun.com/jsf/html">
 <header>
-<link rel="stylesheet" type="text/css" href="layout.css">
+	<!--<link rel="stylesheet" type="text/css" href="layout.css">-->
 	<meta charset="ISO-8859-1">
-	<!--<link rel="stylesheet" type="text/css" href="../style.css">-->
+	<link rel="stylesheet" type="text/css" href="../style.css">
 	<title><ui:insert name = "pagetitle"></title>
 </header>
 <body>
 	<div class="page-wrap">
-		<div class="page-wrap">
-			<div id="header">
-				<h1 id="logo">
-					<a href = ""><!--LOGO ADD--></a>
-				</h1>
-				<div id="navigation">
+		<div id="header">
+			<h1 id="logo">
+				<a href = ""><!--LOGO ADD--></a>
+			</h1>
+			<div id="navigation">
 					<!--NAVIGATION BAR ADD-->
-				</div>
-				<div id="cart">
-					<!--BASKET-->
-				</div>
 			</div>
-			<div id="contentHeader">
-				<ui:insert name="sectiontitle">
+			<div id="cart">
+				<!--BASKET-->
 			</div>
-			<div id="content">
-				<div id="sidebarRight">
-					BLOG SECTION
-				</div>
-				<ui:insert name="body">
-			</div> 
 		</div>
+		<div id="contentHeader">
+			<ui:insert name="sectiontitle">
+		</div>
+		<div id="content">
+			<div id="sidebarRight">
+				BLOG SECTION
+			</div>
+			<ui:insert name="body">
+		</div> 
 	</div>
 
 	<footer class="site-footer">
