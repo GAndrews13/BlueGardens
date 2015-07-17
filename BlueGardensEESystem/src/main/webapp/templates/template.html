@@ -3,9 +3,10 @@
 		xmlns:ui="http://java.sun.com/jsf/facelets"
 		xmlns:h="http://java.sun.com/jsf/html">
 <header>
+	<!--<link rel="stylesheet" type="text/css" href="layout.css">-->
 	<meta charset="ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="../style.css">
-	<title><ui:insert name = "pagetitle"/></title>
+	<title><ui:insert name = "pagetitle"></title>
 </header>
 <body>
 	<div class="page-wrap">
@@ -14,27 +15,37 @@
 				<a href = ""><!--LOGO ADD--></a>
 			</h1>
 			<div id="navigation">
-					<!--NAVIGATION BAR ADD-->
+<ul class="menu">
+  <li><a href="/home" class="active"><span>Home</span></a></li>
+  <li><a href="/services"><span>Services</span></a></li>
+  <li><a href="/about"><span>About</span></a></li>
+  <li><a href="/contact"><span>Contact</span></a></li>
+</ul>
 			</div>
 			<div id="cart">
 				<!--BASKET-->
 			</div>
 		</div>
 		<div id="contentHeader">
-			<ui:insert name="sectiontitle"/>
+			<ui:insert name="sectiontitle">
 		</div>
 		<div id="content">
 			<div id="sidebarRight">
 				BLOG SECTION
 			</div>
-			<ui:insert name="body"/>
+			<ui:insert name="body">
 		</div> 
 	</div>
 
 	<footer class="site-footer">
 	  <div class="left">
 			<div>
-			<!-- Add secondary navigation summary-->
+<ul class="bottommenu">
+  <li><a href="/home" class="active"><span>Home</span></a></li>
+  <li><a href="/services"><span>Services</span></a></li>
+  <li><a href="/about"><span>About</span></a></li>
+  <li><a href="/contact"><span>Contact</span></a></li>
+</ul>
 			</div>
 		</div>
 		<div class="right">
