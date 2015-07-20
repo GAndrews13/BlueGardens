@@ -24,7 +24,7 @@
 .products {height: 350px; width: 200px; background-color: black; position: absolute;}
 .product-info {border:solid 1px; font: 16px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 40); }
 .product-desc {border:solid 1px; font: 14px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 40); }
-#sale{text-transform: uppercase; color: white; text-shadow: 0.5px 0.5px blue;	}
+#sale{text-transform: uppercase; color: white; text-shadow: 0.5px 0.5px blue; font-family: Comic Sans, Comic Sans MS, cursive;	}
 
 /* Sticky Footer code */
 	* {
