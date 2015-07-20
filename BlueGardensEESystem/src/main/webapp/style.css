@@ -22,10 +22,9 @@
 .bottommenu li a.active span, .menu li a.active:hover span{background:url('bottomMenuImages.png') 100% -90px no-repeat;}
 
 .products {height: 350px; width: 200px; background-color: black; position: absolute;}
-.product-info {border:solid 1px; font: 14px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 0.4); }
-
-
-
+.product-info {border:solid 1px; font: 16px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 40); }
+.product-desc {border:solid 1px; font: 14px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 40); }
+#sale{text-transform: uppercase; color: white; text-shadow: 0.5px 0.5px blue;	}
 
 /* Sticky Footer code */
 	* {
