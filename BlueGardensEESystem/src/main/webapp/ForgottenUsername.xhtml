@@ -1,35 +1,34 @@
-<!DOCTYPE html>
+		<!DOCTYPE xhtml>
 <!-- Outlines the code that the system uses and the template it is based off of -->
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"      
 				xmlns:ui="http://java.sun.com/jsf/facelets"     
 				template="templates/template.xhtml">
 	<!-- Defines the title of the page using the header 1 tag -->
 	<ui:define name = "pagetitle">
-		NBGardens: Login
+		Forgotten Username
 	</ui:define>
 	
 	<!-- Defines the title displayed on the page -->
 	<ui:define name="sectiontitle">
-		<h2> Login </h2>
+		<h2> Forgotten Username </h2>
 	</ui:define>
 	
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
-	<div id = loginform>
+	
+		<div id = forgottenusernameform>
 		
 		<form action="http:www.google.co.uk">
 		<fieldset>
-		<legend>Log In:</legend>
+		<legend>Forgotten Username:</legend>
 		<br>
-		Username or Email:
-		<input type="text" name="username" value="Enter a Username or Email">
-		<br><br>
-		Password:
-		<input type="text" name="password" value="Enter a password">
+		Email:
+		<input type="text" name="email" value="Enter an email">
 		<br><br>
 		<input type="submit" value="Submit"></fieldset>
 		</form>
 		
 		</div>
+	
 	</ui:define>
 </ui:composition>

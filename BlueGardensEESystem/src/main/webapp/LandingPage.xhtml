@@ -1,62 +1,143 @@
 <!DOCTYPE html>
-<ui:define name="sectiontitle"><h1>Welcome to NBGardens</h1></ui:define>
+<!-- 
+<head>
+<STYLE type="text/css">
+#slider {
+	transition: all .7s ease-in-out;
+}
+
+.products {
+	height: 450px;
+	width: 250px;
+	position: absolute;
+}
+
+.product-info {
+	border: solid 1px;
+	font: 16px Verdana italic;
+	opacity: 0.4;
+	filter: alpha(opacity = 40);
+}
+
+.product-desc {
+	border: solid 1px;
+	font: 14px Verdana italic;
+	opacity: 0.4;
+	filter: alpha(opacity = 40);
+}
+
+#sale {
+	text-transform: uppercase;
+	color: black;
+	text-shadow: 0.5px 0.5px blue;
+	font-family: Comic Sans, Comic Sans MS, cursive;
+}
+
+</STYLE>
+</head>
+-->
+<ui:define name="sectiontitle">
+	<h1>Welcome to NBGardens</h1>
+</ui:define>
 <ui:define name="body">
-<div id="content">
-	<!-- Content Slider -->
-	<div id="slider" class="box">
-		<div id="slider-holder">
-			<h2>
-				<div id="sale">WINTER SALE ON NOW!!</div>
-			</h2>
-			<ul>
-				<li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
-				<li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
-				<li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
-				<li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
-			</ul>
-		</div>
-		<div id="slider-nav">
-			<a href="#" class="active">1</a> <a href="#">2</a> <a href="#">3</a>
-			<a href="#">4</a>
+	<div id="content">
+		<!-- Content Slider -->
+		<div id="slider" class="box">
+			<div id="slider-holder">
+				<h2>
+					<div id="sale">WINTER SALE ON NOW!!</div>
+				</h2>
+				<ul class="slides">
+					<input type="radio" name="radio-btn" id="img-1" checked />
+					<li class="slide-container">
+						<div class="slide">
+							<a href="#"><img src="css/images/slide1.jpg" alt="" /></a>
+						</div>
+						<div class="nav">
+							<label for="img-4" class="prev">&#x2039</label> 
+							<label for="img-2" class="next">&#x203a</label>
+						</div>
+					</li>
+
+					<input type="radio" name="radiobtn" id="img-2" checked />
+					<li class="slide-container">
+						<div class="slide">
+							<a href="#"><img src="css/images/slide1.jpg" alt="" /></a>
+						</div>
+						<div class="nav">
+							<label for="img-1" class="prev">&#x2039</label>
+							<label for="img-3" class="next">&#x203a</label>
+						</div>
+					</li>
+
+					<input type="radio" name="radio-btn" id="img-3" checked />
+					<li class="slide-container">
+						<div class="slide">
+							<a href="#"><img src="css/images/slide1.jpg" alt="" /></a>
+						</div>
+						<div class="nav">
+							<label for="img-4" class="prev">&#x2039</label> 
+							<label for="img-2" class="next">&#x203a</label>
+						</div>
+					</li>
+
+					<input type="radio" name="radio-btn" id="img-4" checked />
+					<li class="slide-container">
+						<div class="slide">
+							<a href="#"><img src="css/images/slide1.jpg" alt="" /></a>
+						</div>
+						<div class="nav">
+							<label for="img-3" class="prev">&#x2039</label> 
+							<label for="img-1" class="next">&#x203a</label>
+						</div>
+					</li>
+
+					<li class="nav-dots">
+					<label for="img-1" class="nav-dot" id="img-dot-1"></label> 
+					<label for="img-2" class="nav-dot" id="img-dot-2"></label> 
+					<label for="img-3" class="nav-dot" id="img-dot-3"></label> 
+					<label for="img-4" class="nav-dot" id="img-dot-4"></label>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>
 
-<div class="products">
-	<div class="cl">&nbsp;</div>
-	<ul>
-		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-			<div class="product-info">
-				<h3>The Gnominator</h3>
-				<div class="product-desc">
-					<p>
-						T-800 series Gnome<br /> (pourousware available)
-					</p>
-					<strong class="price">£149.99</strong>
-				</div>
-			</div></li>
-		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-			<div class="product-info">
-				<h3>Golden Time Tub</h3>
-				<div class="product-desc">
-					<p>
-						Solid gold jacuzzi<br /> 24ct
-					</p>
-					<strong class="price">£4,499</strong>
-				</div>
-			</div></li>
-		<li class="last"><a href="#"><img src="css/images/big1.jpg"
-				alt="" /></a>
-			<div class="product-info">
-				<h3>Delphi Recliner</h3>
-				<div class="product-desc">
-					<p>
-						Deluxe edition<br /> 
-					</p>
-					<strong class="price">£449.99</strong>
-				</div>
-			</div></li>
-	</ul>
-	<div class="cl">&nbsp;</div>
-</div>
+	<div class="products">
+		<div class="cl">&nbsp;</div>
+		<ul>
+			<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+				<div class="product-info">
+					<h3>The Gnominator</h3>
+					<div class="product-desc">
+						<p>
+							T-800 series Gnome<br /> (pourousware available)
+						</p>
+						<strong class="product-price">£149.99</strong>
+					</div>
+				</div></li>
+			<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+				<div class="product-info">
+					<h3>Golden Time Tub</h3>
+					<div class="product-desc">
+						<p>
+							Solid gold jacuzzi<br /> 24ct
+						</p>
+						<strong class="product-price">£4,499</strong>
+					</div>
+				</div></li>
+			<li class="last"><a href="#"><img src="css/images/big1.jpg"
+					alt="" /></a>
+				<div class="product-info">
+					<h3>Delphi Recliner</h3>
+					<div class="product-desc">
+						<p>
+							Deluxe edition<br />
+						</p>
+						<strong class="product-price">£449.99</strong>
+					</div>
+				</div></li>
+		</ul>
+		<div class="cl">&nbsp;</div>
+	</div>
 </ui:define>
