@@ -10,6 +10,7 @@
 		<h:form>
 			<h2>Login</h2>
 			<h:panelGrid>
+				<h:outputLabel value="#{loginController.errormsg"/><br/>
 				<h:outputLabel value="Username" for="logindetails"/><br/>
 				<h:inputText id="logindetails" value="#{userDetails.username}" maxlength="45" size="20"/><br/>
 				<br/>
