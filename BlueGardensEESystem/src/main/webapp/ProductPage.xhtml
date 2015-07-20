@@ -1,24 +1,67 @@
-
-</html><!DOCTYPE html>
-<ui:define name="sectiontitle">Product</ui:define>
-<ui:define name="body">
-	<div id = "content">
-		<div id = "productDetails">
-			<h2>
-				<div id = "productName">
-					Products Name goes here
-				</div>
-			</h2>
-			<div id = "imgAndInf">
-				<a href = "#" ><img src = "product image here" > <!-- Input a link so this product is the one clicked on. -->
-				<!-- Information about the product to be input here somewhere, will work out formating etc later -->
-			</div>
-		</div>
-		<div id = "reviews">
-			<!-- Customer reviews on the product -->
-			
-		</div>
+<!DOCTYPE xhtml>
+<!-- Outlines the code that the system uses and the template it is based off of -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"      
+				xmlns:ui="http://java.sun.com/jsf/facelets"     
+				template="templates/template.xhtml">
+	<!-- Defines the title of the page using the header 1 tag -->
+	<ui:define name = "pagetitle">
+		<h1> Product </h1>
+	</ui:define>
 	
+	<!-- Defines the title displayed on the page -->
+	<ui:define name="sectiontitle">
+		<h2> Product </h2>
+	</ui:define>
 	
+	<!-- Contains the actual content of the page -->
+	<ui:define name="body">
 	
+	<div id = "mainproductimage">
+	<a href="#"><img src="css/images/big1.jpg" alt="" /></a>
 	</div>
+	
+	<div id = "productdescription">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+	Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+	dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+	sunt in culpa qui officia deserunt mollit anim id est laborum
+	</div>
+	
+	<div id = "productimages">
+	<ul>
+		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+		</li>
+	</ul>
+	</div>
+	
+	<divid = "addtobasket">
+	<input type="submit" value="Add to Basket">
+	</div>
+	
+	<div id = "trendingproducts">
+	Trending Products:
+		<ul>
+		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+		</li>
+	</ul>
+	</div>
+	
+	<div id = "customerreviews">
+			<form>
+		<legend>Customer Reviews:</legend>
+		<br>
+		Review 1:
+		<br>
+		Review 2:
+		<br>
+		Review n:
+		<br>
+		</form>
+	</div>
+	
+	</ui:define>
+</ui:composition>
