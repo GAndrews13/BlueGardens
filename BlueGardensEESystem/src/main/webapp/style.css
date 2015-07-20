@@ -21,7 +21,6 @@
 .bottommenu li a.active, .menu li a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; background:url('bottomMenuImages.png') 0px -90px no-repeat; color:rgb(255,255,255);}
 .bottommenu li a.active span, .menu li a.active:hover span{background:url('bottomMenuImages.png') 100% -90px no-repeat;}
 
-
 /* Sticky Footer code */
 	* {
 	margin: 0;
