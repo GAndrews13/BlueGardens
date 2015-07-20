@@ -43,5 +43,4 @@ public class CustomerLoginDB implements CustomerLoginManager {
 			return 0;			
 		}
 	}
-
 }
