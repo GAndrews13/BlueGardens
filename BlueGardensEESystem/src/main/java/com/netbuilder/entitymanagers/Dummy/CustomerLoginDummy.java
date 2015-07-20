@@ -14,32 +14,15 @@ private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>()
 		customerLogins.add(new CustomerLogin("docker","linux"));
 	}
 
-	
-	public boolean checkUsername(String inUsername) {
-		for(int i = 0; i<customerLogins.size();i++)
-		{
-			if(customerLogins.get(i).getCustomerUsername() == inUsername)	
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean checkPassword(String inPassword) {
-		for(int i = 0; i<customerLogins.size();i++)
-		{
-			if(customerLogins.get(i).getCustomerPassword() == inPassword)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public long checkDetails(String inUsername, String inPassword){
-		
-		
+		for(int i = 0;i<customerLogins.size();i++)
+		{
+			CustomerLogin cl = customerLogins.get(i);
+			if(cl.getCustomerUsername() == inUsername && cl.getCustomerPassword() == inPassword)
+			{
+				return cl.getCustomerID();
+			}
+		}
 		return 0;
 	}
 
