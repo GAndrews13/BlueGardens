@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.netbuilder.entities.ProductOrderLine;
+import com.netbuilder.entities.CustomerOrderLine;
 
 /**
  * @author Jake
@@ -19,7 +19,7 @@ public class ProductOrderLineTest
 		 * @author Jake
 		 *	Testing if the quantity in Ptest is NotNull
 		 */
-		ProductOrderLine Ptest = new ProductOrderLine(1,1,12);
+		CustomerOrderLine Ptest = new CustomerOrderLine(1,1,12);
 		assertNotNull(Ptest.getQuantity());
 	}
 }

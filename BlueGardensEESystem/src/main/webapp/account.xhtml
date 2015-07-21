@@ -12,24 +12,17 @@
 	<ui:define name = "pagetitle" >
 		<h1>"Account"</h1>
 	</ui:define>
-	<ui:define name = "pagetitle" >
+	<ui:define name = "sectiontitle" >
+		<h2>"Customer"</h2>
 	</ui:define>
 	<ui:define name="nav-items">
-		<div id="nav-bar">
-			<ul>
-				<li><a href="home.xhtml">Home</a></li>
-			</ul>
-			<ul>
-				<li><a href="login.xhtml">Login</a></li>
-			</ul>
-			<ul>					
-				<li><a href="wishlist.xhtml">Wishlist</a></li>
-			</ul>
-			<ul>
-				<li><a href="blog.xhtml">Blog</a></li>
-			</ul>
-			<ul>
-				<li><a href="checkout.xhtml">Checkout</a></li>
+		<div id="navigation">
+			<ul class="menu">
+			  	<li> <img src="images/NB-Gardens.png" width=60px height=30px/> </li>
+			  	<li><a href="/home" class="active"><span>Home</span></a></li>
+			  	<li><a href="/services"><span>Services</span></a></li>				  	<li><a href="/about"><span>About</span></a></li>
+				<li><a href="/contact"><span>Contact</span></a></li>
+			  	<li><img src="images/basket.png" width=32px height=32px alt="Basket"/></li>
 			</ul>
 		</div>
 	</ui:define>
