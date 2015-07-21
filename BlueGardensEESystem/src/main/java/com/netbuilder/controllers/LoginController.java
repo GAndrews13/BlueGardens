@@ -1,6 +1,7 @@
 package com.netbuilder.controllers;
 
 import javax.inject.Inject;
+import javax.security.auth.login.LoginException;
 
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.util.UserDetails;
@@ -13,16 +14,25 @@ public class LoginController {
 	public String errormsg;
 	
 	public String login() {
-		if (ud.username.isEmpty() || ud.password.isEmpty()) {
+		if (ud.getUsername().isEmpty() || ud.getPassword().isEmpty()) {
 			errormsg = "please enter details";
 			return "login";
 		}
-		Long uid = clm.checkDetails(ud.username, ud.password);
+		Long uid = clm.checkDetails(ud.getUsername(), ud.getPassword());
 		if(uid == null)
 		{
 			errormsg = "Incorrect details";
 			return "login";
 		}
 		return "account/uid";
+	}
+	
+	public String logout() throws LoginException
+	{
+		//Slide 89?
+		
+		//loginContext.logout();
+		ud = null;
+		return "home";
 	}
 }
