@@ -1,7 +1,5 @@
 package com.netbuilder.entities;
 
-import java.util.ArrayList;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -47,13 +45,13 @@ public class CustomerOrder {
 	
 	
 	public CustomerOrder(boolean isAssigned, int trackingID,
-			String deliveryType, Customer customer, ProductOrderLine productOrderLine,
+			String deliveryType, Customer customer, CustomerOrderLine productOrderLine,
 			WarehouseWorker worker) {
 		this.isAssigned = isAssigned;
 		this.trackingID = trackingID;
 		this.deliveryType = deliveryType;
 		this.customer = customer;
-		this.productOrderLine = productOrderLine;
+		this.customerOrderLine = productOrderLine;
 		this.worker = worker;
 	}
 
@@ -87,7 +85,7 @@ public class CustomerOrder {
 	@ManyToOne
 	@JoinColumn(name ="POLID", nullable = false)
 	@NotNull
-	private ProductOrderLine productOrderLine;
+	private CustomerOrderLine customerOrderLine;
 	
 	@ManyToOne
 	@JoinColumn(name ="WorkerID", nullable = false)
@@ -121,8 +119,8 @@ public class CustomerOrder {
 		return customer;
 	}
 	
-	public ProductOrderLine getProductOrderLine() {
-		return productOrderLine;
+	public CustomerOrderLine getProductOrderLine() {
+		return customerOrderLine;
 	}
 	
 	public WarehouseWorker getWorker() {

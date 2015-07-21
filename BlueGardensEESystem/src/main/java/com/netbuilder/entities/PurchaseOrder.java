@@ -28,7 +28,7 @@ public class PurchaseOrder {
 	@OneToMany
 	@Column(name = "POLID", nullable = false)
 	@NotNull
-	private ArrayList<ProductOrderLine> pol;
+	private ArrayList<CustomerOrderLine> pol;
 	@Column(name = "DeliveryLocation", nullable = false)
 	@NotNull
 	private DeliveryLocation loc;
@@ -43,7 +43,7 @@ public class PurchaseOrder {
 	 */
 	public PurchaseOrder(String name, String address)
 	{
-		pol = new ArrayList<ProductOrderLine>();
+		pol = new ArrayList<CustomerOrderLine>();
 		supp = new Supplier(name, address);
 	}
 	
@@ -52,7 +52,7 @@ public class PurchaseOrder {
 	 * 
 	 * @param p the ProductOrderLine object to be added to the collection pol
 	 */
-	public void addProductOrderLine(ProductOrderLine p)
+	public void addProductOrderLine(CustomerOrderLine p)
 	{
 		pol.add(p);
 	}
@@ -63,7 +63,7 @@ public class PurchaseOrder {
 	 * @return An array list collection of all the Product Order Lines added 
 	 * to the current Purchase Order
 	 */
-	public ArrayList<ProductOrderLine> getProductOrderLines()
+	public ArrayList<CustomerOrderLine> getProductOrderLines()
 	{
 		return pol;
 	}
