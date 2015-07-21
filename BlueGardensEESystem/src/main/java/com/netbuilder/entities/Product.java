@@ -21,12 +21,16 @@ import javax.validation.constraints.Size;
 @NamedQueries({
 	@NamedQuery(name = Product.FIND_BY_OUT_STOCK, query = "SELECT p FROM Products p WHERE p.stockLevel = p.minimumThreshold"),
 	@NamedQuery(name = Product.FIND_BY_PRODUCT_ID, query = "SELECT p FROM Products p WHERE p.ProductID = :id"),
-	@NamedQuery(name = Product.FIND_BY_NAME, query = "SELECT p FROM Products p WHERE p.ProductName = :name")
+	@NamedQuery(name = Product.FIND_BY_NAME, query = "SELECT p FROM Products p WHERE p.ProductName = :name"),
+	@NamedQuery(name = Product.FIND_BY_SALE, query = "SELECT p FROM Products p WHERE p.Sale =: true"),
+	@NamedQuery(name = Product.FIND_BY_POUROUSWARE, query = "SELECT p FROM Products p WHERE p.Pourousware =: true")
 })
 public class Product {
 	public static final String FIND_BY_OUT_STOCK = "Product.findByOutStock";
 	public static final String FIND_BY_PRODUCT_ID = "Product.findByProductId";
 	public static final String FIND_BY_NAME = "Product.findByName";
+	public static final String FIND_BY_SALE = "Product.findBySale";
+	public static final String FIND_BY_POUROUSWARE = "Product.findByPourousware";
 	@Id
 	@Column(name = "productID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,10 +63,49 @@ public class Product {
 	private double price;
 	
 	/**
+	 * Added more attributes in a boolean for whether in sale, along with the description strings and
+	 * a string which contains the link for the products image.
+	 * @author lczornyj
+	 */
+	
+	@Column(name = "isSale", nullable = false)
+	@NotNull
+	private boolean isSale;
+	
+	@Column(name = "featureOne", nullable = false, length = 50)
+	@NotNull
+	private String featureOne;
+	
+	@Column(name = "featureTwo", nullable = false, length = 50)
+	@NotNull
+	private String featureTwo;
+	
+	@Column(name = "featureThree", nullable = false, length = 50)
+	@NotNull
+	private String featureThree;
+	
+	@Column(name = "featureFour", nullable = false, length = 50)
+	@NotNull
+	private String featureFour;
+	
+	@Column(name = "featureFive", nullable = false, length = 50)
+	@NotNull
+	private String featureFive;
+	
+	@Column(name = "imageLink", nullable = false, length = 256)
+	@NotNull
+	private String imageLink;
+	/**
+	 * The imagelink above is the last implementation for the variables
+	 * @author lczornyj
+	 */
+	
+	
+	/**
 	 * This is the default constructor for the Product entity. It sets all of the properties to their default values.
 	 */
 	public Product() {
-		this("test", 0, 0, 0, false, 0.0);
+		this("test", 0, 0, 0, false, 0.0, false, "feature","feature","feature","feature","feature","imagelink");
 	}
 	
 	/**
@@ -75,13 +118,22 @@ public class Product {
 	 * @param price This is the price of the product
 	 */
 	public Product(String productName, int stockLevel, int minimumThreshold,
-			int recommendedLevel, boolean isPorousware, double price) {
+			int recommendedLevel, boolean isPorousware, double price, boolean isSale,
+			String featureOne, String featureTwo, String featureThree, 
+			String featureFour, String featureFive, String imageLink) {
 		this.productName = productName;
 		this.stockLevel = stockLevel;
 		this.minimumThreshold = minimumThreshold;
 		this.recommendedLevel = recommendedLevel;
 		this.isPorousware = isPorousware;
 		this.price = price;
+		this.isSale = isSale;
+		this.featureOne = featureOne;
+		this.featureTwo = featureTwo;
+		this.featureThree = featureThree;
+		this.featureFour = featureFour;
+		this.featureFive = featureFive;
+		this.imageLink = imageLink;
 	}
 	
 	public String getProductName() {
@@ -112,6 +164,12 @@ public class Product {
 		this.recommendedLevel = recommendedLevel;
 	}
 	
+	
+	/**
+	 * Added setters and getters for new variables added
+	 * @author lczornyj
+	 * @return
+	 */
 	public boolean isPorousware() {
 		return isPorousware;
 	}
@@ -130,6 +188,56 @@ public class Product {
 		return productID;
 	}
 	
+	public boolean isSale() {
+		return isSale;
+	}
+	public void setSale(boolean isSale) {
+		this.isSale = isSale;
+	}
+	
+	public String getFeatureOne() {
+		return featureOne;
+	}
+	public void setFeatureOne(String featureOne) {
+		this.featureOne = featureOne;
+	}
+	
+	public String getFeatureTwo() {
+		return featureTwo;
+	}
+	public void setFeatureTwo(String featureTwo) {
+		this.featureTwo = featureTwo;
+	}
+	
+	public String getFeatureThree() {
+		return featureThree;
+	}
+	public void setFeatureThree(String featureThree) {
+		this.featureThree = featureThree;
+	}
+	
+	public String getFeatureFour() {
+		return featureFour;
+	}
+	public void setFeatureFour(String featureFour) {
+		this.featureFour = featureFour;
+	}
+	
+	public String getFeatureFive() {
+		return featureFive;
+	}
+	public void setFeatureFive(String featureFive) {
+		this.featureFive = featureFive;
+	}
+	
+	public String getImageLink(){
+		return imageLink;
+	}
+	
+	public void setImageLink(String imageLink){
+		this.imageLink = imageLink;
+	}
+	
 	/**
 	 * Overrides the to wring method to return all the relevant information for the product alongside tags outlining what each piece of data represents
 	 */
@@ -139,6 +247,8 @@ public class Product {
 				+ productName + ", stockLevel=" + stockLevel
 				+ ", minimumThreshold=" + minimumThreshold
 				+ ", recommendedLevel=" + recommendedLevel + ", isPorousware="
-				+ isPorousware + ", price=" + price + "]";
+				+ isPorousware + ", price=" + price + ", isSale= "+ isSale + 
+				" features   "+featureOne + featureTwo + featureThree + 
+				featureFour + featureFive + " Imagelink " + imageLink + "]";
 	}
 }
