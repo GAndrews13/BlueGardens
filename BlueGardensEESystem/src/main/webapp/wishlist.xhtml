@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <!-- Outlines the code that the system uses and the template it is based off of -->
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="templates/template.xhtml">
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:t="http://myfaces.apache.org/tomahawk"
+				template="templates/template.xhtml">
+	
 	<!-- Defines the title of the page using the header 1 tag -->
 	<ui:define name="pagetitle">
 		<h1>WishList</h1>
@@ -17,8 +19,11 @@
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">		
 		<div>
-			<h:outputLabel class="productname" value="#{wishListController.products[0].getProductName()">
-			<h:outputLabel class="productprice" value="#{wishListController.products[0].getPrice()">
+			<t: dataList value= "#{wishListController.products}" var="product">
+				<h:outputLabel class="productname" value="#{product.getProductName()"/>
+				<h:outputLabel class="productprice" value="#{product.getPrice()"/>
+				<br/><br/>
+			</t:dataList>
 		</div>
 	</ui:define>
 </ui:composition>

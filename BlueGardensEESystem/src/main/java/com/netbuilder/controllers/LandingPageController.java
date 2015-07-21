@@ -2,6 +2,8 @@ package com.netbuilder.controllers;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import com.netbuilder.entities.Product;
+
 
 
 
@@ -9,4 +11,5 @@ import javax.inject.Named;
 @RequestScoped
 public class LandingPageController {
 
+	
 }

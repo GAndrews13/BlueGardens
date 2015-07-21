@@ -31,12 +31,36 @@ public class ProductTest {
 	double testCost = 10.00;  
 	double testCostError = 15.00;
 	
+	boolean testSale = false;
+	boolean testSaleError = false;
+	
+	String testFeatureOne = "one";
+	String testFeatureOneError = "oneerror";
+	
+	String testFeatureTwo = "two";
+	String testFeatureTwoError = "twoerror";
+	
+	String testFeatureThree = "three";
+	String testFeatureThreeError = "threeerror";
+	
+	String testFeatureFour = "four";
+	String testFeatureFourError = "fourerror";
+	
+	String testFeatureFive = "five";
+	String testFeatureFiveError = "fiveerror";
+	
+	String testImageLink = "link";
+	String testImageLinkError = "linkerror";	
+	
+	boolean testTrending = false;
+	boolean testTrendingError = false;
+	
 	/**
 	 * The test product that will be used for the set of tests
 	 */
 	//					Desired Values	Name				Stock Level		Minimum Level		Recommended Level		Porousware				Cost
-	Product product = new Product(	testName,			testStockLevel,	testMinimumLevel,	testRecommendedLevel,	testPorouswareApplied,	testCost);
-	Product productError = new Product(	testNameError,		testStockLevelError,	testMinimumLevelError,	testRecommendedLevelError,	testPorouswareAppliedError,	testCostError);	
+	Product product = new Product(testName,testStockLevel,testMinimumLevel,testRecommendedLevel,testPorouswareApplied,testCost,testSale,testFeatureOne,testFeatureTwo,testFeatureThree, testFeatureFour, testFeatureFive,testImageLink,testTrending);
+	Product productError = new Product(testNameError,testStockLevelError,testMinimumLevelError,testRecommendedLevelError,testPorouswareAppliedError,testCostError,testSaleError,testFeatureOneError,testFeatureTwoError,testFeatureThree, testFeatureFourError, testFeatureFiveError,testImageLinkError,testTrendingError);	
 	 
 	
 	/**
@@ -60,6 +84,14 @@ public class ProductTest {
 		assertSame(product.getRecommendedLevel(), 15);
 		assertFalse(product.isPorousware());
 		assertEquals(product.getPrice(), 10.00, 0.001); //0.001 is the tolerance
+		assertFalse(product.isSale());
+		assertSame(product.getFeatureOne(), "one");
+		assertSame(product.getFeatureTwo(), "two");
+		assertSame(product.getFeatureThree(), "three");
+		assertSame(product.getFeatureFour(), "four");
+		assertSame(product.getFeatureFive(), "five");
+		assertSame(product.getImageLink(), "link");
+		assertFalse(product.isTrending());
 	}
 	
 		/**
@@ -83,6 +115,7 @@ public class ProductTest {
 		/**
 		 * Tests correct minimum threshold is stored
 		 */
+		@Test
 		public void testProductMinThresholdEqual()
 		{
 			assertSame(product.getMinimumThreshold(),13);
@@ -91,6 +124,7 @@ public class ProductTest {
 		/**
 		 * Test correct recommended level
 		 */
+		@Test
 		public void testProductRecommendedLevelEqual()
 		{
 			assertSame(product.getRecommendedLevel(), 15);
@@ -99,6 +133,7 @@ public class ProductTest {
 		/**
 		 * Test if the product returns the correct value for porousware
 		 */
+		@Test
 		public void testProductPorousEqual()
 		{
 			assertFalse(product.isPorousware());
@@ -107,12 +142,73 @@ public class ProductTest {
 		/**
 		 * Tests that products are assigned the correct cost
 		 */
+		@Test
 		public void testProductCostEqual()
 		{
 			assertEquals(product.getPrice(), 10.00, 0.001); //0.001 is the tolerance
 		}
-	
+		
+		/**
+		 * Test if the product returns the correct value for sale
+		 */		
+		@Test
+		public void testSaleEqual() {
+			assertFalse(product.isSale());
+		}
+		
+		/**
+		 * Tests that the correct feature1 is assigned
+		 */
+		@Test
+		public void testFeatureOneEqual() {
+			assertSame(product.getFeatureOne(), "one");
+		}
+		
+		/**
+		 * Tests that the correct feature2 is assigned
+		 */
+		@Test
+		public void testFeatureTwoEqual() {
+			assertSame(product.getFeatureTwo(), "two");
+		}
+		
+		/**
+		 * Tests that the correct feature3 is assigned
+		 */
+		@Test
+		public void testFeatureThreeEqual() {
+			assertSame(product.getFeatureThree(), "three");
+		}
+		
+		/**
+		 * Tests that the correct feature4 is assigned
+		 */
+		@Test
+		public void testFeatureFourEqual() {
+			assertSame(product.getFeatureFour(), "four");
+		}
 
+		/**
+		 * Tests that the correct feature5 is assigned
+		 */
+		@Test
+		public void testFeatureFiveEqual() {
+			assertSame(product.getFeatureFive(), "five");
+		}
+		
+		/**
+		 * Tests that the correct link is assigned
+		 */
+		@Test
+		public void testImageLinkEqual() {
+			assertSame(product.getImageLink(), "link");
+		}
+		
+		@Test
+		public void testTrendingEqual(){
+			assertFalse(product.isTrending());
+		}
+		
 	/**
 	 * Checks that the product name is assigned
 	 */
@@ -166,6 +262,76 @@ public class ProductTest {
 	{
 		assertNotNull(product.getPrice());
 	}
+	
+	/**
+	 * Checks that the product is correctly assigned if it is on sale or not
+	 */
+	@Test
+	public void testSale()
+	{
+		assertNotNull(product.isSale());
+	}
+	
+	/**
+	 *  Checks that feature1 is assigned
+	 */
+	@Test
+	public void testFeatureOne()
+	{
+		assertNotNull(product.getFeatureOne());
+	}
+	
+	/**
+	 *  Checks that feature2 is assigned
+	 */
+	@Test
+	public void testFeatureTwo()
+	{
+		assertNotNull(product.getFeatureTwo());
+	}
+	
+	/**
+	 *  Checks that feature3 is assigned
+	 */
+	@Test
+	public void testFeatureThree()
+	{
+		assertNotNull(product.getFeatureThree());
+	}
+	
+	/**
+	 *  Checks that feature4 is assigned
+	 */
+	@Test
+	public void testFeatureFour()
+	{
+		assertNotNull(product.getFeatureFour());
+	}
+	
+	/**
+	 *  Checks that feature5 is assigned
+	 */
+	@Test
+	public void testFeatureFive()
+	{
+		assertNotNull(product.getFeatureFive());
+	}
+	
+	/**
+	 *  Checks that image link is assigned
+	 */
+	@Test
+	public void testImageLink()
+	{
+		assertNotNull(product.getImageLink());
+	}
+	
+	@Test
+	public void testTrending()
+	{
+		assertNotNull(product.isTrending());
+	}
+	
 	/**
 	 * Test that the products name does not exceed the maximum number of characters allowed
 	 */
@@ -254,4 +420,74 @@ public class ProductTest {
 			
 			assertFalse(productError.getProductName().length() <= 45);
 		}
+		
+		/**
+		 * Test if the product returns the correct value for sale
+		 */
+		@Test
+		public void testSaleNotEqual()
+		{
+			assertFalse(productError.isSale() != true);
+		}
+		
+		/**
+		 * Tests that the correct feature is assigned
+		 */
+		@Test
+		public void testFeatureOneNotEqual()
+		{
+			assertNotSame(productError.getFeatureOne(),"bob");
+		}
+		
+		/**
+		 * Tests that the correct feature is assigned
+		 */
+		@Test
+		public void testFeatureTwoNotEqual()
+		{
+			assertNotSame(productError.getFeatureTwo(),"bob");
+		}
+		
+		/**
+		 * Tests that the correct feature is assigned
+		 */
+		@Test
+		public void testFeatureThreeNotEqual()
+		{
+			assertNotSame(productError.getFeatureThree(),"bob");
+		}
+		
+		/**
+		 * Tests that the correct feature is assigned
+		 */
+		@Test
+		public void testFeatureFourNotEqual()
+		{
+			assertNotSame(productError.getFeatureFour(),"bob");
+		}
+		
+		/**
+		 * Tests that the correct feature is assigned
+		 */
+		@Test
+		public void testFeatureFiveNotEqual()
+		{
+			assertNotSame(productError.getFeatureFive(),"bob");
+		}
+		
+		/**
+		 * Tests that the correct link is assigned
+		 */
+		@Test
+		public void testLinkNotEqual()
+		{
+			assertNotSame(productError.getImageLink(),"bob");
+		}
+		
+		@Test
+		public void testTrendingNotEqual()
+		{
+			assertFalse(productError.isTrending() != true);
+		}
+		
 }

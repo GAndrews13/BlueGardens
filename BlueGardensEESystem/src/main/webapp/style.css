@@ -25,8 +25,6 @@
 .product-info {border:solid 1px; font: 16px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 40); }
 .product-desc {border:solid 1px; font: 14px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 40); }
 #sale{text-transform: uppercase; color: white; text-shadow: 0.5px 0.5px blue; font-family: Comic Sans, Comic Sans MS, cursive;	}
-
-
 /* PRODUCT CATALOG GRID SYSTEM */
 /*  SECTIONS  */
 .section {
@@ -68,6 +66,30 @@
 	.col {  margin: 1% 0 1% 0%; }
 	.span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 { width: 100%; }
 }
+
+body{
+		color: black;
+		background-color: #ffccff;
+		margin-top: 20px;
+		margin-bottom:20px;
+		margin-left: 150px;
+		margin-right: 150px;
+		white-space: nowrap;
+	}
+	
+	body2 {
+		color: black;
+		background-color: #ffccff;
+		margin-top: 20px;
+		margin-bottom:20px;
+		margin-left: 150px;
+		margin-right: 300px;
+		white-space: nowrap;
+	}
+	
+	
+
+
 /* Sticky Footer code */
 	* {
 	margin: 0;

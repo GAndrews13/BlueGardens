@@ -43,12 +43,21 @@ public class Customer
 	private int customerID;
 	
 	/**
+	 * First Name represents the customer name in the table, cannot be null
+	 */
+	@Column(name = "FirstName", nullable = false, length = 30)
+	@NotNull
+	@Size(min = 2, max = 30)
+	private String firstName;
+	
+	/**
 	 * Name represents the customer name in the table, cannot be null
 	 */
-	@Column(name = "Name", nullable = false, length = 127)
+	@Column(name = "LastName", nullable = false, length = 30)
 	@NotNull
-	@Size(min = 2, max = 127)
-	private String name;
+	@Size(min = 2, max = 30)
+	private String lastName;
+	
 	
 	/**
 	 * Address represents the customer address, length may need to be longer
@@ -84,10 +93,11 @@ public class Customer
 	/**
 	 * Initialize customer so instances of customer cannot have null values 
 	 */
-	public Customer(int customerID, String name, String address, String contactNUM, String accountSTATUS)
+	public Customer(int customerID, String firstname, String lastname, String address, String contactNUM, String accountSTATUS)
 	{
 		this.customerID = customerID;
-		this.name = name;
+		this.firstName = firstname;
+		this.lastName = lastname;
 		this.address = address;
 		this.contactNUM = contactNUM;
 		this.accountSTATUS = accountSTATUS;
@@ -116,13 +126,22 @@ public class Customer
 		this.customerID = customerID;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
+	
+	public String getLastName() {
+		return firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.firstName = lastName;
+	}
+
 
 	public String getAddress() {
 		return address;

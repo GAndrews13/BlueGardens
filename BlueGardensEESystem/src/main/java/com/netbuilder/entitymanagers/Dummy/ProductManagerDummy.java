@@ -148,4 +148,62 @@ ArrayList<Product> products = new ArrayList<Product>();
 		
 		return list;
 	}
+
+	/**
+	 * Added methods for dummy connection to find whether a product is in the sale or not
+	 * @author lczornyj
+	 * 
+	 */
+	public ArrayList<Product> findBySale(boolean isSale) {
+		
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+		
+		ArrayList<Product> list = new ArrayList<Product>();
+		for (Product p : products)
+		{
+			if(p.isSale() == true){
+				list.add(p);				
+			}
+		}
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return list;
+	}
+	
+	/**
+	 * Added method for dummy connection to find whether a product contains pourousware or not.
+	 * @author lczornyj
+	 */
+	
+	public ArrayList<Product> findByPourousware(boolean isPourousware) {
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+		
+		ArrayList<Product> list = new ArrayList<Product>();
+		for (Product p : products)
+		{
+			if(p.isPorousware() == true){
+				list.add(p);				
+			}
+		}
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return list;
+	}
+
+	public ArrayList<Product> findByTrending(boolean isTrending) {
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+		
+		ArrayList<Product> list = new ArrayList<Product>();
+		for (Product p : products){
+			if(p.isTrending() == true){
+				list.add(p);
+			}
+		}
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return list;
+	}
 }
