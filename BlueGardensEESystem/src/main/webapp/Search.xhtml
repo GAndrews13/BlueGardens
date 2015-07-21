@@ -1,15 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"      
 				xmlns:ui="http://java.sun.com/jsf/facelets"
 				xmlns:h="http://java.sun.com/jsf/html"
 				xmlns:f="http://java.sun.com/jsf/core"     
 				template="templates/template.xhtml">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
 	<ui:define name = "pagetitle">
-		<h1> Product Catalog </h1>
+		<h1> Search </h1>
 	</ui:define>
 	
 <ui:define name="body">	
+
 	<div class="page-wrap">
 		<div id="site-header">
 			<h1 id="logo">
@@ -35,37 +37,31 @@
 				BLOG SECTION
 			</div>
 			<ui:insert name="body"/>
-			 <div class="section group">
-	<div class="col span_1_of_4">
-Seasonal<hr /> <br>
-<img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;"> 
-<div class="description">
- Product Name <br>
- price £2.99 <br>
- Item info <br>
- </div>
-	</div>
-	<div class="col span_1_of_4">
-Trending<hr /> <br>
-<img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;"> 
-<div class="description">
- Product Name <br>
- price £2.99 <br>
- Item info <br>
- </div>
-	</div>
-	<div class="col span_1_of_4">
-On Sale<hr /> <br>
-<img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;"> 
-<div class="description">
- Product Name <br>
- price £2.99 <br>
- Item info <br>
+			
+ <div class = "main">  
+ <p style="font-size:150%"><marquee><i> Items on sale</i></marquee></p> 
+
+ 
+ 
+ <div class = "searchform">
+ <p>Search by</p>  
+ <form>
+ Product Name:<br>
+<input type="text" name="productname">
+<br>
+ Product ID:<br>
+<input type="text" name="productid">
+<br><br>
+Show products that are: <br>
+<input type="radio" name="instock" value="stockY" checked>In Stock
+<br>
+<input type="radio" name="instock" value="stockN">Out of Stock
+<br><br>
+<input type="submit" value="Submit">
+</form> 
+</div> 
  </div>
 
-
-	</div>
-</div>
 		</div> 
 	</div>
 
@@ -73,7 +69,7 @@ On Sale<hr /> <br>
 	  <div class="left">
 			<div>
 				<ul class="bottommenu">
-				  <li><a href="/home" class="active"><span>Home</span></a></li>
+				  <li><a href="template.html" class="active"><span>Home</span></a></li>
 				  <li><a href="/services"><span>Services</span></a></li>
 				  <li><a href="/about"><span>About</span></a></li>
 				  <li><a href="/contact"><span>Contact</span></a></li>
@@ -85,5 +81,6 @@ On Sale<hr /> <br>
 			<a href="">Design by DelphiSoft Consulting</a> 
 		</div>
 	</footer>
+	
 	</ui:define>
 </ui:composition>

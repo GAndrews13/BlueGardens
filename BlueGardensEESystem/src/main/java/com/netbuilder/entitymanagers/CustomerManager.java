@@ -51,5 +51,5 @@ public interface CustomerManager
 	 * @author Jake
 	 *	Find all customers
 	 */
-	public ArrayList <Customer> findAll();
+	public ArrayList<Customer> findAll();
 }

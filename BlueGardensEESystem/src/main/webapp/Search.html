@@ -1,14 +1,17 @@
 ﻿<!DOCTYPE html>
-<html 	xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:h="http://java.sun.com/jsf/html">
-<header>
-	<!--<link rel="stylesheet" type="text/css" href="layout.css">-->
-	<meta charset="ISO-8859-1">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"      
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:f="http://java.sun.com/jsf/core"     
+				template="templates/template.xhtml">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title><ui:insert name = "pagetitle"/></title>
-</header>
-<body>
+	
+	<ui:define name = "pagetitle">
+		<h1> Search </h1>
+	</ui:define>
+	
+<ui:define name="body">	
+
 	<div class="page-wrap">
 		<div id="site-header">
 			<h1 id="logo">
@@ -78,5 +81,6 @@ Show products that are: <br>
 			<a href="">Design by DelphiSoft Consulting</a> 
 		</div>
 	</footer>
-</body>
-</html>
+	
+	</ui:define>
+</ui:composition>
