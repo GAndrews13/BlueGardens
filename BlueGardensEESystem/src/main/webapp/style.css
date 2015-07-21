@@ -26,6 +26,28 @@
 .product-desc {border:solid 1px; font: 14px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 40); }
 #sale{text-transform: uppercase; color: white; text-shadow: 0.5px 0.5px blue;	}
 
+	body{
+		color: black;
+		background-color: #ffccff;
+		margin-top: 20px;
+		margin-bottom:20px;
+		margin-left: 150px;
+		margin-right: 150px;
+		white-space: nowrap;
+	}
+	
+	body2 {
+		color: black;
+		background-color: #ffccff;
+		margin-top: 20px;
+		margin-bottom:20px;
+		margin-left: 150px;
+		margin-right: 300px;
+		white-space: nowrap;
+	}
+	
+	
+
 /* Sticky Footer code */
 	* {
 	margin: 0;
