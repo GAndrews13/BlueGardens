@@ -36,4 +36,13 @@ private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>()
 		}
 		return 0;
 	}
+
+	public ArrayList<String> findAll() {
+		ArrayList<String> ra = new ArrayList<String>();
+		for(int i = 0; i<customerLogins.size();i++)
+		{
+			ra.add(customerLogins.get(i).getCustomerUsername());
+		}
+		return ra;
+	}
 }

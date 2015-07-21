@@ -1,5 +1,7 @@
 package com.netbuilder.entitymanagers.Database;
 
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -42,5 +44,13 @@ public class CustomerLoginDB implements CustomerLoginManager {
 		{
 			return 0;			
 		}
+	}
+
+	public ArrayList<String> findAll() {
+		ArrayList<String> ra = new ArrayList<String>();
+		EntityManager em = pm.CreateEntityManager();
+		String SQLStatement = "SELECT * FROM CustomerLogin c";
+		TypedQuery<String> tq = em.createQuery(SQLStatement,String.class);
+		return ra;
 	}
 }
