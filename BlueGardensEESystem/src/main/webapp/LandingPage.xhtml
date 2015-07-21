@@ -54,107 +54,115 @@
 							<a href="#"><img src="link to images in webapp for sale theme image" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-5" class="prev"><!--&#x2039--></label> 
-							<label for="img-2" class="next"><!--&#x203a--></label>
+							<label for="img-5" class="prev">
+								<!--&#x2039-->
+							</label> <label for="img-2" class="next">
+								<!--&#x203a-->
+							</label>
 						</div>
 					</li>
-				
 					<input type="radio" name="radio-btn" id="img-2" checked />
 					<li class="slide-container">
 						<div class="slide">
-							<a href="#"><img src="#{LandingPageController.saleProducts[0].getImageLink()}" alt="" /></a>
+							<a href="#"><img src="#{saleProductController.saleProducts[0].getImageLink()}" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-1" class="prev"><!--&#x2039--></label> 
-							<label for="img-3" class="next"><!--&#x203a--></label>
+							<label for="img-1" class="prev">
+								<!--&#x2039-->
+							</label> <label for="img-3" class="next">
+								<!--&#x203a-->
+							</label>
 						</div>
 					</li>
-
 					<input type="radio" name="radiobtn" id="img-3" checked />
 					<li class="slide-container">
 						<div class="slide">
-							<a href="#"><img src="#{LandingPageController.saleProducts[1].getImageLink()}" alt="" /></a>
+							<a href="#"><img src="#{saleProductController.saleProducts[1].getImageLink()}" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-2" class="prev"><!--&#x2039--></label>
-							<label for="img-4" class="next"><!--&#x203a--></label>
+							<label for="img-2" class="prev"> <!--&#x2039--> </label>
+							<label for="img-4" class="next"> <!--&#x203a--> </label>
 						</div>
 					</li>
-
 					<input type="radio" name="radio-btn" id="img-4" checked />
 					<li class="slide-container">
 						<div class="slide">
-							<a href="#"><img src="#{LandingPageController.saleProducts[2].getImageLink()}" alt="" /></a>
+							<a href="#"><img src="#{saleProductController.saleProducts[2].getImageLink()}" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-3" class="prev"><!--&#x2039--></label> 
-							<label for="img-5" class="next"><!--&#x203a--></label>
+							<label for="img-3" class="prev"> <!--&#x2039--> </label>
+							<label for="img-5" class="next"> <!--&#x203a--> </label>
 						</div>
 					</li>
-
 					<input type="radio" name="radio-btn" id="img-5" checked />
 					<li class="slide-container">
 						<div class="slide">
-							<a href="#"><img src="#{LandingPageController.saleProducts[3].getImageLink()}" alt="" /></a>
+							<a href="#"><img src="#{saleProductController.saleProducts[3].getImageLink()}" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-4" class="prev"><!--&#x2039--></label> 
-							<label for="img-1" class="next"><!--&#x203a--></label>
+							<label for="img-4" class="prev"> <!--&#x2039--> </label>
+							<label for="img-1" class="next"> <!--&#x203a--> </label>
 						</div>
 					</li>
-
 					<li class="nav-dots">
-					<label for="img-1" class="nav-dot" id="img-dot-1"></label> 
-					<label for="img-2" class="nav-dot" id="img-dot-2"></label> 
-					<label for="img-3" class="nav-dot" id="img-dot-3"></label> 
-					<label for="img-4" class="nav-dot" id="img-dot-4"></label>
-					<label for="img-5" class="nav-dot" id="img-dot-5"></label>
+						<label for="img-1" class="nav-dot" id="img-dot-1" /> 
+						<label for="img-2" class="nav-dot" id="img-dot-2" />
+						<label for="img-3" class="nav-dot" id="img-dot-3" />
+						<label for="img-4" class="nav-dot" id="img-dot-4" />
+						<label for="img-5" class="nav-dot" id="img-dot-5" />
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
 	<div class="products">
 		<div class="cl">&nbsp;</div>
 		<ul>
-			<li><a href="#"><img src="#{LandingPageController.newProducts[0].getImageLink()}" alt="" /></a>
+			<li>
+				<a href="#"><img src="#{newProductController.newProducts[0].getImageLink()}" alt="" /></a>
 				<div class="product-info">
-					<h3><h:outputLabel value = "#{LandingPageController.newProducts[0].getProductName()}" /></h3>
+					<h3>
+						<h:outputLabel value="#{newProductController.newProducts[0].getProductName()}" />
+					</h3>
 					<div class="product-desc">
 						<p>
-							<h:outputLabel value = "#{LandingPageController.newProducts[0].getFeatureOne()}"/><br />
-							<h:outputLabel value = "#{LandingPageController.newProducts[0].getFeatureTwo()}"/>
+							<h:outputLabel value="#{newProductController.newProducts[0].getFeatureOne()}" /><br />
+							<h:outputLabel value="#{newProductController.newProducts[0].getFeatureTwo()}" />
 						</p>
-						<strong class="product-price"><h:outputLabel value = "#{LandingPageController.newProducts[0].getPrice()}" /></strong>
+						<strong class="product-price"><h:outputLabel value="#{newProductController.newProducts[0].getPrice()}" /></strong>
 					</div>
-				</div></li>
-				
-				
-			<li><a href="#"><img src="{LandingPageController.newProducts[1].getImageLink()}" alt="" /></a>
+				</div>
+			</li>
+			<li>
+				<a href="#"><img src="{newProductController.newProducts[1].getImageLink()}" alt="" /></a>
 				<div class="product-info">
-					<h3><h:outputLabel value = "#{LandingPageController.newProducts[1].getProductName()}" /></h3>
+					<h3>
+						<h:outputLabel value="#{newProductController.newProducts[1].getProductName()}" />
+					</h3>
 					<div class="product-desc">
 						<p>
-							<h:outputLabel value = "#{LandingPageController.newProducts[1].getFeatureOne()}"/><br /> 
-							<h:outputLabel value = "#{LandingPageController.newProducts[1].getFeatureTwo()}"/>
+							<h:outputLabel value="#{newProductController.newProducts[1].getFeatureOne()}" /> <br />
+							<h:outputLabel value="#{newProductController.newProducts[1].getFeatureTwo()}" />
 						</p>
-						<strong class="product-price"><h:outputLabel value = "#{LandingPageController.newProducts[1].getPrice()}" /></strong>
+						<strong class="product-price"><h:outputLabel value="#{newProductController.newProducts[1].getPrice()}" /></strong>
 					</div>
-				</div></li>
-				
-				
-			<li class="last"><a href="#"><img src="{LandingPageController.newProducts[2].getImageLink()}" alt="" /></a>
+				</div>
+			</li>
+			<li class="last">
+				<a href="#"><img src="{newProductController.newProducts[2].getImageLink()}" alt="" /></a>
 				<div class="product-info">
-					<h3><h:outputLabel value = "#{LandingPageController.newProducts[2].getProductName()}" /></h3>
+					<h3>
+						<h:outputLabel value="#{newProductController.newProducts[2].getProductName()}" />
+					</h3>
 					<div class="product-desc">
 						<p>
-							<h:outputLabel value = "#{LandingPageController.newProducts[2].getFeatureThree()}"/><br />
-							<h:outputLabel value = "#{LandingPageController.newProducts[2].getFeatureThree()}"/>
+							<h:outputLabel value="#{newProductController.newProducts[2].getFeatureThree()}" /> <br />
+							<h:outputLabel value="#{newProductController.newProducts[2].getFeatureThree()}" />
 						</p>
-						<strong class="product-price"><h:outputLabel value = "#{LandingPageController.newProducts[2].getPrice()}" /></strong>
+						<strong class="product-price"><h:outputLabel value="#{newProductController.newProducts[2].getPrice()}" /></strong>
 					</div>
-				</div></li>
+				</div>
+			</li>
 		</ul>
 		<div class="cl">&nbsp;</div>
 	</div>
