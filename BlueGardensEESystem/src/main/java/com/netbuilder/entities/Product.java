@@ -23,7 +23,8 @@ import javax.validation.constraints.Size;
 	@NamedQuery(name = Product.FIND_BY_PRODUCT_ID, query = "SELECT p FROM Products p WHERE p.ProductID = :id"),
 	@NamedQuery(name = Product.FIND_BY_NAME, query = "SELECT p FROM Products p WHERE p.ProductName = :name"),
 	@NamedQuery(name = Product.FIND_BY_SALE, query = "SELECT p FROM Products p WHERE p.Sale =: true"),
-	@NamedQuery(name = Product.FIND_BY_POUROUSWARE, query = "SELECT p FROM Products p WHERE p.Pourousware =: true")
+	@NamedQuery(name = Product.FIND_BY_POUROUSWARE, query = "SELECT p FROM Products p WHERE p.Pourousware =: true"),
+	@NamedQuery(name = Product.FIND_BY_TRENDING, query = "SELECT p FROM Products p WHERE p.Trending =: true")
 })
 public class Product {
 	public static final String FIND_BY_OUT_STOCK = "Product.findByOutStock";
@@ -31,6 +32,7 @@ public class Product {
 	public static final String FIND_BY_NAME = "Product.findByName";
 	public static final String FIND_BY_SALE = "Product.findBySale";
 	public static final String FIND_BY_POUROUSWARE = "Product.findByPourousware";
+	public static final String FIND_BY_TRENDING = "Product.findByTrending";
 	@Id
 	@Column(name = "productID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -95,6 +97,10 @@ public class Product {
 	@Column(name = "imageLink", nullable = false, length = 256)
 	@NotNull
 	private String imageLink;
+	
+	@Column(name = "isTrending", nullable = false)
+	@NotNull
+	private boolean isTrending;
 	/**
 	 * The imagelink above is the last implementation for the variables
 	 * @author lczornyj
@@ -105,7 +111,7 @@ public class Product {
 	 * This is the default constructor for the Product entity. It sets all of the properties to their default values.
 	 */
 	public Product() {
-		this("test", 0, 0, 0, false, 0.0, false, "feature","feature","feature","feature","feature","imagelink");
+		this("test", 0, 0, 0, false, 0.0, false, "feature","feature","feature","feature","feature","imagelink", false);
 	}
 	
 	/**
@@ -120,7 +126,7 @@ public class Product {
 	public Product(String productName, int stockLevel, int minimumThreshold,
 			int recommendedLevel, boolean isPorousware, double price, boolean isSale,
 			String featureOne, String featureTwo, String featureThree, 
-			String featureFour, String featureFive, String imageLink) {
+			String featureFour, String featureFive, String imageLink, boolean isTrending) {
 		this.productName = productName;
 		this.stockLevel = stockLevel;
 		this.minimumThreshold = minimumThreshold;
@@ -134,6 +140,7 @@ public class Product {
 		this.featureFour = featureFour;
 		this.featureFive = featureFive;
 		this.imageLink = imageLink;
+		this.isTrending = isTrending;
 	}
 	
 	public String getProductName() {
@@ -231,9 +238,15 @@ public class Product {
 	public String getImageLink(){
 		return imageLink;
 	}
-	
 	public void setImageLink(String imageLink){
 		this.imageLink = imageLink;
+	}
+	
+	public boolean isTrending(){
+		return isTrending;
+	}
+	public void setTrending(boolean isTrending){
+		this.isTrending = isTrending;
 	}
 	
 	/**
@@ -247,6 +260,6 @@ public class Product {
 				+ ", recommendedLevel=" + recommendedLevel + ", isPorousware="
 				+ isPorousware + ", price=" + price + ", isSale= "+ isSale + 
 				" features   "+featureOne + featureTwo + featureThree + 
-				featureFour + featureFive + " Imagelink " + imageLink + "]";
+				featureFour + featureFive + " Imagelink " + imageLink + "isTrending" + isTrending + " ]";
 	}
 }
