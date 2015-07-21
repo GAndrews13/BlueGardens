@@ -46,4 +46,10 @@ public interface CustomerManager
 	 *	Find a customer using the email attribute
 	 */
 	public Customer findByEmail(String email);
+	
+	/**
+	 * @author Jake
+	 *	Find all customers
+	 */
+	public ArrayList <Customer> findAll();
 }

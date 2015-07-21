@@ -118,4 +118,16 @@ public class CustomerManagerDB implements CustomerManager
 		pm.CloseEntityManager(em); 
 		return customer; 
 	}
+	
+	/**
+	 * @author Jake
+	 *	Return all customers
+	 */
+	public ArrayList<Customer> findAll()
+	{
+		EntityManager em = pm.CreateEntityManager();
+		ArrayList<Customer> customer = (ArrayList<Customer>) em.createQuery("select * from customers a", Customer.class).getResultList(); 
+		pm.CloseEntityManager(em); 
+		return customer; 
+	}
 }
