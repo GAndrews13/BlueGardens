@@ -51,12 +51,32 @@ public class CustomerManagerDB implements CustomerManager
 	 * @author Jake
 	 *	Return customer matching the string passed in
 	 */
-	public Customer findByName(String name)
+	public Customer findByFirstName(String firstname)
 	{
 		EntityManager em = pm.CreateEntityManager(); 
 		TypedQuery<Customer> tq = em.createNamedQuery(Customer.FIND_BY_NAME, Customer.class);
 		pm.CloseEntityManager(em);
-		tq.setParameter("Name", name);
+		tq.setParameter("firstName", firstname);
+		try
+		{
+			return tq.getSingleResult(); 
+		}
+		catch (NoResultException nre) 
+			{
+				return null;
+			} 
+	}
+	
+	/**
+	 * @author Jake
+	 *	Return customer matching the string passed in
+	 */
+	public Customer findByLastName(String lastname)
+	{
+		EntityManager em = pm.CreateEntityManager(); 
+		TypedQuery<Customer> tq = em.createNamedQuery(Customer.FIND_BY_NAME, Customer.class);
+		pm.CloseEntityManager(em);
+		tq.setParameter("lastName", lastname);
 		try
 		{
 			return tq.getSingleResult(); 

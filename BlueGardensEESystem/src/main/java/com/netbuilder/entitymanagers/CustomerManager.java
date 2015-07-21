@@ -31,9 +31,15 @@ public interface CustomerManager
 	
 	/**
 	 * @author Jake
-	 *	Find a customer using the name attribute
+	 *	Find a customer using the firstname attribute
 	 */
-	public Customer findByName(String name);
+	public Customer findByFirstName(String firstname);
+	
+	/**
+	 * @author Jake
+	 *	Find a customer using the lastname attribute
+	 */
+	public Customer findByLastName(String lastname);
 	
 	/**
 	 * @author Jake
