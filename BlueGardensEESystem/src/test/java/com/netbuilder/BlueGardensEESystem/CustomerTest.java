@@ -19,7 +19,7 @@ public class CustomerTest
 		 * @author Jake
 		 *	Unit test for Not Null
 		 */
-		Customer testing = new Customer(1,"Jake","Home","0123456789","Active");
+		Customer testing = new Customer(1,"Jake","Thompson", "Home","0123456789","Active");
 		assertNotNull(testing.getAccountSTATUS());
 	}
 }
