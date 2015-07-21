@@ -138,4 +138,38 @@ public class ProductManagerDB implements ProductManager {
 		return p;
 	}
 
+	/**
+	 * Added finding by sale method
+	 * @author lczornyj
+	 */
+	public ArrayList<Product> findBySale(boolean isSale) {
+		ArrayList<Product> p = new ArrayList<Product>();
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+		
+		p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_SALE).getResultList();
+		
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		
+		return p;
+	}
+
+	/**
+	 * Added finding by pourousware method
+	 * @author lczornyj
+	 */
+	public ArrayList<Product> findByPourousware(boolean isPourousware) {
+		ArrayList<Product> p = new ArrayList<Product>();
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+		
+		p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_POUROUSWARE).getResultList();
+		
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		
+		return p;
+	}
+
 }
