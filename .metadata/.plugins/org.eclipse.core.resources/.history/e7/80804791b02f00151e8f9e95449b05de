@@ -1,0 +1,138 @@
+/* Generated via www.cssmenubuilder.com */
+
+
+.menu{margin:0 auto; padding:0; height:30px; width:100%; display:block; background:url('topMenuImages.png') repeat-x;}
+.menu li{padding:0; margin:0; list-style:none; display:inline; width:16.6%;float:left;}
+.menu li a{float:left; padding-left:15px; display:block; color:rgb(255,255,255); text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif; cursor:pointer; background:url('topMenuImages.png') 0px -30px no-repeat;}
+.menu li a span{line-height:30px; float:left; display:block; padding-right:15px; background:url('topMenuImages.png') 100% -30px no-repeat;}
+.menu li a:hover{background-position:0px -60px; color:rgb(255,255,255);}
+.menu li a:hover span{background-position:100% -60px;}
+.menu li a.active, .menu li a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; background:url('topMenuImages.png') 0px -90px no-repeat; color:rgb(255,255,255);}
+.menu li a.active span, .menu li a.active:hover span{background:url('topMenuImages.png') 100% -90px no-repeat;}
+
+/* Generated via www.cssmenubuilder.com */
+
+.bottommenu{margin-bottom:875px auto; padding:0; height:30px; width:100%; display:block; background:url('bottomMenuImages.png') repeat-x; magin:0 auto; width:300px;}
+.bottommenu li{padding:0; margin:0; list-style:none; display:inline-block;}
+.bottommenu li a{float:left; padding-left:15px; display:inline-block; color:rgb(255,255,255); text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif; cursor:pointer; background:url('bottomMenuImages.png') 0px -30px no-repeat;}
+.bottommenu li a span{line-height:30px; float:left; display:block; padding-right:15px; background:url('bottomMenuImages.png') 100% -30px no-repeat;}
+.bottommenu li a:hover{background-position:0px -60px; color:rgb(255,255,255);}
+.bottommenu li a:hover span{background-position:100% -60px;}
+.bottommenu li a.active, .menu li a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; background:url('bottomMenuImages.png') 0px -90px no-repeat; color:rgb(255,255,255);}
+.bottommenu li a.active span, .menu li a.active:hover span{background:url('bottomMenuImages.png') 100% -90px no-repeat;}
+
+.products {height: 350px; width: 200px; background-color: black; position: absolute;}
+.product-info {border:solid 1px; font: 16px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 40); }
+.product-desc {border:solid 1px; font: 14px Verdana italic ; background-color: rgb(0 0 0); opacity: 0.4; filter: alpha(opacity = 40); }
+#sale{text-transform: uppercase; color: white; text-shadow: 0.5px 0.5px blue; font-family: Comic Sans, Comic Sans MS, cursive;	}
+/* PRODUCT CATALOG GRID SYSTEM */
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0em; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF FOUR  */
+.span_4_of_4 {
+	width: 100%;
+}
+.span_3_of_4 {
+	width: 74.6%;
+}
+.span_2_of_4 {
+	width: 49.2%;
+}
+.span_1_of_4 {
+	width: 23.8%;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 { width: 100%; }
+}
+
+body{
+		color: black;
+		background-color: #ffccff;
+		margin-top: 20px;
+		margin-bottom:20px;
+		margin-left: 150px;
+		margin-right: 150px;
+		white-space: nowrap;
+	}
+	
+	body2 {
+		color: black;
+		background-color: #ffccff;
+		margin-top: 20px;
+		margin-bottom:20px;
+		margin-left: 150px;
+		margin-right: 300px;
+		white-space: nowrap;
+	}
+	
+	
+
+
+/* Sticky Footer code */
+	* {
+	margin: 0;
+	}
+
+	html, body {
+    	height: 100%;
+	}
+	.page-wrap {
+		min-height: 100%;
+    	margin-bottom: -60px;
+    	padding: 60px;
+	}
+
+	.page-wrap:after {
+  		content: "";
+  		display: block;
+	}
+
+	.site-footer{
+		height: 60px;
+		background-color: #89dcf5;
+		bottom: 0;
+		position:fixed;
+	}
+	
+	.site-header{
+		height: 60px;
+		top: 0;
+		position: fixed;
+		background-color:
+	}
+
+	.leftStack{
+		float:left;
+		width:40%;
+	}
+	
+	.center{
+		text-align:center;
+	}
+
+	#companytitle{
+		text-align:center;
+		
+	}
