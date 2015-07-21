@@ -74,6 +74,9 @@ public class Product {
 	@NotNull
 	private boolean isSale;
 	
+	// FEATURE 1 AND FEATURE 2 ARE THE ONES THAT ARE VISABLE IN THE LANDING PAGE, MAKE SURE THESE ARE THE MAIN FEATURES
+	// THAT YOU WANT VISABLE FOR THE USER.
+	
 	@Column(name = "featureOne", nullable = false, length = 50)
 	@NotNull
 	private String featureOne;

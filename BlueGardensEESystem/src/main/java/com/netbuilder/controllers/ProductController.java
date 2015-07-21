@@ -22,9 +22,6 @@ public class ProductController {
 
 	public Product product;
 
-	// find product details by the findById(id) where the id is the specific
-	// product id.
-
 	private String id = product.getImageLink();
 
 	public ProductController() {
