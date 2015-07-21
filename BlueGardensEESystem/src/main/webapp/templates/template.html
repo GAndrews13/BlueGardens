@@ -12,12 +12,9 @@
 </header>
 <body>
 	<div class="site-header">
-		<h1 id="logo">
-			<a href = ""><!--LOGO ADD--></a>
-		</h1>
 		<div id="navigation">
 			<ul class="menu">
-			  	<li> <img src="../images/NB-Gardens.png" width=60px height=30px/> </li>
+			  	<li> <img src="../images/NB-Gardens.png" width=180px height=90px/> </li>
 			  	<li><a href="/home" class="active"><span>Home</span></a></li>
 			  	<li><a href="/services"><span>Services</span></a></li>
 			  	<li><a href="/about"><span>About</span></a></li>
@@ -40,7 +37,18 @@
 			<ui:insert name="sectiontitle"/>
 		</div>
 		<div class="content">
-			
+			<form action="http:www.google.co.uk">
+		<fieldset>
+		<legend>Log In:</legend>
+		<br>
+		Username or Email:
+		<input type="text" name="username" value="Enter a Username or Email">
+		<br><br>
+		Password:
+		<input type="text" name="password" value="Enter a password">
+		<br><br>
+		<input type="submit" value="Submit"></fieldset>
+		</form>
 			<ui:insert name="body"/>
 		</div>
 		<div id="sidebarRight">
