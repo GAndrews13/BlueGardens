@@ -164,12 +164,6 @@ public class Product {
 		this.recommendedLevel = recommendedLevel;
 	}
 	
-	
-	/**
-	 * Added setters and getters for new variables added
-	 * @author lczornyj
-	 * @return
-	 */
 	public boolean isPorousware() {
 		return isPorousware;
 	}
@@ -187,7 +181,11 @@ public class Product {
 	public int getProductID() {
 		return productID;
 	}
-	
+	/**
+	 * Added setters and getters for new variables added
+	 * @author lczornyj
+	 * @return
+	 */
 	public boolean isSale() {
 		return isSale;
 	}
