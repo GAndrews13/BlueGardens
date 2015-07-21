@@ -5,7 +5,7 @@
 <header>
 	<!--<link rel="stylesheet" type="text/css" href="layout.css">-->
 	<meta charset="ISO-8859-1">
-	<link rel="stylesheet" type="text/css" href="../style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<title><ui:insert name = "pagetitle"/></title>
 </header>
 <body>
@@ -16,12 +16,12 @@
 			</h1>
 			<div id="navigation">
 				<ul class="menu">
-				  	<li> <img src="../images/NB-Gardens.png" width=60px height=30px/> </li>
+				  	<li> <img src="images/NB-Gardens.png" width=60px height=30px/> </li>
 				  	<li><a href="/home" class="active"><span>Home</span></a></li>
 				  	<li><a href="/services"><span>Services</span></a></li>
 				  	<li><a href="/about"><span>About</span></a></li>
 				  	<li><a href="/contact"><span>Contact</span></a></li>
-				  	<li><img src="../images/basket.png" width=32px height=32px alt="Basket"/></li>
+				  	<li><img src="images/basket.png" width=32px height=32px alt="Basket"/></li>
 				</ul>
 			</div>
 		</div>
@@ -34,19 +34,31 @@
 				BLOG SECTION
 			</div>
 			<ui:insert name="body"/>
-			 <div class="section group">
-	<div class="col span_1_of_4">
-Seasonal <br>
-<img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;"> 
+			
+ <div class = "main">  
+ <p style="font-size:150%"><marquee><i> Items on sale</i></marquee></p> 
 
-	</div>
-	<div class="col span_1_of_4">
-Trending
-	</div>
-	<div class="col span_1_of_4">
-On Sale
-	</div>
-</div>
+ 
+ 
+ <div class = "searchform">
+ <p>Search by</p>  
+ <form>
+ Product Name:<br>
+<input type="text" name="productname">
+<br>
+ Product ID:<br>
+<input type="text" name="productid">
+<br><br>
+Show products that are: <br>
+<input type="radio" name="instock" value="stockY" checked>In Stock
+<br>
+<input type="radio" name="instock" value="stockN">Out of Stock
+<br><br>
+<input type="submit" value="Submit">
+</form> 
+</div> 
+ </div>
+
 		</div> 
 	</div>
 
@@ -54,7 +66,7 @@ On Sale
 	  <div class="left">
 			<div>
 				<ul class="bottommenu">
-				  <li><a href="/home" class="active"><span>Home</span></a></li>
+				  <li><a href="template.html" class="active"><span>Home</span></a></li>
 				  <li><a href="/services"><span>Services</span></a></li>
 				  <li><a href="/about"><span>About</span></a></li>
 				  <li><a href="/contact"><span>Contact</span></a></li>
