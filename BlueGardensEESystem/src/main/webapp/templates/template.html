@@ -12,24 +12,38 @@
 </header>
 <body>
 	<div class="site-header">
-		<div id="navigation">
-			<ul class="menu">
-			  	<li> <img src="../images/NB-Gardens.png" width=180px height=90px/> </li>
-			  	<li><a href="/home" class="active"><span>Home</span></a></li>
-			  	<li><a href="/services"><span>Services</span></a></li>
-			  	<li><a href="/about"><span>About</span></a></li>
-			  	<li><a href="/contact"><span>Contact</span></a></li>
-			  	<li>
-			  		<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">		  		
+		<table>
+			<tr>
+				<th rowspan="2">
+					<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/> 
+				</th>
+				<td width="80%">
+					
+				</td>
+				<td>
+					<img src="" alt="Login"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="80%">
+					<ul class="menu">
+						<li><a href="/home" class="active"><span>Home</span></a></li>
+						<li><a href="/services"><span>Services</span></a></li>
+						<li><a href="/about"><span>About</span></a></li>
+						<li><a href="/contact"><span>Contact</span></a></li>
+					</ul>
+				</td>
+				<td>
+					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">		  		
 	   					<input type="hidden" name="business" value="garethedwardfrankandrews@hotmail.com"/>
 		    					<input type="hidden" name="cmd" value="_cart"/>
 	    				<input type="hidden" name="display" value="1"/>
 	   					<input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" alt="PayPal - The safer, easier way to pay online"/>
 	   					<img alt="" border="0" width="1" height="1"     src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
 					</form>
-				</li>
-			</ul>
-		</div>
+				</td>
+			</tr>
+		</table>
 	</div>
 	
 	<div class="page-wrap">
