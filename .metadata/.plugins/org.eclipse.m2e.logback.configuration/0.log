@@ -569,3 +569,40 @@
 2015-07-21 15:19:44,020 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2015-07-21 15:19:44,020 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2015-07-21 15:19:44,020 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-21 15:47:40,807 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.netbuilder:BlueGardensEESystem:0.0.1 @ C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\pom.xml.
+2015-07-21 15:47:44,791 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:47:44,800 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-21 15:47:44,813 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:47:44,813 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-21 15:49:06,780 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:06,784 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-21 15:49:06,785 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:06,785 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-21 15:49:40,980 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:40,982 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-21 15:49:40,985 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:40,986 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-21 15:49:42,015 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:42,016 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-21 15:49:42,017 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:42,018 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-21 15:49:45,586 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:45,587 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-21 15:49:45,589 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:45,589 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-21 15:49:52,636 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:52,637 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-21 15:49:52,639 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:49:52,639 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-21 15:50:03,667 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:50:03,668 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-21 15:50:03,669 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:50:03,670 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-21 15:50:14,066 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:50:14,066 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-21 15:50:14,069 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:50:14,069 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-21 15:50:16,272 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:50:16,273 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-21 15:50:16,274 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-21 15:50:16,274 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGardens Git\BlueGardens\BlueGardensEESystem\src\test\resources

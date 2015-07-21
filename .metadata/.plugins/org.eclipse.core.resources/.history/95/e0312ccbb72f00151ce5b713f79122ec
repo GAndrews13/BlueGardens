@@ -100,7 +100,6 @@ body{
 	}
 	.page-wrap {
 	padding: 60px;
-	padding-bottom: 100px;
 	}
 
 	.page-wrap:after {
