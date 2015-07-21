@@ -24,4 +24,5 @@ public interface ProductManager {
 	public ArrayList<Product> findByPriceLessThan(double price);
 	public ArrayList<Product> findBySale( boolean isSale);
 	public ArrayList<Product> findByPourousware(boolean isPourousware);
+	public ArrayList<Product> findByTrending(boolean isTrending);
 }

@@ -21,7 +21,18 @@
 				  	<li><a href="/services"><span>Services</span></a></li>
 				  	<li><a href="/about"><span>About</span></a></li>
 				  	<li><a href="/contact"><span>Contact</span></a></li>
-				  	<li><img src="../images/basket.png" width=32px height=32px alt="Basket"/></li>
+				  	<li>
+				  		<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				  		
+	    					<input type="hidden" name="business" value="garethedwardfrankandrews@hotmail.com"/>
+	
+	    					<input type="hidden" name="cmd" value="_cart"/>
+		    				<input type="hidden" name="display" value="1"/>
+	    					
+	    					<input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" alt="PayPal - The safer, easier way to pay online"/>
+	    					<img alt="" border="0" width="1" height="1"     src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
+						</form>
+					</li>
 				</ul>
 			</div>
 		</div>

@@ -52,12 +52,15 @@ public class ProductTest {
 	String testImageLink = "link";
 	String testImageLinkError = "linkerror";	
 	
+	boolean testTrending = false;
+	boolean testTrendingError = false;
+	
 	/**
 	 * The test product that will be used for the set of tests
 	 */
 	//					Desired Values	Name				Stock Level		Minimum Level		Recommended Level		Porousware				Cost
-	Product product = new Product(testName,testStockLevel,testMinimumLevel,testRecommendedLevel,testPorouswareApplied,testCost,testSale,testFeatureOne,testFeatureTwo,testFeatureThree, testFeatureFour, testFeatureFive,testImageLink);
-	Product productError = new Product(testNameError,testStockLevelError,testMinimumLevelError,testRecommendedLevelError,testPorouswareAppliedError,testCostError,testSaleError,testFeatureOneError,testFeatureTwoError,testFeatureThree, testFeatureFourError, testFeatureFiveError,testImageLinkError);	
+	Product product = new Product(testName,testStockLevel,testMinimumLevel,testRecommendedLevel,testPorouswareApplied,testCost,testSale,testFeatureOne,testFeatureTwo,testFeatureThree, testFeatureFour, testFeatureFive,testImageLink,testTrending);
+	Product productError = new Product(testNameError,testStockLevelError,testMinimumLevelError,testRecommendedLevelError,testPorouswareAppliedError,testCostError,testSaleError,testFeatureOneError,testFeatureTwoError,testFeatureThree, testFeatureFourError, testFeatureFiveError,testImageLinkError,testTrendingError);	
 	 
 	
 	/**
@@ -88,6 +91,7 @@ public class ProductTest {
 		assertSame(product.getFeatureFour(), "four");
 		assertSame(product.getFeatureFive(), "five");
 		assertSame(product.getImageLink(), "link");
+		assertFalse(product.isTrending());
 	}
 	
 		/**
@@ -200,6 +204,10 @@ public class ProductTest {
 			assertSame(product.getImageLink(), "link");
 		}
 		
+		@Test
+		public void testTrendingEqual(){
+			assertFalse(product.isTrending());
+		}
 		
 	/**
 	 * Checks that the product name is assigned
@@ -316,6 +324,12 @@ public class ProductTest {
 	public void testImageLink()
 	{
 		assertNotNull(product.getImageLink());
+	}
+	
+	@Test
+	public void testTrending()
+	{
+		assertNotNull(product.isTrending());
 	}
 	
 	/**
@@ -469,4 +483,11 @@ public class ProductTest {
 		{
 			assertNotSame(productError.getImageLink(),"bob");
 		}
+		
+		@Test
+		public void testTrendingNotEqual()
+		{
+			assertFalse(productError.isTrending() != true);
+		}
+		
 }

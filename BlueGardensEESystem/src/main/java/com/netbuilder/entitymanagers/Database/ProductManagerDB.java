@@ -172,4 +172,17 @@ public class ProductManagerDB implements ProductManager {
 		return p;
 	}
 
+	public ArrayList<Product> findByTrending(boolean isTrending) {
+		ArrayList<Product> p = new ArrayList<Product>();
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+		
+		p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_TRENDING).getResultList();
+		
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		
+		return p;
+	}
+
 }

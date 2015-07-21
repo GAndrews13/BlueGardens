@@ -191,4 +191,19 @@ ArrayList<Product> products = new ArrayList<Product>();
 		pm.CloseEntityManager(em);
 		return list;
 	}
+
+	public ArrayList<Product> findByTrending(boolean isTrending) {
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+		
+		ArrayList<Product> list = new ArrayList<Product>();
+		for (Product p : products){
+			if(p.isTrending() == true){
+				list.add(p);
+			}
+		}
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return list;
+	}
 }
