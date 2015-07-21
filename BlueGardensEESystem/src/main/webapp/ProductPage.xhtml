@@ -30,25 +30,16 @@
 	
 	</div>
 	
-	<div id = "productimages">
-	<ul>
-		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-		</li>
-	</ul>
-	</div>
-	
-	<divid = "addtobasket">
+	<div id = "addtobasket">
 	<input type="submit" value="Add to Basket">
 	</div>
 	
 	<div id = "trendingproducts">
 	Trending Products:
 		<ul>
-		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-		<li><a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+		<li><a href="#"><img src="#{productController.trendingProducts[0].getImageLink()}" alt="" /></a>
+		<li><a href="#"><img src="#{productController.trendingProducts[1].getImageLink()}" alt="" /></a>
+		<li><a href="#"><img src="#{productController.trendingProducts[2].getImageLink()}" alt="" /></a>
 		</li>
 	</ul>
 	</div>

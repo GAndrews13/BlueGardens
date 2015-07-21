@@ -22,13 +22,19 @@ public class LandingPageController {
 	
 	@Inject
 	private ProductsOfIntrest poi;
-	public ArrayList<Product> saleProducts;
-	public ArrayList<Product> newProducts;
-
+	private ArrayList<Product> saleProducts;
+	private ArrayList<Product> newProducts;
+	private ArrayList<Product> trendingProducts;
+	@Inject
+	private NewProductController npc;
+	@Inject
+	private SaleProductController spc;
+	@Inject
+	private TrendingProductController tpc;
 	
 	public LandingPageController () {
-		saleProducts = poi.getFourSale();
-		newProducts = poi.getThreeNew();
-		
+		saleProducts = spc.saleProducts;
+		newProducts = npc.newProducts;
+		trendingProducts = tpc.trendingProducts;
 	}
 }
