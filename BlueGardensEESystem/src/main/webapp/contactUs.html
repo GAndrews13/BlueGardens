@@ -17,13 +17,13 @@
 	<ui:define name="body">
 	<form action="contact" method="post">
     <label for="name"> Name </label><br>
-    <input type="text" name="cf_name"><br>
+    <input type="text" name="cf_name" maxlength="45" size="20"><br>
 	
     <label for="email">Email</label><br>
-    <input type="text" name="cf_email"><br>
+    <input type="text" name="cf_email" maxlength="45" size="20"><br>
 	
     <label for="message">Message</label><br>
-    <textarea name="cf_message"></textarea><br>
+    <textarea name="cf_message" maxlength="80" size="30"></textarea><br>
 	
     <input type="submit" value="Send">
     <input type="reset" value="Clear">
