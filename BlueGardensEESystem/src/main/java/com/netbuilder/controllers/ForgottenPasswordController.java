@@ -5,7 +5,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.netbuilder.entities.Customer;
-import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.util.CustomerDetails;

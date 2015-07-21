@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.netbuilder.entities.Customer;
-import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.util.CustomerDetails;
@@ -26,7 +25,7 @@ public class CustomerRegistrationController {
 	private CustomerLoginManager customerLoginManager;
 	private String confirmPassword;
 	private String confirmEmail;
-	private String errormsg;
+	public String errormsg;
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<String> usernames = new ArrayList<String>();
 	
