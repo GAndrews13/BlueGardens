@@ -21,4 +21,14 @@ public class ProductsOfIntrest {
 		return null;
 	}
 
+	public ArrayList<Product> getThreePorousware() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<Product> getThreeSale() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
