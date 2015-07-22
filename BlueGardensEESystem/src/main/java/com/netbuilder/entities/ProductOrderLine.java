@@ -19,11 +19,11 @@ import javax.validation.constraints.Size;;
 @NamedQueries
 ({
 	//@NamedQuery(name = Customer.FIND_BY_NAME , query = "SELECT * FROM Customer c"),
-	@NamedQuery(name = CustomerOrderLine.FIND_BY_POL_ID, query = "SELECT c FROM ProductOrderLine c"),
-	@NamedQuery(name = CustomerOrderLine.FIND_BY_CUSTOMER_ID, query = "SELECT c FROM ProductOrderLine c WHERE CUSTOMER ID = 1")
+	@NamedQuery(name = ProductOrderLine.FIND_BY_POL_ID, query = "SELECT c FROM ProductOrderLine c"),
+	@NamedQuery(name = ProductOrderLine.FIND_BY_CUSTOMER_ID, query = "SELECT c FROM ProductOrderLine c WHERE CUSTOMER ID = 1")
 
 })
-public class CustomerOrderLine 
+public class ProductOrderLine 
 {	
 	public static final String FIND_BY_POL_ID = "ProductOrderLine.findByPOLID";
 	public static final String FIND_BY_CUSTOMER_ID = "ProductOrderLine.findByCID";
@@ -57,7 +57,7 @@ public class CustomerOrderLine
 	private int quantity;
 	
 	
-	public CustomerOrderLine(int productOrderLineID, int productID, int quantity) 
+	public ProductOrderLine(int productOrderLineID, int productID, int quantity) 
 	{
 		this.productOrderLineID = productOrderLineID;
 		this.productID = productID;

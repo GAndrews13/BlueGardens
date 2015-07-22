@@ -45,7 +45,7 @@ public class CustomerOrder {
 	
 	
 	public CustomerOrder(boolean isAssigned, int trackingID,
-			String deliveryType, Customer customer, CustomerOrderLine productOrderLine,
+			String deliveryType, Customer customer, ProductOrderLine productOrderLine,
 			WarehouseWorker worker) {
 		this.isAssigned = isAssigned;
 		this.trackingID = trackingID;
@@ -85,7 +85,7 @@ public class CustomerOrder {
 	@ManyToOne
 	@JoinColumn(name ="POLID", nullable = false)
 	@NotNull
-	private CustomerOrderLine customerOrderLine;
+	private ProductOrderLine customerOrderLine;
 	
 	@ManyToOne
 	@JoinColumn(name ="WorkerID", nullable = false)
@@ -119,7 +119,7 @@ public class CustomerOrder {
 		return customer;
 	}
 	
-	public CustomerOrderLine getProductOrderLine() {
+	public ProductOrderLine getProductOrderLine() {
 		return customerOrderLine;
 	}
 	

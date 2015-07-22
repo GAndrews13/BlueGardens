@@ -5,39 +5,39 @@ package com.netbuilder.entitymanagers;
  */
 import java.util.ArrayList;
 
-import com.netbuilder.entities.CustomerOrderLine;
+import com.netbuilder.entities.ProductOrderLine;
 
-public interface CustomerOrderLineManager 
+public interface ProductOrderLineManager 
 {
 	/**
 	 * @author Jake
 	 *	Add a new product order line into the system
 	 */
-	public void persistPOL(CustomerOrderLine pol);
+	public void persistPOL(ProductOrderLine pol);
 	
 	/**
 	 * @author Jake
 	 *	Find a product order line by its ID
 	 */
-	public CustomerOrderLine findByPOLID(int pol_ID);
+	public ProductOrderLine findByPOLID(int pol_ID);
 	
 	/**
 	 * @author Jake
 	 *	Find a product order line by the customer ID
 	 */
-	public CustomerOrderLine findByCID(int customerID);
+	public ProductOrderLine findByCID(int customerID);
 	
 	/**
 	 * @author Jake
 	 *	Find all product order lines above a certain quantity
 	 */
-	public ArrayList<CustomerOrderLine> findByQuantity(int quantity);
+	public ArrayList<ProductOrderLine> findByQuantity(int quantity);
 
 	/**
 	 * @author Jake
 	 *	Update details in a product order line
 	 */
-	public void updatePOL(CustomerOrderLine pol);
+	public void updatePOL(ProductOrderLine pol);
 	
 	
 

@@ -10,10 +10,10 @@ import javax.validation.ValidationException;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.Customer;
-import com.netbuilder.entities.CustomerOrderLine;
-import com.netbuilder.entitymanagers.CustomerOrderLineManager;
+import com.netbuilder.entities.ProductOrderLine;
+import com.netbuilder.entitymanagers.ProductOrderLineManager;
 
-public class CustomerOrderLineDB implements CustomerOrderLineManager 
+public class ProductOrderLineDB implements ProductOrderLineManager 
 {
 	@Inject
 	private PersistenceManager pm;
@@ -22,7 +22,7 @@ public class CustomerOrderLineDB implements CustomerOrderLineManager
 	 * @author Jake
 	 *	Add a new product order line into the system
 	 */
-	public void persistPOL(CustomerOrderLine pol)
+	public void persistPOL(ProductOrderLine pol)
 	{
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
@@ -35,10 +35,10 @@ public class CustomerOrderLineDB implements CustomerOrderLineManager
 	 * @author Jake
 	 *	Find a product order line by its ID
 	 */
-	public CustomerOrderLine findByPOLID(int pol_ID)
+	public ProductOrderLine findByPOLID(int pol_ID)
 	{
 		EntityManager em = pm.CreateEntityManager(); 
-		TypedQuery<CustomerOrderLine> tq = em.createNamedQuery(CustomerOrderLine.FIND_BY_POL_ID, CustomerOrderLine.class);
+		TypedQuery<ProductOrderLine> tq = em.createNamedQuery(ProductOrderLine.FIND_BY_POL_ID, ProductOrderLine.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("POLID", pol_ID);
 		try
@@ -55,10 +55,10 @@ public class CustomerOrderLineDB implements CustomerOrderLineManager
 	 * @author Jake
 	 *	Find a product order line by the customer ID
 	 */
-	public CustomerOrderLine findByCID(int customerID)
+	public ProductOrderLine findByCID(int customerID)
 	{
 		EntityManager em = pm.CreateEntityManager(); 
-		TypedQuery<CustomerOrderLine> tq = em.createNamedQuery(CustomerOrderLine.FIND_BY_CUSTOMER_ID, CustomerOrderLine.class);
+		TypedQuery<ProductOrderLine> tq = em.createNamedQuery(ProductOrderLine.FIND_BY_CUSTOMER_ID, ProductOrderLine.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("CustomerID", customerID);
 		try
@@ -75,10 +75,10 @@ public class CustomerOrderLineDB implements CustomerOrderLineManager
 	 * @author Jake
 	 *	Find all product order lines above a certain quantity
 	 */
-	public ArrayList<CustomerOrderLine> findByQuantity(int quantity)
+	public ArrayList<ProductOrderLine> findByQuantity(int quantity)
 	{
 		EntityManager em = pm.CreateEntityManager();
-		ArrayList<CustomerOrderLine> POL = (ArrayList<CustomerOrderLine>) em.createQuery("select * from ProductOrderLine a", CustomerOrderLine.class).getResultList(); 
+		ArrayList<ProductOrderLine> POL = (ArrayList<ProductOrderLine>) em.createQuery("select * from ProductOrderLine a", ProductOrderLine.class).getResultList(); 
 		pm.CloseEntityManager(em); 
 		return POL; 
 	}
@@ -87,7 +87,7 @@ public class CustomerOrderLineDB implements CustomerOrderLineManager
 	 * @author Jake
 	 *	Update details in a product order line
 	 */
-	public void updatePOL(CustomerOrderLine pol)
+	public void updatePOL(ProductOrderLine pol)
 	{
 		if(pol == null)
 			throw new ValidationException("null value passed");
