@@ -9,7 +9,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.Wishlist;
 import com.netbuilder.entitymanagers.WishListManager;

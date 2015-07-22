@@ -2,12 +2,15 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Alternative;
+
 import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.ProductOrderLineManager;
 /**
  * @author Jake
  *	Dummy class for testing the product order line
  */
+@Alternative
 public class ProductOrderLineManagerDummy implements ProductOrderLineManager 
 {
 	/**

@@ -2,13 +2,15 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Alternative;
+
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
-
-public class CustomerLoginDummy implements CustomerLoginManager {
+@Alternative
+public class CustomerLoginManagerDummy implements CustomerLoginManager {
 private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>();
 
-	public CustomerLoginDummy()
+	public CustomerLoginManagerDummy()
 	{
 		customerLogins.add(new CustomerLogin("root","password"));
 		customerLogins.add(new CustomerLogin("docker","linux"));

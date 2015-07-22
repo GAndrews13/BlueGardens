@@ -9,7 +9,6 @@ import javax.persistence.TypedQuery;
 import javax.validation.ValidationException;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.ProductOrderLineManager;
 

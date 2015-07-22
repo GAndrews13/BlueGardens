@@ -3,40 +3,40 @@
 	<alternatives>
 	<!--  Add all your dummy classes into this bracket -->
 		<class>
-			com.netbuilder.entities.Dummy.BasketManagerDummy
+			com.netbuilder.entitymanagers.Dummy.BasketManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.CustomerLoginManagerDummy
+			com.netbuilder.entitymanagers.Dummy.CustomerLoginManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.CustomerManagerDummy
+			com.netbuilder.entitymanagers.Dummy.CustomerManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.CustomerOrderManagerDummy
+			com.netbuilder.entitymanagers.Dummy.CustomerOrderManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.ProductManagerDummy
+			com.netbuilder.entitymanagers.Dummy.ProductManagerDummy
 		</class>		
 		<class>
-			com.netbuilder.entities.Dummy.ProductOrderLineManagerDummy
+			com.netbuilder.entitymanagers.Dummy.ProductOrderLineManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.PurchaseOrderManagerDummy
+			com.netbuilder.entitymanagers.Dummy.PurchaseOrderManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.SupplierManagerDummy
+			com.netbuilder.entitymanagers.Dummy.SupplierManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.SupplierProductManagerDummy
+			com.netbuilder.entitymanagers.Dummy.SupplierProductManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.WarehouseWorkerManagerDummy
+			com.netbuilder.entitymanagers.Dummy.WarehouseWorkerManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.WeeklySalesManagerDummy
+			com.netbuilder.entitymanagers.Dummy.WeeklySalesManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entities.Dummy.WishlistManagerDummy
+			com.netbuilder.entitymanagers.Dummy.WishlistManagerDummy
 		</class>
 
 		<!--  End of Dummy Bracket -->

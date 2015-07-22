@@ -2,12 +2,12 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.Wishlist;
 import com.netbuilder.entitymanagers.WishListManager;
@@ -17,7 +17,7 @@ import com.netbuilder.entitymanagers.WishListManager;
  * @author gandrews
  *	Uses a dummy wishlist object to imitate its real interactions with the system
  */
-@Default
+@Alternative
 public class WishlistManagerDummy implements WishListManager {
 Wishlist wish = new Wishlist();
 	@Inject

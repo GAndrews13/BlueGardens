@@ -11,7 +11,6 @@ import javax.validation.ValidationException;
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
-import com.netbuilder.entities.Product;
 import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entitymanagers.CustomerOrderManager;
 

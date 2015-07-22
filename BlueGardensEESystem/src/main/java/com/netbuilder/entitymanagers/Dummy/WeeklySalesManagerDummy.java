@@ -2,6 +2,7 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -15,7 +16,7 @@ import com.netbuilder.entitymanagers.WeeklySalesManager;
  * @author gandrews
  *	Uses a list of WeeklySales to mimic a database interaction
  */
-@Default
+@Alternative
 public class WeeklySalesManagerDummy implements WeeklySalesManager {
 	@Inject
 	private PersistenceManager pm;
@@ -44,6 +45,7 @@ public class WeeklySalesManagerDummy implements WeeklySalesManager {
 		pm.CloseEntityManager(em);
 	}
 
+	@SuppressWarnings("deprecation")
 	public ArrayList<WeeklySales> findByMonth(int inMonthNumber) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();

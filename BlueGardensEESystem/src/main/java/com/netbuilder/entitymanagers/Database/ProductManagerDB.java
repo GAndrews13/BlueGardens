@@ -10,7 +10,6 @@ import javax.persistence.TypedQuery;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.customannotations.MethodAuthor;
-import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
 /**
@@ -142,12 +141,12 @@ public class ProductManagerDB implements ProductManager {
 	 * Added finding by sale method
 	 * @author lczornyj
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList<Product> findBySale(boolean isSale) {
-		ArrayList<Product> p = new ArrayList<Product>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
-		p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_SALE).getResultList();
+		ArrayList<Product> p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_SALE).getResultList();
 		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
@@ -159,6 +158,7 @@ public class ProductManagerDB implements ProductManager {
 	 * Added finding by pourousware method
 	 * @author lczornyj
 	 */
+	@SuppressWarnings("unchecked")
 	public ArrayList<Product> findByPourousware(boolean isPourousware) {
 		ArrayList<Product> p = new ArrayList<Product>();
 		EntityManager em = pm.CreateEntityManager();
@@ -172,6 +172,7 @@ public class ProductManagerDB implements ProductManager {
 		return p;
 	}
 
+	@SuppressWarnings("unchecked")
 	public ArrayList<Product> findByTrending(boolean isTrending) {
 		ArrayList<Product> p = new ArrayList<Product>();
 		EntityManager em = pm.CreateEntityManager();
