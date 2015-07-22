@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Outlines the code that the system uses and the template it is based off of -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"      
+				xmlns:ui="http://java.sun.com/jsf/facelets"     
+				template="templates/template.xhtml">
+	<!-- Defines the title of the page using the header 1 tag -->
+	<ui:define name = "pagetitle">
+		NBGardens: Frequently Asked Questions
+	</ui:define>
+	
+	<!-- Defines the title displayed on the page -->
+	<ui:define name="sectiontitle">
+		<h2> FAQ: Frequently Asked Questions </h2>
+	</ui:define>
+	
+	<!-- Contains the actual content of the page -->
+	<ui:define name="body">
+		<div class="question">
+			<div class="questionHeader">
+			How much does postage cost?
+			</div>
+			<div class="questionAnswer">
+				<p>
+					We offer postage as part of the cost of the product, this means not only is it simple and honest as to what you'll pay for each product, but we can also offer the best value delivery for each order.
+				</p>
+			</div>
+		</div>
+		<div class="question">
+			<div class="questionHeader">
+			What is porousware?
+			</div>
+			<div class="questionAnswer">
+				<p>
+					Porousware is a chemical resin we apply to products. This means that you are able to extend the life and state of your products at a minimal cost, this means your gnomes and garden furniture can last undamaged for longer.
+				</p>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

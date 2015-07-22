@@ -11,12 +11,16 @@ import com.netbuilder.service.ProductsOfIntrest;
 
 @Named
 @Dependent
-public class NewProductController {
+public class ProductCatalogController 
+{
 	@Inject
-	private ProductsOfIntrest poi;
-	public ArrayList<Product> newProducts;
+	private ProductsOfIntrest ProductCatalog;
 	
-	public NewProductController() {
-		newProducts = poi.getThreeNew();
+	private ArrayList <Product> pwProducts;
+	
+	public ProductCatalogController()
+	{
+		//get three products that have porousware
+		pwProducts = ProductCatalog.getThreePorousware();
 	}
 }

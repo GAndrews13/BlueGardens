@@ -3,7 +3,6 @@ package com.netbuilder.entitymanagers.Dummy;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 

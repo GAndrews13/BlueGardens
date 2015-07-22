@@ -145,6 +145,19 @@ body{
 	}
 	
 	p{
-		word-wrap: break-word;
-		
+		word-wrap: break-word;	
 	}
+	
+	.question{
+	padding: 5%;
+	}
+	
+	.questionHeader{
+	font: 14px;
+	font-weight: bold;
+	}
+	
+	.questionAnswer{
+	font: 12px;
+	}
+	
