@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-	<alernatives>
+	<alternatives>
 	<!--  Add all your dummy classes into this bracket -->
 		<class>
+			com.netbuilder.entities.Dummy.BasketManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.CustomerLoginManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.CustomerManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.CustomerOrderManagerDummy
+		</class>
+		<class>
 			com.netbuilder.entities.Dummy.ProductManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.ProductOrderLineManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.PurchaseOrderManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.SupplierManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.SupplierProductManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entities.Dummy.WarehouseWorkerManagerDummy
 		</class>
 		<class>
 			com.netbuilder.entities.Dummy.WeeklySalesManagerDummy
@@ -11,15 +38,7 @@
 		<class>
 			com.netbuilder.entities.Dummy.WishlistManagerDummy
 		</class>
-		<class>
-			com.netbuilder.entities.Dummy.BasketManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entities.Dummy.CustomerOrderManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entities.Dummy.SupplierProductManagerDummy
-		</class>
+
 		<!--  End of Dummy Bracket -->
 		<!--  Add all your SQL classes into this bracket -->
 		<!-- 
@@ -27,5 +46,5 @@
 		
 		 -->
 		<!--  End of SQL bracket -->
-	</alernatives>
+	</alternatives>
 </beans>
