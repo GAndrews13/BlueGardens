@@ -12,13 +12,13 @@
 			com.netbuilder.entities.Dummy.CustomerManagerDummy
 		</class>
 		<class>
+			com.netbuilder.entities.Dummy.CustomerOrderLineManagerDummy
+		</class>
+		<class>
 			com.netbuilder.entities.Dummy.CustomerOrderManagerDummy
 		</class>
 		<class>
 			com.netbuilder.entities.Dummy.ProductManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entities.Dummy.ProductOrderLineManagerDummy
 		</class>
 		<class>
 			com.netbuilder.entities.Dummy.PurchaseOrderManagerDummy

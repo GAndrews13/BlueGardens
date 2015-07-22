@@ -13,7 +13,7 @@ import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entitymanagers.CustomerOrderLineManager;
 
-public class ProductOrderLineDB implements CustomerOrderLineManager 
+public class CustomerOrderLineDB implements CustomerOrderLineManager 
 {
 	@Inject
 	private PersistenceManager pm;

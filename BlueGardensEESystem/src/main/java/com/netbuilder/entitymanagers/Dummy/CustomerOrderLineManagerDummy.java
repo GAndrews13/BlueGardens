@@ -8,7 +8,7 @@ import com.netbuilder.entitymanagers.CustomerOrderLineManager;
  * @author Jake
  *	Dummy class for testing the product order line
  */
-public class ProductOrderLineManagerDummy implements CustomerOrderLineManager 
+public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager 
 {
 	/**
 	 * @author Jake
