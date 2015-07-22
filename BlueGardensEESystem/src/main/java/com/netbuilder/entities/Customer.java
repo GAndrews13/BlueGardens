@@ -102,17 +102,6 @@ public class Customer
 		this.contactNUM = contactNUM;
 		this.accountSTATUS = accountSTATUS;
 	}
-	//Put new customer info into database
-	private void Register()
-	{
-		//TODO write method
-	}
-	/*
-	private bool CheckRegistration(int customer_id)
-	{	
-		//return true if customer is registered else false
-		return false; 
-	}*/
 	/**
 	 * @author Jake
 	 *	Getters and Setter for class variables

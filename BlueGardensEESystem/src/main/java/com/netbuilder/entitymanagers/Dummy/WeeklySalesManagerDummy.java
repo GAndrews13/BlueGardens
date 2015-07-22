@@ -1,6 +1,7 @@
 package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
@@ -54,6 +55,7 @@ public class WeeklySalesManagerDummy implements WeeklySalesManager {
 		for(WeeklySales w : salesRecord)
 		{
 			//TODO replace with calender?
+			Calendar c = Calendar.getInstance();
 			if(w.getDateSold().getMonth() == inMonthNumber-1)
 			{
 				returnList.add(w);

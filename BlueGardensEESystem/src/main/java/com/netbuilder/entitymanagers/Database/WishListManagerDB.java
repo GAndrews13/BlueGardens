@@ -38,7 +38,7 @@ private PersistenceManager pm;
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		
-		//TODO help with persist
+		em.persist(inProduct);
 		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);

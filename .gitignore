@@ -1,7 +1,6 @@
 *.class
 /target/
-/metadata/
-.metadata
+.metadata/
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 .classpath
@@ -10,6 +9,8 @@
 *.war
 *.ear
 .settings
+
+.recommenders/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
