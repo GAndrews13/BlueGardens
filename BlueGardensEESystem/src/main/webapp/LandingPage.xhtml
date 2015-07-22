@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"      
+				xmlns:ui="http://java.sun.com/jsf/facelets"  
+				xmlns:h="http://java.sun.com/jsf/html"   
+				template="templates/template.xhtml">
 <ui:define name="sectiontitle">
 	<h1>Welcome to NBGardens</h1>
 </ui:define>
@@ -7,9 +11,7 @@
 		<!-- Content Slider -->
 		<div id="slider" class="box">
 			<div id="slider-holder">
-				<h2>
-					<div id="sale">WINTER SALE ON NOW!!</div>
-				</h2>
+				<h2 id="sale">WINTER SALE ON NOW!!</h2>
 				<ul class="slides">
 					<input type="radio" name="radio-btn" id="img-1" checked />
 					<li class="slide-container">
@@ -17,11 +19,8 @@
 							<a href="#"><img src="link to images in webapp for sale theme image" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-5" class="prev">
-								<!--&#x2039-->
-							</label> <label for="img-2" class="next">
-								<!--&#x203a-->
-							</label>
+							<label for="img-5" class="prev"><!--&#x2039--></label>
+							<label for="img-2" class="next"><!--&#x203a--></label>
 						</div>
 					</li>
 					<input type="radio" name="radio-btn" id="img-2" checked />
@@ -30,11 +29,8 @@
 							<a href="#"><img src="#{saleProductController.saleProducts[0].getImageLink()}" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-1" class="prev">
-								<!--&#x2039-->
-							</label> <label for="img-3" class="next">
-								<!--&#x203a-->
-							</label>
+							<label for="img-1" class="prev"><!--&#x2039--></label>
+							<label for="img-3" class="next"><!--&#x203a--></label>
 						</div>
 					</li>
 					<input type="radio" name="radiobtn" id="img-3" checked />
@@ -43,8 +39,8 @@
 							<a href="#"><img src="#{saleProductController.saleProducts[1].getImageLink()}" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-2" class="prev"> <!--&#x2039--> </label>
-							<label for="img-4" class="next"> <!--&#x203a--> </label>
+							<label for="img-2" class="prev"> <!--&#x2039--></label>
+							<label for="img-4" class="next"> <!--&#x203a--></label>
 						</div>
 					</li>
 					<input type="radio" name="radio-btn" id="img-4" checked />
@@ -53,8 +49,8 @@
 							<a href="#"><img src="#{saleProductController.saleProducts[2].getImageLink()}" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-3" class="prev"> <!--&#x2039--> </label>
-							<label for="img-5" class="next"> <!--&#x203a--> </label>
+							<label for="img-3" class="prev"> <!--&#x2039--></label>
+							<label for="img-5" class="next"> <!--&#x203a--></label>
 						</div>
 					</li>
 					<input type="radio" name="radio-btn" id="img-5" checked />
@@ -63,8 +59,8 @@
 							<a href="#"><img src="#{saleProductController.saleProducts[3].getImageLink()}" alt="" /></a>
 						</div>
 						<div class="nav">
-							<label for="img-4" class="prev"> <!--&#x2039--> </label>
-							<label for="img-1" class="next"> <!--&#x203a--> </label>
+							<label for="img-4" class="prev"> <!--&#x2039--></label>
+							<label for="img-1" class="next"> <!--&#x203a--></label>
 						</div>
 					</li>
 					<li class="nav-dots">
@@ -130,3 +126,4 @@
 		<div class="cl">&nbsp;</div>
 	</div>
 </ui:define>
+</ui:composition>
