@@ -1,9 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=ISO8859-1"     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix ="c" %>
+
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"      
 				xmlns:ui="http://java.sun.com/jsf/facelets"
 				xmlns:h="http://java.sun.com/jsf/html"
 				xmlns:f="http://java.sun.com/jsf/core"     
 				template="templates/template.xhtml">
+			
 	<link rel="stylesheet" type="text/css" href="style.css">
 	
 	
@@ -18,24 +22,38 @@
 		Seasonal<hr /> <br>
 		<!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" --> 
 		<div class="description">
-		<h2><h:outputLabel value = "#{productcatalogController.product.getProductName()}"/></h2>
- 		<h2><h:outputLabel value = "#{productcatalogController.product.getProductPrice()}"/></h2>
- 		<h2><h:outputLabel value = "#{productController.product.getFeatureOne()}"/></h2>
+		
+		<img src="#{productController.product.getImageLink()}" style="float:left;width:128px;height:128px;">
+		<h2><h:outputLabel value = "#{productcatalogController.product.getProductSeasonalName()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getProductSeasonalPrice()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getSeasonalFeatureOne()}"/></h2>
  		
  		<!--  Product Name <br> price £2.99 <br> Item info <br> -->
  		</div>
 	</div>
 		<div class="col span_1_of_4">
 		Trending<hr /> <br>
-		<img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;"> 
 		<div class="description">
+		
+		<img src="#{productController.product.getImageLink()}" style="float:left;width:128px;height:128px;">
+		<h2><h:outputLabel value = "#{productcatalogController.product.getTrendingProductName()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getTrendingProductPrice()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getTrendingFeatureOne()}"/></h2>
+ 		
  		<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+ 		
  		</div>
 	</div>
 		<div class="col span_1_of_4">
 		On Sale<hr /> <br>
-		<img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;"> 
 		<div class="description">
+		
+		<img src="#{productController.product.getImageLink()}" style="float:left;width:128px;height:128px;">
+		
+		<h2><h:outputLabel value = "#{productcatalogController.product.getSaleProductName()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getSaleProductPrice()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getSaleFeatureOne()}"/></h2>
+ 		
  		<!--  Product Name <br> price £2.99 <br> Item info <br> -->
  		</div>
 		</div>
@@ -61,15 +79,12 @@
 			</div>
 		</div>
 		<div id="contentHeader">
-			<ui:insert name="sectiontitle"/>
 		</div>
 		
 		<div class="content">
 			<div id="sidebarRight">
 				BLOG SECTION
 			</div>
-			<ui:insert name="body"/>
-
 		</div> 
 	</div>
 
