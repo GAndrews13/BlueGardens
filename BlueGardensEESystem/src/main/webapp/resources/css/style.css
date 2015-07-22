@@ -2,7 +2,7 @@
 /* Generated via www.cssmenubuilder.com */
 
 .menu{margin:0 auto; padding:0; height:30px; width:100%; display:block; background:url('topMenuImages.png') repeat-x;}
-.menu li{padding:0; margin:0; list-style:none; display:inline; width:16.6%;float:left;}
+.menu li{padding:0; margin:0; list-style:none; display:inline; width:16.6%;float:left;padding-left: 7%;}
 .menu li a{float:left; padding-left:15px; display:block; color:rgb(255,255,255); text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif; cursor:pointer; background:url('topMenuImages.png') 0px -30px no-repeat;}
 .menu li a span{line-height:30px; float:left; display:block; padding-right:15px; background:url('topMenuImages.png') 100% -30px no-repeat;}
 .menu li a:hover{background-position:0px -60px; color:rgb(255,255,255);}
@@ -13,7 +13,7 @@
 /* Generated via www.cssmenubuilder.com */
 
 .bottommenu{margin-bottom:875px auto; padding:0; height:30px; width:100%; display:block; background:url('bottomMenuImages.png') repeat-x; magin:0 auto; width:100%;}
-.bottommenu li{padding:0; margin:0; list-style:none; display:inline-block; text-align: centre; width: 25%; padding-left: 25%;}
+.bottommenu li{padding:0; margin:0; list-style:none; display:inline-block; text-align: centre; width: 25%; padding-left: 10%;}
 .bottommenu li a{float:left; padding-left:15px; display:inline-block; color:rgb(255,255,255); text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif; cursor:pointer; background:url('bottomMenuImages.png') 0px -30px no-repeat;}
 .bottommenu li a span{line-height:30px; float:left; display:block; padding-right:15px; background:url('bottomMenuImages.png') 100% -30px no-repeat;}
 .bottommenu li a:hover{background-position:0px -60px; color:rgb(255,255,255);}
@@ -101,7 +101,7 @@ body{
 	.page-wrap {
 	padding: 60px;
 	padding-bottom: 100px;
-	padding-top: 120px;
+	padding-top: 70px;
 	}
 
 	.page-wrap:after {
@@ -140,4 +140,11 @@ body{
 	
 	#sidebarRight{
 		float: right;
+		position: fixed;
+		background-color: #89dcf5;
+	}
+	
+	p{
+		word-wrap: break-word;
+		
 	}
