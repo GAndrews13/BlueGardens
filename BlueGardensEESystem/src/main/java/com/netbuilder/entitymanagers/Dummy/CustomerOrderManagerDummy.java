@@ -2,6 +2,8 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Alternative;
+
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.WarehouseWorker;
@@ -14,7 +16,7 @@ import com.netbuilder.entitymanagers.CustomerOrderManager;
  * Customer Order Manager with dummy data
 *
 **/
-
+@Alternative
 public class CustomerOrderManagerDummy implements CustomerOrderManager {
        ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
 

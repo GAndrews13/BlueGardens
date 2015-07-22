@@ -2,16 +2,16 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
-import com.netbuilder.BlueGardensEESystem.PersistenceManager;
+import javax.enterprise.inject.Alternative;
+
 import com.netbuilder.entities.DeliveryLocation;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entities.Supplier;
 import com.netbuilder.entitymanagers.PurchaseOrderManager;
-
+@Alternative
 public class PurchaseOrderManagerDummy implements PurchaseOrderManager 
 {
 	private ArrayList<PurchaseOrder> pol;
-	private PersistenceManager pm;
 	
 	public void persistPurchaseOrder(PurchaseOrder po)
 	{

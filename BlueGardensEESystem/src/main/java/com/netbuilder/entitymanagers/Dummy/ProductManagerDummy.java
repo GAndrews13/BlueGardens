@@ -2,6 +2,7 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -15,7 +16,7 @@ import com.netbuilder.entitymanagers.ProductManager;
  * @author gandrews
  * Uses a list of products to mimic database behaviour
  */
-@Default
+@Alternative
 public class ProductManagerDummy implements ProductManager {
 ArrayList<Product> products = new ArrayList<Product>();
 	@Inject

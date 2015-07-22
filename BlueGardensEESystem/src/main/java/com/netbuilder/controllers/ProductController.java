@@ -8,6 +8,7 @@ package com.netbuilder.controllers;
  */
 import java.util.ArrayList;
 
+import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -16,7 +17,7 @@ import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
 
 @Named
-@RequestScoped
+@Dependent
 public class ProductController {
 
 	@Inject
@@ -25,19 +26,27 @@ public class ProductController {
 	private TrendingProductController tpc;
 	
 	private ArrayList<Product> trendingProducts;
-	public Product product;
+	private Product product;
+	public String errormsg;
 
-	private String id = product.getImageLink();
+	private String id = getProduct().getImageLink();
 	
 	public ProductController() {
 		id = id.replace("www.NBGardens.com/Products/", "");
 		try {
-			product = productmanager.findById(Integer.parseInt(id));
+			setProduct(productmanager.findById(Integer.parseInt(id)));
 		} catch (Exception e) {
-			String errormsg = "please enter details";
-
+			errormsg = "please enter details";
 		}
 		
 		trendingProducts = tpc.trendingProducts;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 }

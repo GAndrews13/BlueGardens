@@ -2,6 +2,7 @@ package com.netbuilder.controllers;
 
 import java.util.ArrayList;
 
+import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,7 +14,7 @@ import com.netbuilder.util.CustomerDetails;
 import com.netbuilder.util.UserDetails;
 
 @Named
-@RequestScoped
+@Dependent
 public class CustomerRegistrationController {
 	@Inject
 	private CustomerDetails customerDetails;

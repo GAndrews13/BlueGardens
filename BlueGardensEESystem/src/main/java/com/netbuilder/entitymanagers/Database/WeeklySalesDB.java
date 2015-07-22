@@ -43,6 +43,7 @@ public class WeeklySalesDB implements WeeklySalesManager {
 		pm.CloseEntityManager(em);
 	}
 
+	@SuppressWarnings("unchecked")
 	public ArrayList<WeeklySales> findByMonth(int inMonthNumber)
 	{
 		EntityManager em = pm.CreateEntityManager();
@@ -62,6 +63,7 @@ public class WeeklySalesDB implements WeeklySalesManager {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public ArrayList<WeeklySales> findByMinimumSales(int inMinimumSales) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();

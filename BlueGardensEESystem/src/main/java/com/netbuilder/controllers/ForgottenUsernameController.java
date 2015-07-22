@@ -1,5 +1,6 @@
 package com.netbuilder.controllers;
 
+import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -9,7 +10,7 @@ import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.util.CustomerDetails;
 
 @Named
-@RequestScoped
+@Dependent
 public class ForgottenUsernameController {
 	@Inject
 	private CustomerManager customerManager;

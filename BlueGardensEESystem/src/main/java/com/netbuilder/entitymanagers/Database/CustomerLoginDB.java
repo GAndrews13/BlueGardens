@@ -47,10 +47,8 @@ public class CustomerLoginDB implements CustomerLoginManager {
 	}
 
 	public ArrayList<String> findAll() {
-		ArrayList<String> ra = new ArrayList<String>();
 		EntityManager em = pm.CreateEntityManager();
-		String SQLStatement = "SELECT * FROM CustomerLogin c";
-		TypedQuery<String> tq = em.createQuery(SQLStatement,String.class);
+		ArrayList<String> ra = (ArrayList<String>) em.createQuery("SELECT * FROM CustomerLogin c",String.class).getResultList();
 		return ra;
 	}
 }

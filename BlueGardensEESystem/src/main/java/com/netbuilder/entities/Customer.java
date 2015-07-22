@@ -105,7 +105,7 @@ public class Customer
 	//Put new customer info into database
 	private void Register()
 	{
-		
+		//TODO write method
 	}
 	/*
 	private bool CheckRegistration(int customer_id)
