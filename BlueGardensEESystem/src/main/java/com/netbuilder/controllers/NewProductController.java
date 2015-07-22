@@ -18,5 +18,5 @@ public class NewProductController {
 	
 	public NewProductController() {
 		newProducts = poi.getThreeNew();
-		}
+	}
 }
