@@ -1,7 +1,6 @@
 package com.netbuilder.controllers;
 
 import javax.enterprise.context.Dependent;
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 

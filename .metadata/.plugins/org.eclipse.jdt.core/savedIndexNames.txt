@@ -36,7 +36,6 @@ INDEX VERSION 1.127+C:\Users\gandrews\workspace\Blue Team\BlueGardens\.metadata\
 1369127545.index
 3167461448.index
 4039640666.index
-2255213272.index
 2943934462.index
 3348491194.index
 3450071810.index
