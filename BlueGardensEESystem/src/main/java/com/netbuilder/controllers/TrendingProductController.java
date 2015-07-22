@@ -16,8 +16,12 @@ public class TrendingProductController {
 	@Inject
 	private ProductsOfIntrest poi;
 	public ArrayList<Product> trendingProducts;
-	
+	public ArrayList<Product> catalogueTrending;
+
 	public TrendingProductController() {
 		trendingProducts = poi.getThreeTrending();
+		
+		//Get three products that are currently trending
+		catalogueTrending = poi.getThreeTrending();
 	}
 }

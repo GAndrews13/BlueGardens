@@ -16,8 +16,12 @@ public class SaleProductController {
 	@Inject
 	private ProductsOfIntrest poi;
 	public ArrayList<Product> saleProducts;
+	public ArrayList<Product> catalogueSale;
 	
 	public SaleProductController() {
 		saleProducts = poi.getFourSale();
+		
+		//Get three products that are one sale
+		catalogueSale = poi.getThreeSale();
 	}
 }
