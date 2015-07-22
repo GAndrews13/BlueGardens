@@ -11,9 +11,9 @@ import javax.validation.ValidationException;
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrderLine;
-import com.netbuilder.entitymanagers.ProductOrderLineManager;
+import com.netbuilder.entitymanagers.CustomerOrderLineManager;
 
-public class ProductOrderLineDB implements ProductOrderLineManager 
+public class ProductOrderLineDB implements CustomerOrderLineManager 
 {
 	@Inject
 	private PersistenceManager pm;
