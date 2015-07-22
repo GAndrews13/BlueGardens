@@ -2,21 +2,21 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
-import com.netbuilder.entities.CustomerOrderLine;
-import com.netbuilder.entitymanagers.CustomerOrderLineManager;
+import com.netbuilder.entities.ProductOrderLine;
+import com.netbuilder.entitymanagers.ProductOrderLineManager;
 /**
  * @author Jake
  *	Dummy class for testing the product order line
  */
-public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager 
+public class ProductOrderLineManagerDummy implements ProductOrderLineManager 
 {
 	/**
 	 * @author Jake
 	 *	product order line array instead of a database
 	 *  Create a new product order line
 	 */
-	ArrayList<CustomerOrderLine> pol_Array = new ArrayList<CustomerOrderLine>();
-	public void persistPOL(CustomerOrderLine pol)
+	ArrayList<ProductOrderLine> pol_Array = new ArrayList<ProductOrderLine>();
+	public void persistPOL(ProductOrderLine pol)
 	{
 		pol_Array.add(pol);
 	}
@@ -25,9 +25,9 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager
 	 * @author Jake
 	 *	Find a product order line using its ID
 	 */
-	public CustomerOrderLine findByPOLID(int pol_ID)
+	public ProductOrderLine findByPOLID(int pol_ID)
 	{
-		for(CustomerOrderLine p : pol_Array)
+		for(ProductOrderLine p : pol_Array)
 		{
 			if(p.getProductOrderLineID() == pol_ID)
 			{
@@ -41,9 +41,9 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager
 	 * @author Jake
 	 *	Find a product order line using the product ID
 	 */
-	public CustomerOrderLine findByCID(int productID)
+	public ProductOrderLine findByCID(int productID)
 	{
-		for(CustomerOrderLine p : pol_Array)
+		for(ProductOrderLine p : pol_Array)
 		{
 			if(p.getProductID() == productID)
 			{
@@ -57,10 +57,10 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager
 	 * @author Jake
 	 *	Return array of product order lines that are below a certain quantity
 	 */
-	public ArrayList<CustomerOrderLine> findByQuantity(int quantity)
+	public ArrayList<ProductOrderLine> findByQuantity(int quantity)
 	{
-		ArrayList<CustomerOrderLine> localLine = new ArrayList<CustomerOrderLine>();
-			for(CustomerOrderLine p : pol_Array)
+		ArrayList<ProductOrderLine> localLine = new ArrayList<ProductOrderLine>();
+			for(ProductOrderLine p : pol_Array)
 			{
 				if(p.getQuantity() <= quantity)
 				{
@@ -74,7 +74,7 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager
 	 * @author Jake
 	 *	Edit product order line with new information 
 	 */
-	public void updatePOL(CustomerOrderLine pol)
+	public void updatePOL(ProductOrderLine pol)
 	{
 		pol_Array.set(pol_Array.indexOf(pol), pol);
 	}

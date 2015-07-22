@@ -36,8 +36,8 @@ public class Basket {
 	@JoinColumn (name = "POLID", nullable = false)
 	@NotNull
 	@OneToMany
-	private ArrayList<CustomerOrderLine> ProductOrderLine;
-public Basket(int customerId, ArrayList<CustomerOrderLine> productOrderLine) {
+	private ArrayList<ProductOrderLine> ProductOrderLine;
+public Basket(int customerId, ArrayList<ProductOrderLine> productOrderLine) {
 	
 		this.customerId = customerId;
 		ProductOrderLine = productOrderLine;
@@ -53,10 +53,10 @@ public Basket(int customerId, ArrayList<CustomerOrderLine> productOrderLine) {
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
-	public ArrayList<CustomerOrderLine> getProductOrderLine() {
+	public ArrayList<ProductOrderLine> getProductOrderLine() {
 		return ProductOrderLine;
 	}
-	public void setProductOrderLine(ArrayList<CustomerOrderLine> productOrderLine) {
+	public void setProductOrderLine(ArrayList<ProductOrderLine> productOrderLine) {
 		ProductOrderLine = productOrderLine;
 	}
 }

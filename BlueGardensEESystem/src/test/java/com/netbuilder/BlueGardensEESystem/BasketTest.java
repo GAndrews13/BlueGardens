@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import com.netbuilder.entities.Basket;
-import com.netbuilder.entities.CustomerOrderLine;
+import com.netbuilder.entities.ProductOrderLine;
 
 public class BasketTest {
 	Basket b;
-	ArrayList<CustomerOrderLine> ol = new ArrayList<CustomerOrderLine>();
+	ArrayList<ProductOrderLine> ol = new ArrayList<ProductOrderLine>();
 		
 	public BasketTest() {
 		
-		ol.add(new CustomerOrderLine(1, 1, 1));
+		ol.add(new ProductOrderLine(1, 1, 1));
 		b= new Basket(1,ol);
 		assertNotNull(b);
 	}
