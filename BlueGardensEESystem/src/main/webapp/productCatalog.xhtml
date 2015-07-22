@@ -9,56 +9,6 @@
 	<ui:define name="pagetitle">
 		<h1>Product Catalog</h1>
 	</ui:define>
-<<<<<<< HEAD
-	
-<ui:define name="body">	
-	<div id = "productgrid">
-	<div class="section group">
-	<div class="col span_1_of_4">
-		Porousware<hr /> <br>
-		<!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" --> 
-		<div class="description">
-		
-		<img src="#{productcatalogController.pwProduct[0].getImageLink()}" style="float:left;width:128px;height:128px;">
-		<h2><h:outputLabel value = "#{productcatalogController.pwProducts[0].getProductName()}"/></h2>
- 		<h2><h:outputLabel value = "#{productcatalogController.pwProducts[0].getPrice()}"/></h2>
- 		<h2><h:outputLabel value = "#{productcatalogController.pwProducts[0].getFeatureOne()}"/></h2>
- 		
- 		<!--  Product Name <br> price £2.99 <br> Item info <br> -->
- 		</div>
-	</div>
-		<div class="col span_1_of_4">
-		Trending<hr /> <br>
-		<div class="description">
-		
-		<img src="#{TrendingProductController.TrendingProducts[0].getImageLink()}" style="float:left;width:128px;height:128px;">
-		<h2><h:outputLabel value = "#{TrendingProductController.catalogueTrending[0].getProductName()}"/></h2>
- 		<h2><h:outputLabel value = "#{TrendingProductController.catalogueTrending[0].getPrice()}"/></h2>
- 		<h2><h:outputLabel value = "#{TrendingProductController.catalogueTrending[0].getFeatureOne()}"/></h2>
- 		
- 		<!--  Product Name <br> price £2.99 <br> Item info <br> -->
- 		
- 		</div>
-	</div>
-		<div class="col span_1_of_4">
-		On Sale<hr /> <br>
-		<div class="description">
-		
-		<img src="#{SaleProductController.catalogueSale[0].getImageLink()}" style="float:left;width:128px;height:128px;">
-		
-		<h2><h:outputLabel value = "#{SaleProductController.catalogueSale[0].getProductName()}"/></h2>
- 		<h2><h:outputLabel value = "#{SaleProductController.catalogueSale[0].getPrice()}"/></h2>
- 		<h2><h:outputLabel value = "#{SaleProductController.catalogueSale[0].getFeatureOne()}"/></h2>
- 		
- 		<!--  Product Name <br> price £2.99 <br> Item info <br> -->
- 		</div>
-		</div>
-	</div>
-</div>
-
-
-=======
->>>>>>> 23132de841f2e492409cce2ab6cd7776843e712d
 
 	<ui:define name="body">
 		<div id="productgrid">
