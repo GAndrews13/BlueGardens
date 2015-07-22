@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Outlines the code that the system uses and the template it is based off of -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"      
+				xmlns:ui="http://java.sun.com/jsf/facelets"     
+				template="templates/template.xhtml">
+	<!-- Defines the title of the page using the header 1 tag -->
+	<ui:define name = "pagetitle">
+		<h1> ContactUs </h1>
+	</ui:define>
+	
+	<!-- Defines the title displayed on the page -->
+	<ui:define name="sectiontitle">
+		<h2> Contact Us </h2>
+	</ui:define>
+	
+	<!-- Contains the actual content of the page -->
+	<ui:define name="body">
+	<div id=" formtitle"><h1>Contact Us</h1></div>
+	<div id="form">	
+		<h:form>			
+			<h:panelGrid>
+				<h:outputLabel value="#{ContactController.errorMessage"/><br/>
+				<h:outputLabel value="name" for="customername"/><br/>
+				<h:inputText id="customername" value="#{ContactFormDetails.name}" maxlength="45" size="20"/><br/>
+				<br/>
+				<h:outputLabel value="email" for="customeremail"/><br/>
+				<h:inputSecret id="customeremail" value="#{ContactFormDetails.email}" maxlength="45" size="20"/><br/>
+				<br/>
+				<h:outputLabel value="message" for="customermessage"/><br/>
+				<h:inputSecret id="customermessage" value="#{ContactFormDetails.message}" maxlength="80" size="30"/><br/>
+				<f:facet name="loginsubmit">
+					<h:commandButton class="button" value="Send" action="#{ContactController.sendMessage}"/>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</div>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,108 @@
+<%@ page language="java" contentType="text/html; charset=ISO8859-1"     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix ="c" %>
+
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"      
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:f="http://java.sun.com/jsf/core"     
+				template="templates/template.xhtml">
+			
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	
+	<ui:define name = "pagetitle">
+		<h1> Product Catalog </h1>
+	</ui:define>
+	
+<ui:define name="body">	
+	<div id = "productgrid">
+	<div class="section group">
+	<div class="col span_1_of_4">
+		Seasonal<hr /> <br>
+		<!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" --> 
+		<div class="description">
+		
+		<img src="#{productController.product.getImageLink()}" style="float:left;width:128px;height:128px;">
+		<h2><h:outputLabel value = "#{productcatalogController.product.getProductSeasonalName()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getProductSeasonalPrice()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getSeasonalFeatureOne()}"/></h2>
+ 		
+ 		<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+ 		</div>
+	</div>
+		<div class="col span_1_of_4">
+		Trending<hr /> <br>
+		<div class="description">
+		
+		<img src="#{productController.product.getImageLink()}" style="float:left;width:128px;height:128px;">
+		<h2><h:outputLabel value = "#{productcatalogController.product.getTrendingProductName()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getTrendingProductPrice()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getTrendingFeatureOne()}"/></h2>
+ 		
+ 		<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+ 		
+ 		</div>
+	</div>
+		<div class="col span_1_of_4">
+		On Sale<hr /> <br>
+		<div class="description">
+		
+		<img src="#{productController.product.getImageLink()}" style="float:left;width:128px;height:128px;">
+		
+		<h2><h:outputLabel value = "#{productcatalogController.product.getSaleProductName()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getSaleProductPrice()}"/></h2>
+ 		<h2><h:outputLabel value = "#{productcatalogController.product.getSaleFeatureOne()}"/></h2>
+ 		
+ 		<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+ 		</div>
+		</div>
+	</div>
+</div>
+
+
+
+	<div class="page-wrap">
+		<div id="site-header">
+			<h1 id="logo">
+				<a href = ""><!--LOGO ADD--></a>
+			</h1>
+			<div id="navigation">
+				<ul class="menu">
+				  	<li> <img src="images/NB-Gardens.png" width=60px height=30px/> </li>
+				  	<li><a href="/home" class="active"><span>Home</span></a></li>
+				  	<li><a href="/services"><span>Services</span></a></li>
+				  	<li><a href="/about"><span>About</span></a></li>
+				  	<li><a href="/contact"><span>Contact</span></a></li>
+				  	<li><img src="images/basket.png" width=32px height=32px alt="Basket"/></li>
+				</ul>
+			</div>
+		</div>
+		<div id="contentHeader">
+		</div>
+		
+		<div class="content">
+			<div id="sidebarRight">
+				BLOG SECTION
+			</div>
+		</div> 
+	</div>
+
+	<footer class="site-footer">
+	  <div class="left">
+			<div>
+				<ul class="bottommenu">
+				  <li><a href="/home" class="active"><span>Home</span></a></li>
+				  <li><a href="/services"><span>Services</span></a></li>
+				  <li><a href="/about"><span>About</span></a></li>
+				  <li><a href="/contact"><span>Contact</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="center">
+			2015 NBGardens.
+			<a href="">Design by DelphiSoft Consulting</a> 
+		</div>
+	</footer>
+	</ui:define>
+</ui:composition>
