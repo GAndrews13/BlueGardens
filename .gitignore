@@ -3,7 +3,8 @@
 .metadata/
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-.classpath
+/BlueGardensEESystem.classpath
+/BlueGardensEESystem.project
 # Package Files #
 *.jar
 *.war
