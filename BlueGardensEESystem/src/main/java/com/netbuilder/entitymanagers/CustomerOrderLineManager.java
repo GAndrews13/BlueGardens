@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import com.netbuilder.entities.CustomerOrderLine;
 
-public interface ProductOrderLineManager 
+public interface CustomerOrderLineManager 
 {
 	/**
 	 * @author Jake

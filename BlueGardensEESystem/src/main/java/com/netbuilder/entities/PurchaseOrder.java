@@ -7,18 +7,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "PurchaseOrder")
-
+@NamedQueries({
+	@NamedQuery(name = PurchaseOrder.FIND_BY_ID, query = "SELECT p FROM PurchaseOrder p WHERE p.PurchaseOrderID = :id"),
+	@NamedQuery(name = PurchaseOrder.FIND_BY_SUPPLIERID, query = "SELECT p FROM PurchaseOrder p WHERE p.SupplierID = :supid"),
+	@NamedQuery(name = PurchaseOrder.FIND_BY_DELIVERY_LOCATION, query = "SELECT p FROM PurchaseOrder p WHERE p.DeliveryLocation = :dl"),
+})
 /**
  * @author David Ogbonnah
  * This entity is used for generating an purchase order
  **/
 public class PurchaseOrder {
+	
+	public static final String FIND_BY_ID = "PurchaseOrder.findById";
+	public static final String FIND_BY_SUPPLIERID = "Product.findBySupplierId";
+	public static final String FIND_BY_DELIVERY_LOCATION = "Product.findByDeliveryLocation";
 
 	@Id
 	@Column(name = "POID", nullable = false)
@@ -26,7 +36,7 @@ public class PurchaseOrder {
 	@NotNull
 	private int id;
 	@OneToMany
-	@Column(name = "POLID", nullable = false)
+	@Column(name = "COLID", nullable = false)
 	@NotNull
 	private ArrayList<CustomerOrderLine> pol;
 	@Column(name = "DeliveryLocation", nullable = false)

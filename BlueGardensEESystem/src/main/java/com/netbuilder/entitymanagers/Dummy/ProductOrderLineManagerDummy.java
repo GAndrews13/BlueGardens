@@ -3,12 +3,12 @@ package com.netbuilder.entitymanagers.Dummy;
 import java.util.ArrayList;
 
 import com.netbuilder.entities.CustomerOrderLine;
-import com.netbuilder.entitymanagers.ProductOrderLineManager;
+import com.netbuilder.entitymanagers.CustomerOrderLineManager;
 /**
  * @author Jake
  *	Dummy class for testing the product order line
  */
-public class ProductOrderLineManagerDummy implements ProductOrderLineManager 
+public class ProductOrderLineManagerDummy implements CustomerOrderLineManager 
 {
 	/**
 	 * @author Jake
