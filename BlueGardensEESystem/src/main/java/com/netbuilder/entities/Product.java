@@ -105,7 +105,7 @@ public class Product {
 	@NotNull
 	private boolean isTrending;
 	/**
-	 * The imagelink above is the last implementation for the variables
+	 * The isTrending above is the last implementation for the variables
 	 * @author lczornyj
 	 */
 	

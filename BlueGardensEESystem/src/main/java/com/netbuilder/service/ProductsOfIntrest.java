@@ -1,5 +1,11 @@
 package com.netbuilder.service;
-
+/**
+ * @author lczornyj
+ * 
+ * This is the products of interest class inside the service layer.
+ * This will contain all the logic behind selecting which products will be displayed on specific pages.
+ * 
+ */
 import java.util.ArrayList;
 
 import com.netbuilder.entities.Product;

@@ -1,5 +1,10 @@
 package com.netbuilder.controllers;
-
+/**
+ * @author lczornyj
+ * 
+ * Implemented new product controller. This controller will be used in the service layer to determine the
+ * products used throughout the webpage based on the logic in the service layer.
+ */
 import java.util.ArrayList;
 
 import javax.enterprise.context.Dependent;
