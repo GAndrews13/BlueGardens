@@ -13,6 +13,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.netbuilder.BlueGardensEESystem.DeliveryLocation;
+import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
+
 @Entity
 @Table (name = "PurchaseOrder")
 @NamedQueries({
@@ -45,6 +48,8 @@ public class PurchaseOrder {
 	@Column(name = "SupplierID", nullable = false)
 	@NotNull
 	private Supplier supp;
+	
+	private DeliveryStatus status;
 	
 	/**
 	 * This is the preferred constructor implementation as it forces us to specify all of the values that are not nullable

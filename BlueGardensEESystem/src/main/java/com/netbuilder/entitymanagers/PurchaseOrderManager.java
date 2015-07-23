@@ -2,7 +2,7 @@ package com.netbuilder.entitymanagers;
 
 import java.util.ArrayList;
 
-import com.netbuilder.entities.DeliveryLocation;
+import com.netbuilder.BlueGardensEESystem.DeliveryLocation;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entities.Supplier;
 

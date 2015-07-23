@@ -1,4 +1,4 @@
-package com.netbuilder.entities;
+package com.netbuilder.BlueGardensEESystem;
 
 public enum DeliveryLocation {
 
