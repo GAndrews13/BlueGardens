@@ -27,8 +27,8 @@ public class CustomerOrderTest {
 		assertEquals(customerOrder.getCustomer(), null);
 	}	
 	
-	@Test public void testgetPOLID() {
-		assertEquals(customerOrder.getProductOrderLine(), null);
+	@Test public void testgetPOLIDS() {
+		assertEquals(customerOrder.getProductOrderLines(), null);
 	}	
 	
 	@Test public void testgetWorkerId() {
