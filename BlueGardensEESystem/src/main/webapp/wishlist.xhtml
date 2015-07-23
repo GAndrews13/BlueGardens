@@ -21,7 +21,14 @@
 		<div>
 			<t:dataList value= "#{wishListController.products}" var="product">
 				<h:outputLabel class="productname" value="#{product.getProductName()"/>
+				<h:outputLabel class="productimage" value="#{product.getImageLink()"/>
 				<h:outputLabel class="productprice" value="#{product.getPrice()"/>
+				<br/>
+				<h:outputLabel class="productfeature1" value="#{product.getFeatureOne()"/>
+				<h:outputLabel class="productfeature2" value="#{product.getFeatureTwo()"/>
+				<h:outputLabel class="productfeature3" value="#{product.getFeatureThree()"/>
+				<h:outputLabel class="productfeature4" value="#{product.getFeatureFour()"/>
+				<h:outputLabel class="productfeature5" value="#{product.getFeatureFive()"/>				
 				<br/><br/>
 			</t:dataList>
 		</div>
