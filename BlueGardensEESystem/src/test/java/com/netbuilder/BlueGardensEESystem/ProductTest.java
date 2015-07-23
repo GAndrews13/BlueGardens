@@ -31,6 +31,11 @@ public class ProductTest {
 	double testCost = 10.00;  
 	double testCostError = 15.00;
 	
+	/**
+	 * Added tests for whether a product is in sale along with the features and trending
+	 * @author lczornyj
+	 */
+	
 	boolean testSale = false;
 	boolean testSaleError = false;
 	
