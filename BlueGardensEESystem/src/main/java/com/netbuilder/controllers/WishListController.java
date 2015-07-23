@@ -16,7 +16,7 @@ public class WishListController {
 	private WishListManager wishListManager;
 	public ArrayList<Product> products = new ArrayList<Product>();
 	
-	public WishListController(){
+	public WishListController(int customerID){
 		//get logged in user id to  sent to wishlist manager
 		products = wishListManager.findForUser(customerID);
 	}

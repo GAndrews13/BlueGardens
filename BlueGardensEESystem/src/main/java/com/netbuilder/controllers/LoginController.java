@@ -35,4 +35,9 @@ public class LoginController {
 		ud = null;
 		return "home";
 	}
+	
+	public String loggedInUserName()
+	{
+		return ud.getUsername();
+	}
 }
