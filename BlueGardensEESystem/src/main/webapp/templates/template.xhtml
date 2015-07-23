@@ -1,0 +1,96 @@
+<!-- Author: GAndrews-->
+<!DOCTYPE html>
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html">
+	<header>
+	</header>
+	<meta charset="ISO-8859-1"/>
+	<link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
+	<title><ui:insert name = "pagetitle"/></title>
+	<body>
+		<div class="site-header">
+			<table>
+				<tr>
+					<th rowspan="2">
+						<!--<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/>  --> 
+					</th>
+					<td width="80%">
+						
+					</td>
+					<td>
+						<img src="" alt="Login"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%">
+						<ul class="menu">
+							<li><a href="../landingPage.xhtml" class="active"><span>Home</span></a></li>
+							<li><a href="/services"><span>Services</span></a></li>
+							<li><a href="/about"><span>About</span></a></li>
+							<li><a href="/contact"><span>Contact</span></a></li>
+						</ul>
+					</td>
+					<td>
+						<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">		  		
+		   					<input type="hidden" name="business" value="garethedwardfrankandrews@hotmail.com"/>
+			    					<input type="hidden" name="cmd" value="_cart"/>
+		    				<input type="hidden" name="display" value="1"/>
+		   					<input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" alt="PayPal - The safer, easier way to pay online"/>
+		   					<img alt="" border="0" width="1" height="1"     src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="page-wrap">
+			<table>
+				<tr>
+					<td width = "120%">
+						<div id="contentHeader">
+							<ui:insert name="sectiontitle"/>
+						</div>
+						<div class="content">
+							<form action="http:www.google.co.uk">
+						<fieldset>
+							<legend>Log In:</legend>
+							<br/>
+							Username or Email:
+							<input type="text" name="username" value="Enter a Username or Email"/>
+							<br/><br/>
+							Password:
+							<input type="text" name="password" value="Enter a password"/>
+							<br/><br/>
+							<input type="submit" value="Submit"/>
+						</fieldset>
+						</form>
+							<ui:insert name="body"/>
+						</div>
+					</td>
+					<td id ="sidebarRight">
+						<p>
+							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa yea
+						</p>
+					</td>
+				</tr>
+			</table>			
+		</div>
+		
+		<footer class="site-footer">
+		  <div>
+				<div>
+					<ul class="bottommenu">
+						<li><a href="../aboutUs.xhtml"><span>About Us</span></a></li>
+					  	<li><a href="../frequentlyAskedQuestions.xhtml"><span>FAQ</span></a></li>
+					  	<li><a href="../contactUs.xhtml"><span>Contact Us</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="center">
+				2015 NBGardens.
+				<a href="">Design by DelphiSoft Consulting</a> 
+			</div>
+		</footer>
+	</body>
+</html>
