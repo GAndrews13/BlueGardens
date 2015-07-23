@@ -1,5 +1,10 @@
 package com.netbuilder.controllers;
-
+/**
+ * @author lczornyj
+ * 
+ * This is the trending products controller which is used in the landing page.
+ * The logic used behind this method can be found in the service layer.
+ */
 import java.util.ArrayList;
 
 import javax.enterprise.context.Dependent;

@@ -171,7 +171,10 @@ public class ProductManagerDB implements ProductManager {
 		
 		return p;
 	}
-
+	/**
+	 * Added finding by trending method
+	 * @author lczornyj
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Product> findByTrending(boolean isTrending) {
 		ArrayList<Product> p = new ArrayList<Product>();

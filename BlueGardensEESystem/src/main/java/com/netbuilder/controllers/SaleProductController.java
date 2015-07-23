@@ -1,5 +1,9 @@
 package com.netbuilder.controllers;
-
+/**
+ * @author lczornyj
+ * 
+ * This is the sale products controller, this contains the sale items used in the landing page.
+ */
 import java.util.ArrayList;
 
 import javax.enterprise.context.Dependent;

@@ -191,7 +191,10 @@ ArrayList<Product> products = new ArrayList<Product>();
 		pm.CloseEntityManager(em);
 		return list;
 	}
-
+	/**
+	 * Added method for dummy connection to find whether or not  product is trending
+	 * @author lczornyj
+	 */
 	public ArrayList<Product> findByTrending(boolean isTrending) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
