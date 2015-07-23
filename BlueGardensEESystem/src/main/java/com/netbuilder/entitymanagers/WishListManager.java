@@ -7,7 +7,7 @@ import com.netbuilder.entities.Wishlist;
 
 /**
  * 
- * @author gandrews
+ * @author Anca
  *
  */
 public interface WishListManager {

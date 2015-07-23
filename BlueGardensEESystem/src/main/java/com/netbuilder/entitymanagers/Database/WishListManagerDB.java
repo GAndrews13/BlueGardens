@@ -15,7 +15,7 @@ import com.netbuilder.entitymanagers.WishListManager;
 
 /**
  * 
- * @author gandrews
+ * @author Anca
  *	Interfaces the database and the Wishlist entity
  */
 @Alternative

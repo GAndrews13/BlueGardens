@@ -1,15 +1,16 @@
 package com.netbuilder.controllers;
 
 import java.util.ArrayList;
-
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import com.netbuilder.entities.Product;
 import com.netbuilder.service.WishlistForUser;
 import com.netbuilder.util.UserDetails;
 
+/**
+ * @author abalagel
+ */
 @Named
 @Dependent
 public class WishListController {
