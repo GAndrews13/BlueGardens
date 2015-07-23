@@ -94,4 +94,16 @@ public class ProductOrderLineDB implements ProductOrderLineManager
 		em.merge(pol);
 		pm.CloseEntityManager(em);
 	}
+	
+	/**
+	 * @author Jake
+	 *	Return all product order lines
+	 */
+	public ArrayList <ProductOrderLine> findall()
+	{
+		EntityManager em = pm.CreateEntityManager();
+		ArrayList<ProductOrderLine> POL = (ArrayList<ProductOrderLine>) em.createQuery("select * from ProductOrderLine a", ProductOrderLine.class).getResultList(); 
+		pm.CloseEntityManager(em); 
+		return POL; 
+	}
 }

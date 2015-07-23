@@ -39,6 +39,12 @@ public interface ProductOrderLineManager
 	 */
 	public void updatePOL(ProductOrderLine pol);
 	
+	/**
+	 * @author Jake
+	 *	Return all product order lines
+	 */
+	public ArrayList <ProductOrderLine> findall();
+	
 	
 
 }

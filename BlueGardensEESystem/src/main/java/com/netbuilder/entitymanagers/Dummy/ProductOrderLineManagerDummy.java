@@ -81,4 +81,13 @@ public class ProductOrderLineManagerDummy implements ProductOrderLineManager
 	{
 		pol_Array.set(pol_Array.indexOf(pol), pol);
 	}
+	
+	/**
+	 * @author Jake
+	 *	Return all product order lines
+	 */
+	public ArrayList <ProductOrderLine> findall()
+	{
+		return pol_Array;
+	}
 }
