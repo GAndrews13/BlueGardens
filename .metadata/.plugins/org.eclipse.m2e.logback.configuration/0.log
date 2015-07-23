@@ -3106,3 +3106,78 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: unexpected 
 2015-07-22 17:32:04,564 [Worker-120] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2015-07-22 17:32:04,564 [Worker-120] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2015-07-22 17:32:04,564 [Worker-120] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\Blue Team\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:33:45,754 [Worker-18] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.netbuilder:BlueGardensEESystem:0.0.1 @ C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\pom.xml.
+2015-07-23 13:33:55,385 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.maven.plugins:maven-complier-plugin:jar:3.1 is missing, no dependency information available
+2015-07-23 13:33:55,388 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-complier-plugin:3.1: Plugin org.apache.maven.plugins:maven-complier-plugin:3.1 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-complier-plugin:jar:3.1 in http://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced
+2015-07-23 13:33:55,405 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.maven.plugins:maven-complier-plugin:jar:3.1 is missing, no dependency information available
+2015-07-23 13:33:55,407 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-complier-plugin:3.1: Plugin org.apache.maven.plugins:maven-complier-plugin:3.1 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-complier-plugin:jar:3.1 in http://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced
+2015-07-23 13:33:56,200 [Worker-18] ERROR o.e.m.c.i.p.ProjectConfigurationManager - Failed while installing JAX-RS (REST Web Services) 2.0.
+org.eclipse.wst.common.project.facet.core.FacetedProjectFrameworkException: Failed while installing JAX-RS (REST Web Services) 2.0.
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.callDelegate(FacetedProject.java:1507) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modifyInternal(FacetedProject.java:441) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChangesInternal(FacetedProject.java:1181) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.access$2(FacetedProject.java:1117) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject$1.run(FacetedProject.java:324) ~[na:na]
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313) ~[org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modify(FacetedProject.java:339) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.installProjectFacet(FacetedProject.java:255) ~[na:na]
+	at org.eclipse.m2e.wtp.jaxrs.internal.configurators.JaxRsProjectConfigurator.installJaxRsFacet(JaxRsProjectConfigurator.java:132) ~[na:na]
+	at org.eclipse.m2e.wtp.jaxrs.internal.configurators.JaxRsProjectConfigurator.configureInternal(JaxRsProjectConfigurator.java:94) ~[na:na]
+	at org.eclipse.m2e.wtp.jaxrs.internal.configurators.JaxRsProjectConfigurator.mavenProjectChanged(JaxRsProjectConfigurator.java:180) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.mavenProjectChanged(ProjectConfigurationManager.java:959) ~[org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:747) [org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:876) [org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob$1.call(ProjectRegistryRefreshJob.java:104) [org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob$1.call(ProjectRegistryRefreshJob.java:1) [org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1348) [org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:87) [org.eclipse.m2e.core_1.5.1.20150109-1820.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.1.v20141014-1248.jar:na]
+Caused by: java.lang.RuntimeException: org.osgi.service.prefs.BackingStoreException: org.xml.sax.SAXParseException; lineNumber: 7; columnNumber: 2; The content of elements must consist of well-formed character data or markup.
+	at org.eclipse.jst.common.project.facet.core.libprov.internal.LibraryProviderFrameworkImpl.setCurrentProvider(LibraryProviderFrameworkImpl.java:224) ~[na:na]
+	at org.eclipse.jst.common.project.facet.core.libprov.LibraryInstallDelegate.execute(LibraryInstallDelegate.java:597) ~[na:na]
+	at org.eclipse.jst.ws.jaxrs.core.internal.project.facet.JAXRSFacetInstallDelegate.execute(JAXRSFacetInstallDelegate.java:146) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.callDelegate(FacetedProject.java:1477) ~[na:na]
+	... 21 common frames omitted
+Caused by: org.osgi.service.prefs.BackingStoreException: org.xml.sax.SAXParseException; lineNumber: 7; columnNumber: 2; The content of elements must consist of well-formed character data or markup.
+	at org.eclipse.wst.common.project.facet.core.internal.ProjectFacetPreferencesGroup.<init>(ProjectFacetPreferencesGroup.java:92) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl.getPreferences(FacetedProjectFrameworkImpl.java:1272) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.getPreferences(FacetedProject.java:1362) ~[na:na]
+	at org.eclipse.jst.common.project.facet.core.libprov.internal.LibraryProviderFrameworkImpl.setCurrentProvider(LibraryProviderFrameworkImpl.java:209) ~[na:na]
+	... 24 common frames omitted
+Caused by: org.eclipse.wst.common.project.facet.core.util.internal.XmlParseException: org.xml.sax.SAXParseException; lineNumber: 7; columnNumber: 2; The content of elements must consist of well-formed character data or markup.
+	at org.eclipse.wst.common.project.facet.core.util.internal.DomUtil.doc(DomUtil.java:63) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.util.internal.DomUtil.root(DomUtil.java:131) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.ProjectFacetPreferencesGroup.<init>(ProjectFacetPreferencesGroup.java:80) ~[na:na]
+	... 27 common frames omitted
+Caused by: org.xml.sax.SAXParseException: The content of elements must consist of well-formed character data or markup.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source) ~[na:1.8.0_05]
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source) ~[na:1.8.0_05]
+	at org.eclipse.wst.common.project.facet.core.util.internal.DomUtil.doc(DomUtil.java:55) ~[na:na]
+	... 29 common frames omitted
+2015-07-23 13:33:57,432 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:33:57,432 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-23 13:33:57,432 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:33:57,432 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:33:57,447 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:33:57,447 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-23 13:33:57,463 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:33:57,463 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:33:59,045 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:33:59,045 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-23 13:33:59,045 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:33:59,045 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:33:59,061 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:33:59,061 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-23 13:33:59,061 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:33:59,061 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:35:10,660 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:35:10,660 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-23 13:35:10,660 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:35:10,660 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:35:10,675 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:35:10,675 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-07-23 13:35:10,675 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:35:10,675 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources

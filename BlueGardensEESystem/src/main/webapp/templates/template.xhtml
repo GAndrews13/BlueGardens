@@ -7,7 +7,40 @@
 	</header>
 	<meta charset="ISO-8859-1"/>
 	<link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
+	<!--  This is the ecommerce CSS -->
+	<link rel="stylesheet" type="text/css" href="../resources/css/qunit.css"/>
+	
+	<!-- Javascript -->
+	<script>
+	/*<![CDATA[*/
+		
+		if( QUnit.urlParams.lib && QUnit.urlParams.ver ){
+			document.write('<script src="https://ajax.googleapis.com/ajax/libs/'+ 
+						QUnit.urlParams.lib + '/' + 
+						QUnit.urlParams.ver + '/' + 
+						QUnit.urlParams.lib + '.js"><\/script>');
+		} else {
+			document.write('<script src="../resources/javascript/jquery.1.6.1.min.js"><\/script>');
+		}
+		
+		if( QUnit.urlParams.commit ){
+			document.write('<script src="../resources/javascript/get-raw-javascript.php?file=https://raw.github.com/wojodesign/simplecart-js/'+ QUnit.urlParams.commit +'/simpleCart.js"><\/script>');
+			document.write('<script src="../resources/javascript/get-raw-javascript.php?file=https://raw.github.com/wojodesign/simplecart-js/'+ QUnit.urlParams.commit +'/test/test.core.js"><\/script>');
+		} else {
+			document.write('<script src="../simpleCart.js"><\/script>');
+			document.write('<script type="text/javascript" src="test.core.js"><\/script>');
+		}
+		/*]]>*/
+	</script>
+	<script src="http://swarm.simplecartjs.com/js/inject.js"></script>
+	<script src="../resources/javascript/qunit.js"></script>
+	<script src="../resources/javascript/simpleCart.js"></script>
+	<script type="text/javascript" src="../resources/javascript/test.core.js"></script>
+	<script src="../resources/javascript/jquery.1.6.1.min.js"></script>
+	<!-- End of Javascript -->
+	
 	<title><ui:insert name = "pagetitle"/></title>
+	
 	<body>
 		<div class="site-header">
 			<table>
@@ -32,13 +65,14 @@
 						</ul>
 					</td>
 					<td>
-						<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">		  		
-		   					<input type="hidden" name="business" value="garethedwardfrankandrews@hotmail.com"/>
-			    					<input type="hidden" name="cmd" value="_cart"/>
-		    				<input type="hidden" name="display" value="1"/>
-		   					<input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" alt="PayPal - The safer, easier way to pay online"/>
-		   					<img alt="" border="0" width="1" height="1"     src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
-						</form>
+						<div class="cartInfo">
+							<a href="#" onclick="Popup.show(null,null,null,{'content':'This DIV was created dynamically!',
+                                                'width':200,'height':200,
+                                                'style':{'border':'1px solid black','backgroundColor':'cyan'}});return false;">Click Here To Show DIV</a>
+							Basket:<span id="simpleCart_total" class="simpleCart_total"> 0.00</span>
+							<br/>
+							<a href="javascript:;" class="simpleCart_empty">Empty your basket</a>
+						</div>
 					</td>
 				</tr>
 			</table>
@@ -52,25 +86,21 @@
 							<ui:insert name="sectiontitle"/>
 						</div>
 						<div class="content">
-							<form action="http:www.google.co.uk">
-						<fieldset>
-							<legend>Log In:</legend>
-							<br/>
-							Username or Email:
-							<input type="text" name="username" value="Enter a Username or Email"/>
-							<br/><br/>
-							Password:
-							<input type="text" name="password" value="Enter a password"/>
-							<br/><br/>
-							<input type="submit" value="Submit"/>
-						</fieldset>
-						</form>
 							<ui:insert name="body"/>
+								<h2>Baby Lion</h2>
+								<div>1</div>
+								<a href="javascript:;" onclick="simpleCart.add({name:'baby lion', price: 1.00,size:'tiny',thumb:'e.png'});" >add to cart</a>
+								<h2>Baby Giraffe (No Jake)</h2>
+								<div>2</div>
+								<a href="javascript:;" onclick="simpleCart.add({name:'baby giraffe', price: 2.00,size:'tiny',thumb:'e.png'});" >add to cart</a>
+								<h2>Baby Meerkat</h2>
+								<div>10</div>
+								<a href="javascript:;" onclick="simpleCart.add({name:'baby meerket', price: 10.00,size:'tiny',thumb:'e.png'});" >add to cart</a>
 						</div>
 					</td>
 					<td id ="sidebarRight">
 						<p>
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa yea
+						
 						</p>
 					</td>
 				</tr>
