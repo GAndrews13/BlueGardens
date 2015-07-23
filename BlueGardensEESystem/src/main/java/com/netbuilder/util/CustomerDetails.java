@@ -1,5 +1,13 @@
 package com.netbuilder.util;
 
+/**
+ * 
+ * @author jmander
+ * 
+ * Utility used to capture the information related to registering a customer  
+ *
+ **/
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
