@@ -29,5 +29,5 @@ public interface CustomerOrderManager {
        public ArrayList<CustomerOrder> findByCustomer(Customer customer);
        public ArrayList<CustomerOrder> findByWorker(WarehouseWorker worker);
        public ArrayList<CustomerOrder> findByDeliveryStatus(DeliveryStatus status);
-       
+              
 }

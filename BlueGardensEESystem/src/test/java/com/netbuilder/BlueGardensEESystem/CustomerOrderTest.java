@@ -35,4 +35,4 @@ public class CustomerOrderTest {
 		assertEquals(customerOrder.getWorker(), null);
 	}	
 	
-}
+	}

@@ -139,5 +139,5 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		pm.CloseEntityManager(em);
 		return co;
     }
-
+    
 }
