@@ -3181,3 +3181,19 @@ Caused by: org.xml.sax.SAXParseException: The content of elements must consist o
 2015-07-23 13:35:10,675 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2015-07-23 13:35:10,675 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2015-07-23 13:35:10,675 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:36:09,499 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:36:09,499 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-23 13:36:09,499 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:36:09,499 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:36:09,515 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:36:09,515 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-23 13:36:09,531 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:36:09,531 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:36:56,945 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:36:56,945 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-23 13:36:56,945 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:36:56,945 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
+2015-07-23 13:36:56,945 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:36:56,945 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-23 13:36:56,945 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-07-23 13:36:56,945 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gandrews\workspace\BlueGroup\BlueGardens\BlueGardensEESystem\src\test\resources
