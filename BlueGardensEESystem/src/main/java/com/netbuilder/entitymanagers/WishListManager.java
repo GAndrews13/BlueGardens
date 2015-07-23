@@ -23,4 +23,5 @@ public interface WishListManager {
 	public ArrayList<Product> findProductByName (String inName);
 	public Product findProductByID (int inID);
 	public ArrayList<Product> findAll();
+	public ArrayList<Product> findForUser(int customerID);
 }
