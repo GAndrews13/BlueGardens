@@ -4,8 +4,8 @@
 				xmlns:h="http://java.sun.com/jsf/html"
 				xmlns:ui="http://java.sun.com/jsf/facelets"
 				xmlns:t="http://myfaces.apache.org/tomahawk"
-				template="templates/template.html"
-				xmlns:c="http://java.sun.com/jsf/core">
+				template="templates/template.html">
+				
 	<!-- Defines the title of the page using the header 1 tag -->
 	<ui:define name="pagetitle">
 		<h1>WishList</h1>
@@ -19,22 +19,19 @@
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">		
 		<div>
-			<c:forEach var="customer" items="#{CustomerRegistrationController.customers}">
-				<c:if customer = "#{customers.getCustomerID()}"> 
-					<t:dataList value= "#{wishListController.products}" var="product">
-						<h:outputLabel class="productname" value="#{product.getProductName()}"/>
-						<h:outputLabel class="productimage" value="#{product.getImageLink()}"/>
-						<h:outputLabel class="productprice" value="#{product.getPrice()}"/>
-						<br/>
-						<h:outputLabel value="Product Description"/>
-						<h:outputLabel class="productfeature1" value="#{product.getFeatureOne()}"/>
-						<h:outputLabel class="productfeature2" value="#{product.getFeatureTwo()}"/>
-						<h:outputLabel class="productfeature3" value="#{product.getFeatureThree()}"/>
-						<h:outputLabel class="productfeature4" value="#{product.getFeatureFour()}"/>
-						<h:outputLabel class="productfeature5" value="#{product.getFeatureFive()}"/>				
-						<br/><br/>
-					</t:dataList>
-				</c:if>
+			<t:dataList value= "#{wishListController.products}" var="product">
+				<h:outputLabel class="productname" value="#{product.getProductName()}"/>
+				<h:outputLabel class="productimage" value="#{product.getImageLink()}"/>
+				<h:outputLabel class="productprice" value="#{product.getPrice()}"/>
+				<br/>
+				<h:outputLabel value="Product Description"/>
+				<h:outputLabel class="productfeature1" value="#{product.getFeatureOne()}"/>
+				<h:outputLabel class="productfeature2" value="#{product.getFeatureTwo()}"/>
+				<h:outputLabel class="productfeature3" value="#{product.getFeatureThree()}"/>
+				<h:outputLabel class="productfeature4" value="#{product.getFeatureFour()}"/>
+				<h:outputLabel class="productfeature5" value="#{product.getFeatureFive()}"/>				
+				<br/><br/>
+			</t:dataList>				
 		</div>
 	</ui:define>
 </ui:composition>

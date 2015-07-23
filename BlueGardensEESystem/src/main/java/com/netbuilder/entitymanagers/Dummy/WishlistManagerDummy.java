@@ -124,5 +124,24 @@ Wishlist wish = new Wishlist();
 		
 		return pr;
 	}
+	
+	public ArrayList<Product> findForUser(int customerID) {
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+		
+		Product pr = null;
+		for(Product p : wish.getProducts())
+		{
+			if(p.getCustomerID() == customerID)
+			{
+				pr = p;
+				break;
+			}
+		}
+		
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return pr;
+	}
 
 }

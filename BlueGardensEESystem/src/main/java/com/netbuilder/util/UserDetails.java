@@ -1,5 +1,5 @@
 package com.netbuilder.util;
-util
+
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 
