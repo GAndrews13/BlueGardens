@@ -64,9 +64,49 @@ Show products that are: <br>
 </form> 
 </div> 
  </div>
-
 		</div> 
 	</div>
+	
+	<div id="productgrid">
+			<div class="section group">
+				<div class="col span_1_of_4">
+					Result 1
+					<hr />
+					<br> <!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" -->
+					<div class="description">
+						<img src="#{SearchController.pResult.getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{SearchController.pResult.getProductSeasonalName()}" /></h2>
+						<h2><h:outputLabel value="#{SearchController.pResult.getProductSeasonalPrice()}" /></h2>
+						<h2><h:outputLabel value="#{SearchController.pResult.getSeasonalFeatureOne()}" /></h2>
+						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+					</div>
+				</div>
+				<div class="col span_1_of_4">
+					Result 2
+					<hr />
+					<br/>
+					<div class="description">
+						<img src="#{SearchController.results[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{SearchController.results[1].getTrendingProductName()}" /></h2>
+						<h2><h:outputLabel value="#{SearchController.results[1].getTrendingProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{SearchController.results[1].getTrendingFeatureOne()}" /></h2>
+						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+					</div>
+				</div>
+				<div class="col span_1_of_4">
+					Result 3
+					<hr />
+					<br>
+					<div class="description">
+						<img src="#{SearchController.results[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{SearchController.results[2].getSaleProductName()}" /></h2>
+						<h2><h:outputLabel value="#{SearchController.results[2].getSaleProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{SearchController.results[2].getSaleFeatureOne()}" /></h2>
+						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+					</div>
+				</div>
+			</div>
+		</div>
 
 	<footer class="site-footer">
 	  <div class="left">
