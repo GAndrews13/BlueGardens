@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
 
+import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.WarehouseWorker;
@@ -97,5 +98,17 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
        		}
        		return list;
        };
+       
+       public ArrayList<CustomerOrder> findByDeliveryStatus(DeliveryStatus status){
+     		ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
+       		for(CustomerOrder co : customerOrders)
+       		{
+       			if(co.getStatus() == status)
+       			{
+       				list.add(co);
+       			}
+       		}
+       		return list;
+       }
        
 }

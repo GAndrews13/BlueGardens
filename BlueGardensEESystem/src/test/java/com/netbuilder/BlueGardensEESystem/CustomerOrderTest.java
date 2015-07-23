@@ -18,7 +18,7 @@ public class CustomerOrderTest {
 	CustomerOrder customerOrder;
 
 	public CustomerOrderTest(){
-		customerOrder = new CustomerOrder(true, 01245, "1st Class", null, null, null);
+		customerOrder = new CustomerOrder(true, 01245, "1st Class", null, null, null, DeliveryStatus.DELIVERED);
 		assertNotNull(customerOrder.getTrackingID());
 		
 	}

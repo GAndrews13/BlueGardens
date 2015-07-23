@@ -2,6 +2,7 @@ package com.netbuilder.entitymanagers;
 
 import java.util.ArrayList;
 
+import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.WarehouseWorker;
@@ -27,5 +28,6 @@ public interface CustomerOrderManager {
        public ArrayList<CustomerOrder> findByDeliveryType(String deliveryType);
        public ArrayList<CustomerOrder> findByCustomer(Customer customer);
        public ArrayList<CustomerOrder> findByWorker(WarehouseWorker worker);
+       public ArrayList<CustomerOrder> findByDeliveryStatus(DeliveryStatus status);
        
 }

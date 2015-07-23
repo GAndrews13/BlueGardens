@@ -8,6 +8,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.validation.ValidationException;
 
+import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
@@ -27,6 +28,7 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 	
 	@Inject
 	private PersistenceManager pm;
+    ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
 
 	public void persistCustomerOrder(CustomerOrder customerOrder) {
 		EntityManager em = pm.CreateEntityManager();
@@ -125,5 +127,17 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		pm.CloseEntityManager(em);
 		return co;
 	}
+	
+    public ArrayList<CustomerOrder> findByDeliveryStatus(DeliveryStatus status){
+		ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
+		EntityManager em = pm.CreateEntityManager();
+		em.getTransaction().begin();
+
+		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE DeliveryStatus = status ",CustomerOrder.class).getResultList();
+		
+		em.getTransaction().commit();
+		pm.CloseEntityManager(em);
+		return co;
+    }
 
 }

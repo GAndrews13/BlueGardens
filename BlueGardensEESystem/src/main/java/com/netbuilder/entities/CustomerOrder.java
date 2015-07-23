@@ -14,6 +14,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
 
 /**
  * 
@@ -48,13 +49,14 @@ public class CustomerOrder {
 	
 	public CustomerOrder(boolean isAssigned, int trackingID,
 			String deliveryType, Customer customer, ArrayList<ProductOrderLine> productOrderLine,
-			WarehouseWorker worker) {
+			WarehouseWorker worker, DeliveryStatus status) {
 		this.isAssigned = isAssigned;
 		this.trackingID = trackingID;
 		this.deliveryType = deliveryType;
 		this.customer = customer;
 		this.productOrderLine = productOrderLine;
 		this.worker = worker;
+		this.status = status;
 	}
 
 
@@ -94,6 +96,10 @@ public class CustomerOrder {
 	@NotNull
 	private WarehouseWorker worker;
 	
+	@Column(name = "DeliveryStatus", nullable = false)
+	@NotNull
+	private DeliveryStatus status;
+	
 	public int getCustomerOrderID() {
 		return customerOrderID;
 	}
@@ -131,5 +137,13 @@ public class CustomerOrder {
 	
 	public WarehouseWorker getWorker() {
 		return worker;
+	}
+	
+	public DeliveryStatus getStatus(){
+		return status;
+	}
+	
+	public void setStatus(DeliveryStatus status){
+		 this.status= status;
 	}
 }
