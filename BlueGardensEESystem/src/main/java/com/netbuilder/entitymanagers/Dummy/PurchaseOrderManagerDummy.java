@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
 
-import com.netbuilder.entities.DeliveryLocation;
+import com.netbuilder.BlueGardensEESystem.DeliveryLocation;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entities.Supplier;
 import com.netbuilder.entitymanagers.PurchaseOrderManager;
@@ -56,6 +56,10 @@ public class PurchaseOrderManagerDummy implements PurchaseOrderManager
 			if(po1.getID() == id) poInst = po1;
 		}
 		return poInst;
+	}
+	@Override
+	public ArrayList<PurchaseOrder> findAll() {
+		return pol;
 	}
 
 }
