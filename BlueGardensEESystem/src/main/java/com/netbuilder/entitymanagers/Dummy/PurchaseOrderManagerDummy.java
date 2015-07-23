@@ -57,5 +57,9 @@ public class PurchaseOrderManagerDummy implements PurchaseOrderManager
 		}
 		return poInst;
 	}
+	@Override
+	public ArrayList<PurchaseOrder> findAll() {
+		return pol;
+	}
 
 }

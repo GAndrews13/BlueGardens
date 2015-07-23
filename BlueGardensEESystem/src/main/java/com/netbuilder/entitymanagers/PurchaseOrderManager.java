@@ -16,4 +16,5 @@ public interface PurchaseOrderManager {
 	public PurchaseOrder findByDeliveryLocation(DeliveryLocation dl);
 	public PurchaseOrder findByOutSupplier(Supplier supp);
 	public PurchaseOrder findById(int id);
+	public ArrayList<PurchaseOrder> findAll();
 }

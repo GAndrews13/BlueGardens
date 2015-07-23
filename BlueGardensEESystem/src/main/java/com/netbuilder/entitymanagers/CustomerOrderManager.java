@@ -13,7 +13,7 @@ import com.netbuilder.entities.WarehouseWorker;
  * Entity manager for Customer Orders
 *
 **/
-
+ 
 public interface CustomerOrderManager {
 
        public void persistCustomerOrder(CustomerOrder customerOrder);
