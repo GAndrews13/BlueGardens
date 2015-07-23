@@ -1,8 +1,4 @@
 package com.netbuilder.entities;
-/**
- * @author Jake
- *
- */
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +9,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @author Jake
+ * Product Order Line entity
+ */
 @Entity
 @Table(name = "Product Order Line")
 @NamedQueries

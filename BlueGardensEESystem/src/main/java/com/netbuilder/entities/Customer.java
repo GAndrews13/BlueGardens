@@ -1,5 +1,4 @@
 package com.netbuilder.entities;
-
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;
 import javax.persistence.NamedQueries;
@@ -10,7 +9,10 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;;
-
+/**
+ * @author Jake
+ * Customer Entity
+ */
 @Entity
 @Table(name = "Customer")
 @NamedQueries
