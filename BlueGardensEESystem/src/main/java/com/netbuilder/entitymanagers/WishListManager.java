@@ -12,16 +12,13 @@ import com.netbuilder.entities.Wishlist;
  */
 public interface WishListManager {
 
-	public void persistWishlist(Wishlist inWishList);
+	public void persistWishlist(Wishlist wishList);
+
+	public void updateWishlist(Wishlist wishList);
+	public void updateWishlists(ArrayList<Wishlist> wishlists);
 	
-	public void updateWishlist(Product inProduct);
-	public void updateWishlist(ArrayList<Product> inProductList);
-	
-	public void removeProduct(Product inProduct);
-	public void removeProducts(ArrayList<Product> inProductList);
-	
-	public ArrayList<Product> findProductByName (String inName);
-	public Product findProductByID (int inID);
-	public ArrayList<Product> findAll();
-	public ArrayList<Product> findForUser(int customerID);
+	public void removeProduct(Wishlist wishList);
+	public void removeProducts(ArrayList<Wishlist> wishlists);
+
+	public ArrayList<Product> findForUser(long customerID);
 }
