@@ -1,10 +1,10 @@
 package com.netbuilder.util;
 
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 
 @Named
-@RequestScoped
+@SessionScoped
 public class UserDetails {
 	private String username;
 	private String password;
