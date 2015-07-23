@@ -30,5 +30,11 @@ public class ProductsOfIntrest {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public ArrayList<Product> getSearchResults(int id, String Name, boolean stock) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }
