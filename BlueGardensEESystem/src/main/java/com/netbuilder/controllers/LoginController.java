@@ -9,7 +9,7 @@ import com.netbuilder.util.UserDetails;
 public class LoginController {
 	@Inject
 	private CustomerLoginManager clm;
-	@Inject
+	//@Inject
 	private UserDetails ud;
 	public String errormsg;
 	

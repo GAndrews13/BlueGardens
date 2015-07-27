@@ -13,7 +13,7 @@ import com.netbuilder.util.CustomerDetails;
 public class ForgottenUsernameController {
 	@Inject
 	private CustomerManager customerManager;
-	@Inject
+	//@Inject
 	private CustomerDetails customerDetails;
 	public String errormsg;
 

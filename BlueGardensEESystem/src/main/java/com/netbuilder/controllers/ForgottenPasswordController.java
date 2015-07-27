@@ -17,9 +17,9 @@ public class ForgottenPasswordController {
 	private CustomerManager customerManager;
 	@Inject
 	private CustomerLoginManager customerLoginManager;
-	@Inject
+	//@Inject
 	private CustomerDetails customerDetails;
-	@Inject
+	//@Inject
 	private UserDetails userDetails;
 	public String errormsg;
 
