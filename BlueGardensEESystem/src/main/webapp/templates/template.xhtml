@@ -66,10 +66,8 @@
 					</td>
 					<td>
 						<div class="cartInfo">
-							<a href="#" onclick="Popup.show(null,null,null,{'content':'This DIV was created dynamically!',
-                                                'width':200,'height':200,
-                                                'style':{'border':'1px solid black','backgroundColor':'cyan'}});return false;">Click Here To Show DIV</a>
-							Basket:<span id="simpleCart_total" class="simpleCart_total"> 0.00</span>
+							<p><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Basket:</a></p>
+							<span id="simpleCart_total" class="simpleCart_total"> 0.00</span>
 							<br/>
 							<a href="javascript:;" class="simpleCart_empty">Empty your basket</a>
 						</div>
@@ -81,6 +79,28 @@
 		<div class="page-wrap">
 			<table>
 				<tr>
+					<!-- Basket Overlay -->
+					<div id="light" class="white_content">
+							<div class="basketHeader">
+								<a href="#0"> Checkout Basket</a>
+							</div>
+						<table>						
+							<tr>
+								<td class="tableHeaderCells">
+									<a href="javascript:;" class="simpleCart_empty">Empty basket</a>
+								</td>
+								<td class="tableHeaderCells">
+									Total: <span id="simpleCart_grandTotal" class="simpleCart_grandTotal"></span>
+								</td>
+								<td class="tableHeaderCells" id="closeBasketCell">
+									<a href = "javascript:void(0)"  onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+								</td>
+							</tr>
+						</table>
+						<div class="simpleCart_items"/> 
+					</div>
+    				<div id="fade" class="black_overlay"></div>
+					<!--  Main Content of the page -->
 					<td width = "120%">
 						<div id="contentHeader">
 							<ui:insert name="sectiontitle"/>
