@@ -13,6 +13,7 @@
 	margin: 0;
 	color: black;
 	white-space: nowrap;
+	font-size: 1.5vmin;
 }
 
 body {
@@ -26,6 +27,7 @@ p {
 /* Class tag rules*/
 .basketHeader {
 	text-align: center;
+	font-size: 5vmin; 
 }
 
 .basket-table {
@@ -79,6 +81,13 @@ p {
 	content: "";
 	display: table;
 }
+
+.javascriptText{
+	font-style:italic bold;
+	text-decoration: underline; 
+	font-size: 2vmin;
+}
+
 
 .leftStack {
 	float: left;

@@ -8,6 +8,8 @@
 	VERSION 3.0.5
 
 	Dual licensed under the MIT or GPL licenses.
+	
+	Modified by GAndrews
 ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~*/
 /*jslint browser: true, unparam: true, white: true, nomen: true, regexp: true, maxerr: 50, indent: 4 */
 
@@ -87,7 +89,7 @@
 
 				// default options
 				settings = {
-					checkout				: { type: "PayPal", email: "you@yours.com" },
+					checkout				: { type: "PayPal", email: "garethedwardfrankandrews@hotmail.com", success: "../../LandingPage.xhtml", cancel: "../../LandingPage.xhtml"},
 					currency				: "GBP",
 					language				: "english-us",
 
