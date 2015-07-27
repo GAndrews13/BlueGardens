@@ -1,15 +1,12 @@
 <root>
-  <facet id="jst.jsf">
-    <node name="libprov">
-      <attribute name="provider-id" value="jsf-no-op-library-provider"/>
-    </node>
-  </facet>
-<<<<<<< HEAD
   <facet id="jst.jaxrs">
     <node name="libprov">
       <attribute name="provider-id" value="jaxrs-no-op-library-provider"/>
     </node>
   </facet>
-=======
->>>>>>> 5553a36327c4b3c6e4b612c71bbd1205d24e8018
+  <facet id="jst.jsf">
+    <node name="libprov">
+      <attribute name="provider-id" value="jsf-no-op-library-provider"/>
+    </node>
+  </facet>
 </root>
