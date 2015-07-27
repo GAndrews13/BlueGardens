@@ -7,8 +7,6 @@
 	</header>
 	<meta charset="ISO-8859-1"/>
 	<link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
-	<!--  This is the ecommerce CSS -->
-	<link rel="stylesheet" type="text/css" href="../resources/css/qunit.css"/>
 	
 	<!-- Javascript -->
 	<script>
@@ -37,6 +35,22 @@
 	<script src="../resources/javascript/simpleCart.js"></script>
 	<script type="text/javascript" src="../resources/javascript/test.core.js"></script>
 	<script src="../resources/javascript/jquery.1.6.1.min.js"></script>
+	<!--  Javascript Menu -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script>
+	<script type="text/javascript">
+		  $('.tabs_holder').skinableTabs({
+	    effect: 'basic_display',
+	    skin: 'skin5',
+	    position: 'top'
+	  });
+	</script>
+	
+	<script>
+		
+	</script>
+	
 	<!-- End of Javascript -->
 	
 	<title><ui:insert name = "pagetitle"/></title>
@@ -47,16 +61,17 @@
 				<tr>
 					<th rowspan="2">
 						<!--<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/>  --> 
+						<img src="#0" width="400px" height="80px" alt="NBGardens"/>
 					</th>
-					<td width="80%">
+					<td>
 						
 					</td>
 					<td>
-						<img src="" alt="Login"/>
+						<a href="#0" > Login / Sign Up</a>
 					</td>
 				</tr>
 				<tr>
-					<td width="100%">
+					<td width="72.4%">
 						<ul class="menu">
 							<li><a href="../landingPage.xhtml" class="active"><span>Home</span></a></li>
 							<li><a href="/services"><span>Services</span></a></li>
@@ -66,12 +81,11 @@
 					</td>
 					<td>
 						<div class="cartInfo">
-							<a href="#" onclick="Popup.show(null,null,null,{'content':'This DIV was created dynamically!',
-                                                'width':200,'height':200,
-                                                'style':{'border':'1px solid black','backgroundColor':'cyan'}});return false;">Click Here To Show DIV</a>
-							Basket:<span id="simpleCart_total" class="simpleCart_total"> 0.00</span>
-							<br/>
-							<a href="javascript:;" class="simpleCart_empty">Empty your basket</a>
+							<p>	<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" class="javascriptText">
+									Basket:
+								</a>
+							</p>
+							<span id="simpleCart_total" class="simpleCart_total"> 0.00</span>
 						</div>
 					</td>
 				</tr>
@@ -79,28 +93,51 @@
 		</div>
 		
 		<div class="page-wrap">
+		<!-- Basket Overlay -->
+					<div id="light" class="white_content" >
+							<div class="basketHeader" style="background-color:coral">
+								<a href="javascript:;" class="simpleCart_checkout  javascriptText" >Checkout Basket</a>
+							</div>
+						<table>						
+							<tr>
+								<td class="tableHeaderCells javascriptText">
+									<a href="javascript:;" class="simpleCart_empty">Empty basket</a>
+								</td>
+								<td class="tableHeaderCells javascriptText">
+									Total: <span id="simpleCart_grandTotal" class="simpleCart_grandTotal"></span>
+								</td>
+								<td class="tableHeaderCells  javascriptText" id="closeBasketCell">
+									<a href = "javascript:void(0)"  onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+								</td>
+							</tr>
+						</table>
+						<br/>
+						<div class="simpleCart_items"/> 
+					</div>
+    				<div id="fade" class="black_overlay"></div>
 			<table>
 				<tr>
-					<td width = "120%">
+					
+					<!--  Main Content of the page -->
+					<td width="99.94%">
 						<div id="contentHeader">
 							<ui:insert name="sectiontitle"/>
 						</div>
 						<div class="content">
 							<ui:insert name="body"/>
-								<h2>Baby Lion</h2>
-								<div>1</div>
-								<a href="javascript:;" onclick="simpleCart.add({name:'baby lion', price: 1.00,size:'tiny',thumb:'e.png'});" >add to cart</a>
-								<h2>Baby Giraffe (No Jake)</h2>
-								<div>2</div>
-								<a href="javascript:;" onclick="simpleCart.add({name:'baby giraffe', price: 2.00,size:'tiny',thumb:'e.png'});" >add to cart</a>
-								<h2>Baby Meerkat</h2>
-								<div>10</div>
-								<a href="javascript:;" onclick="simpleCart.add({name:'baby meerket', price: 10.00,size:'tiny',thumb:'e.png'});" >add to cart</a>
 						</div>
 					</td>
 					<td id ="sidebarRight">
-						<p>
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa yea
+						<p id="sidebarRight">
+						a<br/>
+						a<br/>a<br/>
+						a<br/>
+						a<br/>
+						a<br/>
+						a<br/>
+						a<br/>
+						a<br/>
+						
 						</p>
 					</td>
 				</tr>
