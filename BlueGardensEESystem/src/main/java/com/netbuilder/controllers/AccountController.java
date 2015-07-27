@@ -32,17 +32,6 @@ public class AccountController
 		return line1 + "/r/r" + line2 + "/r/r" + line3 + "/r/r" + line4 + "/r/r"; 
 	}
 	
-	public String showWishlistItems()
-	{
-		String items = null;
-		ArrayList<Product> list = wishListManager.findAll();
-		for(Product p: list)
-		{
-			items += p.getProductName() + "/t/t/t/t" + p.getPrice() + "/r/r";
-		}
-		return items;
-	}
-	
 	public String showOrders()
 	{
 		String orderList = null;

@@ -39,7 +39,7 @@ public class PurchaseOrder {
 	@NotNull
 	private int id;
 	@OneToMany
-	@Column(name = "COLID", nullable = false)
+	@Column(name = "POLID", nullable = false)
 	@NotNull
 	private ArrayList<ProductOrderLine> pol;
 	@Column(name = "DeliveryLocation", nullable = false)
