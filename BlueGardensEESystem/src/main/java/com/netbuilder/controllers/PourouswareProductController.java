@@ -2,8 +2,7 @@ package com.netbuilder.controllers;
 /**
  * @author lczornyj
  * 
- * Implemented new product controller. This controller will be used in the service layer to determine the
- * products used throughout the webpage based on the logic in the service layer.
+ * This is the sale products controller, this contains the sale items used in the landing page.
  */
 import java.util.ArrayList;
 
@@ -16,12 +15,13 @@ import com.netbuilder.service.ProductsOfIntrest;
 
 @Named
 @Dependent
-public class NewProductController {
+public class PourouswareProductController {
 	@Inject
 	private ProductsOfIntrest poi;
-	public ArrayList<Product> newProducts;
+	public ArrayList<Product> pourouswareProducts;
 	
-	public NewProductController() {
-		newProducts = poi.getThreeNew();
+	
+	public PourouswareProductController() {
+		pourouswareProducts = poi.getThreePorousware();
 	}
 }
