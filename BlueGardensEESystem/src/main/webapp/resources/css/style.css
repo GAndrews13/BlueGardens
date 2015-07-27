@@ -336,7 +336,6 @@ p {
 #sidebarRight {
 	float: right;
 	position: fixed;
-	background-color: #89dcf5;
 	word-wrap: break-word;
 }
 
