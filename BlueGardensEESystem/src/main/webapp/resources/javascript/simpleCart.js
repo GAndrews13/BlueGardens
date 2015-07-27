@@ -91,7 +91,7 @@
 					currency				: "GBP",
 					language				: "english-us",
 
-					cartStyle				: "div",
+					cartStyle				: "table",
 					cartColumns			: [
 						{ attr: "name", label: "Name" },
 						{ attr: "price", label: "Price", view: 'currency' },
@@ -109,7 +109,7 @@
 					shippingTotalRate		: 0,
 					shippingCustom		: null,
 
-					taxRate				: 0,
+					taxRate				:  0.2,
 					
 					taxShipping			: false,
 
@@ -1697,6 +1697,8 @@
 					}
 					, items: function (selector) {
 						simpleCart.writeCart(selector);
+						//Adds formatting for the table
+						simpleCart.trigger("afterCreate");
 					}
 					, tax: function () {
 						return simpleCart.toCurrency(simpleCart.tax());
@@ -1711,6 +1713,12 @@
 						return simpleCart.toCurrency(simpleCart.grandTotal());
 					}
 				});
+				// Adds formatting for the table
+				simpleCart.bind("afterCreate", function(){
+					   $cart_table = $(".simpleCart_items table")
+					   $cart_table.addClass("basket-table")
+					});
+				
 				simpleCart.bindInputs([
 					{	  selector: 'checkout'
 						, event: 'click'
