@@ -29,7 +29,7 @@ public interface ProductManager {
 	 * @return
 	 * Added the find by sale, poursousware and trending methods to the entity manager.
 	 */
-	public ArrayList<Product> findBySale( boolean isSale);
+	public ArrayList<Product> findBySale();
 	public ArrayList<Product> findByPourousware(boolean isPourousware);
-	public ArrayList<Product> findByTrending(boolean isTrending);
+	public ArrayList<Product> findByTrending();
 }

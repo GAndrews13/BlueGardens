@@ -1,48 +1,90 @@
 package com.netbuilder.service;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+import javax.ejb.Singleton;
+import javax.inject.Inject;
+
+import com.netbuilder.entities.Product;
+import com.netbuilder.entitymanagers.ProductManager;
+
 /**
- * @author lczornyj
- * 
+ * used to create and hold the 'hot' products.
  * This is the products of interest class inside the service layer.
  * This will contain all the logic behind selecting which products will be displayed on specific pages.
  * 
+ * @author jthompson & lczornyj
+ *
  */
-import java.util.ArrayList;
-import java.util.Random;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.entities.Product;
-import com.netbuilder.entitymanagers.Dummy.ProductManagerDummy;
-
+@Singleton
 public class ProductsOfIntrest {
 
 	@Inject
-	private PersistenceManager pm;
-	private ArrayList<Product> products = new ArrayList<Product>();
-	private ProductManagerDummy pmd = new ProductManagerDummy();
-	private ArrayList<Product> saleList = new ArrayList<Product>();
-	private ArrayList<Product> trendingList = new ArrayList<Product>();
-	private ArrayList<Product> pourouswareList = new ArrayList<Product>();
-	private Product product;
-	private ArrayList<ArrayList<Product>> list = new ArrayList<ArrayList<Product>>();
-	private Random generator = new Random();
+	private ProductManager productManager;
+	private ArrayList<Product> saleList;
+	private ArrayList<Product> trendingList;
+	private ArrayList<Product> pourouswareList;
+	private ArrayList<Product> sale = new ArrayList<Product>();
+	private ArrayList<Product> pourous = new ArrayList<Product>();
+	private ArrayList<Product> trending = new ArrayList<Product>();
+	private String[] order = new String[3];
 	
-	private int sale;
-	private int pw;
-	private int trending;
+	public ProductsOfIntrest() {
+		saleList = productManager.findBySale();
+		trendingList = productManager.findByTrending();
+		pourouswareList = productManager.findByPourousware(true);
+		getProducts();
+	}
 	
-	public void  createLists(){
-		for (int i = 0; i < products.size(); i++){
-			if(product.isSale() == true){
-				saleList.add(product);	
-			}
-			if(product.isTrending() == true){
-				trendingList.add(product);
-			}
-			if(product.isPorousware() == true){
-				pourouswareList.add(product);
+	/**
+	 * creates 3 lists of three unique products for products on sale, pourous and trending that can be accessed through getters :
+	 * getSale(), getPourous() and getTrending().
+	 */
+	public void getProducts() {	
+		ArrayList<ArrayList<Product>> lists = listSizes();
+		for (int i = 0; i <3; i++) {
+			switch(order[i].toString()) {
+				case "sale" :
+					for (int j = 0; j < 3; j++) {
+						sale.add(lists.get(0).get(chosen(lists)));
+					}
+					break;
+				case "pourous" :
+					for (int j = 0; j < 3; j++) {
+						pourous.add(lists.get(0).get(chosen(lists)));
+					}
+					break;
+				case "trending" :
+					for (int j = 0; j < 3; j++) {
+						trending.add(lists.get(0).get(chosen(lists)));
+					}
+					break;
 			}
 		}
+	}
+	
+	private int chosen(ArrayList<ArrayList<Product>> lists) {
+		Random generator = new Random();
+		boolean unique = true;
+		int a;
+		do {
+			unique = true;
+			a = generator.nextInt(lists.get(0).size());
+			for (Product sp : sale) {
+				if (lists.get(0).get(a).getProductID() == sp.getProductID())
+					unique = false;
+			}
+			for (Product pp : pourous) {
+				if (lists.get(0).get(a).getProductID() == pp.getProductID())
+					unique = false;
+			}
+			for (Product tp : trending) {
+				if (lists.get(0).get(a).getProductID() == tp.getProductID())
+					unique = false;
+			}						
+		} while (unique);
+		return a;
 	}
 	
 	/**
@@ -54,124 +96,59 @@ public class ProductsOfIntrest {
 	 * 
 	 * @return returns an Array list of array lists of products.
 	 */
-	public ArrayList<ArrayList<Product>> listSizes(){
+	private ArrayList<ArrayList<Product>> listSizes(){
+		ArrayList<ArrayList<Product>> list = new ArrayList<ArrayList<Product>>();
 		if (saleList.size() <= pourouswareList.size()) {
 			if(saleList.size() <= trendingList.size()) {
 				list.set(0, saleList);
-				sale = 0;
+				order[0] = "sale";
 				if (pourouswareList.size() <= trendingList.size()) {
 					list.set(1, pourouswareList);
-					pw = 1;
+					order[1] = "pourous";
 					list.set(2, trendingList);
-					trending = 2;
+					order[2] = "trending";
 				} else {
 					list.set(1, trendingList);
-					trending = 1;
+					order[1] = "trending";
 					list.set(2, pourouswareList);
-					pw = 2;
+					order[2] = "pourous";
 				}
 			} else {
 				list.set(0, trendingList);
-				trending = 0;
+				order[0] = "trending";
 				list.set(1, saleList);
-				sale = 1;
+				order[1] = "sale";
 				list.set(2, pourouswareList);
-				pw = 2;
+				order[2] = "pourous";
 			}
 		} else { 
 			if (pourouswareList.size() <= trendingList.size()) {
 				list.set(0, pourouswareList);
-				pw = 0;
+				order[0] = "pourous";
 				if(saleList.size() <= trendingList.size()) {
 					list.set(1, saleList);
-					sale = 1;
+					order[1] = "sale";
 					list.set(2, trendingList);
-					trending = 2;
+					order[2] = "trending";
 				} else {
 					list.set(1, trendingList);
-					trending = 1;
+					order[1] = "trending";
 					list.set(2, saleList);
-					sale = 2;
+					order[2] = "sale";
 				}
 			} else {
 				list.set(0, trendingList);
-				trending = 0;
+				order[0] = "trending";
 				list.set(1, pourouswareList);
-				pw = 1;
+				order[1] = "pourous";
 				list.set(2, saleList);
-				sale = 2;
+				order[2] = "sale";
 			}
 		}
 		return list;
 	}
-	
-	public void deleteDuplicate(ArrayList<Product> chosenList, int category) {
-		
-		
-		
-		
-		
-		int j = 0;
-			for (int i = 0; i < list.get(i).size(); i++) {
-				String currentname = list.get(j).get(i).getProductName();
-				
-						for(int a = 0; a < list.get(j+1).size(); a++) {
-							if(list.get(j+1).get(i).getProductName() == currentname)
-							{
-								list.get(j+1).remove(i);
-							}
-							if(list.get(j+2).get(i).getProductName() == currentname)
-							{
-								list.get(j+2).remove(i);
-							}
-						}
-					}
-			j=j+1;
-			for (int i = 0; i < list.get(i).size(); i++) {
-				String currentname = list.get(j).get(i).getProductName();
-				
-						for(int a = 0; a < list.get(j+1).size(); a++) {
-							if(list.get(j+1).get(i).getProductName() == currentname)
-							{
-			 					list.get(j+1).remove(i);
-							}
-					}
-			}
-	}
-		
-	
-	public ArrayList<Product> getFourSale() {
-		ArrayList<Product> chosen = new ArrayList<Product>();
-		Product num1;
-		for(int i = 0; i < 3; i++) {
-			int randomProduct = generator.nextInt(list.get(sale).size());
-			num1 = list.get(sale).get(randomProduct);
-			
-			chosen.add(num1);
-		}
-		deleteDuplicate(chosen,1);
-		return chosen;
-	}
 
-	public ArrayList<Product> getThreeTrending() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList<Product> getThreePorousware() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList<Product> getThreeSale() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public ArrayList<Product> getSearchResults(int id, String Name, boolean stock) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
+	public ArrayList<Product> getSale() { return sale; }
+	public ArrayList<Product> getPourous() { return pourous; }
+	public ArrayList<Product> getTrending() { return trending; }
 }

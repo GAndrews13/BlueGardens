@@ -19,13 +19,13 @@ import com.netbuilder.service.ProductsOfIntrest;
 public class TrendingProductController {
 	@Inject
 	private ProductsOfIntrest poi;
-	public ArrayList<Product> trendingProducts;
-	public ArrayList<Product> catalogueTrending;
+	private ArrayList<Product> trendingProducts;
 
 	public TrendingProductController() {
-		trendingProducts = poi.getThreeTrending();
-		
-		//Get three products that are currently trending
-		catalogueTrending = poi.getThreeTrending();
+		trendingProducts = poi.getTrending();
+	}
+
+	public ArrayList<Product> getTrendingProducts() {
+		return trendingProducts;
 	}
 }
