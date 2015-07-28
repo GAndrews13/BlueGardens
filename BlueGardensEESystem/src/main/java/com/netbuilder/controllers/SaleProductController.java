@@ -18,13 +18,13 @@ import com.netbuilder.service.ProductsOfIntrest;
 public class SaleProductController {
 	@Inject
 	private ProductsOfIntrest poi;
-	public ArrayList<Product> saleProducts;
-	public ArrayList<Product> catalogueSale;
+	private ArrayList<Product> saleProducts;
 	
+	public ArrayList<Product> getSaleProducts() {
+		return saleProducts;
+	}
+
 	public SaleProductController() {
-		saleProducts = poi.getFourSale();
-		
-		//Get three products that are one sale
-		catalogueSale = poi.getThreeSale();
+		saleProducts = poi.getSale();
 	}
 }

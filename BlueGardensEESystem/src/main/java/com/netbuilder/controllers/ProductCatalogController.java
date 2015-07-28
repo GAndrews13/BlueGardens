@@ -18,12 +18,14 @@ public class ProductCatalogController
 {
 	@Inject
 	private ProductsOfIntrest ProductCatalog;
-	
 	private ArrayList <Product> pwProducts;
 	
+	public ArrayList<Product> getPwProducts() {
+		return pwProducts;
+	}
+
 	public ProductCatalogController()
 	{
-		//get three products that have porousware
-		pwProducts = ProductCatalog.getThreePorousware();
+		pwProducts = ProductCatalog.getPourous();
 	}
 }

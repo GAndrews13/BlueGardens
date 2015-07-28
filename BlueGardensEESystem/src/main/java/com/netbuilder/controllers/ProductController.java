@@ -6,8 +6,6 @@ package com.netbuilder.controllers;
  * the specific product page. There is also some validation for if the product id does not exist.
  * @author lczornyj
  */
-import java.util.ArrayList;
-
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,10 +19,6 @@ public class ProductController {
 
 	@Inject
 	private ProductManager productmanager;
-	@Inject 
-	private TrendingProductController tpc;
-	
-	private ArrayList<Product> trendingProducts;
 	private Product product;
 	public String errormsg;
 
@@ -37,8 +31,6 @@ public class ProductController {
 		} catch (Exception e) {
 			errormsg = "please enter details";
 		}
-		
-		trendingProducts = tpc.trendingProducts;
 	}
 
 	public Product getProduct() {

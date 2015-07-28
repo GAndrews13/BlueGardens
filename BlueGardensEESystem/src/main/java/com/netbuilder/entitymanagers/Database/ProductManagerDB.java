@@ -142,12 +142,10 @@ public class ProductManagerDB implements ProductManager {
 	 * @author lczornyj
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList<Product> findBySale(boolean isSale) {
+	public ArrayList<Product> findBySale() {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
 		ArrayList<Product> p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_SALE).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		
@@ -176,13 +174,11 @@ public class ProductManagerDB implements ProductManager {
 	 * @author lczornyj
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList<Product> findByTrending(boolean isTrending) {
+	public ArrayList<Product> findByTrending() {
 		ArrayList<Product> p = new ArrayList<Product>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
 		p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_TRENDING).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		

@@ -18,10 +18,13 @@ import com.netbuilder.service.ProductsOfIntrest;
 public class PourouswareProductController {
 	@Inject
 	private ProductsOfIntrest poi;
-	public ArrayList<Product> pourouswareProducts;
+	private ArrayList<Product> pourouswareProducts;
 	
-	
+	public ArrayList<Product> getPourouswareProducts() {
+		return pourouswareProducts;
+	}
+
 	public PourouswareProductController() {
-		pourouswareProducts = poi.getThreePorousware();
+		pourouswareProducts = poi.getPourous();
 	}
 }
