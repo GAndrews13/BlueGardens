@@ -16,7 +16,7 @@ import com.netbuilder.util.UserDetails;
 public class WishListController {
 	@Inject
 	private WishlistForUser wishlistForUser;
-	@Inject
+	//@Inject
 	private UserDetails userDetails;
 	public ArrayList<Product> products = new ArrayList<Product>();
 	

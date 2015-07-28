@@ -11,7 +11,7 @@ import com.netbuilder.util.ContactFormDetails;
 public class ContactController {
 	@Inject
 	private ContactEmail email;
-	@Inject
+	//@Inject
 	private ContactFormDetails cfd;
 	public String errorMessage;
 	

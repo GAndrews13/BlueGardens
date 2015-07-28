@@ -18,7 +18,7 @@ import com.netbuilder.entitymanagers.WishListManager;
 @RequestScoped
 public class AccountController 
 {
-	@Inject
+	//@Inject
 	private Customer cust;
 	private WishListManager wishListManager;
 	private CustomerOrderManager com;

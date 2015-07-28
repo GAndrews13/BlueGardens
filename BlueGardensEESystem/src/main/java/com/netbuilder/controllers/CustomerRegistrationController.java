@@ -15,9 +15,9 @@ import com.netbuilder.util.UserDetails;
 @Named
 @Dependent
 public class CustomerRegistrationController {
-	@Inject
+	//@Inject
 	private CustomerDetails customerDetails;
-	@Inject
+	//@Inject
 	private UserDetails userDetails;
 	@Inject
 	private CustomerManager customerManager;

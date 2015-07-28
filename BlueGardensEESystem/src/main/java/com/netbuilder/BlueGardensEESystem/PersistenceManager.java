@@ -6,7 +6,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
-@Singleton
+//@Singleton
 public class PersistenceManager 
 {
 	 

@@ -11,7 +11,7 @@ import com.netbuilder.entitymanagers.WishListManager;
  * @author abalagel
  */
 
-@Stateless
+//@Stateless
 public class WishlistForUser {
 	@Inject
 	private WishListManager wishListManager;

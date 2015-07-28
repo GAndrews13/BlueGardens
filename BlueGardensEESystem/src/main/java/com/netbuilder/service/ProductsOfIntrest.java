@@ -8,17 +8,14 @@ package com.netbuilder.service;
  */
 import java.util.ArrayList;
 import java.util.Random;
-
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.Dummy.ProductManagerDummy;
 
 public class ProductsOfIntrest {
 
-	//DatabaseConnection dbc = new DatabaseConnection();
 	@Inject
 	private PersistenceManager pm;
 	private ArrayList<Product> products = new ArrayList<Product>();
