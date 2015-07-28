@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import com.netbuilder.entities.SupplierProduct;
 
+/**
+ * @author abalagel
+ */
 public class SupplierProductTest {
 	SupplierProduct supplierProduct;
 		

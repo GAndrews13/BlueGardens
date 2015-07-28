@@ -5,6 +5,9 @@ import javax.inject.Inject;
 import com.netbuilder.service.ContactEmail;
 import com.netbuilder.util.ContactFormDetails;
 
+/**
+ * @author abalagel
+ */
 public class ContactController {
 	@Inject
 	private ContactEmail email;
