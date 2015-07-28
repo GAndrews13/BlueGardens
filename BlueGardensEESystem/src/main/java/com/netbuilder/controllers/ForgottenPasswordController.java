@@ -28,6 +28,14 @@ public class ForgottenPasswordController {
 	private UserDetails userDetails;
 	private ForgottenPasswordEmail forgottenPasswordEmail;
 	public String errormsg;
+	
+	public String getErrormsg() {
+		return errormsg;
+	}
+
+	public void setErrormsg(String errormsg) {
+		this.errormsg = errormsg;
+	}
 
 	public String forgottenPassword() {
 		if (userDetails.getUsername().isEmpty() || customerDetails.getEmail().isEmpty()) {

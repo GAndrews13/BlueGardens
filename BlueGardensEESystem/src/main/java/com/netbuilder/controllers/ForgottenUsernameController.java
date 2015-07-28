@@ -22,6 +22,14 @@ public class ForgottenUsernameController {
 	private CustomerDetails customerDetails;
 	private ForgottenUsernameEmail forgottenUsernameEmail;
 	public String errormsg;
+	
+	public String getErrormsg() {
+		return errormsg;
+	}
+
+	public void setErrormsg(String errormsg) {
+		this.errormsg = errormsg;
+	}
 
 	public String forgottenUsername() {
 		if (customerDetails.getEmail().isEmpty()) {
