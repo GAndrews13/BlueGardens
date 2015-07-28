@@ -9,9 +9,9 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class RegistrationEmail {
+public class ForgottenPasswordEmail {
 
-	   public RegistrationEmail(String customerEmail, String firstName, String username){    
+	   public ForgottenPasswordEmail(String customerEmail){    
 	      // Recipient's email ID needs to be mentioned.
 	      String to = customerEmail;
 
@@ -45,10 +45,7 @@ public class RegistrationEmail {
 	         message.setSubject("Welcome to NB Gardens");
 
 	         // Now set the actual message
-	         message.setText("Dear" +  firstName + "/r/r"
-	         		+ "Thank you for registering with NB Gardens." + "/r/r"
-	         		+ "For future reference your username is: " + username + "/r/r"
-	         		+ "Sincerely, NB Gardens");
+	         message.setText("Verification email");
 
 	         // Send message
 	         Transport.send(message);

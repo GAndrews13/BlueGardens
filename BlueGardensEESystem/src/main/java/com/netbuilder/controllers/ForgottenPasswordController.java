@@ -7,6 +7,7 @@ import javax.inject.Named;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
+import com.netbuilder.service.ForgottenPasswordEmail;
 import com.netbuilder.util.CustomerDetails;
 import com.netbuilder.util.UserDetails;
 
@@ -21,6 +22,7 @@ public class ForgottenPasswordController {
 	private CustomerDetails customerDetails;
 	//@Inject
 	private UserDetails userDetails;
+	private ForgottenPasswordEmail forgottenPasswordEmail;
 	public String errormsg;
 
 	public String forgottenPassword() {
@@ -38,7 +40,8 @@ public class ForgottenPasswordController {
 			errormsg = "Incorrect details";
 			return "forgottenPassword";
 		}
-		return "resetPasswordEmail/uid";
+		forgottenPasswordEmail = new ForgottenPasswordEmail(customerDetails.getEmail());
+		return "login";
 	}
 
 }

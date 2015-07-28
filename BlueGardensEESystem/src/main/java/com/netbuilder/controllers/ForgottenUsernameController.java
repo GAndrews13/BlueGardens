@@ -6,6 +6,7 @@ import javax.inject.Named;
 
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entitymanagers.CustomerManager;
+import com.netbuilder.service.ForgottenUsernameEmail;
 import com.netbuilder.util.CustomerDetails;
 
 @Named
@@ -15,6 +16,7 @@ public class ForgottenUsernameController {
 	private CustomerManager customerManager;
 	//@Inject
 	private CustomerDetails customerDetails;
+	private ForgottenUsernameEmail forgottenUsernameEmail;
 	public String errormsg;
 
 	public String forgottenUsername() {
@@ -27,7 +29,7 @@ public class ForgottenUsernameController {
 			errormsg = "Incorrect details";
 			return "forgottenUsername";
 		}
-		return "sendUsernameEmail/uid";
+		forgottenUsernameEmail = new ForgottenUsernameEmail(customerDetails.getEmail());
+		return "login";
 	}
-
 }
