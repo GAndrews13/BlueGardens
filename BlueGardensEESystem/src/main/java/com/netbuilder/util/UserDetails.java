@@ -9,7 +9,25 @@ public class UserDetails {
 	private String username;
 	private String password;
 	private int userID;
+	private byte[] salt;
+	private boolean loggedIn = false;
 	
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
+	}
+
+	public byte[] getSalt() {
+		return salt;
+	}
+
+	public void setSalt(byte[] salt) {
+		this.salt = salt;
+	}
+
 	public int getUserID() {
 		return userID;
 	}
@@ -45,6 +63,4 @@ public class UserDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 }

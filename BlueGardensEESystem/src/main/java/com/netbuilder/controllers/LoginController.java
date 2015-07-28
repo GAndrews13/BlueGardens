@@ -1,6 +1,8 @@
 package com.netbuilder.controllers;
 
-//@Author GAndrews 
+/**
+ * @Author GAndrews 
+ */
 
 
 import javax.enterprise.context.Dependent;
@@ -38,6 +40,7 @@ public class LoginController {
 			errormsg = "Incorrect details";
 			return "login";
 		}
+		ud.setLoggedIn(true);
 		return "account/uid";
 	}
 	
@@ -46,12 +49,20 @@ public class LoginController {
 		//Slide 89?
 		
 		//loginContext.logout();
+		ud.setLoggedIn(false);
 		ud = null;
 		return "home";
 	}
 	
 	public String loggedInUserName()
 	{
-		return ud.getUsername();
+		if(ud.isLoggedIn())
+		{
+			return ud.getUsername();
+		}
+		else
+		{
+			return null;
+		}
 	}
 }
