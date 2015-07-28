@@ -13,6 +13,10 @@ import com.netbuilder.service.RegistrationEmail;
 import com.netbuilder.util.CustomerDetails;
 import com.netbuilder.util.UserDetails;
 
+/**
+ * @author jmander
+ **/
+
 @Named
 @Dependent
 public class CustomerRegistrationController {

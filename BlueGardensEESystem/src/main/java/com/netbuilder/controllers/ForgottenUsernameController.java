@@ -9,6 +9,10 @@ import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.service.ForgottenUsernameEmail;
 import com.netbuilder.util.CustomerDetails;
 
+/**
+ * @author jmander
+ **/
+
 @Named
 @Dependent
 public class ForgottenUsernameController {

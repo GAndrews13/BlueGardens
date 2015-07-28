@@ -8,8 +8,11 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
 import com.netbuilder.entitymanagers.CustomerLoginManager;
+
+/**
+ * @author jmander
+ **/
 
 public class ForgottenUsernameEmail {
 	private CustomerLoginManager customerLoginManager;
