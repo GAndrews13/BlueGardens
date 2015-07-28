@@ -26,6 +26,14 @@ public class CustomerRegistrationController {
 	private String confirmPassword;
 	private String confirmEmail;
 	public String errormsg;
+	public String getErrormsg() {
+		return errormsg;
+	}
+
+	public void setErrormsg(String errormsg) {
+		this.errormsg = errormsg;
+	}
+
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<String> usernames = new ArrayList<String>();
 	

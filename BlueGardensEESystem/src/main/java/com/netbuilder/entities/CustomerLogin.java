@@ -17,6 +17,16 @@ import javax.validation.constraints.Size;
  */
 public class CustomerLogin {
 
+	@Column(name ="email")
+	@NotNull
+	private String customerEmail;
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
 	/**
 	 * The password a user on the website provides
 	 */

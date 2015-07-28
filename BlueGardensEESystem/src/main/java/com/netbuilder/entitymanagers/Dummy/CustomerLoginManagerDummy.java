@@ -47,4 +47,16 @@ private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>()
 		}
 		return ra;
 	}
+
+	@Override
+	public String getCustomerUsername(String inUserEmail) {
+		for(int i = 0; i<customerLogins.size();i++)
+		{
+			if(inUserEmail == customerLogins.get(i).getCustomerEmail())
+			{
+				return customerLogins.get(i).getCustomerUsername();
+			}
+		}
+		return null;
+	}
 }

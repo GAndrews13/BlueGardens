@@ -1,11 +1,17 @@
 package com.netbuilder.controllers;
 
+//@Author GAndrews 
+
+
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.security.auth.login.LoginException;
 
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.util.UserDetails;
-
+@Named
+@Dependent
 public class LoginController {
 	@Inject
 	private CustomerLoginManager clm;
@@ -13,6 +19,14 @@ public class LoginController {
 	private UserDetails ud;
 	public String errormsg;
 	
+	public String getErrormsg() {
+		return errormsg;
+	}
+
+	public void setErrormsg(String errormsg) {
+		this.errormsg = errormsg;
+	}
+
 	public String login() {
 		if (ud.getUsername().isEmpty() || ud.getPassword().isEmpty()) {
 			errormsg = "please enter details";
