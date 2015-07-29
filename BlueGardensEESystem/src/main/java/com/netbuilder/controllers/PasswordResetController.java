@@ -41,7 +41,6 @@ public class PasswordResetController {
 		}
 		catch (Exception e)
 		{
-			//TODO error handling
 			System.out.println(e.toString());
 		}
 		return "login";
