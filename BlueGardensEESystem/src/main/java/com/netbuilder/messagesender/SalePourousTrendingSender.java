@@ -1,4 +1,4 @@
-package com.netbuilder.examplejms;
+package com.netbuilder.messagesender;
 import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.Destination;
@@ -13,10 +13,11 @@ import javax.naming.Context;
 import javax.naming.NamingException;
 
 import com.netbuilder.service.ProductsOfIntrest;
+import com.netbuilder.util.ProductOfIntrestLists;
 
 import static javax.jms.Session.AUTO_ACKNOWLEDGE;
 
-public class MessageSender {
+public class SalePourousTrendingSender {
 	@Inject
 	ProductsOfIntrest poi;
 	private Context context;

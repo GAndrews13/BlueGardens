@@ -42,7 +42,7 @@ public class Customer
 	@Column(name = "customerID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
-	private int customerID;
+	private long customerID;
 	
 	/**
 	 * First Name represents the customer name in the table, cannot be null
@@ -108,7 +108,7 @@ public class Customer
 	 *	Getters and Setter for class variables
 	 *	
 	 */
-	public int getCustomerID() {
+	public long getCustomerID() {
 		return customerID;
 	}
 

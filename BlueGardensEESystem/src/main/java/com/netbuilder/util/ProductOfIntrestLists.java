@@ -1,4 +1,4 @@
-package com.netbuilder.examplejms;
+package com.netbuilder.util;
 import java.io.Serializable;
 import java.util.ArrayList;
 
