@@ -49,7 +49,7 @@ public class ForgottenPasswordEmail {
 	         message.setSubject("Welcome to NB Gardens");
 
 	         // Now set the actual message
-	         message.setText("Verification email");
+	         message.setText("Password reset link");
 
 	         // Send message
 	         Transport.send(message);
