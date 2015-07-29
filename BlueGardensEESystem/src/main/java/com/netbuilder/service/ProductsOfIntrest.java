@@ -151,4 +151,31 @@ public class ProductsOfIntrest {
 	public ArrayList<Product> getSale() { return sale; }
 	public ArrayList<Product> getPourous() { return pourous; }
 	public ArrayList<Product> getTrending() { return trending; }
+	
+	/**
+	 * @author Jake
+	 *  Check which fields are entered by the user and return the one with the most results first
+	 *  In stock = most results
+	 *  name = fewer results
+	 *  id = only one result
+	 */
+	public ArrayList<Product> getSearchResults(long id, String name, boolean stock) 
+		{
+		ArrayList<Product> searchResults = new ArrayList<Product>();
+		if(stock == true)
+			{
+				searchResults = productManager.findByOutStock();
+				return searchResults;
+			}
+			else
+			if(name != null)
+			{
+				searchResults = productManager.findByName(name);
+				return searchResults;
+
+			}
+			else
+				searchResults.set(0, productManager.findById(id));
+				return searchResults;
+		}
 }
