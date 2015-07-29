@@ -16,11 +16,13 @@ import javax.validation.constraints.Size;
 @Table(name = "WarehouseWorker")
 @NamedQueries({
 @NamedQuery(name = WarehouseWorker.FIND_OUT_BY_NAME, query = "SELECT p FROM WarehouseWorker p WHERE p.workerName = :name"),
-@NamedQuery(name = WarehouseWorker.FIND_OUT_BY_ID, query = "SELECT p FROM WarehouseWorker p WHERE p.workerId = :id")
+@NamedQuery(name = WarehouseWorker.FIND_OUT_BY_ID, query = "SELECT p FROM WarehouseWorker p WHERE p.workerId = :id"),
+@NamedQuery(name = WarehouseWorker.IS_ASSIGNED, query ="SELECT p FROM WarehouseWorker p WHERE p.isAssigned = :isAssigned")
 })
 public class WarehouseWorker {
 	public static final String FIND_OUT_BY_NAME = "WarehouseWorker.findoutbyname";
 	public static final String FIND_OUT_BY_ID = "WarehouseWorker.findoutbyid";
+	public static final String IS_ASSIGNED = "WarehouseWorker.isassigned";
 /**
  * @author lczornyj
  * Generate warehouse workers attributes and save the variables
@@ -42,6 +44,9 @@ public class WarehouseWorker {
 	@NotNull
 	@Size(min = 2, max = 145)
 	private String workerAddress;
+	@Column(name = "isAssigned", nullable = false)
+	@NotNull
+	private boolean isAssigned;
 	
 	public WarehouseWorker(){
 		
@@ -50,11 +55,13 @@ public class WarehouseWorker {
  * @author lczornyj
  * create getters and setters for the variables except the ID
  * as the ID is never set by a person.
+ * @param 
  * @return
  */
-	public WarehouseWorker(String workerName, String workerAddress){
+	public WarehouseWorker(String workerName, String workerAddress, boolean isAssigned){
 		this.workerName = workerName;
 		this.workerAddress = workerAddress;
+		this.isAssigned = isAssigned;
 	}
 	public String getName() {
 		return workerName;
@@ -70,5 +77,11 @@ public class WarehouseWorker {
 	}
 	public int getWorkerId() {
 		return workerId;
+	}
+	public boolean isAssigned() {
+		return isAssigned;
+	}
+	public void setAssigned(boolean isAssigned) {
+		this.isAssigned = isAssigned;
 	}
 }

@@ -22,7 +22,7 @@ public interface WarehouseWorkerManager {
 	///////// READ /////////
 	public WarehouseWorker findByName(String name);
 	public WarehouseWorker findById(int id); 
-		
+	public WarehouseWorker isAssigned(boolean isAssigned);
 	
 	
 	
