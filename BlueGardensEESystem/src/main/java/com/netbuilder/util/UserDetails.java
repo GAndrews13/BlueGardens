@@ -7,7 +7,7 @@ import javax.inject.Named;
 @SessionScoped
 public class UserDetails {
 	private String username;
-	private String password;
+	private byte[] password;
 	private int userID;
 	private byte[] salt;
 	private boolean loggedIn = false;
@@ -36,12 +36,12 @@ public class UserDetails {
 		this.userID = userID;
 	}
 
-	public UserDetails(String username, String password) {
+	public UserDetails(String username, byte[] password) {
 		this.username = username;
 		this.password = password;
 	}
 	
-	public UserDetails(String username, String password, int userID)
+	public UserDetails(String username, byte[] password, int userID)
 	{
 		this.username = username;
 		this.password = password;
@@ -56,11 +56,11 @@ public class UserDetails {
 		this.username = username;
 	}
 
-	public String getPassword() {
+	public byte[] getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(byte[] password) {
 		this.password = password;
 	}
 }

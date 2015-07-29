@@ -30,10 +30,11 @@ public class LoginController {
 	}
 
 	public String login() {
-		if (ud.getUsername().isEmpty() || ud.getPassword().isEmpty()) {
+		if (ud.getUsername().isEmpty() || ud.getPassword().length == 0) {
 			errormsg = "please enter details";
 			return "login";
 		}
+		
 		Long uid = clm.checkDetails(ud.getUsername(), ud.getPassword());
 		if(uid == null)
 		{
@@ -46,9 +47,6 @@ public class LoginController {
 	
 	public String logout() throws LoginException
 	{
-		//Slide 89?
-		
-		//loginContext.logout();
 		ud.setLoggedIn(false);
 		ud = null;
 		return "home";

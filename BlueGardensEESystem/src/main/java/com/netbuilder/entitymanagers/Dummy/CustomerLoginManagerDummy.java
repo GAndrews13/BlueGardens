@@ -6,17 +6,27 @@ import javax.enterprise.inject.Alternative;
 
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
+import com.netbuilder.util.LoginUtils;
 @Alternative
 public class CustomerLoginManagerDummy implements CustomerLoginManager {
 private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>();
 
 	public CustomerLoginManagerDummy()
 	{
-		customerLogins.add(new CustomerLogin("root","password"));
-		customerLogins.add(new CustomerLogin("docker","linux"));
+		try
+		{
+			byte[] tempSalt = LoginUtils.getNextSalt();
+			customerLogins.add(new CustomerLogin("root",LoginUtils.hash("password",tempSalt),tempSalt));
+			tempSalt = LoginUtils.getNextSalt();
+			customerLogins.add(new CustomerLogin("docker",LoginUtils.hash("linux",tempSalt),tempSalt));
+		}
+		catch (Exception e)
+		{
+			//TODO add error handling
+		}
 	}
 
-	public long checkDetails(String inUsername, String inPassword){
+	public long checkDetails(String inUsername, byte[] inPassword){
 		for(int i = 0;i<customerLogins.size();i++)
 		{
 			CustomerLogin cl = customerLogins.get(i);

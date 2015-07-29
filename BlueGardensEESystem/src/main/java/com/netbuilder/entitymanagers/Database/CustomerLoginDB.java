@@ -16,7 +16,7 @@ public class CustomerLoginDB implements CustomerLoginManager {
 	@Inject 
 	private PersistenceManager pm;
 	
-	public long checkDetails(String inUsername, String inPassword) {
+	public long checkDetails(String inUsername, byte[] inPassword) {
 		String SQLStatement = "SELECT * FROM CustomerLogin c WHERE c.username = "+  inUsername + " AND c.password = " + inPassword;
 		EntityManager em = pm.CreateEntityManager();
 		TypedQuery<CustomerLogin> tq = em.createQuery(SQLStatement, CustomerLogin.class);

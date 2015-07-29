@@ -32,7 +32,7 @@ public class CustomerLogin {
 	 */
 	@Column(name = "password")
 	@Size (min = 6, max = 25)
-	private String customerPassword;
+	private byte[] customerPassword;
 	/**
 	 * The username that is provided on the website
 	 */
@@ -45,10 +45,20 @@ public class CustomerLogin {
 	@NotNull
 	private long customerID;
 	
-	public String getCustomerPassword() {
+	@Column(name="salt",nullable=false)
+	@NotNull
+	private byte[] salt;
+	
+	public byte[] getSalt() {
+		return salt;
+	}
+	public void setSalt(byte[] salt) {
+		this.salt = salt;
+	}
+	public byte[] getCustomerPassword() {
 		return customerPassword;
 	}
-	public void setCustomerPassword(String customerPassword) {
+	public void setCustomerPassword(byte[] customerPassword) {
 		this.customerPassword = customerPassword;
 	}
 	public String getCustomerUsername() {
@@ -69,9 +79,10 @@ public class CustomerLogin {
 	 * @param inUsername
 	 * @param inPassword
 	 */
-	public CustomerLogin(String inUsername, String inPassword)
+	public CustomerLogin(String inUsername, byte[] inPassword, byte[] inSalt)
 	{
 		this.customerUsername = inUsername;
 		this.customerPassword = inPassword;
+		this.salt = inSalt;
 	}
 }
