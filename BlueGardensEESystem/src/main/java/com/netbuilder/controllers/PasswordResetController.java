@@ -6,6 +6,7 @@ import javax.inject.Named;
 
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
+import com.netbuilder.util.LoginUtils;
 import com.netbuilder.util.PasswordReset;
 
 /**
@@ -34,7 +35,15 @@ public class PasswordResetController {
 			errormsg = "Passwords do not match";
 			return "passwordReset";
 		}
-		customerLogin.setCustomerPassword(passwordReset.getNewPassword());
+		try
+		{
+			customerLogin.setCustomerPassword(LoginUtils.hash(passwordReset.getNewPassword(),customerLogin.getSalt()));
+		}
+		catch (Exception e)
+		{
+			//TODO error handling
+			System.out.println(e.toString());
+		}
 		return "login";
 	}
 }
