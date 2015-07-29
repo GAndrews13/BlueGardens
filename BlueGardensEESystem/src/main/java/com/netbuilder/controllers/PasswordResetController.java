@@ -5,7 +5,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.netbuilder.entities.CustomerLogin;
-import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.util.LoginUtils;
 import com.netbuilder.util.PasswordReset;
 
@@ -16,7 +15,7 @@ import com.netbuilder.util.PasswordReset;
 @Named
 @Dependent
 public class PasswordResetController {
-	@Inject
+	//@Inject
 	private CustomerLogin customerLogin;
 	//@Inject
 	private PasswordReset passwordReset;
@@ -43,6 +42,7 @@ public class PasswordResetController {
 		{
 			System.out.println(e.toString());
 		}
+		
 		return "login";
 	}
 }

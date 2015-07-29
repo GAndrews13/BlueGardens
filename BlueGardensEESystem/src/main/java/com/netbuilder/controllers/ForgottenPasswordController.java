@@ -8,8 +8,7 @@ import com.netbuilder.entities.Customer;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.service.ForgottenPasswordEmail;
-import com.netbuilder.util.CustomerDetails;
-import com.netbuilder.util.UserDetails;
+import com.netbuilder.util.ForgottenPasswordDetails;
 
 /**
  * @author jmander
@@ -23,10 +22,8 @@ public class ForgottenPasswordController {
 	@Inject
 	private CustomerLoginManager customerLoginManager;
 	//@Inject
-	private CustomerDetails customerDetails;
-	//@Inject
-	private UserDetails userDetails;
-	private ForgottenPasswordEmail forgottenPasswordEmail;
+	private ForgottenPasswordDetails forgottenPasswordDetails;
+	private String customerEmail;
 	public String errormsg;
 	
 	public String getErrormsg() {
@@ -38,21 +35,28 @@ public class ForgottenPasswordController {
 	}
 
 	public String forgottenPassword() {
-		if (userDetails.getUsername().isEmpty() || customerDetails.getEmail().isEmpty()) {
+		if (forgottenPasswordDetails.getUsername().isEmpty() || forgottenPasswordDetails.getEmail().isEmpty()) {
 			errormsg = "Please enter details";
 			return "forgottenPassword";
 		}
-		Long uid = customerLoginManager.checkCustomerID(userDetails.getUsername());
-		Customer email = customerManager.findByEmail(customerDetails.getEmail());
+		Long uid = customerLoginManager.checkCustomerID(forgottenPasswordDetails.getUsername());
+		Customer customer = customerManager.findByEmail(forgottenPasswordDetails.getEmail());
 		if(uid == null)
 		{
 			errormsg = "Incorrect details";
 			return "forgottenPassword";
-		}else if(email == null){
+		}else if(customer == null){
 			errormsg = "Incorrect details";
 			return "forgottenPassword";
 		}
-		forgottenPasswordEmail = new ForgottenPasswordEmail(customerDetails.getEmail());
+		if(forgottenPasswordDetails.getUsername().isEmpty()){
+			customerEmail = forgottenPasswordDetails.getEmail();
+		}else if(forgottenPasswordDetails.getEmail().isEmpty()){
+			customerEmail = customer.getEmail();
+		}
+		
+		new ForgottenPasswordEmail(customerEmail);
+		
 		return "login";
 	}
 

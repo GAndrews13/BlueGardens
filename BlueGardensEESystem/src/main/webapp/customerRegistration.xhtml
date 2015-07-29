@@ -21,10 +21,10 @@
 				<h:inputText id="customerusername" value="#{customerDetails.username}" maxlength="45" size="20"/>
 				<br/>
 				<h:outputLabel value="Password" for="customerpassword"/>
-				<h:inputText id="customerpassword" value="#{customerDetails.password}" maxlength="45" size="20"/>
+				<h:inputSecret id="customerpassword" value="#{customerDetails.password}" maxlength="45" size="20"/>
 				<br/>
 				<h:outputLabel value="Confirm Password" for="customerconfirmpassword"/>
-				<h:inputText id="customerconfirmpassword" value="#{customerDetails.confirmPassword}" maxlength="45" size="20"/>
+				<h:inputSecret id="customerconfirmpassword" value="#{customerDetails.confirmPassword}" maxlength="45" size="20"/>
 				<br/>
 				<h:outputLabel value="Email" for="customeremail"/>
 				<h:inputText id="customeremail" value="#{customerDetails.email}" maxlength="45" size="20"/>

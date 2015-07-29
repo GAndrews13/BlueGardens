@@ -7,7 +7,7 @@ import javax.inject.Named;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.service.ForgottenUsernameEmail;
-import com.netbuilder.util.CustomerDetails;
+import com.netbuilder.util.ForgottenUsernameDetails;
 
 /**
  * @author jmander
@@ -19,8 +19,7 @@ public class ForgottenUsernameController {
 	@Inject
 	private CustomerManager customerManager;
 	//@Inject
-	private CustomerDetails customerDetails;
-	private ForgottenUsernameEmail forgottenUsernameEmail;
+	private ForgottenUsernameDetails forgottenUsernameDetails;
 	public String errormsg;
 	
 	public String getErrormsg() {
@@ -32,16 +31,16 @@ public class ForgottenUsernameController {
 	}
 
 	public String forgottenUsername() {
-		if (customerDetails.getEmail().isEmpty()) {
+		if (forgottenUsernameDetails.getEmail().isEmpty()) {
 			errormsg = "Please enter an email";
 			return "forgottenUsername";
 		}
-		Customer email = customerManager.findByEmail(customerDetails.getEmail());
+		Customer email = customerManager.findByEmail(forgottenUsernameDetails.getEmail());
 		if(email == null){
 			errormsg = "Incorrect details";
 			return "forgottenUsername";
 		}
-		forgottenUsernameEmail = new ForgottenUsernameEmail(customerDetails.getEmail());
+		new ForgottenUsernameEmail(forgottenUsernameDetails.getEmail());
 		return "login";
 	}
 }
