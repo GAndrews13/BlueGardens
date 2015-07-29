@@ -1,6 +1,6 @@
 package com.netbuilder.examplejms;
 
-import Messagesenders.SalePourousTrendingSender;
+import com.netbuilder.messagesender.SalePourousTrendingSender;
 
 public class JMSExample {
 

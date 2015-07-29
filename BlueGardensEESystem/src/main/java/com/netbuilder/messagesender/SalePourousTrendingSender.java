@@ -1,62 +1,45 @@
-package Messagereceiver;
-
-import static javax.jms.Session.AUTO_ACKNOWLEDGE;
-
+package com.netbuilder.messagesender;
+import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.Destination;
 import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
+import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 import javax.jms.QueueConnectionFactory;
 import javax.jms.Session;
-import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.Context;
 import javax.naming.NamingException;
 
+import com.netbuilder.service.ProductsOfIntrest;
 import com.netbuilder.util.ProductOfIntrestLists;
 
-public class SalePourousTrendingReciever {
+import static javax.jms.Session.AUTO_ACKNOWLEDGE;
+
+public class SalePourousTrendingSender {
+	@Inject
+	ProductsOfIntrest poi;
 	private Context context;
 	private QueueConnectionFactory connectionFactory;
 	private Destination destination;
 	private Connection connection;
 	private Session session;
-	private MessageConsumer messageConsumer;
-	Thread thread;
-	ProductOfIntrestLists poil;
-
-	public String receiveObjectMessage() {
+	private MessageProducer messageProducer;
+	private ObjectMessage objectMessage;
+	
+	public void sendObjectMessage() {
 		try {
 			context = new InitialContext();
 			connectionFactory = (QueueConnectionFactory) context.lookup("ConnectionFactory");
 			destination = (Queue) context.lookup("messagequeue");
 			connection = connectionFactory.createConnection();
 			session = connection.createSession(false, AUTO_ACKNOWLEDGE);
-			messageConsumer = session.createConsumer(destination);
+			messageProducer = session.createProducer(destination);
+			ProductOfIntrestLists message = new ProductOfIntrestLists(poi.getSale(), poi.getPourous(), poi.getTrending());
+			objectMessage = session.createObjectMessage(message);
 			connection.start();
-			messageConsumer.setMessageListener(new MessageListener() {
-				@Override
-				public void onMessage(Message message) {
-					try {
-						ObjectMessage objectMessage = (ObjectMessage) message;
-						poil = (ProductOfIntrestLists) objectMessage.getObject();
-						System.out.println(poil.toString());
-					} catch (JMSException e) {
-						e.printStackTrace();
-					}
-				}
-			});
-			Runnable runnable = new Runnable() {
-				@Override
-				public void run() {
-					while (true) {
-					}
-				}
-			};
-			thread = new Thread(runnable, "runnable");
+			messageProducer.send(objectMessage);
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} catch (JMSException e) {
@@ -77,6 +60,5 @@ public class SalePourousTrendingReciever {
 				}
 			}
 		}
-		return "faces/popular";
 	}
 }
