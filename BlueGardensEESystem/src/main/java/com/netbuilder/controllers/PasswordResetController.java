@@ -16,8 +16,6 @@ import com.netbuilder.util.PasswordReset;
 @Dependent
 public class PasswordResetController {
 	@Inject
-	private CustomerLoginManager customerLoginManager;
-	@Inject
 	private CustomerLogin customerLogin;
 	//@Inject
 	private PasswordReset passwordReset;
@@ -36,9 +34,7 @@ public class PasswordResetController {
 			errormsg = "Passwords do not match";
 			return "passwordReset";
 		}
-		//customer login manager needs an update, to fire off the new password below
 		customerLogin.setCustomerPassword(passwordReset.getNewPassword());
-		//Fire off new password to customerLogin
 		return "login";
 	}
 }
