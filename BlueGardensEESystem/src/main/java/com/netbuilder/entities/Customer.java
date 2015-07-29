@@ -95,9 +95,8 @@ public class Customer
 	/**
 	 * Initialize customer so instances of customer cannot have null values 
 	 */
-	public Customer(int customerID, String firstname, String lastname, String address, String contactNUM, String accountSTATUS)
+	public Customer(String firstname, String lastname, String address, String contactNUM, String accountSTATUS)
 	{
-		this.customerID = customerID;
 		this.firstName = firstname;
 		this.lastName = lastname;
 		this.address = address;
@@ -111,10 +110,6 @@ public class Customer
 	 */
 	public int getCustomerID() {
 		return customerID;
-	}
-
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
 	}
 
 	public String getFirstName() {
