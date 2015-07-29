@@ -326,6 +326,13 @@ p {
 	text-align: center;
 }
 
+#contentHeader{
+	font: 120px Verdana;
+	font-style:italic bold;
+	text-decoration: underline; 
+}
+
+
 #sale {
 	text-transform: uppercase;
 	color: white;
