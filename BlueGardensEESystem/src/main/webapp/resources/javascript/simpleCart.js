@@ -89,7 +89,7 @@
 
 				// default options
 				settings = {
-					checkout				: { type: "PayPal", email: "garethedwardfrankandrews@hotmail.com", success: "../../LandingPage.xhtml", cancel: "../../LandingPage.xhtml"},
+					checkout				: { type: "PayPal", email: "garethedwardfrankandrews@hotmail.com", success: "LandingPage.xhtml", cancel: "LandingPage.xhtml"},
 					currency				: "GBP",
 					language				: "english-us",
 
@@ -698,7 +698,7 @@
 			 *******************************************************************/
 
 			simpleCart.Item = function (info) {
-
+				
 				// we use the data object to track values for the item
 				var _data = {},
 					me = this;
@@ -743,7 +743,9 @@
 					}
 
 				}
-
+				
+				
+				
 				// getter and setter methods to access private variables
 				me.get = function (name, skipPrototypes) {
 
@@ -885,6 +887,9 @@
 
 			simpleCart.extend({
 				checkout: function () {
+					//Test Code
+					/*simpleCart.add({name: "bob" , price: 2 , color:'blue' , size: 6 });*/
+					
 					if (settings.checkout.type.toLowerCase() === 'custom' && isFunction(settings.checkout.fn)) {
 						settings.checkout.fn.call(simpleCart,settings.checkout);
 					} else if (isFunction(simpleCart.checkout[settings.checkout.type])) {
@@ -897,7 +902,6 @@
 								simpleCart.generateAndSendForm( checkoutData );
 							}
 						}
-						
 					} else {
 						simpleCart.error("No Valid Checkout Method Specified");
 					}
@@ -946,6 +950,10 @@
 					// check for return and success URLs in the options
 					if (opts.success) {
 						data['return'] = opts.success;
+						//Send information to basket for tracking
+						var basketItems = simpleCart.find();
+						//TODO send basket contents to tracking systems
+						
 					}
 					if (opts.cancel) {
 						data.cancel_return = opts.cancel;

@@ -6,7 +6,9 @@ import java.util.ArrayList;
  *
  */
 public interface CustomerLoginManager {
-	public long checkDetails(String inUsername, String inPassword);
+	public long checkDetails(String inUsername, byte[] inPassword);
 	public long checkCustomerID(String inUsername);
 	public ArrayList<String> findAll();
+	public String getCustomerUsername(String inUserEmail);
+	public byte[] getCustomerSalt(String inUsername);
 }

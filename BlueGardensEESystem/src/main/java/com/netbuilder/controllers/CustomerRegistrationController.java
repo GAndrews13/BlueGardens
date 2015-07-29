@@ -9,8 +9,13 @@ import javax.inject.Named;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
+import com.netbuilder.service.RegistrationEmail;
 import com.netbuilder.util.CustomerDetails;
 import com.netbuilder.util.UserDetails;
+
+/**
+ * @author jmander
+ **/
 
 @Named
 @Dependent
@@ -18,7 +23,7 @@ public class CustomerRegistrationController {
 	//@Inject
 	private CustomerDetails customerDetails;
 	//@Inject
-	private UserDetails userDetails;
+	private RegistrationEmail registrationEmail;
 	@Inject
 	private CustomerManager customerManager;
 	@Inject
@@ -26,6 +31,14 @@ public class CustomerRegistrationController {
 	private String confirmPassword;
 	private String confirmEmail;
 	public String errormsg;
+	public String getErrormsg() {
+		return errormsg;
+	}
+
+	public void setErrormsg(String errormsg) {
+		this.errormsg = errormsg;
+	}
+
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<String> usernames = new ArrayList<String>();
 	
@@ -38,7 +51,7 @@ public class CustomerRegistrationController {
 			errormsg = "Please enter a last name";
 			return "registeredCustomer";
 		}
-		if (userDetails.getUsername().isEmpty()) {
+		if (customerDetails.getUsername().isEmpty()) {
 			errormsg = "Please enter a username";
 			return "registeredCustomer";
 		}
@@ -49,7 +62,7 @@ public class CustomerRegistrationController {
 				return "registeredCustomer";
 			}
 		}
-		if (userDetails.getPassword().isEmpty()) {
+		if (customerDetails.getPassword().isEmpty()) {
 			errormsg = "Please enter a password";
 			return "registeredCustomer";
 		}
@@ -57,7 +70,7 @@ public class CustomerRegistrationController {
 			errormsg = "Please confirm your password";
 			return "registeredCustomer";
 		}
-		if(confirmPassword != userDetails.getPassword()){
+		if(confirmPassword != customerDetails.getPassword()){
 			errormsg = "The passwords do not match";
 			return "registeredCustomer";
 		}
@@ -76,7 +89,7 @@ public class CustomerRegistrationController {
 			errormsg = "Please confirm your email";
 			return "registeredCustomer";
 		}
-		if(confirmEmail != userDetails.getUsername()){
+		if(confirmEmail != customerDetails.getUsername()){
 			errormsg = "The emails do not match";
 			return "registeredCustomer";
 		}
@@ -88,6 +101,7 @@ public class CustomerRegistrationController {
 			errormsg = "Please enter a contact number";
 			return "registeredCustomer";
 		}
+		registrationEmail = new RegistrationEmail(customerDetails.getEmail(), customerDetails.getFirstName(), customerDetails.getUsername());
 		return "login";
 	}
 
