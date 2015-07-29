@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 import com.netbuilder.entities.Product;
 import com.netbuilder.service.ProductsOfIntrest;
-
+/**
+ *  Handles input from the page and passes it to the logic contained within products of intrest
+ * @author Jake
+ *
+ */
 public class SearchController 
 {
-	private int id;
+	private long id;
 	private String name;
 	private boolean stock;
 	private ArrayList <Product> results;
