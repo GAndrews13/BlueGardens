@@ -8,6 +8,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.netbuilder.util.LoginUtils;
+
 @Entity
 @Table(name = "CustomerLogin")
 /**
@@ -79,10 +81,15 @@ public class CustomerLogin {
 	 * @param inUsername
 	 * @param inPassword
 	 */
-	public CustomerLogin(String inUsername, byte[] inPassword, byte[] inSalt)
+	public CustomerLogin(String inUsername, String inPassword, byte[] inSalt)
 	{
 		this.customerUsername = inUsername;
-		this.customerPassword = inPassword;
+		try {
+			this.customerPassword = LoginUtils.hash(inPassword,inSalt);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.salt = inSalt;
 	}
 }

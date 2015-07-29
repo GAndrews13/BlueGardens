@@ -13,17 +13,8 @@ private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>()
 
 	public CustomerLoginManagerDummy()
 	{
-		try
-		{
-			byte[] tempSalt = LoginUtils.getNextSalt();
-			customerLogins.add(new CustomerLogin("root",LoginUtils.hash("password",tempSalt),tempSalt));
-			tempSalt = LoginUtils.getNextSalt();
-			customerLogins.add(new CustomerLogin("docker",LoginUtils.hash("linux",tempSalt),tempSalt));
-		}
-		catch (Exception e)
-		{
-			//TODO add error handling
-		}
+		customerLogins.add(new CustomerLogin("root","password",LoginUtils.getNextSalt()));
+		customerLogins.add(new CustomerLogin("docker","linux",LoginUtils.getNextSalt()));
 	}
 
 	public long checkDetails(String inUsername, byte[] inPassword){
