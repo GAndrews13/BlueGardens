@@ -53,7 +53,7 @@ public class WeeklySalesManagerDummy implements WeeklySalesManager {
 		ArrayList<WeeklySales> returnList = new ArrayList<WeeklySales>();
 		for(WeeklySales w : salesRecord)
 		{
-			//TODO replace with calender?
+			//XXX replace with calender?
 			Calendar c = Calendar.getInstance();
 			if(w.getDateSold().getMonth() == inMonthNumber-1)
 			{
