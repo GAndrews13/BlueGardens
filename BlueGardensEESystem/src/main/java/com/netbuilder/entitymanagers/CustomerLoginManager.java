@@ -10,4 +10,5 @@ public interface CustomerLoginManager {
 	public long checkCustomerID(String inUsername);
 	public ArrayList<String> findAll();
 	public String getCustomerUsername(String inUserEmail);
+	public byte[] getCustomerSalt(String inUsername);
 }

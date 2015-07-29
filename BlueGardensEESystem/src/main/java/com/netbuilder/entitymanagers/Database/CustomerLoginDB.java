@@ -58,4 +58,11 @@ public class CustomerLoginDB implements CustomerLoginManager {
 		CustomerLogin cl = em.createQuery("SELECT * FROM CustomerLogin c WHERE c.email = " + inUserEmail,CustomerLogin.class).getSingleResult();
 		return cl.getCustomerUsername();
 	}
+
+	@Override
+	public byte[] getCustomerSalt(String inUsername) {
+		EntityManager em = pm.CreateEntityManager();
+		byte[] saltArray = em.createQuery("SELECT salt FROM CustomerLogin c WHERE c.username = " + inUsername,byte[].class).getSingleResult();
+		return saltArray;
+	}
 }

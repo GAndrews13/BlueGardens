@@ -60,4 +60,17 @@ private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>()
 		}
 		return null;
 	}
+
+	@Override
+	public byte[] getCustomerSalt(String inUsername) {
+		for(int i = 0;i<customerLogins.size();i++)
+		{
+			CustomerLogin cl = customerLogins.get(i);
+			if(cl.getCustomerUsername() == inUsername)
+			{
+				return cl.getSalt();
+			}
+		}
+		return null;
+	}
 }
