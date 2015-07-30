@@ -7,11 +7,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.netbuilder.entities.Customer;
+import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.service.RegistrationEmail;
 import com.netbuilder.util.CustomerDetails;
-import com.netbuilder.util.UserDetails;
+import com.netbuilder.util.LoginUtils;
 
 /**
  * @author jmander
@@ -22,14 +23,15 @@ import com.netbuilder.util.UserDetails;
 public class CustomerRegistrationController {
 	//@Inject
 	private CustomerDetails customerDetails;
-	//@Inject
-	private RegistrationEmail registrationEmail;
 	@Inject
 	private CustomerManager customerManager;
 	@Inject
 	private CustomerLoginManager customerLoginManager;
 	private String confirmPassword;
 	private String confirmEmail;
+	private Customer newCustomer;
+	private CustomerLogin newCustomerLogin;
+	private byte[] customerSalt;
 	public String errormsg;
 	public String getErrormsg() {
 		return errormsg;
@@ -101,7 +103,19 @@ public class CustomerRegistrationController {
 			errormsg = "Please enter a contact number";
 			return "registeredCustomer";
 		}
-		registrationEmail = new RegistrationEmail(customerDetails.getEmail(), customerDetails.getFirstName(), customerDetails.getUsername());
+		
+		newCustomer = new Customer(customerDetails.getFirstName(), customerDetails.getLastName(), customerDetails.getAddress(),
+				customerDetails.getContactNumber(), "ACTIVE");
+		
+		customerSalt = LoginUtils.getNextSalt();
+		
+		newCustomerLogin = new CustomerLogin(customerDetails.getUsername(), customerDetails.getPassword(), customerSalt);
+		
+		customerManager.persistCustomer(newCustomer);
+		customerLoginManager.persistCustomerLogin(newCustomerLogin);
+
+		new RegistrationEmail(customerDetails.getEmail(), customerDetails.getFirstName(), customerDetails.getUsername());
+		
 		return "login";
 	}
 

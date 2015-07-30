@@ -12,7 +12,8 @@
 	<ui:define name = "pagetitle">
 		<h1> Search </h1>
 	</ui:define>
-	
+<!--REFRESH PAGE EVERY 5 SECONDS TO UPDATE RESULTS-->
+<meta http-equiv="refresh" content="5">
 <ui:define name="body">	
 
 	<div class="page-wrap">
@@ -48,17 +49,17 @@
  
  <div class = "searchform">
  <p>Search by</p>  
- <form>
+<form name="SearchForm" method="post" action="SearchServlet">
  Product Name:<br>
 <input type="text" name="productname">
 <br>
- Product ID:<br>
+<p>Product ID:</p> <br>
 <input type="text" name="productid">
 <br><br>
-Show products that are: <br>
-<input type="radio" name="instock" value="stockY" checked>In Stock
+<p>Show products that are:</p> <br>
+<input type="radio" name="instock" value="stockY" checked><p>In Stock</p>
 <br>
-<input type="radio" name="instock" value="stockN">Out of Stock
+<input type="radio" name="outstock" value="stockN"><p>Out of Stock</p>
 <br><br>
 <input type="submit" value="Submit">
 </form> 
@@ -72,7 +73,7 @@ Show products that are: <br>
 				<div class="col span_1_of_4">
 					Result 1
 					<hr />
-					<br> <!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" -->
+					<br>
 					<div class="description">
 						<img src="#{SearchController.pResult.getImageLink()}" style="float: left; width: 128px; height: 128px;">
 						<h2><h:outputLabel value="#{SearchController.pResult.getProductSeasonalName()}" /></h2>
@@ -98,7 +99,7 @@ Show products that are: <br>
 					<hr />
 					<br>
 					<div class="description">
-						<img src="#{SearchController.results[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<img src="#{SearchController.results[2].getImageLink()}" style="float: left; width: 128px; height: 128px;">
 						<h2><h:outputLabel value="#{SearchController.results[2].getSaleProductName()}" /></h2>
 						<h2><h:outputLabel value="#{SearchController.results[2].getSaleProductPrice()}" /></h2>
 						<h2><h:outputLabel value="#{SearchController.results[2].getSaleFeatureOne()}" /></h2>

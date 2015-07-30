@@ -514,7 +514,6 @@
 			 *******************************************************************/
 			simpleCart.extend({
 
-				// TODO: tax and shipping
 				tax: function () {
 					var totalToTax = settings.taxShipping ? simpleCart.total() + simpleCart.shipping() : simpleCart.total(),
 						cost = simpleCart.taxRate() * totalToTax;
@@ -889,6 +888,8 @@
 				checkout: function () {
 					//Test Code
 					/*simpleCart.add({name: "bob" , price: 2 , color:'blue' , size: 6 });*/
+					//Send information to basket for tracking
+					//var basketItems = simpleCart.find();
 					
 					if (settings.checkout.type.toLowerCase() === 'custom' && isFunction(settings.checkout.fn)) {
 						settings.checkout.fn.call(simpleCart,settings.checkout);
@@ -945,21 +946,19 @@
 						},
 						action = opts.sandbox ? "https://www.sandbox.paypal.com/cgi-bin/webscr" : "https://www.paypal.com/cgi-bin/webscr",
 						method = opts.method === "GET" ? "GET" : "POST";
-
-
+					
 					// check for return and success URLs in the options
-					if (opts.success) {
+					if (opts.success) {						
 						data['return'] = opts.success;
-						//Send information to basket for tracking
-						var basketItems = simpleCart.find();
-						//TODO send basket contents to tracking systems
 						
 					}
 					if (opts.cancel) {
 						data.cancel_return = opts.cancel;
+						
 					}
 					if (opts.notify) {
 						data.notify_url = opts.notify;
+						
 					}
 
 
@@ -1024,7 +1023,6 @@
 
 					// build basic form options
 					var data = {
-							// TODO: better shipping support for this google
 							  ship_method_name_1	: "Shipping"
 							, ship_method_price_1	: simpleCart.shipping()
 							, ship_method_currency_1: simpleCart.currency().code
@@ -1400,7 +1398,7 @@
 			simpleCart.ELEMENT = function (selector) {
 
 				this.create(selector);
-				this.selector = selector || null; // "#" + this.attr('id'); TODO: test length?
+				this.selector = selector || null; // "#" + this.attr('id'); 
 			};
 
 			simpleCart.extend(selectorFunctions, {

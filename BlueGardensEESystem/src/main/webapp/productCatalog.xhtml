@@ -20,15 +20,27 @@
 		<div id="productgrid">
 			<div class="section group">
 				<div class="col span_1_of_4">
-					Seasonal
+					Porousware
 					<hr />
-					<br> <!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" -->
+					<br> 
 					<div class="description">
-						<img src="#{productController.product.getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{productcatalogController.product.getProductSeasonalName()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product.getProductSeasonalPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product.getSeasonalFeatureOne()}" /></h2>
+						<img src="#{PourouswareProductController.pourouswareProducts[0].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getFeatureOne()}" /></h2>
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+						<br> <!-- Use padding-left css to help arrange this -->
+						
+						<img src="#{PourouswareProductController.pourouswareProducts[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getFeatureOne()}" /></h2>
+						<br> <!-- Use padding-left css to help arrange this -->
+						
+						<img src="#{PourouswareProductController.pourouswareProducts[2].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getFeatureOne()}" /></h2>
 					</div>
 				</div>
 				<div class="col span_1_of_4">
@@ -36,11 +48,26 @@
 					<hr />
 					<br/>
 					<div class="description">
-						<img src="#{productController.product.getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{productcatalogController.product.getTrendingProductName()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product.getTrendingProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product.getTrendingFeatureOne()}" /></h2>
+						<img src="#{TrendingProductController.trendingProducts[0].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[0].getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[0].getProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[0].getFeatureOne()}" /></h2>
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+						<br> <!-- Use padding-left css to help arrange this -->
+						
+						<img src="#{TrendingProductController.trendingProducts[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[1].getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[1].getProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[1].getFeatureOne()}" /></h2>
+						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+						<br> <!-- Use padding-left css to help arrange this -->
+						
+						<img src="#{TrendingProductController.trendingProducts[2].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[2].getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[2].getProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[2].getFeatureOne()}" /></h2>
+						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+						<br> <!-- Use padding-left css to help arrange this -->
 					</div>
 				</div>
 				<div class="col span_1_of_4">
@@ -48,11 +75,26 @@
 					<hr />
 					<br>
 					<div class="description">
-						<img src="#{productController.product.getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{productcatalogController.product.getSaleProductName()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product.getSaleProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product.getSaleFeatureOne()}" /></h2>
+						<img src="#{SaleProductController.saleProducts[0].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{SaleProductController.saleProducts[0].getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{SaleProductController.saleProducts[0].getProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{SaleProductController.saleProducts[0].getFeatureOne()}" /></h2>
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+						<br> <!-- Use padding-left css to help arrange this -->
+						
+						<img src="#{SaleProductController.saleProducts[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{SaleProductController.saleProducts[1].getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{SaleProductController.saleProducts[1].getProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{SaleProductController.saleProducts[1].getFeatureOne()}" /></h2>
+						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+						<br> <!-- Use padding-left css to help arrange this -->
+						
+						<img src="#{SaleProductController.saleProducts[2].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<h2><h:outputLabel value="#{SaleProductController.saleProducts[2].getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{SaleProductController.saleProducts[2].getProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{SaleProductController.saleProducts[2].getFeatureOne()}" /></h2>
+						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
+						<br> <!-- Use padding-left css to help arrange this -->
 					</div>
 				</div>
 			</div>

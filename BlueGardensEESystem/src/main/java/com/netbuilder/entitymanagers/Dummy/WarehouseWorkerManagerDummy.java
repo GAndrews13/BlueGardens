@@ -61,4 +61,15 @@ public class WarehouseWorkerManagerDummy implements WarehouseWorkerManager {
 		
 	}
 
+	@Override
+	public WarehouseWorker isAssigned(boolean isAssigned) {
+		// TODO Auto-generated method stub
+		for (WarehouseWorker w : warehouseWorkers){
+			if(w.isAssigned() == true) {
+				return w;
+			}
+		}
+		return null;
+	}
+
 }

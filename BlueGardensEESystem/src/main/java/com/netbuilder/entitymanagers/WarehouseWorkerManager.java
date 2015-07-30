@@ -14,7 +14,7 @@ public interface WarehouseWorkerManager {
 	
 	///////// CREATE /////////
 	public void persistWarehouseWorker(WarehouseWorker warehouseWorker);
-	public void persistWarehouseWorker(ArrayList<WarehouseWorker> warehouseWorkers);
+	public void persistWarehouseWorker(ArrayList<WarehouseWorker> warehouseWorker);
 	
 	///////// UPDATE ////////
 	public void updateWarehouseWorker(WarehouseWorker warehouseWorker);
@@ -22,7 +22,7 @@ public interface WarehouseWorkerManager {
 	///////// READ /////////
 	public WarehouseWorker findByName(String name);
 	public WarehouseWorker findById(int id); 
-		
+	public WarehouseWorker isAssigned(boolean isAssigned);
 	
 	
 	

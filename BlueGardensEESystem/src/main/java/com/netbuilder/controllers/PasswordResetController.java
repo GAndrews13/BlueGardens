@@ -1,11 +1,10 @@
 package com.netbuilder.controllers;
 
 import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.netbuilder.entities.CustomerLogin;
-import com.netbuilder.entitymanagers.CustomerLoginManager;
+import com.netbuilder.util.LoginUtils;
 import com.netbuilder.util.PasswordReset;
 
 /**
@@ -15,9 +14,7 @@ import com.netbuilder.util.PasswordReset;
 @Named
 @Dependent
 public class PasswordResetController {
-	@Inject
-	private CustomerLoginManager customerLoginManager;
-	@Inject
+	//@Inject
 	private CustomerLogin customerLogin;
 	//@Inject
 	private PasswordReset passwordReset;
@@ -36,9 +33,15 @@ public class PasswordResetController {
 			errormsg = "Passwords do not match";
 			return "passwordReset";
 		}
-		//customer login manager needs an update, to fire off the new password below
-		customerLogin.setCustomerPassword(passwordReset.getNewPassword());
-		//Fire off new password to customerLogin
+		try
+		{
+			customerLogin.setCustomerPassword(LoginUtils.hash(passwordReset.getNewPassword(),customerLogin.getSalt()));
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		
 		return "login";
 	}
 }

@@ -72,7 +72,7 @@ public class CustomerLogin {
 	public long getCustomerID()	{
 		return this.customerID;
 	}
-	public void serCustomerID(long customerID){
+	public void setCustomerID(long customerID){
 		this.customerID = customerID;
 	}
 	
@@ -87,8 +87,7 @@ public class CustomerLogin {
 		try {
 			this.customerPassword = LoginUtils.hash(inPassword,inSalt);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.toString());
 		}
 		this.salt = inSalt;
 	}
