@@ -77,6 +77,7 @@ public class SalePourousTrendingReciever {
 				}
 			}
 		}
+		// Place holder for redirecting the user to another page.
 		return "faces/popular";
 	}
 }

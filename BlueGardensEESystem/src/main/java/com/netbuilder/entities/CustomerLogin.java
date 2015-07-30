@@ -72,7 +72,7 @@ public class CustomerLogin {
 	public long getCustomerID()	{
 		return this.customerID;
 	}
-	public void serCustomerID(long customerID){
+	public void setCustomerID(long customerID){
 		this.customerID = customerID;
 	}
 	

@@ -4,17 +4,17 @@ package com.netbuilder.controllers;
  * @Author GAndrews 
  */
 
-
-import javax.enterprise.context.Dependent;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.security.auth.login.LoginException;
 
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.util.LoginUtils;
 import com.netbuilder.util.UserDetails;
-@Named
-@Dependent
+
+@ManagedBean(name = "loginController")
+@RequestScoped
 public class LoginController {
 	@Inject
 	private CustomerLoginManager clm;
@@ -58,10 +58,8 @@ public class LoginController {
 		this.errormsg = errormsg;
 	}
 
-	public String login(String password, String username) {
+	public String login() {
 		Long uid;
-		this.password = password;
-		this.username = username;
 		
 		System.out.println(username);
 		System.out.println(password);
