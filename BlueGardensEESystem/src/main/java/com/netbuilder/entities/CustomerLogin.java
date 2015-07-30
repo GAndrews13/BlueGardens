@@ -32,14 +32,16 @@ public class CustomerLogin {
 	/**
 	 * The password a user on the website provides
 	 */
-	@Column(name = "password")
+	@Column(name = "password", nullable = false)
 	@Size (min = 6, max = 25)
+	@NotNull
 	private byte[] customerPassword;
 	/**
 	 * The username that is provided on the website
 	 */
-	@Column(name = "username")
+	@Column(name = "username", nullable = false)
 	@Size(min = 6, max =25)
+	@NotNull
 	private String customerUsername;
 	
 	@OneToOne

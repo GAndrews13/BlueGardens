@@ -17,7 +17,21 @@ import com.netbuilder.entitymanagers.ProductManager;
  */
 @Alternative
 public class ProductManagerDummy implements ProductManager {
-ArrayList<Product> products = new ArrayList<Product>();
+ArrayList<Product> products = new ArrayList<Product>(){{
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+    new Product();
+}};
 	@Inject
 	private PersistenceManager pm;
 

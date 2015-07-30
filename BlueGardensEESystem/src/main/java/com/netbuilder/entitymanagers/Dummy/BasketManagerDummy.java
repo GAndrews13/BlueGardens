@@ -33,9 +33,12 @@ Basket localbasket = new Basket(0, null);
 	@Override
 	public double findTotal() {
 		double total = 0;
-		for(int i = 0;i<localbasket.getProductOrderLine().size();i++)
+		if(localbasket.getProductOrderLine()!= null)
 		{
-			total+=localbasket.getProductOrderLine().get(i).getQuantity()*localbasket.getProductOrderLine().get(i).getProduct().getPrice(); 
+			for(int i = 0;i<localbasket.getProductOrderLine().size();i++)
+			{
+				total+=localbasket.getProductOrderLine().get(i).getQuantity()*localbasket.getProductOrderLine().get(i).getProduct().getPrice(); 
+			}
 		}
 		return total;
 	}

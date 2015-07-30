@@ -26,6 +26,7 @@ public class BasketController implements Serializable{
 		items = getItemsFromPOLS();
 		return items;
 	}
+	
 	public ArrayList<Product> getItemsFromPOLS()
 	{
 		ArrayList<Product> temp = new ArrayList<Product>();
@@ -37,6 +38,7 @@ public class BasketController implements Serializable{
 	}
 	
 	public double getBasketTotal() {
+		basketTotal = bm.findTotal();
 		return basketTotal;//bm.findTotal();
 	}
 
@@ -63,6 +65,11 @@ public class BasketController implements Serializable{
 	public ArrayList<ProductOrderLine> pols()
 	{
 		return bm.products();
+	}
+	
+	public void addProduct(Product inProduct)
+	{
+		bm.products().add(new ProductOrderLine(inProduct,1));
 	}
 }
 /*

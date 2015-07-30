@@ -29,7 +29,7 @@
 		<h:outputLabel value = "#{productController.product.getFeatureFive()}"/><br />
 	</div>
 	<div id = "addtobasket">
-	<a href="javascript:;" onclick="simpleCart.add({id: 'productController.product.getProductID()' ,name:'productController.product.getProductName()', price: 'productController.product.getPrice()'});" >Add to Basket</a>
+	<h:commandButton action="#{basketController.addProduct(productController.product)}" value="Add to Basket" />
 	</div>
 	
 	<div id = "trendingproducts">
@@ -40,7 +40,6 @@
 		<li><a href="#"><img src="#{trendingProductController.trendingProducts[2].getImageLink()}" alt="" /></a></li>
 	</ul>
 	</div>
-	
 	<div id = "customerreviews">
 		<form>
 		<legend>Customer Reviews:</legend>
