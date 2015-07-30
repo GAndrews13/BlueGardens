@@ -23,6 +23,14 @@ public class ProductController {
 	private ProductManager productmanager;
 	private Product product;
 	private ArrayList<Product> products;
+	public ArrayList<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(ArrayList<Product> products) {
+		this.products = products;
+	}
+
 	public String errormsg;
 
 	private String id = getProduct().getImageLink();
