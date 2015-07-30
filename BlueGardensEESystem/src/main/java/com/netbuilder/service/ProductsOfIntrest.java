@@ -162,7 +162,7 @@ public class ProductsOfIntrest {
 	public ArrayList<Product> getSearchResults(long id, String name, boolean stock) 
 		{
 		ArrayList<Product> searchResults = new ArrayList<Product>();
-		if(stock == true)
+		if(stock == false)
 			{
 				searchResults = productManager.findByOutStock();
 				return searchResults;

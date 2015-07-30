@@ -20,10 +20,7 @@
 					<br/>
 					<h:outputLabel value="Password" for="password"/><br/>
 					<h:inputSecret id="password" value="#{loginController.password}" maxlength="45" size="20"/><br/>
-					<h:commandButton action="#{loginController.login(username,loginpassword)}" value="Login">
-					<f:param name="username" value="#logindetails" />
-					<f:param name="loginpassword" value="#{loginController.password}" />
-					</h:commandButton>
+					<h:commandButton action="#{loginController.login}" value="Login" />
 					</h:panelGrid>	
 				</h:form>
 			</div>
