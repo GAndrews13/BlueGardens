@@ -44,6 +44,7 @@ public class SearchForm extends HttpServlet
 			 */
 			String htmlResponse = "<html>";
 			htmlResponse += "<h2>Search results returned with " + "</h2>";
+			htmlResponse += "<div id= productgrid >";
 			htmlResponse += "</html>";
 			
 			/**
