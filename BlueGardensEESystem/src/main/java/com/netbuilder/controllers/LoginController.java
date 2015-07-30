@@ -22,6 +22,9 @@ public class LoginController {
 	private UserDetails ud;
 	private String username;
 	private String password;
+	private int userID;
+	private byte[] salt;
+	private boolean loggedIn = false;
 	public String errormsg;
 	
 	public LoginController(){
@@ -33,8 +36,31 @@ public class LoginController {
 		this.password = password;
 	}
 	
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
+	}
+
+	public byte[] getSalt() {
+		return salt;
+	}
+
+	public void setSalt(byte[] salt) {
+		this.salt = salt;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+	
 	public void setUsername(String username) {
-		System.out.println(username);
 		this.username = username;
 	}
 	public String getUsername() {
@@ -42,7 +68,6 @@ public class LoginController {
 	}
 
 	public void setPassword(String password) {
-		System.out.println(password);
 		this.password = password;
 	}
 	
@@ -61,19 +86,17 @@ public class LoginController {
 	public String login() {
 		Long uid;
 		
-		System.out.println(username);
-		System.out.println(password);
-		
-		if (ud.getUsername().isEmpty() || ud.getPassword().isEmpty()) {
+		if (username.isEmpty() || password.isEmpty()) {
 			errormsg = "please enter details";
 			return "login";
 		}
 		try
 		{
-			uid = clm.checkDetails(ud.getUsername(), LoginUtils.hash(ud.getPassword(),ud.getSalt()));
+			uid = clm.checkCustomerID(username);
+			System.out.println(uid);
 			if(uid != null)
 			{
-				ud.setLoggedIn(true);
+				setLoggedIn(true);
 				return "account/uid";
 			}
 			else
@@ -84,14 +107,11 @@ public class LoginController {
 		}
 		catch (Exception e)
 		{
-
-			
-		}
-		finally
-		{
 			errormsg = "Error logging in";
 		}
-		return "login";
+		
+		System.out.println(username);
+			return "login";
 	}
 	
 	public String logout() throws LoginException
@@ -99,16 +119,17 @@ public class LoginController {
 		//Slide 89?
 		
 		//loginContext.logout();
-		ud.setLoggedIn(false);
-		ud = null;
+		setLoggedIn(false);
+		username = null;
+		password = null;
 		return "home";
 	}
 	
 	public String loggedInUserName()
 	{
-		if(ud.isLoggedIn())
+		if(loggedIn)
 		{
-			return ud.getUsername();
+			return username;
 		}
 		else
 		{

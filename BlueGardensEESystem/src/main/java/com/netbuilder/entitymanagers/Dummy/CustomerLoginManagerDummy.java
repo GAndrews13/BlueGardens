@@ -13,8 +13,8 @@ private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>()
 
 	public CustomerLoginManagerDummy()
 	{
-		customerLogins.add(new CustomerLogin("root","password",LoginUtils.getNextSalt()));
-		customerLogins.add(new CustomerLogin("docker","linux",LoginUtils.getNextSalt()));
+		customerLogins.add(new CustomerLogin(1, "root","password",LoginUtils.getNextSalt()));
+		customerLogins.add(new CustomerLogin(2, "docker","linux",LoginUtils.getNextSalt()));
 	}
 
 	public long checkDetails(String inUsername, byte[] inPassword){

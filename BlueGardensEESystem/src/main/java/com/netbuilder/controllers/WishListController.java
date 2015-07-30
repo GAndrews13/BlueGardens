@@ -6,7 +6,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import com.netbuilder.entities.Product;
 import com.netbuilder.service.WishlistForUser;
-import com.netbuilder.util.UserDetails;
 
 /**
  * @author abalagel
@@ -16,11 +15,22 @@ import com.netbuilder.util.UserDetails;
 public class WishListController {
 	@Inject
 	private WishlistForUser wishlistForUser;
-	//@Inject
-	private UserDetails userDetails;
-	public ArrayList<Product> products = new ArrayList<Product>();
+	private LoginController loginController;
+	public ArrayList<Product> products = new ArrayList<Product>();	
 	
+	public ArrayList<Product> getProducts() {
+		return products;
+	}
+
+
+	public void setProducts(ArrayList<Product> products) {
+		this.products = products;
+	}
+
+
 	public WishListController(){
-		products = wishlistForUser.getProductsForUser(userDetails.getUsername());
+		
+		products = wishlistForUser.getProductsForUser(loginController.getUsername());
+		
 	}
 }

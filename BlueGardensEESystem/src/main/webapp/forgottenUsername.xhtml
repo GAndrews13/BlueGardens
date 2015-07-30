@@ -6,20 +6,18 @@
 		xmlns:f="http://java.sun.com/jsf/core"
 		template="templates/template.xhtml">
 <ui:define name="pageTitle">Forgotten Username</ui:define>
-<ui:define name="content">
-	<div id="forgottenUsername">
-		<h:form>
-			<h2>Forgotten Username</h2>
-			<h:panelGrid>
-				<h:outputLabel value="#{forgottenUsernameController.errormsg"/><br/>
-				<h:outputLabel value="Email" for="forgottenusernameemail"/>
-				<h:inputText id="forgottenusernameemail" value="#{forgottenUsernameDetails.email}" maxlength="45" size="20"/>
-				<br/>
-				<f:facet name="loginsubmit">
-					<h:commandButton class="button" value="Submit" action="#{forgottenUsernameController.forgottenUsername}"/>
-				</f:facet>
-			</h:panelGrid>
-		</h:form>
-	</div>
+<ui:define name="body">
+			<div id="forgottenUsername">
+				<h:form>
+					<h2>Forgotten Username</h2>
+					<h:panelGrid>
+						<h:outputLabel value="#{forgottenUsernameController.errormsg}"/><br/>
+						<h:outputLabel value="Email" for="forgottenusernameemail"/>
+						<h:inputText id="forgottenusernameemail" value="#{forgottenUsernameDetails.email}" maxlength="45" size="20"/>
+						<br/>
+						<h:commandButton action="#{forgottenUsernameController.forgottenUsername()}" value="Submit" />
+					</h:panelGrid>
+				</h:form>
+			</div>
 </ui:define>
 </ui:composition>

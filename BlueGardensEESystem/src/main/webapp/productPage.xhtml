@@ -27,7 +27,6 @@
 		<h:outputLabel value = "#{productController.product.getFeatureThree()}"/><br />
 		<h:outputLabel value = "#{productController.product.getFeatureFour()}"/><br />
 		<h:outputLabel value = "#{productController.product.getFeatureFive()}"/><br />
-	
 	</div>
 	<div id = "addtobasket">
 	<a href="javascript:;" onclick="simpleCart.add({id: 'productController.product.getProductID()' ,name:'productController.product.getProductName()', price: 'productController.product.getPrice()'});" >Add to Basket</a>
@@ -36,10 +35,9 @@
 	<div id = "trendingproducts">
 	Trending Products:
 	<ul>
-		<li><a href="#"><img src="#{trendingProductController.trendingProducts[0].getImageLink()}" alt="" /></a>
-		<li><a href="#"><img src="#{trendingProductController.trendingProducts[1].getImageLink()}" alt="" /></a>
-		<li><a href="#"><img src="#{trendingProductController.trendingProducts[2].getImageLink()}" alt="" /></a>
-		</li>
+		<li><a href="#"><img src="#{trendingProductController.trendingProducts[0].getImageLink()}" alt="" /></a></li>
+		<li><a href="#"><img src="#{trendingProductController.trendingProducts[1].getImageLink()}" alt="" /></a></li>
+		<li><a href="#"><img src="#{trendingProductController.trendingProducts[2].getImageLink()}" alt="" /></a></li>
 	</ul>
 	</div>
 	

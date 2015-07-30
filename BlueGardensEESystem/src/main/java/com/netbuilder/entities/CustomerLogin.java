@@ -2,8 +2,8 @@ package com.netbuilder.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -42,8 +42,8 @@ public class CustomerLogin {
 	@Size(min = 6, max =25)
 	private String customerUsername;
 	
-	@Column(name = "ID", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@OneToOne
+	@JoinColumn(name ="customerID", nullable = false)
 	@NotNull
 	private long customerID;
 	
@@ -72,17 +72,15 @@ public class CustomerLogin {
 	public long getCustomerID()	{
 		return this.customerID;
 	}
-	public void setCustomerID(long customerID){
-		this.customerID = customerID;
-	}
-	
+
 	/**
 	 * Basic constructor containing both username and password
 	 * @param inUsername
 	 * @param inPassword
 	 */
-	public CustomerLogin(String inUsername, String inPassword, byte[] inSalt)
+	public CustomerLogin(long customerID, String inUsername, String inPassword, byte[] inSalt)
 	{
+		this.customerID = customerID;
 		this.customerUsername = inUsername;
 		try {
 			this.customerPassword = LoginUtils.hash(inPassword,inSalt);

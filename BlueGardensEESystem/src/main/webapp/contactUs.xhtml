@@ -23,18 +23,16 @@
 	<div id="form">	
 		<h:form>			
 			<h:panelGrid>
-				<h:outputLabel value="#{ContactController.errorMessage"/><br/>
+				<h:outputLabel value="#{contactController.errorMessage}"/><br/>
 				<h:outputLabel value="name" for="customername"/><br/>
-				<h:inputText id="customername" value="#{ContactFormDetails.name}" maxlength="45" size="20"/><br/>
+				<h:inputText id="customername" value="#{contactFormDetails.name}" maxlength="45" size="20"/><br/>
 				<br/>
 				<h:outputLabel value="email" for="customeremail"/><br/>
-				<h:inputSecret id="customeremail" value="#{ContactFormDetails.email}" maxlength="45" size="20"/><br/>
+				<h:inputSecret id="customeremail" value="#{contactFormDetails.email}" maxlength="45" size="20"/><br/>
 				<br/>
 				<h:outputLabel value="message" for="customermessage"/><br/>
-				<h:inputSecret id="customermessage" value="#{ContactFormDetails.message}" maxlength="80" size="30"/><br/>
-				<f:facelet name="loginsubmit">
-					<h:commandButton class="button" value="Send" action="#{ContactController.sendMessage}"/>
-				</f:facelet>
+				<h:inputSecret id="customermessage" value="#{contactFormDetails.message}" maxlength="80" size="30"/><br/>
+				<h:commandButton action="#{contactController.sendMessage}" value="Send" />
 			</h:panelGrid>
 		</h:form>
 	</div>

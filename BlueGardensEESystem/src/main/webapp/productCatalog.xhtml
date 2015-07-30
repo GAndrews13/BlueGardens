@@ -11,7 +11,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	template="templates/template.xhtml">
 
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<ui:define name="pagetitle">
 		<h1>Product Catalog</h1>
 	</ui:define>
@@ -20,123 +19,42 @@
 		<div id="productgrid">
 			<div class="section group">
 				<div class="col span_1_of_4">
-					Porousware
-					<hr />
-					<br> 
+					Seasonal
+					<hr/>
+					<br/> <!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" -->
 					<div class="description">
-						<img src="#{PourouswareProductController.pourouswareProducts[0].getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getFeatureOne()}" /></h2>
+						<img src="#{productController.product[0].getImageLink()}" width="128" height="128"/>
+						<h2><h:outputLabel value="#{productcatalogController.product[0].getProductSeasonalName()}" /></h2>
+						<h2><h:outputLabel value="#{productcatalogController.product[0].getProductSeasonalPrice()}" /></h2>
+						<h2><h:outputLabel value="#{productcatalogController.product[0].getSeasonalFeatureOne()}" /></h2>
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-						<br> <!-- Use padding-left css to help arrange this -->
-						
-						<img src="#{PourouswareProductController.pourouswareProducts[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getFeatureOne()}" /></h2>
-						<br> <!-- Use padding-left css to help arrange this -->
-						
-						<img src="#{PourouswareProductController.pourouswareProducts[2].getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getFeatureOne()}" /></h2>
 					</div>
 				</div>
 				<div class="col span_1_of_4">
 					Trending
-					<hr />
+					<hr/>
 					<br/>
 					<div class="description">
-						<img src="#{TrendingProductController.trendingProducts[0].getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[0].getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[0].getProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[0].getFeatureOne()}" /></h2>
+						<img src="#{productController.product[1].getImageLink()}" width="128" height="128"/>
+						<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingProductName()}" /></h2>
+						<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingFeatureOne()}" /></h2>
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-						<br> <!-- Use padding-left css to help arrange this -->
-						
-						<img src="#{TrendingProductController.trendingProducts[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[1].getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[1].getProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[1].getFeatureOne()}" /></h2>
-						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-						<br> <!-- Use padding-left css to help arrange this -->
-						
-						<img src="#{TrendingProductController.trendingProducts[2].getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[2].getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[2].getProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{TrendingProductController.trendingProducts[2].getFeatureOne()}" /></h2>
-						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-						<br> <!-- Use padding-left css to help arrange this -->
 					</div>
 				</div>
 				<div class="col span_1_of_4">
 					On Sale
-					<hr />
-					<br>
+					<hr/>
+					<br/>
 					<div class="description">
-						<img src="#{SaleProductController.saleProducts[0].getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{SaleProductController.saleProducts[0].getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{SaleProductController.saleProducts[0].getProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{SaleProductController.saleProducts[0].getFeatureOne()}" /></h2>
+						<img src="#{productController.product[2].getImageLink()}" width="128" height="128"/>
+						<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleProductName()}" /></h2>
+						<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleProductPrice()}" /></h2>
+						<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleFeatureOne()}" /></h2>
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-						<br> <!-- Use padding-left css to help arrange this -->
-						
-						<img src="#{SaleProductController.saleProducts[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{SaleProductController.saleProducts[1].getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{SaleProductController.saleProducts[1].getProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{SaleProductController.saleProducts[1].getFeatureOne()}" /></h2>
-						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-						<br> <!-- Use padding-left css to help arrange this -->
-						
-						<img src="#{SaleProductController.saleProducts[2].getImageLink()}" style="float: left; width: 128px; height: 128px;">
-						<h2><h:outputLabel value="#{SaleProductController.saleProducts[2].getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{SaleProductController.saleProducts[2].getProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{SaleProductController.saleProducts[2].getFeatureOne()}" /></h2>
-						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-						<br> <!-- Use padding-left css to help arrange this -->
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="page-wrap">
-			<div id="site-header">
-				<h1 id="logo">
-					<a href="">
-						<!--LOGO ADD-->
-					</a>
-				</h1>
-				<div id="navigation">
-					<ul class="menu">
-						<li><img src="images/NB-Gardens.png" width=60px height=30px /></li>
-						<li><a href="/home" class="active"><span>Home</span></a></li>
-						<li><a href="/services"><span>Services</span></a></li>
-						<li><a href="/about"><span>About</span></a></li>
-						<li><a href="/contact"><span>Contact</span></a></li>
-						<li><img src="images/basket.png" width=32px height=32px alt="Basket" />
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div id="contentHeader"></div>
-			<div class="content">
-				<div id="sidebarRight">BLOG SECTION</div>
-			</div>
-		</div>
-		<footer class="site-footer">
-			<div class="left">
-				<div>
-					<ul class="bottommenu">
-						<li><a href="/home" class="active"><span>Home</span></a></li>
-						<li><a href="/services"><span>Services</span></a></li>
-						<li><a href="/about"><span>About</span></a></li>
-						<li><a href="/contact"><span>Contact</span></a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="center">
-				2015 NBGardens. <a href="">Design by DelphiSoft Consulting</a>
-			</div>
-		</footer>
 	</ui:define>
 </ui:composition>
