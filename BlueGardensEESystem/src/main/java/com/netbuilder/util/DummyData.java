@@ -8,11 +8,11 @@ import javax.ejb.Startup;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entities.Product;
-import com.netbuilder.entities.Wishlist;
 
 @Singleton
 @Startup
 public class DummyData {
+	
 
 	private Customer customer1;
 	private CustomerLogin customerLogin1;
@@ -33,6 +33,54 @@ public class DummyData {
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>();
 	private ArrayList<ArrayList<Product>> wishlists = new ArrayList<ArrayList<Product>>();
+	
+	public ArrayList<Product> getProducts() {
+		return products;
+	}
+	
+	public void setProduct(Product product) {
+		products.add(product);
+	}
+
+	public void setProducts(ArrayList<Product> products) {
+		this.products.addAll(products);
+	}
+	
+	public ArrayList<Customer> getCustomers() {
+		return customers;
+	}
+	
+	public void setCustomer(Customer customer) {
+		customers.add(customer);
+	}
+
+	public void setCustomers(ArrayList<Customer> customers) {
+		this.customers = customers;
+	}
+
+	public ArrayList<CustomerLogin> getCustomerLogins() {
+		return customerLogins;
+	}
+
+	public void setCustomerLogin(CustomerLogin customerLogin) {
+		customerLogins.add(customerLogin);
+	}
+	
+	public void setCustomerLogins(ArrayList<CustomerLogin> customerLogins) {
+		this.customerLogins = customerLogins;
+	}
+
+	public ArrayList<ArrayList<Product>> getWishlists() {
+		return wishlists;
+	}
+	
+	public void setWishlist(ArrayList<Product> wishlist) {
+		wishlists.add(wishlist);
+	}
+
+	public void setWishlists(ArrayList<ArrayList<Product>> wishlists) {
+		this.wishlists = wishlists;
+	}
 	
 	public DummyData(){
 		product1 = new Product("Ketchup", 10, 3, 10, false,
