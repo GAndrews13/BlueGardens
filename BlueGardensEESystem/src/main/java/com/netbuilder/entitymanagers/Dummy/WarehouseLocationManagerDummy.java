@@ -1,9 +1,12 @@
 package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
+
 import javax.enterprise.inject.Alternative;
 import com.netbuilder.entities.WarehouseLocation;
 import com.netbuilder.entitymanagers.WarehouseLocationManager;
+
+/**@author anca*/
 
 @Alternative
 public class WarehouseLocationManagerDummy implements WarehouseLocationManager {
