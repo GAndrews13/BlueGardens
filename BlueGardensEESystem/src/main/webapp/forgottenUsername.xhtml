@@ -13,7 +13,7 @@
 			<h:panelGrid>
 				<h:outputLabel value="#{forgottenUsernameController.errormsg"/><br/>
 				<h:outputLabel value="Email" for="forgottenusernameemail"/>
-				<h:inputText id="forgottenusernameemail" value="#{customerDetails.email}" maxlength="45" size="20"/>
+				<h:inputText id="forgottenusernameemail" value="#{forgottenUsernameDetails.email}" maxlength="45" size="20"/>
 				<br/>
 				<f:facet name="loginsubmit">
 					<h:commandButton class="button" value="Submit" action="#{forgottenUsernameController.forgottenUsername}"/>

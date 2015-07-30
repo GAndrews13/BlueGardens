@@ -92,8 +92,7 @@ public class CustomerOrder {
 	private ArrayList<ProductOrderLine> productOrderLine;
 	
 	@ManyToOne
-	@JoinColumn(name ="WorkerID", nullable = false)
-	@NotNull
+	@JoinColumn(name ="WorkerID", nullable = true)
 	private WarehouseWorker worker;
 	
 	@Column(name = "DeliveryStatus", nullable = false)

@@ -1,13 +1,16 @@
 package com.netbuilder.service;
 
 import java.util.Properties;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
+/**
+ * @author abalagel
+ */
 public class ContactEmail {
 
 	public void sendEmail(String name, String email, String message) {

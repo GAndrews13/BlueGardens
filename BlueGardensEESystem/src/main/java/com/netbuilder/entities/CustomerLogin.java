@@ -87,8 +87,7 @@ public class CustomerLogin {
 		try {
 			this.customerPassword = LoginUtils.hash(inPassword,inSalt);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.toString());
 		}
 		this.salt = inSalt;
 	}

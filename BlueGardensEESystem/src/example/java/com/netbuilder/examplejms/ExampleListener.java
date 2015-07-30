@@ -4,6 +4,8 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
 
+import com.netbuilder.util.ProductOfIntrestLists;
+
 
 public class ExampleListener implements MessageListener {
 

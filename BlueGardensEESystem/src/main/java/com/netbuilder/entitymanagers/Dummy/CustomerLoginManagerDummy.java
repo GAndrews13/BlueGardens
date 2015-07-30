@@ -73,4 +73,9 @@ private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>()
 		}
 		return null;
 	}
+
+	@Override
+	public void persistCustomerLogin(CustomerLogin customerLogin) {
+		customerLogins.add(customerLogin);
+	}
 }

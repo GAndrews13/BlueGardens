@@ -43,7 +43,7 @@ public class LoginUtils {
 		}
 		catch (Exception e)
 		{
-			//TODO error handling
+			System.out.println(e.toString());
 			throw new Exception("broken hash system");
 		}
 		finally

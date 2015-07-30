@@ -29,9 +29,8 @@
 		<h:outputLabel value = "#{productController.product.getFeatureFive()}"/><br />
 	
 	</div>
-	
 	<div id = "addtobasket">
-	<input type="submit" value="Add to Basket"></input>
+	<a href="javascript:;" onclick="simpleCart.add({id: 'productController.product.getProductID()' ,name:'productController.product.getProductName()', price: 'productController.product.getPrice()'});" >Add to Basket</a>
 	</div>
 	
 	<div id = "trendingproducts">

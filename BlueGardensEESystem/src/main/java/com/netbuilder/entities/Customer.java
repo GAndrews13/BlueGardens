@@ -42,7 +42,7 @@ public class Customer
 	@Column(name = "customerID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
-	private int customerID;
+	private long customerID;
 	
 	/**
 	 * First Name represents the customer name in the table, cannot be null
@@ -95,9 +95,8 @@ public class Customer
 	/**
 	 * Initialize customer so instances of customer cannot have null values 
 	 */
-	public Customer(int customerID, String firstname, String lastname, String address, String contactNUM, String accountSTATUS)
+	public Customer(String firstname, String lastname, String address, String contactNUM, String accountSTATUS)
 	{
-		this.customerID = customerID;
 		this.firstName = firstname;
 		this.lastName = lastname;
 		this.address = address;
@@ -109,12 +108,8 @@ public class Customer
 	 *	Getters and Setter for class variables
 	 *	
 	 */
-	public int getCustomerID() {
+	public long getCustomerID() {
 		return customerID;
-	}
-
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
 	}
 
 	public String getFirstName() {

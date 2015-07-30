@@ -1,4 +1,4 @@
-package com.netbuilder.controllers;
+package com.netbuilder.messagereceiver;
 
 import static javax.jms.Session.AUTO_ACKNOWLEDGE;
 
@@ -16,7 +16,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import com.netbuilder.examplejms.ProductOfIntrestLists;
+import com.netbuilder.util.ProductOfIntrestLists;
 
 public class SalePourousTrendingReciever {
 	private Context context;

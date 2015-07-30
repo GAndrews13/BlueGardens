@@ -83,4 +83,18 @@ private PersistenceManager pm;
 		return null;
 		}
 	}
+
+	@Override
+	public WarehouseWorker isAssigned(boolean isAssigned) {
+		// TODO Auto-generated method stub
+		EntityManager em = pm.CreateEntityManager();
+		TypedQuery<WarehouseWorker> tq = em.createNamedQuery(WarehouseWorker.IS_ASSIGNED, WarehouseWorker.class);
+		pm.CloseEntityManager(em);
+		try{
+			return tq.getSingleResult();
+		} catch (NoResultException nre) {
+				
+		return null;
+		}
+	}
 }

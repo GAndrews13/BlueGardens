@@ -20,8 +20,36 @@ public class LoginController {
 	private CustomerLoginManager clm;
 	//@Inject
 	private UserDetails ud;
+	private String username;
+	private String password;
 	public String errormsg;
 	
+	public LoginController(){
+		ud = new UserDetails();
+	}
+	
+	public LoginController(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+	
+	public void setUsername(String username) {
+		System.out.println(username);
+		this.username = username;
+	}
+	public String getUsername() {
+		return username;
+	}
+
+	public void setPassword(String password) {
+		System.out.println(password);
+		this.password = password;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+		
 	public String getErrormsg() {
 		return errormsg;
 	}
@@ -30,8 +58,14 @@ public class LoginController {
 		this.errormsg = errormsg;
 	}
 
-	public String login() {
+	public String login(String password, String username) {
 		Long uid;
+		this.password = password;
+		this.username = username;
+		
+		System.out.println(username);
+		System.out.println(password);
+		
 		if (ud.getUsername().isEmpty() || ud.getPassword().isEmpty()) {
 			errormsg = "please enter details";
 			return "login";
@@ -52,7 +86,8 @@ public class LoginController {
 		}
 		catch (Exception e)
 		{
-			//TODO error handling
+
+			
 		}
 		finally
 		{
