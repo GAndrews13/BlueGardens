@@ -7,6 +7,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+/**
+ * @author abalagel
+ */
 
 @Entity
 @Table(name = "WarehouseLocation")
@@ -38,10 +41,6 @@ public class WarehouseLocation {
 
 	public int getProductId() {
 		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
 	}
 
 	public int getLocationId() {
