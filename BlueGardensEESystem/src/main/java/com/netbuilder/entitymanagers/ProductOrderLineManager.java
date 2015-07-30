@@ -45,6 +45,5 @@ public interface ProductOrderLineManager
 	 */
 	public ArrayList <ProductOrderLine> findall();
 	
-	
 
 }

@@ -41,7 +41,7 @@ public class AccountController
 			ArrayList<ProductOrderLine> polList = co.getProductOrderLines();
 			for(ProductOrderLine pol : polList)
 			{
-				orderList += pol.getProductID() + "/t/t/t/t" + pol.getQuantity() + "/r/r";
+				orderList += pol.getProduct().getProductID() + "/t/t/t/t" + pol.getQuantity() + "/r/r";
 			}
 		}
 		return orderList;

@@ -3,9 +3,6 @@
 	<alternatives>
 	<!--  Add all your dummy classes into this bracket -->
 		<class>
-			com.netbuilder.entitymanagers.Dummy.BasketManagerDummy
-		</class>
-		<class>
 			com.netbuilder.entitymanagers.Dummy.CustomerLoginManagerDummy
 		</class>
 		<class>
@@ -41,10 +38,10 @@
 
 		<!--  End of Dummy Bracket -->
 		<!--  Add all your SQL classes into this bracket -->
-		<!-- 
 		
-		
-		 -->
 		<!--  End of SQL bracket -->
 	</alternatives>
+	<class>
+			com.netbuilder.entitymanagers.Dummy.BasketManagerDummy
+	</class>
 </beans>
