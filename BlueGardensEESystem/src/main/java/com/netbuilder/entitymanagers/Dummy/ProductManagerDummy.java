@@ -4,11 +4,9 @@ import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-
-import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
+import com.netbuilder.util.DummyData;
 
 /**
  * 
@@ -17,149 +15,85 @@ import com.netbuilder.entitymanagers.ProductManager;
  */
 @Alternative
 public class ProductManagerDummy implements ProductManager {
-ArrayList<Product> products = new ArrayList<Product>(){{
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-    new Product();
-}};
+
 	@Inject
-	private PersistenceManager pm;
+	private DummyData dd;
 
 	public void persistProduct(Product product) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		products.add(product);
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
+		dd.setProduct(product);
 	}
 
 	public void persistProducts(ArrayList<Product> products) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
-		this.products.addAll(products);
-		
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
+		dd.setProducts(products);
 	}
 
-	public void updateProduct(Product product) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
-		products.set(products.indexOf(product), product);
-
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
+	public void updateProduct(Product product) {	
+		for(int i=0; i<dd.getProducts().size(); i++){
+			if(product.getProductID() == dd.getProducts().get(i).getProductID()){
+				dd.setProduct(product);
+			}
+		}
 	}
 
 	public ArrayList<Product> findByName(String name) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
 		ArrayList<Product> list = new ArrayList<Product>();
-		for(Product p : products)
+		for(Product p : dd.getProducts())
 		{
 			if (p.getProductName().equals(name))
 				list.add(p);
-		}
-
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-			
+		}	
 		return list;
 	}
 
 	public ArrayList<Product> findByPrice(double price) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
 		ArrayList<Product> list = new ArrayList<Product>();
-		for(Product p : products)
+		for(Product p : dd.getProducts())
 		{
 			if(p.getPrice() == price)
 			{
 				list.add(p);
 			}
-		}
-
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-		
+		}		
 		return list;
 	}
 
 	public ArrayList<Product> findByOutStock() {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
 		ArrayList<Product> list = new ArrayList<Product>();
-		for(Product p : products)
+		for(Product p : dd.getProducts())
 		{
 			if(p.getStockLevel() == 0)
 			{
 				list.add(p);
 			}
 		}
-
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-		
 		return list;
 	}
 
 	public Product findById(long id) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
-		for(Product p : products)
+		for(Product p : dd.getProducts())
 		{
 			if(p.getProductID() == id)
 			{
 				return p;
 			}
 		}
-
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-		
 		return null;
 	}
 
 	public ArrayList<Product> findAll() {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
-		return products;
+		return dd.getProducts();
 	}
 
 	public ArrayList<Product> findByPriceLessThan(double price)
 	{
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
 		ArrayList<Product> list = new ArrayList<Product>();
-		for(Product p : products)
+		for(Product p : dd.getProducts())
 		{
 			if(p.getPrice() <= price)
 			{
 				list.add(p);
 			}
 		}
-
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-		
 		return list;
 	}
 
@@ -169,19 +103,13 @@ ArrayList<Product> products = new ArrayList<Product>(){{
 	 * 
 	 */
 	public ArrayList<Product> findBySale() {
-		
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : products)
+		for (Product p : dd.getProducts())
 		{
 			if(p.isSale() == true){
 				list.add(p);				
 			}
 		}
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
 		return list;
 	}
 	
@@ -191,18 +119,13 @@ ArrayList<Product> products = new ArrayList<Product>(){{
 	 */
 	
 	public ArrayList<Product> findByPourousware(boolean isPourousware) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : products)
+		for (Product p : dd.getProducts())
 		{
 			if(p.isPorousware() == isPourousware){
 				list.add(p);				
 			}
 		}
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
 		return list;
 	}
 	/**
@@ -210,17 +133,13 @@ ArrayList<Product> products = new ArrayList<Product>(){{
 	 * @author lczornyj
 	 */
 	public ArrayList<Product> findByTrending() {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
 		
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : products){
+		for (Product p : dd.getProducts()){
 			if(p.isTrending() == true){
 				list.add(p);
 			}
 		}
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
 		return list;
 	}
 }

@@ -3,10 +3,13 @@ package com.netbuilder.entitymanagers.Dummy;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
 
+import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.Wishlist;
 import com.netbuilder.entitymanagers.WishListManager;
+import com.netbuilder.util.DummyData;
 
 /**
  * 
@@ -15,20 +18,23 @@ import com.netbuilder.entitymanagers.WishListManager;
  */
 @Alternative
 public class WishlistManagerDummy implements WishListManager {
-	ArrayList<Wishlist> wishlists;
+	@Inject
+	private DummyData dd;
 	
-	public WishlistManagerDummy() {
-		wishlists = new ArrayList<Wishlist>();
+	public void persistWishlist(ArrayList<Product> wishlist) {
+		dd.setWishlist(wishlist);
 	}
 
-	@Override
-	public void persistWishlist(Wishlist wishList) {
-		wishlists.add(wishList);
+	public void persistWishlists(ArrayList<ArrayList<Product>> wishlists) {
+		dd.setWishlists(wishlists);
 	}
 
-	@Override
-	public void updateWishlist(Wishlist wishList) {
-		wishlists.set(wishlists.indexOf(wishList), wishList);
+	public void updateWishlist(ArrayList<Product> wishlist) {	
+		for(int i=0; i<dd.getWishlists().size(); i++){
+			if(wishlist.getCustomerID == dd.getWishlists().get(i).getCustomerID()){
+				dd.setWishlist(wishlist);
+			}
+		}
 	}
 
 	@Override
