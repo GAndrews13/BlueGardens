@@ -7,10 +7,15 @@ import java.util.ArrayList;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 
+import com.netbuilder.controllers.LoginController;
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.BasketManager;
+import com.netbuilder.entitymanagers.CustomerOrderManager;
+import com.netbuilder.service.AccountsService;
+import com.netbuilder.service.BasketProductOrderService;
 
 
 /**
@@ -18,6 +23,7 @@ import com.netbuilder.entitymanagers.BasketManager;
  * links interface with db
  */
 @Default
+
 public class BasketManagerDummy implements BasketManager,Serializable {
 Basket localbasket = new Basket(0, null); 
 	

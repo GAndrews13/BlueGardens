@@ -25,5 +25,4 @@ public interface BasketManager {
 	 */
 	public double findTotal();
 	public ArrayList<ProductOrderLine> products();
-	
 }

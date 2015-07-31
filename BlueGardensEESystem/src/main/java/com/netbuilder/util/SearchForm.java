@@ -30,7 +30,7 @@ public class SearchForm extends HttpServlet
 			String pName = request.getParameter("productname");
 			String pID = request.getParameter("productid");
 			long id = Long.parseLong(pID);
-			String inStock = request.getParameter("instock");
+			String inStock = request.getParameter("outstock");
 			boolean stock = Boolean.parseBoolean(inStock);
 			//String outStock = request.getParameter("outstock");
 			
@@ -40,17 +40,23 @@ public class SearchForm extends HttpServlet
 			PrintWriter display =  response.getWriter();
 			
 			/**
+			 * Call Search controller
+			 */
+			SearchController sc = new SearchController(id, pName, stock);
+			
+			/**
 			 * setup display of acknowledgement of search being made
 			 */
 			String htmlResponse = "<html>";
-			htmlResponse += "<h2>Search results returned with " + "</h2>";
-			htmlResponse += "<div id= productgrid >";
-			htmlResponse += "</html>";
+			htmlResponse += "<h2>Search results returned with " + "</h2>" + "<div id= productgrid >" + "<div class=section group>";
+			htmlResponse += "<div class=<col span_1_of_4>" + "<p>Result 1</p>" + "<hr/> <br/> <div class=description>"; 
+			htmlResponse += "<img src= #'{SearchController.pResult.getImageLink()}' width='128' height='128'/>";
+			htmlResponse += "<h2><h:outputLabel value='#{SearchController.pResult.getProductSeasonalName()}'/></h2>";
+			htmlResponse += "</div></html>";
 			
 			/**
-			 * Call Search controller and display the amended HTML code
+			 * Display the amended HTML code
 			 */
-			SearchController sc = new SearchController(id, pName, stock);
 			display.println(htmlResponse);
 
 		}

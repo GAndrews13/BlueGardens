@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
 
+import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.util.LoginUtils;
@@ -78,4 +79,5 @@ private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>()
 	public void persistCustomerLogin(CustomerLogin customerLogin) {
 		customerLogins.add(customerLogin);
 	}
+
 }
