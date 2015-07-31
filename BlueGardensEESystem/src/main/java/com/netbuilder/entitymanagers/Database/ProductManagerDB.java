@@ -101,7 +101,7 @@ public class ProductManagerDB implements ProductManager {
 		return p;
 	}
 
-	public Product findById(long id) {
+	public Product findById(int id) {
 		EntityManager em = pm.CreateEntityManager();
 		TypedQuery<Product> tq = em.createNamedQuery(Product.FIND_BY_PRODUCT_ID, Product.class);
 		pm.CloseEntityManager(em);

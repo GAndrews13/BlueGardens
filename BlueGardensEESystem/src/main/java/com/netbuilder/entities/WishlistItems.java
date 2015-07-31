@@ -1,42 +1,65 @@
 package com.netbuilder.entities;
 
-import java.util.ArrayList;
 
-import javax.persistence.*;
+import javax.persistence.JoinColumn;
+import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 /**
  * Contains all products
  * @author Anca
+ * @author jmander
  * This is a list of items that a customer is interested in but are not currently looking to purchase
  */
 @Entity
-@Table(name="Wishlist")
-public class Wishlist {
+@Table(name="WishlistItems")
+@NamedQueries ({@NamedQuery (name = WishlistItems.FIND_BY_CUSTOMER_ID, query = "SELECT * FROM WishlistItems WHERE customerID = :id")})
+public class WishlistItems {
+	
+	public static final String FIND_BY_CUSTOMER_ID = "WishlistItems.findByCustomerId";
+	
+	public WishlistItems(){
+		
+	}
+	
 	@Id
-	@Column (name="CustomerID", nullable=false)
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name ="CustomerID", nullable = false)
 	@NotNull
 	private long customerID;
 
 	@Id
-	@Column (name = "productID")
-	@OneToOne
-	private ArrayList<Product> products;
+	@ManyToOne
+	@JoinColumn(name ="ProductID", nullable = false)
+	@NotNull
+	private int productID;
 
-	public Wishlist(long customerID2, ArrayList<Product> products) {
-		this.customerID = customerID2;
-		this.products = products;
+	public long getCustomerID() {
+		return customerID;
 	}
-	public long getCustomerID() { return customerID; }
-	public void setCustomerID(int customerID) { this.customerID = customerID; }
 
-	public ArrayList<Product> getProducts() { return products; }
-	public void setProducts(ArrayList<Product> products) { this.products = products; }
+	public void setCustomerID(long customerID) {
+		this.customerID = customerID;
+	}
+
+	public int getProductID() {
+		return productID;
+	}
+
+	public void setProductID(int productID) {
+		this.productID = productID;
+	}
+
+	public WishlistItems(long customerID, int productID) {
+		this.customerID = customerID;
+		this.productID = productID;
+	}
 	
-	@Override
-	public String toString() {
-		return "Wishlist [customerID=" + customerID + ", products=" + products + "]";
-	}
+
 	
 }

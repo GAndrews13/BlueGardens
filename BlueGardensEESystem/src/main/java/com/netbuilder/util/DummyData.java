@@ -8,7 +8,7 @@ import javax.ejb.Startup;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entities.Product;
-import com.netbuilder.entities.Wishlist;
+import com.netbuilder.entities.WishlistItems;
 
 @Singleton
 @Startup
@@ -28,14 +28,17 @@ public class DummyData {
 	private Product product7;
 	private Product product8;
 	private Product product9;
-	private ArrayList<Product> wishlist1Products = new ArrayList<Product>();
-	private ArrayList<Product> wishlist2Products = new ArrayList<Product>();
-	private Wishlist wishlist1 = new Wishlist(1, wishlist1Products);
-	private Wishlist wishlist2 = new Wishlist(2, wishlist2Products);
+	
+	private ArrayList<WishlistItems> wishlistProducts = new ArrayList<WishlistItems>();
+	private WishlistItems wishlist1 = new WishlistItems(1,1);
+	private WishlistItems wishlist2 = new WishlistItems(1,4);
+	private WishlistItems wishlist3 = new WishlistItems(1,7);
+	private WishlistItems wishlist4 = new WishlistItems(2,2);
+	private WishlistItems wishlist5 = new WishlistItems(2,4);
+	private WishlistItems wishlist6 = new WishlistItems(2,8);
 	private ArrayList<Product> products = new ArrayList<Product>();
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>();
-	private ArrayList<Wishlist> wishlists = new ArrayList<Wishlist>();
 	
 	public ArrayList<Product> getProducts() {
 		return products;
@@ -72,19 +75,19 @@ public class DummyData {
 	public void setCustomerLogins(ArrayList<CustomerLogin> customerLogins) {
 		this.customerLogins = customerLogins;
 	}
-
-	public ArrayList<Wishlist> getWishlists() {
-		return wishlists;
+	
+	public void setWishlistItems(WishlistItems wishlistitem){
+		wishlistProducts.add(wishlistitem);
 	}
 	
-	public void setWishlist(Wishlist wishlist) {
-		wishlists.add(wishlist);
+	public ArrayList<WishlistItems> getWishlistProducts() {
+		return wishlistProducts;
 	}
 
-	public void setWishlists(ArrayList<Wishlist> wishlists) {
-		this.wishlists = wishlists;
+	public void setWishlistProducts(ArrayList<WishlistItems> wishlistProducts) {
+		this.wishlistProducts.addAll(wishlistProducts);
 	}
-	
+
 	public DummyData(){
 		product1 = new Product("Ketchup", 10, 3, 10, false,
 				135.00, false, "that's", "ammmaaaazing", "that", "you", "know",
@@ -132,8 +135,8 @@ public class DummyData {
 		products.add(product8);
 		products.add(product9);
 		
-		customer1 = new Customer("Oliver", "Queen", "Queen Mansion, Starling City, OL1 V3R", "999", "ACTIVE");
-		customer2 = new Customer("Slade", "Wilson", "Lian Yu, China, L14N YU1", "404", "BLACKLISTED");
+		customer1 = new Customer(1, "Oliver", "Queen", "Queen Mansion, Starling City, OL1 V3R", "999", "badboyqueen@queenconsolidated.com", "ACTIVE");
+		customer2 = new Customer(2, "Slade", "Wilson", "Lian Yu, China, L14N YU1", "404", "shado@rip.com", "BLACKLISTED");
 		
 		customers.add(customer1);
 		customers.add(customer2);
@@ -144,19 +147,13 @@ public class DummyData {
 		customerLogins.add(customerLogin1);
 		customerLogins.add(customerLogin2);
 		
-		wishlist1Products.add(product1);
-		wishlist1Products.add(product4);
-		wishlist1Products.add(product7);
-		
-		wishlist2Products.add(product3);
-		wishlist2Products.add(product8);
-		wishlist2Products.add(product2);
-		
-		wishlists.add(wishlist1);
-		wishlists.add(wishlist2);
-		
-		
-		
+		wishlistProducts.add(wishlist1);
+		wishlistProducts.add(wishlist2);
+		wishlistProducts.add(wishlist3);
+		wishlistProducts.add(wishlist4);
+		wishlistProducts.add(wishlist5);
+		wishlistProducts.add(wishlist6);
+
 	}
 	
 }

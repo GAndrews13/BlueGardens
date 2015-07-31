@@ -1,6 +1,7 @@
 package com.netbuilder.controllers;
 
 import java.util.ArrayList;
+
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -29,8 +30,7 @@ public class WishListController {
 
 
 	public WishListController(){
-		
-		products = wishlistForUser.getProductsForUser(loginController.getUsername());
-		
+		products = wishlistForUser.getProductsForUser("The Arrow");
 	}
+	
 }

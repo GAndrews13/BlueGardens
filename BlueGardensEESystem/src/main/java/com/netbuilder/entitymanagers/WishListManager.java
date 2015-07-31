@@ -1,23 +1,21 @@
 package com.netbuilder.entitymanagers;
 
 import java.util.ArrayList;
-
-import com.netbuilder.entities.Wishlist;
+import com.netbuilder.entities.WishlistItems;
 
 /**
  * 
  * @author Anca
+ * @author jmander
  *
  */
 public interface WishListManager {
 
-	public void persistWishlist(Wishlist wishlist);
-	public void persistWishlists(ArrayList<Wishlist> wishlists);
-
-	public void updateWishlist(Wishlist wishList);
+	public void persistWishlistItem(WishlistItems wishlistitem);
+	public void persistWishlistItems(ArrayList<WishlistItems> wishlistitems);
 	
 	public void removeProduct(int productID, long customerID);
 
-	public Wishlist findForUser(long customerID);
+	public ArrayList<WishlistItems> findForUser(long customerID);
 	
 }

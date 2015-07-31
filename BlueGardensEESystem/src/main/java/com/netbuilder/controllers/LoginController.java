@@ -28,7 +28,6 @@ public class LoginController {
 	public String errormsg;
 	
 	public LoginController(){
-		ud = new UserDetails();
 	}
 	
 	public LoginController(String username, String password) {

@@ -159,7 +159,7 @@ public class ProductsOfIntrest {
 	 *  name = fewer results
 	 *  id = only one result
 	 */
-	public ArrayList<Product> getSearchResults(long id, String name, boolean stock) 
+	public ArrayList<Product> getSearchResults(int id, String name, boolean stock) 
 		{
 		ArrayList<Product> searchResults = new ArrayList<Product>();
 		if(stock == false)

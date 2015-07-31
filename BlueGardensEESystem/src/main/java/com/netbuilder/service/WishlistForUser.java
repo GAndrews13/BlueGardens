@@ -1,10 +1,10 @@
 package com.netbuilder.service;
 
 import java.util.ArrayList;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import com.netbuilder.entities.Product;
-import com.netbuilder.entitymanagers.CustomerLoginManager;
+import com.netbuilder.entities.WishlistItems;
+import com.netbuilder.entitymanagers.ProductManager;
 import com.netbuilder.entitymanagers.WishListManager;
 
 /**
@@ -16,9 +16,19 @@ public class WishlistForUser {
 	@Inject
 	private WishListManager wishListManager;
 	@Inject
-	private CustomerLoginManager customerLoginManager;
+	private ProductManager productManager;
 	
 	public ArrayList<Product> getProductsForUser(String username) {
-		return wishListManager.findForUser(customerLoginManager.checkCustomerID(username));
+		ArrayList<WishlistItems> wli = wishListManager.findForUser(1);
+		ArrayList<Product> ap = productManager.findAll();
+		ArrayList<Product> wl = new ArrayList<Product>();
+		for(WishlistItems w : wli){
+			for(int i=0; i<ap.size(); i++)
+			if(w.getProductID() == ap.get(i).getProductID()){
+				wl.add(productManager.findById(w.getProductID()));
+			}
+		}
+		return wl;
 	}
+	
 }

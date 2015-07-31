@@ -69,7 +69,7 @@ public class ProductManagerDummy implements ProductManager {
 		return list;
 	}
 
-	public Product findById(long id) {
+	public Product findById(int id) {
 		for(Product p : dd.getProducts())
 		{
 			if(p.getProductID() == id)
