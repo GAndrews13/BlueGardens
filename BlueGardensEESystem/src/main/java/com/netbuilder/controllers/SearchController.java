@@ -19,7 +19,7 @@ public class SearchController
 	private ProductsOfIntrest search;
 	public String errorMSG;
 	
-	public SearchController(long ID, String NAME, boolean STOCK)
+	public SearchController(int ID, String NAME, boolean STOCK)
 	{
 		try
 		{
