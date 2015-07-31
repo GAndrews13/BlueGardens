@@ -126,4 +126,19 @@ public class CustomerManagerDummy implements CustomerManager
 		}
 		return null;
 	}
+
+	/**
+	 * @author GAndrews
+	 */
+	@Override
+	public Customer findByID(long inID) {
+		for(Customer c: dd.getCustomers())
+		{
+			if(c.getCustomerID() ==inID)
+			{
+				return c;
+			}
+		}
+		return null;
+	}
 }

@@ -130,4 +130,11 @@ public class CustomerManagerDB implements CustomerManager
 		pm.CloseEntityManager(em); 
 		return customer; 
 	}
+
+	@Override
+	public Customer findByID(long inID) {
+		EntityManager em = pm.CreateEntityManager();
+		Customer c = (Customer) em.createQuery("SELECT * FROM Customers c WHERE c.customerID = inID",Customer.class).getSingleResult();
+		return c;
+	}
 }

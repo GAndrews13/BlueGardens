@@ -8,6 +8,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
+import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 
@@ -74,4 +75,5 @@ public class CustomerLoginDB implements CustomerLoginManager {
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 	}
+
 }
