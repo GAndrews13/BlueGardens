@@ -10,10 +10,9 @@
 	<ui:define name = "pagetitle">
 		NBGardens: Checkout
 	</ui:define>
-	
 	<!-- Defines the title displayed on the page -->
 	<ui:define name="sectiontitle">
-		<h1>Checkout</h1>
+	<h:commandButton action="#{basketController.submitBasket(basketController.bm)}" value="Checkout" />
 	</ui:define>
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
