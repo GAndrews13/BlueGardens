@@ -105,7 +105,7 @@ public class CustomerRegistrationController {
 		}
 		
 		newCustomer = new Customer(customerDetails.getFirstName(), customerDetails.getLastName(), customerDetails.getAddress(),
-				customerDetails.getContactNumber(), "ACTIVE");
+				customerDetails.getContactNumber(), customerDetails.getEmail(), "ACTIVE");
 		
 		customerSalt = LoginUtils.getNextSalt();
 		
