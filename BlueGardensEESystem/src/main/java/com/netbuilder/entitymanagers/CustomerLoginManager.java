@@ -1,6 +1,7 @@
 package com.netbuilder.entitymanagers;
 import java.util.ArrayList;
 
+import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
 /**
  * 

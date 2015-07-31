@@ -48,10 +48,6 @@ public class UserDetails {
 		this.userID = userID;
 	}
 
-	public UserDetails() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public String getUsername() {
 		return username;
 	}
