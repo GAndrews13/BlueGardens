@@ -14,6 +14,7 @@ import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.BasketManager;
+import com.netbuilder.service.BasketProductOrderService;
 
 @SessionScoped
 @ManagedBean (name="basketController")
@@ -72,6 +73,11 @@ public class BasketController implements Serializable{
 	public void addProduct(Product inProduct)
 	{
 		bm.products().add(new ProductOrderLine(inProduct,1));
+	}
+	
+	public void submitBasket(Basket inBasket)
+	{
+		BasketProductOrderService.createBasketOrder(inBasket);
 	}
 }
 /*
