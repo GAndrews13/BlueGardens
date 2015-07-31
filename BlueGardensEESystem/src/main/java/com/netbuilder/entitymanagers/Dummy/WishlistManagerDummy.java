@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
-
-import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.Wishlist;
 import com.netbuilder.entitymanagers.WishListManager;
@@ -20,49 +18,44 @@ import com.netbuilder.util.DummyData;
 public class WishlistManagerDummy implements WishListManager {
 	@Inject
 	private DummyData dd;
-	
-	public void persistWishlist(ArrayList<Product> wishlist) {
-		dd.setWishlist(wishlist);
+
+	public void persistWishlist(Wishlist wishlist) {
+		dd.setWishlist(wishlist);	
 	}
 
-	public void persistWishlists(ArrayList<ArrayList<Product>> wishlists) {
-		dd.setWishlists(wishlists);
+	public void persistWishlists(ArrayList<Wishlist> wishlists) {
+		dd.setWishlists(wishlists);		
 	}
 
-	public void updateWishlist(ArrayList<Product> wishlist) {	
+	public void updateWishlist(Wishlist wishlist) {
 		for(int i=0; i<dd.getWishlists().size(); i++){
-			if(wishlist.getCustomerID == dd.getWishlists().get(i).getCustomerID()){
+			if(wishlist.getCustomerID() == dd.getWishlists().get(i).getCustomerID()){
 				dd.setWishlist(wishlist);
+			}
+		}		
+	}
+
+	public void removeProduct(int productID, long customerID) {
+		ArrayList<Product> products = new ArrayList<Product>();
+		for(Wishlist w : dd.getWishlists()){
+			if(w.getCustomerID() == customerID){
+				products = w.getProducts();
+				for(Product p : products){
+					if(p.getProductID()==productID){
+						products.remove(p);
+					}
+				}	
 			}
 		}
 	}
 
-	@Override
-	public void updateWishlists(ArrayList<Wishlist> wishlists) {
-		for(Wishlist w : wishlists) {
-			this.wishlists.set(this.wishlists.indexOf(w), w);
-		}
-	}
-
-	@Override
-	public void removeProduct(Wishlist wishList) {
-		wishlists.remove(wishlists.indexOf(wishList));
-	}
-
-	@Override
-	public void removeProducts(ArrayList<Wishlist> wishlists) {
-		for(Wishlist w : wishlists) {
-			this.wishlists.remove(this.wishlists.indexOf(w));
-		}
-	}
-
-	@Override
-	public ArrayList<Product> findForUser(long customerID) {
+	public Wishlist findForUser(long customerID) {
 		ArrayList<Product> products = new ArrayList<Product>();
-		for(Wishlist w : wishlists) {
+		Wishlist wishlist = new Wishlist(customerID, products);
+		for(Wishlist w : dd.getWishlists()) {
 			if (w.getCustomerID() == customerID)
 				products.addAll(w.getProducts());
 		}
-		return products;
-	}
+		return wishlist;
+	}	
 }

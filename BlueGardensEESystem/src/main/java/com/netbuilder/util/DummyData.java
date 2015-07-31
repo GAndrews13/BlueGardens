@@ -8,6 +8,7 @@ import javax.ejb.Startup;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entities.Product;
+import com.netbuilder.entities.Wishlist;
 
 @Singleton
 @Startup
@@ -27,12 +28,14 @@ public class DummyData {
 	private Product product7;
 	private Product product8;
 	private Product product9;
-	private ArrayList<Product> wishlist1 = new ArrayList<Product>();
-	private ArrayList<Product> wishlist2 = new ArrayList<Product>();
+	private ArrayList<Product> wishlist1Products = new ArrayList<Product>();
+	private ArrayList<Product> wishlist2Products = new ArrayList<Product>();
+	private Wishlist wishlist1 = new Wishlist(1, wishlist1Products);
+	private Wishlist wishlist2 = new Wishlist(2, wishlist2Products);
 	private ArrayList<Product> products = new ArrayList<Product>();
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>();
-	private ArrayList<ArrayList<Product>> wishlists = new ArrayList<ArrayList<Product>>();
+	private ArrayList<Wishlist> wishlists = new ArrayList<Wishlist>();
 	
 	public ArrayList<Product> getProducts() {
 		return products;
@@ -70,15 +73,15 @@ public class DummyData {
 		this.customerLogins = customerLogins;
 	}
 
-	public ArrayList<ArrayList<Product>> getWishlists() {
+	public ArrayList<Wishlist> getWishlists() {
 		return wishlists;
 	}
 	
-	public void setWishlist(ArrayList<Product> wishlist) {
+	public void setWishlist(Wishlist wishlist) {
 		wishlists.add(wishlist);
 	}
 
-	public void setWishlists(ArrayList<ArrayList<Product>> wishlists) {
+	public void setWishlists(ArrayList<Wishlist> wishlists) {
 		this.wishlists = wishlists;
 	}
 	
@@ -141,13 +144,13 @@ public class DummyData {
 		customerLogins.add(customerLogin1);
 		customerLogins.add(customerLogin2);
 		
-		wishlist1.add(product1);
-		wishlist1.add(product4);
-		wishlist1.add(product7);
-
-		wishlist2.add(product3);
-		wishlist2.add(product8);
-		wishlist2.add(product2);
+		wishlist1Products.add(product1);
+		wishlist1Products.add(product4);
+		wishlist1Products.add(product7);
+		
+		wishlist2Products.add(product3);
+		wishlist2Products.add(product8);
+		wishlist2Products.add(product2);
 		
 		wishlists.add(wishlist1);
 		wishlists.add(wishlist2);

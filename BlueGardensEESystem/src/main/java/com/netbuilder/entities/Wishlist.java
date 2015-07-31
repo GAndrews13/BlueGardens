@@ -15,11 +15,13 @@ import javax.validation.constraints.NotNull;
 public class Wishlist {
 	@Id
 	@Column (name="CustomerID", nullable=false)
+	@OneToOne
 	@NotNull
 	private long customerID;
 
-	@Column (name = "products")
-	@OneToMany
+	@Id
+	@Column (name = "productID")
+	@OneToOne
 	private ArrayList<Product> products;
 
 	public Wishlist(long customerID2, ArrayList<Product> products) {
@@ -36,4 +38,5 @@ public class Wishlist {
 	public String toString() {
 		return "Wishlist [customerID=" + customerID + ", products=" + products + "]";
 	}
+	
 }

@@ -15,9 +15,8 @@ public interface WishListManager {
 	public void persistWishlists(ArrayList<Wishlist> wishlists);
 
 	public void updateWishlist(Wishlist wishList);
-	public void updateWishlists(ArrayList<Wishlist> wishlists);
 	
-	public void removeProduct(Wishlist wishlist);
+	public void removeProduct(int productID, long customerID);
 
 	public Wishlist findForUser(long customerID);
 	
