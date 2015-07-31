@@ -29,7 +29,7 @@ public class SearchForm extends HttpServlet
 			 */
 			String pName = request.getParameter("productname");
 			String pID = request.getParameter("productid");
-			long id = Long.parseLong(pID);
+			int id = Integer.parseInt(pID);
 			String inStock = request.getParameter("outstock");
 			boolean stock = Boolean.parseBoolean(inStock);
 			//String outStock = request.getParameter("outstock");
