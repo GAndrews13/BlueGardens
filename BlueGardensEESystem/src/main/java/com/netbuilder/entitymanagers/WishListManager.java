@@ -2,7 +2,6 @@ package com.netbuilder.entitymanagers;
 
 import java.util.ArrayList;
 
-import com.netbuilder.entities.Product;
 import com.netbuilder.entities.Wishlist;
 
 /**
@@ -12,13 +11,14 @@ import com.netbuilder.entities.Wishlist;
  */
 public interface WishListManager {
 
-	public void persistWishlist(Wishlist wishList);
+	public void persistWishlist(Wishlist wishlist);
+	public void persistWishlists(ArrayList<Wishlist> wishlists);
 
 	public void updateWishlist(Wishlist wishList);
 	public void updateWishlists(ArrayList<Wishlist> wishlists);
 	
-	public void removeProduct(Wishlist wishList);
-	public void removeProducts(ArrayList<Wishlist> wishlists);
+	public void removeProduct(Wishlist wishlist);
 
-	public ArrayList<Product> findForUser(long customerID);
+	public Wishlist findForUser(long customerID);
+	
 }

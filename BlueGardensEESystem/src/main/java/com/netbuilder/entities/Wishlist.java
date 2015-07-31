@@ -16,17 +16,17 @@ public class Wishlist {
 	@Id
 	@Column (name="CustomerID", nullable=false)
 	@NotNull
-	private int customerID;
+	private long customerID;
 
 	@Column (name = "products")
 	@OneToMany
 	private ArrayList<Product> products;
 
-	public Wishlist(int customerID, ArrayList<Product> products) {
-		this.customerID = customerID;
+	public Wishlist(long customerID2, ArrayList<Product> products) {
+		this.customerID = customerID2;
 		this.products = products;
 	}
-	public int getCustomerID() { return customerID; }
+	public long getCustomerID() { return customerID; }
 	public void setCustomerID(int customerID) { this.customerID = customerID; }
 
 	public ArrayList<Product> getProducts() { return products; }
