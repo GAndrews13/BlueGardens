@@ -16,8 +16,63 @@
 	font-size: 1.5vmin;
 }
 
+ a.hovertext {
+    position: relative;
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+  }
+ a.hovertext:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 60%;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+  }
+ a.hovertext:hover:after, a.hovertext:focus:after {
+    opacity: 1.0;
+  }
+  
+ a.titleText {
+    position:
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+  }
+a.titleText:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 460px;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+  }
+a.titleText:hover:after, a.hovertext:focus:after {
+    opacity: 1.0;
+  }
+
 body {
-	background-color: #ffddba;
+    background-image: url("http://www.hd-wallpapersdownload.com/upload/bulk-upload/full-hd-garden-hd-wallpaper-3D.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
 
 p {
@@ -51,8 +106,10 @@ p {
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
 	margin: auto;
-	max-width: 700px;
-	max-height: 375px;
+	max-width: 300px;
+	max-height: 300px;
+	min-height: 300px;
+	min-width: 300px;
 }
 
 .center {
@@ -104,6 +161,12 @@ p {
 .page-wrap:after {
 	content: "";
 	display: block;
+}
+
+.product{
+	height: 40%;
+	width: 40%;
+	
 }
 
 .products {
@@ -198,6 +261,11 @@ p {
 	overflow: auto;
 }
 
+.bodyOverlay {
+	background-color: #ffffff;
+	margin: 0cm 5cm 2cm 5cm;
+}
+
 /* taken from netbuilder.com */
 .bottommenu {
 	margin-bottom: 875px auto;
@@ -257,6 +325,11 @@ p {
 
 .bottommenu li a.active span, .menu li a.active:hover span {
 	background: url('bottomMenuImages.png') 100% -90px no-repeat;
+}
+
+.headerOverlay {
+	background-color: #ffffff;
+	margin: 2cm 5cm 0cm 5cm;
 }
 
 .menu {
@@ -345,4 +418,5 @@ p {
 	position: fixed;
 	word-wrap: break-word;
 }
+
 
