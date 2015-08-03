@@ -4,7 +4,11 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import com.netbuilder.entities.WarehouseLocation;
-
+/**
+ * Created the tests for the WarehouseLocation class.
+ * @author lczornyj
+ *
+ */
 
 public class WarehouseLocationTesting {
 	

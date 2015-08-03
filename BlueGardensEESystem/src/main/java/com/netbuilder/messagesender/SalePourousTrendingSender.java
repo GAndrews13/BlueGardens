@@ -1,4 +1,12 @@
 package com.netbuilder.messagesender;
+/**
+ * @author lczornyj
+ * This is a message sender for the landing page.
+ * This does not need to be used as it was purely a test.
+ * The method draws in the products of interest from the products of interest page and places them into an object to be sent.
+ * 
+ * This was designed with jboss 7.0 however it should not work with wildfly.
+ */
 import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.Destination;

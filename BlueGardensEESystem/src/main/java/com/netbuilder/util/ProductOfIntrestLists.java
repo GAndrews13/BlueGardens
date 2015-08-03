@@ -7,7 +7,9 @@ import com.netbuilder.entities.Product;
 
 public class ProductOfIntrestLists implements Serializable {
 	/**
-	 * 
+	 * Serialized the POI and passed them as strings so that they can be contained within an object
+	 * ready for the message sender to send the message.
+	 * @author lczornyj
 	 */
 	private static final long serialVersionUID = -3677387888461989010L;
 	private ArrayList<Product> sale;
