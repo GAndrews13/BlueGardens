@@ -1,0 +1,18 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"      
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:t="http://myfaces.apache.org/tomahawk"     
+				template="templates/template.xhtml">
+<ui:define name="body">	
+	<h:outputLabel value="Search Term" for="search"/><br/>
+	<h:inputSecret id="search" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
+					<h:commandButton action="#{searchController.searchByTerm}" value="Search" />
+	<t:dataList value= "#{searchController.results}" var="product">
+		<h:outputLabel class="productname" value="#{product.getProductName()}"/>
+		<h:outputLabel class="productimage" value="#{product.getImageLink()}"/>
+		<h:outputLabel class="productprice" value="#{product.getPrice()}"/>
+		<br/>
+	</t:dataList>	
+</ui:define>
+</ui:composition>
