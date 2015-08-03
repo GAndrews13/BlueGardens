@@ -4,7 +4,9 @@
 				xmlns:h="http://java.sun.com/jsf/html"
 				template="templates/template.xhtml">
 <ui:define name="sectiontitle">
+<div class="headerOverlay">
 	<h1>Welcome to NBGardens</h1>
+</div>
 </ui:define>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -12,8 +14,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <ui:define name="body">
+  <div class="bodyOverlay">
 <!-- This is the slider for the sale products that will be used at the top of the landing page -->
 <div class="container">
+
   	<br/>
   	<div id="myCarousel" class="carousel slide" data-ride="carousel">
     	<ol class="carousel-indicators">
@@ -24,16 +28,23 @@
     	</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img src="c:\users\lczornyj\pictures\delphisoft\wintersale\gnomesontour.jpg" alt="Chania" width="460" height="345"/>
+			<!--	<img src="c:\users\lczornyj\pictures\delphisoft\wintersale\gnomesontour.jpg" alt="Chania" width="460" height="345"/> -->
+				<a class="titleText" title="Buy 1 ketchup, get two showers free!">
+					<img src="resources\img\ketchup.jpg" alt="Ketchup" width="460" height="345"/>
+				</a>
 			</div>
 			<div class="item">
-				<img src="#{SaleProductController.saleProducts[0].getImageLink()}" alt="Chania" width="460" height="345"/>
+				<!--<img src="#{SaleProductController.saleProducts[0].getImageLink()}" alt="Chania" width="460" height="345"/>-->
+				<img src="resources\img\plum.png" alt="Plum" width="460" height="345"/>
 			</div>
+			
     		<div class="item">
-				<img src="#{SaleProductController.saleProducts[1].getImageLink()}" alt="Flower" width="460" height="345"/>
+				<!--<img src="#{SaleProductController.saleProducts[1].getImageLink()}" alt="Flower" width="460" height="345"/>-->
+				<img src="resources\img\shower.jpg" alt="shower" width="460" height="345"/>
 			</div>
 			<div class="item">
-				<img src="#{SaleProductController.saleProducts[2].getImageLink()}" alt="Flower" width="460" height="345"/>
+				<!--<img src="#{SaleProductController.saleProducts[2].getImageLink()}" alt="Flower" width="460" height="345"/>-->
+				<img src="resources\img\fish.JPG" alt="Fish" width="460" height="345"/>
 			</div>
     	</div>
 	    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -46,57 +57,31 @@
     	</a>
     </div>
 </div>
+
 <!-- The below methods are for the specific new / trending products that appear below the slider -->
-	<div class="products">
-		<div class="cl"></div>
-		<ul>
-			<li>
-				<a href="#"><img src="#{PourouswareProductController.pourouswareProducts[0].getImageLink()}" alt="" /></a>
-				<div class="product-info">
-					<h3>
-						<h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getProductName()}" />
-					</h3>
-					<div class="product-desc">
-						<p>
-							<h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getFeatureOne()}" /><br />
-							<h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getFeatureTwo()}" />
-						</p>
-						<strong class="product-price"><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[0].getPrice()}" /></strong>
-					</div>
-				</div>
-			</li>
-			<li>
-				<a href="#"><img src="{PourouswareProductController.pourouswareProducts[1].getImageLink()}" alt="" /></a>
-				<div class="product-info">
-					<h3>
-						<h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getProductName()}" />
-					</h3>
-					<div class="product-desc">
-						<p>
-							<h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getFeatureOne()}" /> <br />
-							<h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getFeatureTwo()}" />
-						</p>
-						<strong class="product-price"><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[1].getPrice()}" /></strong>
-					</div>
-				</div>
-			</li>
-			<li class="last">
-				<a href="#"><img src="{PourouswareProductController.pourouswareProducts[2].getImageLink()}" alt="" /></a>
-				<div class="product-info">
-					<h3>
-						<h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getProductName()}" />
-					</h3>
-					<div class="product-desc">
-						<p>
-							<h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getFeatureThree()}" /> <br />
-							<h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getFeatureThree()}" />
-						</p>
-						<strong class="product-price"><h:outputLabel value="#{PourouswareProductController.pourouswareProducts[2].getPrice()}" /></strong>
-					</div>
-				</div>
-			</li>
-		</ul>
-		<div class="cl"></div>
+
+	<table>
+		<tr>
+			<td>
+				<p>
+				<a class="hovertext" title="KETCHUP!!!" href="#"><img class="product" src="resources\img\ketchup.jpg" alt="" /></a>
+				</p>
+			</td>
+			<td>
+				<p>
+				<a class="hovertext" title="HE" href="#">
+					<img class="product" src="resources\img\ketchup.jpg" alt="" />
+				</a>
+				</p>
+			</td>
+			<td>
+				<p>
+				<a class="hovertext" title="KETCHUP!!!" href="#"><img class="product" src="resources\img\ketchup.jpg" alt="" /></a>
+				
+				</p>
+			</td>
+		</tr>
+	</table>
 	</div>
 </ui:define>
 </ui:composition>
