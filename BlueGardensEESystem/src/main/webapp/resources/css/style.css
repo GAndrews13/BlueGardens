@@ -12,7 +12,6 @@
 * { 
 	margin: 0;
 	color: black;
-	white-space: nowrap;
 	font-size: 1.5vmin;
 }
 
@@ -28,7 +27,7 @@
     left: 0;
     bottom: 0;
     padding: 0.5em 20px;
-    width: 60%;
+    width: 100%;
     background: rgba(0,0,0,0.8);
     text-decoration: none !important;
     color: #fff;
@@ -69,13 +68,19 @@ a.titleText:hover:after, a.hovertext:focus:after {
   }
 
 body {
-    background-image: url("http://www.hd-wallpapersdownload.com/upload/bulk-upload/full-hd-garden-hd-wallpaper-3D.jpg");
+    background-image: url("../img/garden-background.jpg");	
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
 }
 
 p {
+	word-wrap: break-word;
+}
+
+p.questionAnswer{
+	width: 20em;
+    display: inline-block;
 	word-wrap: break-word;
 }
 
@@ -124,6 +129,12 @@ p {
 
 .col:first-child {
 	margin-left: 0em;
+}
+
+.content{
+    background-color:rgba(255, 184, 148, .8);
+    border-radius: 35px;
+    word-wrap: break-word;
 }
 
 .group {
@@ -197,11 +208,10 @@ p {
 }
 
 .questionAnswer {
-	font: 12px;
+	
 }
 
 .questionHeader {
-	font: 14px;
 	font-weight: bold;
 }
 
@@ -212,7 +222,7 @@ p {
 }
 
 .site-header {
-	height: 90px;
+	height: 9%;
 	top: 0;
 	position: fixed;
 	width: 100%;
@@ -284,7 +294,7 @@ p {
 	list-style: none;
 	display: inline-block;
 	text-align: centre;
-	width: 25%;
+	width: 20%;
 	padding-left: 10%;
 }
 
@@ -327,6 +337,10 @@ p {
 	background: url('bottomMenuImages.png') 100% -90px no-repeat;
 }
 
+.container{
+	width: 50%;
+}
+
 .headerOverlay {
 	background-color: #ffffff;
 	margin: 2cm 5cm 0cm 5cm;
@@ -335,7 +349,7 @@ p {
 .menu {
 	margin: 0 auto;
 	padding: 0;
-	height: 30px;
+	height: 15%;
 	width: 100%;
 	display: block;
 	background: url('topMenuImages.png') repeat-x;
@@ -400,9 +414,19 @@ p {
 }
 
 #contentHeader{
-	font: 120px Verdana;
+	font: 4em Verdana;
 	font-style:italic bold;
 	text-decoration: underline; 
+	text-align: center;
+}
+
+#headerMenuRow{
+	width:85%;
+}
+
+#logo {
+	display: block;
+	max-width : 100%;
 }
 
 
@@ -414,9 +438,11 @@ p {
 }
 
 #sidebarRight {
+	position: relative;
 	float: right;
-	position: fixed;
-	word-wrap: break-word;
 }
 
+#tableContentBlog{
+	width:80%;
+}
 
