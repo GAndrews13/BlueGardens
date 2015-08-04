@@ -12,15 +12,75 @@
 * { 
 	margin: 0;
 	color: black;
-	white-space: nowrap;
 	font-size: 1.5vmin;
 }
 
+ a.hovertext {
+    position: relative;
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+  }
+ a.hovertext:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+  }
+ a.hovertext:hover:after, a.hovertext:focus:after {
+    opacity: 1.0;
+  }
+  
+ a.titleText {
+    position:
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+  }
+a.titleText:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 460px;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+  }
+a.titleText:hover:after, a.hovertext:focus:after {
+    opacity: 1.0;
+  }
+
 body {
-	background-color: #ffddba;
+    background-image: url("../img/garden-background.jpg");	
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
 
 p {
+	word-wrap: break-word;
+}
+
+p.questionAnswer{
+	width: 20em;
+    display: inline-block;
 	word-wrap: break-word;
 }
 
@@ -51,8 +111,10 @@ p {
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
 	margin: auto;
-	max-width: 700px;
-	max-height: 375px;
+	max-width: 300px;
+	max-height: 300px;
+	min-height: 300px;
+	min-width: 300px;
 }
 
 .center {
@@ -67,6 +129,12 @@ p {
 
 .col:first-child {
 	margin-left: 0em;
+}
+
+.content{
+    background-color:rgba(255, 184, 148, .8);
+    border-radius: 35px;
+    word-wrap: break-word;
 }
 
 .group {
@@ -106,6 +174,12 @@ p {
 	display: block;
 }
 
+.product{
+	height: 40%;
+	width: 40%;
+	
+}
+
 .products {
 	height: 350px;
 	width: 200px;
@@ -134,11 +208,10 @@ p {
 }
 
 .questionAnswer {
-	font: 12px;
+	
 }
 
 .questionHeader {
-	font: 14px;
 	font-weight: bold;
 }
 
@@ -149,7 +222,7 @@ p {
 }
 
 .site-header {
-	height: 90px;
+	height: 9%;
 	top: 0;
 	position: fixed;
 	width: 100%;
@@ -198,6 +271,11 @@ p {
 	overflow: auto;
 }
 
+.bodyOverlay {
+	background-color: #ffffff;
+	margin: 0cm 5cm 2cm 5cm;
+}
+
 /* taken from netbuilder.com */
 .bottommenu {
 	margin-bottom: 875px auto;
@@ -216,7 +294,7 @@ p {
 	list-style: none;
 	display: inline-block;
 	text-align: centre;
-	width: 25%;
+	width: 20%;
 	padding-left: 10%;
 }
 
@@ -259,10 +337,19 @@ p {
 	background: url('bottomMenuImages.png') 100% -90px no-repeat;
 }
 
+.container{
+	width: 50%;
+}
+
+.headerOverlay {
+	background-color: #ffffff;
+	margin: 2cm 5cm 0cm 5cm;
+}
+
 .menu {
 	margin: 0 auto;
 	padding: 0;
-	height: 30px;
+	height: 15%;
 	width: 100%;
 	display: block;
 	background: url('topMenuImages.png') repeat-x;
@@ -327,9 +414,19 @@ p {
 }
 
 #contentHeader{
-	font: 120px Verdana;
+	font: 4em Verdana;
 	font-style:italic bold;
 	text-decoration: underline; 
+	text-align: center;
+}
+
+#headerMenuRow{
+	width:85%;
+}
+
+#logo {
+	display: block;
+	max-width : 100%;
 }
 
 
@@ -341,8 +438,11 @@ p {
 }
 
 #sidebarRight {
+	position: relative;
 	float: right;
-	position: fixed;
-	word-wrap: break-word;
+}
+
+#tableContentBlog{
+	width:80%;
 }
 

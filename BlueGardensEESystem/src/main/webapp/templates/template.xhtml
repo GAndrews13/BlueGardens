@@ -14,7 +14,7 @@
 	<!--  Javascript Menu -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script>
+	<!-- <script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script> -->
 	<script type="text/javascript">
 		  $('.tabs_holder').skinableTabs({
 	    effect: 'basic_display',
@@ -37,7 +37,7 @@
 				<tr>
 					<th rowspan="2">
 						<!--<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/>  --> 
-						<a href="landingPage.xhtml"><img src="#0" width="400px" height="80px" alt="NBGardens"/></a>
+						<a href="landingPage.xhtml"><img src="resources/img/logo.gif" id="logo" alt="NBGardens"/></a>
 					</th>
 					<td>
 						
@@ -47,7 +47,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td width="72.4%">
+					<td id="headerMenuRow">
 						<ul class="menu">
 							<li><a href="landingPage.xhtml" class="active"><span>Home</span></a></li>
 							<li><a href="services"><span>Services</span></a></li>
@@ -100,35 +100,20 @@
 						<br/> 
 					</div>
     				<div id="fade" class="black_overlay"></div>
-			<table>
-				<tr>
-					<!--  Main Content of the page -->
-					<td width="99.94%">
-						<div id="contentHeader">
-							<ui:insert name="sectiontitle"/>
-						</div>
-						<div class="content">
+    				<br/>
+    				<br/>
+    				<div class="content">
+    				<br/>
+							<div id="contentHeader">
+								<ui:insert name="sectiontitle"/>
+							</div>
 							<ui:insert name="body"/>
-						</div>
-					</td>
-					<td>
-						<p id="sidebarRight">
-						a<br/>
-						a<br/>a<br/>
-						a<br/>
-						a<br/>
-						a<br/>
-						a<br/>
-						a<br/>
-						a<br/>
-						</p>
-					</td>
-				</tr>
-			</table>			
+							<br/>
+							<br/>
+    				</div>
 		</div>
 		
 		<footer class="site-footer">
-		  <div>
 				<div>
 					<ul class="bottommenu">
 						<li><a href="aboutUs.xhtml"><span>About Us</span></a></li>
@@ -136,7 +121,6 @@
 					  	<li><a href="contactUs.xhtml"><span>Contact Us</span></a></li>
 					</ul>
 				</div>
-			</div>
 			<div class="center">
 				2015 NBGardens.
 				<a href="">Design by DelphiSoft Consulting</a> 
