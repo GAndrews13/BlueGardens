@@ -13,9 +13,9 @@
 	
 		<h:form>
 			<h:panelGrid>
-			<h:outputLabel value="Search Term" for="searchdetails"/><br/>
+			<h:outputLabel value="#{searchController.msg}"/><br/>
 			<h:inputText id="searchdetails" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
-			<h:commandButton action="#{searchController.search}" value="Search" /><br/>
+			<h:commandButton action="#{searchController.search}" value="Search" /><br/><hr/>
 			<ui:repeat value="#{searchController.results}" var="product">
 				#{product.getProductName()}<br/><br/>
 				#{product.getPrice()}<br/><br/>

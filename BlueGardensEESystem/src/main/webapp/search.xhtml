@@ -21,14 +21,10 @@
  <p>Search by</p>  
 <form name="SearchForm" method="post" action="SearchServlet">
  <p>Product Name:</p><br/>
-<input type="text" name="productname"/>
-<br/>
-<p>Product ID:</p> <br/>
-<input type="text" name="productid"/>
+<input type="text" name="productname" value="#{SearchController.searchTerm}"/>
 <br/><br/>
 <p>Show products that are:</p> <br/>
-<input type="radio" name="instock" value="stockY"/><p>In Stock</p>
-<br/>
+
 <input type="radio" name="outstock" value="stockN"/><p>Out of Stock</p>
 <br/><br/>
 <input type="submit" value="Submit"/>
