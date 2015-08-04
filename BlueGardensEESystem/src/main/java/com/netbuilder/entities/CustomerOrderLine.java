@@ -34,7 +34,7 @@ public class CustomerOrderLine
 	@Column(name = "COID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
-	private int CustomerOrderLineID;
+	private int CustomerOrderID;
 	
 	/**
 	 *  Product ID will be linked to the product entity
@@ -60,11 +60,11 @@ public class CustomerOrderLine
 	 *	Initialise class
 	 */
 	public int getCustomerOrderLineID() {
-		return CustomerOrderLineID;
+		return CustomerOrderID;
 	}
 
-	public void setCustomerOrderLineID(int customerOrderLineID) {
-		CustomerOrderLineID = customerOrderLineID;
+	public void setCustomerOrderLineID(int customerOrderID) {
+		CustomerOrderID = customerOrderID;
 	}
 
 	public int getProductId() {
