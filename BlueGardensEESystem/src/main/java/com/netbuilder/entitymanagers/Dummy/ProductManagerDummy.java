@@ -72,11 +72,10 @@ public class ProductManagerDummy implements ProductManager {
 	public Product findById(int id) {
 		for(Product p : dd.getProducts())
 		{
-			if(p.getProductID() == id)
-			{
+			if (p.getProductID()==id){
 				return p;
 			}
-		}
+		}	
 		return null;
 	}
 

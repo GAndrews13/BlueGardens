@@ -146,6 +146,27 @@ public class Product {
 		this.isTrending = isTrending;
 	}
 	
+	public Product(int productID, String productName, int stockLevel, int minimumThreshold,
+			int recommendedLevel, boolean isPorousware, double price, boolean isSale,
+			String featureOne, String featureTwo, String featureThree, 
+			String featureFour, String featureFive, String imageLink, boolean isTrending) {
+		this.productID = productID;
+		this.productName = productName;
+		this.stockLevel = stockLevel;
+		this.minimumThreshold = minimumThreshold;
+		this.recommendedLevel = recommendedLevel;
+		this.isPorousware = isPorousware;
+		this.price = price;
+		this.isSale = isSale;
+		this.featureOne = featureOne;
+		this.featureTwo = featureTwo;
+		this.featureThree = featureThree;
+		this.featureFour = featureFour;
+		this.featureFive = featureFive;
+		this.imageLink = imageLink;
+		this.isTrending = isTrending;
+	}
+	
 	public String getProductName() {
 		return productName;
 	}
@@ -261,8 +282,8 @@ public class Product {
 				+ productName + ", stockLevel=" + stockLevel
 				+ ", minimumThreshold=" + minimumThreshold
 				+ ", recommendedLevel=" + recommendedLevel + ", isPorousware="
-				+ isPorousware + ", price=" + price + ", isSale= "+ isSale + 
-				" features   "+featureOne + featureTwo + featureThree + 
-				featureFour + featureFive + " Imagelink " + imageLink + "isTrending" + isTrending + " ]";
+				+ isPorousware + ", price=" + price + ", isSale="+ isSale + 
+				", features: " + featureOne + "; " + featureTwo + "; "  + featureThree + "; "  + 
+				featureFour + "; "  + featureFive + ", Imagelink='" + imageLink + "', isTrending=" + isTrending + " ]";
 	}
 }

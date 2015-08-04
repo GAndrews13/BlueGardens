@@ -4,15 +4,32 @@
 				xmlns:f="http://java.sun.com/jsf/core"
 				xmlns:t="http://myfaces.apache.org/tomahawk"     
 				template="templates/template.xhtml">
+				
+<!-- Defines the title of the page using the header 1 tag -->
+<ui:define name="pagetitle">Search</ui:define>
+
 <ui:define name="body">	
-	<h:outputLabel value="Search Term" for="search"/><br/>
-	<h:inputSecret id="search" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
-					<h:commandButton action="#{searchController.searchByTerm}" value="Search" />
-	<t:dataList value= "#{searchController.results}" var="product">
-		<h:outputLabel class="productname" value="#{product.getProductName()}"/>
-		<h:outputLabel class="productimage" value="#{product.getImageLink()}"/>
-		<h:outputLabel class="productprice" value="#{product.getPrice()}"/>
-		<br/>
-	</t:dataList>	
+	<div id="search">
+	
+		<h:form>
+			<h:panelGrid>
+			<h:outputLabel value="Search Term" for="searchdetails"/><br/>
+			<h:inputText id="searchdetails" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
+			<h:commandButton action="#{searchController.search}" value="Search" /><br/>
+			<ui:repeat value="#{searchController.results}" var="product">
+				#{product.getProductName()}<br/><br/>
+				#{product.getPrice()}<br/><br/>
+				#{product.getStockLevel()}<br/><br/>
+				#{product.getFeatureOne()}<br/><br/>
+				#{product.getFeatureTwo()}<br/><br/>
+				#{product.getFeatureThree()}<br/><br/>
+				#{product.getFeatureFour()}<br/><br/>
+				#{product.getFeatureFive()}<br/><br/>
+				<img src="#{product.getImageLink()}" alt="#{product.getProductName()}" width="460" height="345"/><br/>  	
+			</ui:repeat>
+			</h:panelGrid>	
+		</h:form>
+
+	</div>
 </ui:define>
 </ui:composition>

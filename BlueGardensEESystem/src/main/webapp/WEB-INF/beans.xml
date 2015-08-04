@@ -27,6 +27,9 @@
 			com.netbuilder.entitymanagers.Dummy.SupplierProductManagerDummy
 		</class>
 		<class>
+			com.netbuilder.entitymanagers.Dummy.WarehouseLocationManagerDummy
+		</class>
+		<class>
 			com.netbuilder.entitymanagers.Dummy.WarehouseWorkerManagerDummy
 		</class>
 		<class>

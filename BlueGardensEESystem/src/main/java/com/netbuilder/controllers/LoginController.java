@@ -84,6 +84,7 @@ public class LoginController {
 
 	public String login() {
 		Long uid;
+		System.out.println(username);
 		
 		if (username.isEmpty() || password.isEmpty()) {
 			errormsg = "please enter details";
@@ -92,7 +93,6 @@ public class LoginController {
 		try
 		{
 			uid = clm.checkCustomerID(username);
-			System.out.println(uid);
 			if(uid != null)
 			{
 				setLoggedIn(true);
@@ -108,8 +108,7 @@ public class LoginController {
 		{
 			errormsg = "Error logging in";
 		}
-		
-		System.out.println(username);
+
 			return "login";
 	}
 	
