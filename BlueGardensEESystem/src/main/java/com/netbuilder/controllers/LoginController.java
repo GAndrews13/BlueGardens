@@ -1,17 +1,18 @@
 package com.netbuilder.controllers;
 
 /**
- * @Author GAndrews 
+ * @Author GAndrews
+ * @author jmander 
  */
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.security.auth.login.LoginException;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 
 @ManagedBean(name = "loginController")
-@RequestScoped
+@SessionScoped
 public class LoginController {
 	@Inject
 	private CustomerLoginManager clm;
@@ -79,7 +80,6 @@ public class LoginController {
 
 	public String login() {
 		Long uid;
-		System.out.println(username);
 		
 		if (username.isEmpty() || password.isEmpty()) {
 			errormsg = "please enter details";
