@@ -2,6 +2,8 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import org.omg.CORBA.PolicyListHolder;
+
 import com.netbuilder.BlueGardensEESystem.DeliveryLocation;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entities.PurchaseOrderLine;
@@ -29,19 +31,32 @@ public class PurchaseOrderLineManagerDummy implements PurchaseOrderLineManager {
 			pols.set(pols.indexOf(pol1), pol);
 		}
 	}
+	
 	@Override
-	public void updatePurchaseOrderLines(ArrayList<PurchaseOrderLine> pols) {
+	public PurchaseOrderLine findbyPurchaseOrderID(int poid) {
 		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public ArrayList<PurchaseOrderLine> findbyPurchaseOrderID(int poid) {
-		// TODO Auto-generated method stub
+		for(PurchaseOrderLine pol : pols)
+		{
+			if(pol.getPurchaseOrderID() == poid)
+			{
+				return pol;
+			}
+			
+		}
 		return null;
+
 	}
 	@Override
-	public ArrayList<PurchaseOrderLine> findbyProductID(int pid) {
+	public PurchaseOrderLine findbyProductID(int pid) {
 		// TODO Auto-generated method stub
+		for(PurchaseOrderLine pol : pols)
+		{
+			if(pol.getProductID() == pid)
+			{
+				return pol;
+			}
+			
+		}
 		return null;
 	}
 	

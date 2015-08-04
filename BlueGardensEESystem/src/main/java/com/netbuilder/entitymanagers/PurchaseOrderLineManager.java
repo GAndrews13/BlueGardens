@@ -10,8 +10,7 @@ public interface PurchaseOrderLineManager
 	public void persistPurchaseOrderLines(ArrayList<PurchaseOrderLine> pols);
 	
 	public void updatePurchaseOrderLine(PurchaseOrderLine pol);
-	public void updatePurchaseOrderLines(ArrayList<PurchaseOrderLine> pols);
 	
-	public ArrayList<PurchaseOrderLine> findbyPurchaseOrderID(int poid);
-	public ArrayList<PurchaseOrderLine> findbyProductID(int pid);
+	public PurchaseOrderLine findbyPurchaseOrderID(int poid);
+	public PurchaseOrderLine findbyProductID(int pid);
 }
