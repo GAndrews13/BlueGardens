@@ -1,30 +1,26 @@
 package com.netbuilder.controllers;
 
 /**
- * @Author GAndrews 
+ * @Author GAndrews
+ * @author jmander 
  */
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.security.auth.login.LoginException;
-
 import com.netbuilder.entitymanagers.CustomerLoginManager;
-import com.netbuilder.util.LoginUtils;
-import com.netbuilder.util.UserDetails;
 
 @ManagedBean(name = "loginController")
-@RequestScoped
+@SessionScoped
 public class LoginController {
 	@Inject
 	private CustomerLoginManager clm;
-	//@Inject
-	private UserDetails ud;
-	private String username;
+	public String username;
 	private String password;
 	private int userID;
 	private byte[] salt;
-	private boolean loggedIn = false;
+	public boolean loggedIn = false;
 	public String errormsg;
 	
 	public LoginController(){
@@ -84,7 +80,6 @@ public class LoginController {
 
 	public String login() {
 		Long uid;
-		System.out.println(username);
 		
 		if (username.isEmpty() || password.isEmpty()) {
 			errormsg = "please enter details";
@@ -93,10 +88,10 @@ public class LoginController {
 		try
 		{
 			uid = clm.checkCustomerID(username);
-			if(uid != null)
+			if(uid != 0)
 			{
 				setLoggedIn(true);
-				return "account/uid";
+				return "landingPage";
 			}
 			else
 			{
@@ -108,15 +103,11 @@ public class LoginController {
 		{
 			errormsg = "Error logging in";
 		}
-
 			return "login";
 	}
 	
 	public String logout() throws LoginException
 	{
-		//Slide 89?
-		
-		//loginContext.logout();
 		setLoggedIn(false);
 		username = null;
 		password = null;
@@ -131,7 +122,7 @@ public class LoginController {
 		}
 		else
 		{
-			return null;
+			return "Login";
 		}
 	}
 }

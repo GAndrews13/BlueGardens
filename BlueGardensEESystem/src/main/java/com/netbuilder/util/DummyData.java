@@ -64,16 +64,16 @@ public class DummyData {
 		this.customers = customers;
 	}
 
+	public void setCustomerLogins(CustomerLogin customerLogin){
+		customerLogins.add(customerLogin);
+	}
+	
 	public ArrayList<CustomerLogin> getCustomerLogins() {
 		return customerLogins;
 	}
 
-	public void setCustomerLogin(CustomerLogin customerLogin) {
-		customerLogins.add(customerLogin);
-	}
-	
 	public void setCustomerLogins(ArrayList<CustomerLogin> customerLogins) {
-		this.customerLogins = customerLogins;
+		this.customerLogins.addAll(customerLogins);
 	}
 	
 	public void setWishlistItems(WishlistItems wishlistitem){

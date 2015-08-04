@@ -1,14 +1,10 @@
 package com.netbuilder.entitymanagers.Database;
 
-import java.util.ArrayList;
-
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 
@@ -45,12 +41,6 @@ public class CustomerLoginDB implements CustomerLoginManager {
 		{
 			return 0;			
 		}
-	}
-
-	public ArrayList<String> findAll() {
-		EntityManager em = pm.CreateEntityManager();
-		ArrayList<String> ra = (ArrayList<String>) em.createQuery("SELECT * FROM CustomerLogin c",String.class).getResultList();
-		return ra;
 	}
 
 	@Override

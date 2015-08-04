@@ -13,7 +13,7 @@
 	<!-- Javascript -->
 	<!--  Javascript Menu -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 	<!-- <script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script> -->
 	<script type="text/javascript">
 		  $('.tabs_holder').skinableTabs({
@@ -23,9 +23,9 @@
 	  });
 	</script>
 	
-	<script>
-		
-	</script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
 	
 	<!-- End of Javascript -->
 	
@@ -43,7 +43,7 @@
 						
 					</td>
 					<td>
-						<a href="login.xhtml">Login / Sign Up</a>
+						<a href="login.xhtml">#{loginController.loggedInUserName()}</a>
 					</td>
 				</tr>
 				<tr>
