@@ -153,7 +153,7 @@ p.questionAnswer{
 .javascriptText{
 	font-style:italic bold;
 	text-decoration: underline; 
-	font-size: 2vmin;
+	font-size: 1.5vmin;
 }
 
 
@@ -421,14 +421,18 @@ p.questionAnswer{
 }
 
 #headerMenuRow{
-	width:85%;
+	width:75%;
+	padding-left: 15%;
 }
 
 #logo {
 	display: block;
-	max-width : 100%;
+	max-width : 150%;
 }
 
+#productDescription {
+	text-align : center;
+}
 
 #sale {
 	text-transform: uppercase;
@@ -444,10 +448,4 @@ p.questionAnswer{
 
 #tableContentBlog{
 	width:80%;
-}
-
-#owl-demo .item img{
-    display: block;
-    width: 100%;
-    height: auto;
 }
