@@ -122,7 +122,7 @@ public class LoginController {
 		}
 		else
 		{
-			return "Login / Sign Up";
+			return "Login";
 		}
 	}
 }
