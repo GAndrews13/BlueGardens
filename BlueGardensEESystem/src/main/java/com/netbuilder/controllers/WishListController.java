@@ -23,6 +23,8 @@ public class WishListController {
 	private WishListManager wishlistManager;
 	@Inject
 	private ProductManager productManager;
+	@Inject
+	private LoginController loginController;
 	private ArrayList<WishlistItems> results;
 	private ArrayList<Product> realResults = new ArrayList<Product>();
 	
@@ -38,15 +40,15 @@ public class WishListController {
 	}
 
 	public String search() {
+		try {
+			System.out.println(loginController.loggedInUserName());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		this.results = wishlistManager.findForUser(1);
 		for(int i=0; i<results.size();i++){
 			realResults.add(productManager.findById(results.get(i).getProductID()));
-			System.out.println(realResults.get(i).getProductID());
-			System.out.println(realResults.get(i).getProductName());
-			System.out.println(realResults.get(i).getPrice());
 		}
-		System.out.println(results);
-		System.out.println(realResults);
 			return "wishlist";
 	}
 
