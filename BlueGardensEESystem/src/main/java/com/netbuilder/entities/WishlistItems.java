@@ -1,6 +1,5 @@
 package com.netbuilder.entities;
 
-
 import javax.persistence.JoinColumn;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
@@ -9,6 +8,8 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+
+import com.netbuilder.entitymanagers.ProductManager;
 
 /**
  * Contains all products
@@ -60,6 +61,9 @@ public class WishlistItems {
 		this.productID = productID;
 	}
 	
-
+	@Override
+	public String toString() {
+		return "product ID:" + productID;
+	}
 	
 }

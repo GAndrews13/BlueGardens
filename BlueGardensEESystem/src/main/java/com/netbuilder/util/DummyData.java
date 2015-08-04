@@ -89,41 +89,41 @@ public class DummyData {
 	}
 
 	public DummyData(){
-		product1 = new Product("Ketchup", 10, 3, 10, false,
+		product1 = new Product(1, "Ketchup", 10, 3, 10, false,
 				135.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"Blue-Gardens/BlueGardensEESystem/src/main/webapp/resources/img/ketchup.jpg", true);
+				"resources/img/ketchup.jpg", true);
 		
-		product2 = new Product("Chocolate", 100, 30, 100, false,
+		product2 = new Product(2, "Chocolate", 100, 30, 100, false,
 				10.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"Blue-Gardens/BlueGardensEESystem/src/main/webapp/resources/img/chocolate.jpg", true);
+				"resources/img/chocolate.jpg", true);
 		
-		product3 = new Product("Kitchen Sink", 70, 50, 180, false,
+		product3 = new Product(3, "Kitchen Sink", 70, 50, 180, false,
 				85.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"Blue-Gardens/BlueGardensEESystem/src/main/webapp/resources/img/kitchenSink.jpg", true);
+				"resources/img/kitchenSink.jpg", true);
 		
-		product4 = new Product("Floor", 100, 70, 700, true,
+		product4 = new Product(4, "Floor", 100, 70, 700, true,
 				98.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"Blue-Gardens/BlueGardensEESystem/src/main/webapp/resources/img/floor.jpg", false);
+				"resources/img/floor.jpg", false);
 		
-		product5 = new Product("Fish", 120, 60, 140, true,
+		product5 = new Product(5, "Fish", 120, 60, 140, true,
 				35.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"Blue-Gardens/BlueGardensEESystem/src/main/webapp/resources/img/fish.jpg", false);
+				"resources/img/fish.JPG", false);
 		
-		product6 = new Product("Plum", 104, 63, 130, true,
+		product6 = new Product(6, "Plum", 104, 63, 130, true,
 				4.99, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"Blue-Gardens/BlueGardensEESystem/src/main/webapp/resources/img/plum.png", false);
+				"resources/img/plum.png", false);
 		
-		product7 = new Product("Cheese", 150, 13, 163, false,
+		product7 = new Product(7, "Cheese", 150, 13, 163, false,
 				12.00, true, "that's", "ammmaaaazing", "that", "you", "know",
-				"Blue-Gardens/BlueGardensEESystem/src/main/webapp/resources/img/cheese.jpg", false);
+				"resources/img/cheese.jpg", false);
 		
-		product8 = new Product("Sofa", 140, 36, 164, false,
+		product8 = new Product(8, "Sofa", 140, 36, 164, false,
 				700.00, true, "that's", "ammmaaaazing", "that", "you", "know",
-				"Blue-Gardens/BlueGardensEESystem/src/main/webapp/resources/img/sofa.jpg", false);
+				"resources/img/sofa.jpg", false);
 		
-		product9 = new Product("Shower", 120, 34, 150, false,
+		product9 = new Product(9, "Shower", 120, 34, 150, false,
 				15.00, true, "that's", "ammmaaaazing", "that", "you", "know",
-				"Blue-Gardens/BlueGardensEESystem/src/main/webapp/resources/img/shower.jpg", false);
+				"resources/img/shower.jpg", false);
 		
 		products.add(product1);
 		products.add(product2);

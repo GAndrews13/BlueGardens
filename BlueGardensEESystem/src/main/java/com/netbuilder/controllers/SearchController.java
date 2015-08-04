@@ -3,36 +3,53 @@ package com.netbuilder.controllers;
 import java.util.ArrayList;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
-import javax.inject.Named;
-
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
-import com.netbuilder.service.ProductsOfIntrest;
+
 /**
  *  Handles input from the page and passes it to the logic contained within products of intrest
  * @author Jake
  *
  */
-@Named
+@ManagedBean(name = "searchController")
 @RequestScoped
-public class SearchController 
-{
-	//private long id;
-	//private String name;
-	//private boolean stock;
-	private ArrayList <Product> results;
-	private String searchTerm;
+public class SearchController {
 	@Inject
 	private ProductManager productManager;
+	private String searchTerm;
+	private ArrayList<Product> results;
 	
-	
-	public ArrayList<Product> getResults() { return results; }
-	public String getSearchTerm() { return searchTerm; }
-	public void setResults(ArrayList<Product> results) { this.results = results; }
-	public void setSearchTerm(String searchTerm) { this.searchTerm = searchTerm; }
-	
-	public void searchByTerm() {
-		results = productManager.findByName(searchTerm);
+	public SearchController(){
 	}
+	
+	public SearchController(String searchTerm) {
+		this.searchTerm = searchTerm;
+	}
+
+	
+	public void setSearchTerm(String searchTerm) {
+		this.searchTerm = searchTerm;
+	}
+	public String getSearchTerm() {
+		return searchTerm;
+	}
+
+	public void setResults(ArrayList<Product> results) {
+		this.results = results;
+	}
+	
+	public ArrayList<Product> getResults() {
+		return results;
+	}
+
+	public String search() {
+		System.out.println(searchTerm);
+		this.results = productManager.findByName(searchTerm);
+		System.out.println(results);
+			return "jsearch";
+	}
+
+
 }
