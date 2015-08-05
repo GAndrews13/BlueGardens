@@ -77,12 +77,12 @@
 							<a href="checkout.xhtml"> Checkout</a>
 						</div>
 						<!-- DISPLAY BASKET ITEMS -->
-						<h:dataTable id="table1" value="#{basketController.items}" var="item" border="0">
+						<h:dataTable class="basketTable" value="#{basketController.items}" var="item" border="0">
 							<f:facet name="header">
 							</f:facet>
 								<h:column>
 								</h:column>
-							<h:column>
+							<h:column class="basketTableColumn">
 								<f:facet name="header">
 									<h:outputText value="Product"/>
 								</f:facet>

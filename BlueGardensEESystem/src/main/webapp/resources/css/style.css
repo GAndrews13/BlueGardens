@@ -95,8 +95,13 @@ p.questionAnswer{
 	font-size: 5vmin; 
 }
 
-.basket-table {
+.basketTable{
 	width: 100%;
+	text-align: center;
+}
+
+.basketTableColumn{
+	width: 30%;	
 }
 
 .black_overlay {
@@ -440,6 +445,7 @@ p.questionAnswer{
 }
 
 /* ID tag rules */
+
 #closeBasketCell {
 	text-align: right;
 }

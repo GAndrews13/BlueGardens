@@ -17,25 +17,32 @@
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
 		<br/>
+		<p>
+		Total Price: 
+		</p>
+		<h:outputText value="#{basketController.basketTotal}"/>
+		<br/>
 		<div id="checkout">
-			<h:dataTable id="table1" value="#{basketController.items}" var="item" border="0">
-				<f:facet name="header">
-				</f:facet>
-				<h:column>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Product"/>
-					</f:facet>
-				<h:outputText value="#{item.productName}"/>
-				</h:column>			
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Price Per Item"/>
-					</f:facet>
-					<h:outputText value="#{item.price}"/>
-				</h:column>
-			</h:dataTable>
+			<!-- DISPLAY BASKET ITEMS -->
+						<h:dataTable class="basketTable" value="#{basketController.items}" var="item" border="0">
+							<f:facet name="header">
+							</f:facet>
+								<h:column>
+								</h:column>
+							<h:column class="basketTableColumn">
+								<f:facet name="header">
+									<h:outputText value="Product"/>
+								</f:facet>
+								<h:outputText value="#{item.productName}"/>
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Price Per Item"/>
+								</f:facet>
+								<h:outputText value="#{item.price}"/>
+							</h:column>
+						</h:dataTable>
 		</div>
 	</ui:define>
 </ui:composition>
