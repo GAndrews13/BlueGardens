@@ -24,14 +24,14 @@
 		<h:form>			
 			<h:panelGrid>
 				<h:outputLabel value="#{contactController.errorMessage}"/><br/>
-				<h:outputLabel value="name" for="customername"/><br/>
+				<h:outputLabel value="Name" for="customername"/><br/>
 				<h:inputText id="customername" value="#{contactFormDetails.name}" maxlength="45" size="20"/><br/>
 				<br/>
-				<h:outputLabel value="email" for="customeremail"/><br/>
+				<h:outputLabel value="Email" for="customeremail"/><br/>
 				<h:inputText id="customeremail" value="#{contactFormDetails.email}" maxlength="45" size="20"/><br/>
 				<br/>
-				<h:outputLabel value="message" for="customermessage"/><br/>
-				<h:inputTextarea id="customermessage" value="#{contactFormDetails.message}" maxlength="80" size="40%"/><br/>
+				<h:outputLabel value="Message" for="customermessage"/><br/>
+				<h:inputTextarea id="customermessage" value="#{contactFormDetails.message}" maxlength="80" rows="4" cols="50"/><br/>
 				<h:commandButton action="#{contactController.sendMessage}" value="Send" />
 			</h:panelGrid>
 		</h:form>

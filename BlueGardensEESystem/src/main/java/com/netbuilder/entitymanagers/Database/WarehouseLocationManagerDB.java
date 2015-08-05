@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.WarehouseLocation;
 import com.netbuilder.entitymanagers.WarehouseLocationManager;
-
+/**@author anca*/
 @Alternative
 public class WarehouseLocationManagerDB implements WarehouseLocationManager {
 	@Inject
