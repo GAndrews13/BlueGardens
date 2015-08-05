@@ -318,12 +318,11 @@ p.questionAnswer{
 	display: inline-block;
 	text-align: centre;
 	width: 20%;
-	padding-left: 10%;
 }
 
 .bottommenu li a {
 	float: left;
-	padding-left: 15px;
+	padding-left: 20%;
 	display: inline-block;
 	color: rgb(255, 255, 255);
 	text-decoration: none;
@@ -333,10 +332,9 @@ p.questionAnswer{
 }
 
 .bottommenu li a span {
-	line-height: 30px;
+	line-height: 30%;
 	float: left;
 	display: block;
-	padding-right: 15px;
 	background: url('bottomMenuImages.png') 100% -30px no-repeat;
 }
 
@@ -351,7 +349,6 @@ p.questionAnswer{
 
 .bottommenu li a.active, .menu li a.active:hover {
 	line-height: 30px;
-	font: 12px Verdana, Arial, Helvetica, sans-serif;
 	background: url('bottomMenuImages.png') 0px -90px no-repeat;
 	color: rgb(255, 255, 255);
 }
