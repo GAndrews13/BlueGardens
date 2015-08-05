@@ -26,17 +26,19 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager
 	}
 
 	@Override
-	public CustomerOrderLine findByCOID(int customerID) 
+	public ArrayList<CustomerOrderLine> findByCOID(int customerID) 
 	{
+		ArrayList<CustomerOrderLine> localLine = new ArrayList<CustomerOrderLine>();
 		for(CustomerOrderLine col : col_Array)
 		{
 			if(col.getCustomerOrderLineID() == customerID)
 			{
-				return col;
+				localLine.add(col);
 			}
 		}
-		return null;	
-		}
+		
+		return localLine;
+	}
 
 	@Override
 	public ArrayList<CustomerOrderLine> findByQuantity(int quantity)
@@ -60,8 +62,8 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager
 	}
 
 	@Override
-	public ArrayList<CustomerOrderLine> findall() 
-	{
+	public ArrayList<CustomerOrderLine> findAll() {
+		// TODO Auto-generated method stub
 		return col_Array;
 	}
 
