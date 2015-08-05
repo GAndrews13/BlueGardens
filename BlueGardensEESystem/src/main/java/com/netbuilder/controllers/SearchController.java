@@ -77,5 +77,9 @@ public class SearchController {
 		return "jsearch";
 	}
 
+	public String test(){
+		System.out.println("Hello");
+		return null;
+	}
 
 }
