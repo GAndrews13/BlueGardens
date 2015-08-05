@@ -22,6 +22,7 @@ public interface ProductManager {
 	public Product findById(int id);
 	public ArrayList<Product> findAll();
 	public ArrayList<Product> findByPriceLessThan(double price);
+	public Product findByImageLink(String link);
 	
 	/**
 	 * @author lczornyj
