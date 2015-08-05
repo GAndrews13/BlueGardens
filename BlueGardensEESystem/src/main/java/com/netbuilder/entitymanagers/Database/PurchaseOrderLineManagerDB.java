@@ -50,28 +50,28 @@ public class PurchaseOrderLineManagerDB implements PurchaseOrderLineManager {
 	}
 
 	@Override
-	public PurchaseOrderLine findbyPurchaseOrderID(int poid) {
+	public ArrayList<PurchaseOrderLine> findbyPurchaseOrderID(int poid) {
 		// TODO Auto-generated method stub
 		EntityManager em = pm.CreateEntityManager();
 		TypedQuery<PurchaseOrderLine> tq = em.createNamedQuery(PurchaseOrderLine.FIND_OUT_BY_PURCHASE_ORDER_ID, PurchaseOrderLine.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("poid", poid);
 		try{
-		return tq.getSingleResult();
+		return (ArrayList<PurchaseOrderLine>) tq.getResultList();
 		} catch (NoResultException nre) {
 		return null;
 		}
 	}
 
 	@Override
-	public PurchaseOrderLine findbyProductID(int pid) {
+	public ArrayList<PurchaseOrderLine> findbyProductID(int pid) {
 		// TODO Auto-generated method stub
 		EntityManager em = pm.CreateEntityManager();
 		TypedQuery<PurchaseOrderLine> tq = em.createNamedQuery(PurchaseOrderLine.FIND_OUT_BY_PRODUCT_ID , PurchaseOrderLine.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("pid", pid);
 		try{
-		return tq.getSingleResult();
+		return (ArrayList<PurchaseOrderLine>) tq.getResultList();
 		} catch (NoResultException nre) {
 		return null;
 		}

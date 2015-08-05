@@ -33,31 +33,33 @@ public class PurchaseOrderLineManagerDummy implements PurchaseOrderLineManager {
 	}
 	
 	@Override
-	public PurchaseOrderLine findbyPurchaseOrderID(int poid) {
+	public ArrayList<PurchaseOrderLine> findbyPurchaseOrderID(int poid) {
 		// TODO Auto-generated method stub
+		ArrayList<PurchaseOrderLine> thesePOLs = new ArrayList<PurchaseOrderLine>();
 		for(PurchaseOrderLine pol : pols)
 		{
 			if(pol.getPurchaseOrderID() == poid)
 			{
-				return pol;
+				thesePOLs.add(pol) ;
 			}
 			
 		}
-		return null;
+		return thesePOLs;
 
 	}
 	@Override
-	public PurchaseOrderLine findbyProductID(int pid) {
+	public ArrayList<PurchaseOrderLine> findbyProductID(int pid) {
 		// TODO Auto-generated method stub
+		ArrayList<PurchaseOrderLine> thesePOLs = new ArrayList<PurchaseOrderLine>();
 		for(PurchaseOrderLine pol : pols)
 		{
 			if(pol.getProductID() == pid)
 			{
-				return pol;
+				thesePOLs.add(pol) ;
 			}
 			
 		}
-		return null;
+		return thesePOLs;
 	}
 	
 

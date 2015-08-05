@@ -22,7 +22,7 @@ public interface CustomerOrderLineManager
 	 * @author Jake
 	 *	Find a customer order line by the customer ID
 	 */
-	public CustomerOrderLine findByCOID(int customerID);
+	public ArrayList<CustomerOrderLine> findByCOID(int coid);
 	
 	/**
 	 * @author Jake
@@ -40,6 +40,7 @@ public interface CustomerOrderLineManager
 	 * @author Jake
 	 *	Return all customer order lines
 	 */
-	public ArrayList <CustomerOrderLine> findall();
+
+	public ArrayList<CustomerOrderLine> findAll();
 	
 }
