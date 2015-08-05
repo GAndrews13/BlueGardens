@@ -10,11 +10,12 @@
 				
 	<!-- Defines the title of the page using the header 1 tag -->
 	<ui:define name="pagetitle">Wishlist</ui:define>	
-	
+	<ui:define name="sectiontitle">Wishlist</ui:define>
 <ui:define name="body">
 			<h:form>
+			<h1></h1>
 				<h:panelGrid>
-					#{wishlistController.search()}
+					<!-- #{wishlistController.search()} -->
 					<ui:repeat value="#{wishlistController.realResults}" var="product">
 				    	#{product.getProductName()}<br/><br/>
 				    	#{product.getPrice()}<br/><br/>
