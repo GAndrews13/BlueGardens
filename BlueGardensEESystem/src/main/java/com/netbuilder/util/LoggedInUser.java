@@ -7,8 +7,8 @@ import javax.inject.Singleton;
 @Singleton
 public class LoggedInUser{
 
-public String username;
-public long userID;
+private String username;
+private long userID;
 
 public long getUserID() {
 	return userID;
