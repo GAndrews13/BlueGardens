@@ -11,6 +11,6 @@ public interface PurchaseOrderLineManager
 	
 	public void updatePurchaseOrderLine(PurchaseOrderLine pol);
 	
-	public PurchaseOrderLine findbyPurchaseOrderID(int poid);
-	public PurchaseOrderLine findbyProductID(int pid);
+	public ArrayList<PurchaseOrderLine> findbyPurchaseOrderID(int poid);
+	public ArrayList<PurchaseOrderLine> findbyProductID(int pid);
 }

@@ -6,13 +6,14 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+import javax.validation.ValidationException;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.CustomerOrderLineManager;
 
-public class CustomerOrderLineDB implements CustomerOrderLineManager 
+public class CustomerOrderLineManagerDB implements CustomerOrderLineManager 
 {
 	@Inject
 	private PersistenceManager pm;
@@ -44,7 +45,7 @@ public class CustomerOrderLineDB implements CustomerOrderLineManager
 	}
 
 	@Override
-	public CustomerOrderLine findByCOID(int customerID) 
+	public ArrayList<CustomerOrderLine> findByCOID(int customerID) 
 	{
 		EntityManager em = pm.CreateEntityManager(); 
 		TypedQuery<CustomerOrderLine> tq = em.createNamedQuery(CustomerOrderLine.FIND_BY_CO_ID, CustomerOrderLine.class);
@@ -52,7 +53,7 @@ public class CustomerOrderLineDB implements CustomerOrderLineManager
 		tq.setParameter("CustomerID", customerID);
 		try
 		{
-			return tq.getSingleResult(); 
+			return  (ArrayList<CustomerOrderLine>) tq.getResultList() ; 
 		}
 		catch (NoResultException nre) 
 			{
@@ -67,15 +68,22 @@ public class CustomerOrderLineDB implements CustomerOrderLineManager
 	}
 
 	@Override
-	public void updateCOL(CustomerOrderLine pol) {
+	public void updateCOL(CustomerOrderLine col) {
 		// TODO Auto-generated method stub
-		
+		if (col == null)
+			throw new ValidationException("null value passed ");
+			EntityManager em = pm.CreateEntityManager();
+			em.merge(col);
+			pm.CloseEntityManager(em);
 	}
 
 	@Override
-	public ArrayList<CustomerOrderLine> findall() {
+	public ArrayList<CustomerOrderLine> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = pm.CreateEntityManager();
+		ArrayList<CustomerOrderLine> COL = (ArrayList<CustomerOrderLine>) em.createQuery("select * from CustomerOrderLine a", CustomerOrderLine.class).getResultList(); 
+		pm.CloseEntityManager(em); 
+		return COL;
 	}
 
 }

@@ -12,7 +12,8 @@
 * { 
 	margin: 0;
 	color: black;
-	font-size: 1.5vmin;
+	font-size: 1.8vmin;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
 }
 
  a.hovertext {
@@ -21,6 +22,7 @@
     text-decoration: none !important;
     text-align: center;
   }
+  
  a.hovertext:after {
     content: attr(title);
     position: absolute;
@@ -37,6 +39,7 @@
     -o-transition: 0.5s;
     -ms-transition: 0.5s;
   }
+  
  a.hovertext:hover:after, a.hovertext:focus:after {
     opacity: 1.0;
   }
@@ -47,6 +50,7 @@
     text-decoration: none !important;
     text-align: center;
   }
+  
 a.titleText:after {
     content: attr(title);
     position: absolute;
@@ -63,6 +67,7 @@ a.titleText:after {
     -o-transition: 0.5s;
     -ms-transition: 0.5s;
   }
+  
 a.titleText:hover:after, a.hovertext:focus:after {
     opacity: 1.0;
   }
@@ -90,8 +95,13 @@ p.questionAnswer{
 	font-size: 5vmin; 
 }
 
-.basket-table {
+.basketTable{
 	width: 100%;
+	text-align: center;
+}
+
+.basketTableColumn{
+	width: 30%;	
 }
 
 .black_overlay {
@@ -108,6 +118,10 @@ p.questionAnswer{
 	filter: alpha(opacity = 80);
 }
 
+.carouselBack{
+	z-index: -100;
+}
+
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
 	margin: auto;
@@ -120,6 +134,8 @@ p.questionAnswer{
 .center {
 	text-align: center;
 }
+
+
 
 .col {
 	display: block;
@@ -135,6 +151,9 @@ p.questionAnswer{
     background-color:rgba(255, 184, 148, .8);
     border-radius: 35px;
     word-wrap: break-word;
+    padding: 2em;
+    margin-left: 10em;
+    margin-right: 10em;
 }
 
 .group {
@@ -226,15 +245,20 @@ p.questionAnswer{
 	top: 0;
 	position: fixed;
 	width: 100%;
-	background-color: #89dcf5;
+	background-color:rgba(137,220,265, 1);
+	 opacity: 0;
 }
 
+.site-header:hover {
+	 opacity: 100;
+}
 .site-footer {
-	height: 60px;
-	background-color: #89dcf5;
+	height: 5%;
+	background-color:rgba(137,220,265, 1);
 	position: fixed;
 	bottom: 0;
 	width: 100%;
+	padding-bottom: 2em;
 }
 
 .span_1_of_4 {
@@ -277,15 +301,13 @@ p.questionAnswer{
 }
 
 /* taken from netbuilder.com */
-.bottommenu {
-	margin-bottom: 875px auto;
+.bottommenu {	
 	padding: 0;
-	height: 30px;
+	height: 20%;
 	width: 100%;
 	display: block;
 	background: url('bottomMenuImages.png') repeat-x;
-	magin: 0 auto;
-	width: 100%;
+	margin-bottom: 1em;	
 }
 
 .bottommenu li {
@@ -404,7 +426,26 @@ p.questionAnswer{
 	background: url('topMenuImages.png') 100% -90px no-repeat;
 }
 
+.menuItem{
+	font-size: 1.8vmin;
+}
+
+.menuItem:hover{
+	font-size: 2.6vmin;
+}
+
+.productTitle{
+	font-variant: small-caps;
+	font-size: 4.2vmin;
+	text-align: center;
+}
+
+.productDescription {
+	text-align : center;
+}
+
 /* ID tag rules */
+
 #closeBasketCell {
 	text-align: right;
 }
@@ -423,15 +464,12 @@ p.questionAnswer{
 #headerMenuRow{
 	width:75%;
 	padding-left: 15%;
+	height: 150%;
 }
 
 #logo {
 	display: block;
 	max-width : 150%;
-}
-
-#productDescription {
-	text-align : center;
 }
 
 #sale {
