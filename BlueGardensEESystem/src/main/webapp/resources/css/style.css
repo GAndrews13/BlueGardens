@@ -174,7 +174,10 @@ p.questionAnswer{
 	text-decoration: underline; 
 	font-size: 1.5vmin;
 }
-
+.landingContent{
+	padding-left: 7em;
+	padding-right: 7em;
+}
 
 .leftStack {
 	float: left;
@@ -260,6 +263,7 @@ p.questionAnswer{
 	bottom: 0;
 	width: 100%;
 	padding-bottom: 2em;
+	z-index: 50;
 }
 
 .span_1_of_4 {
@@ -454,9 +458,8 @@ p.questionAnswer{
 }
 
 #contentHeader{
-	font: 4em Verdana;
+	font: 4em Century Gothic;
 	font-style:italic bold;
-	text-decoration: underline; 
 	text-align: center;
 }
 
