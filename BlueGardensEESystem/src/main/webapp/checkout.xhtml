@@ -10,41 +10,39 @@
 	<ui:define name = "pagetitle">
 		NBGardens: Checkout
 	</ui:define>
-	
 	<!-- Defines the title displayed on the page -->
 	<ui:define name="sectiontitle">
-		<h1>Checkout</h1>
+	<h:commandButton action="#{basketController.submitBasket(basketController.bm)}" value="Checkout" />
 	</ui:define>
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
 		<br/>
+		<p>
+		Total Price: 
+		</p>
+		<h:outputText value="#{basketController.basketTotal}"/>
+		<br/>
 		<div id="checkout">
-			<h:form>
-				<div class="simpleCart_items"/>
-				<table>
-				<tr>
-					<div id="light" class="white_content" >
-						<td class="tableHeaderCells javascriptText">
-							<a href="javascript:;" class="simpleCart_empty">Empty basket</a>
-						</td>
-						<td class="tableHeaderCells javascriptText">
-							Total: <span id="simpleCart_grandTotal" class="simpleCart_grandTotal"></span>
-						</td>
-						<td class="tableHeaderCells  javascriptText" id="closeBasketCell">
-							<a href = "javascript:void(0)"  onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
-						</td>
-					</div>
-				</tr>
-				<tr>
-					<td>
-						<!-- TODO return items as a string --> 
-						<h:inputText  binding="#{basketContents}"/>
-						<h:commandButton action="#{basketController.stringParser(basketContents.value)}" value="Login " />
-						<a href="javascript:;" class="simpleCart_checkout" >Checkout Basket With Paypal</a>
-					</td>
-				</tr>
-				</table>
-			</h:form>
+			<!-- DISPLAY BASKET ITEMS -->
+						<h:dataTable class="basketTable" value="#{basketController.items}" var="item" border="0">
+							<f:facet name="header">
+							</f:facet>
+								<h:column>
+								</h:column>
+							<h:column class="basketTableColumn">
+								<f:facet name="header">
+									<h:outputText value="Product"/>
+								</f:facet>
+								<h:outputText value="#{item.productName}"/>
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Price Per Item"/>
+								</f:facet>
+								<h:outputText value="#{item.price}"/>
+							</h:column>
+						</h:dataTable>
 		</div>
 	</ui:define>
 </ui:composition>

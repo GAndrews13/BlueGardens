@@ -6,7 +6,7 @@
 				template="templates/template.xhtml">
 	<!-- Defines the title of the page using the header 1 tag -->
 	<ui:define name = "pagetitle">
-		<h1> Product </h1>
+		Product
 	</ui:define>
 	
 	<!-- Defines the title displayed on the page -->
@@ -27,22 +27,19 @@
 		<h:outputLabel value = "#{productController.product.getFeatureThree()}"/><br />
 		<h:outputLabel value = "#{productController.product.getFeatureFour()}"/><br />
 		<h:outputLabel value = "#{productController.product.getFeatureFive()}"/><br />
-	
 	</div>
 	<div id = "addtobasket">
-	<a href="javascript:;" onclick="simpleCart.add({id: 'productController.product.getProductID()' ,name:'productController.product.getProductName()', price: 'productController.product.getPrice()'});" >Add to Basket</a>
+	<h:commandButton action="#{basketController.addProduct(productController.product)}" value="Add to Basket" />
 	</div>
 	
 	<div id = "trendingproducts">
 	Trending Products:
 	<ul>
-		<li><a href="#"><img src="#{trendingProductController.trendingProducts[0].getImageLink()}" alt="" /></a>
-		<li><a href="#"><img src="#{trendingProductController.trendingProducts[1].getImageLink()}" alt="" /></a>
-		<li><a href="#"><img src="#{trendingProductController.trendingProducts[2].getImageLink()}" alt="" /></a>
-		</li>
+		<li><a href="#"><img src="#{trendingProductController.trendingProducts[0].getImageLink()}" alt="" /></a></li>
+		<li><a href="#"><img src="#{trendingProductController.trendingProducts[1].getImageLink()}" alt="" /></a></li>
+		<li><a href="#"><img src="#{trendingProductController.trendingProducts[2].getImageLink()}" alt="" /></a></li>
 	</ul>
 	</div>
-	
 	<div id = "customerreviews">
 		<form>
 		<legend>Customer Reviews:</legend>

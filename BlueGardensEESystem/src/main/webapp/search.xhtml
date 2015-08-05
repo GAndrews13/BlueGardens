@@ -1,81 +1,45 @@
 <!-- @author Jake
 	Search Page 
 -->
-<!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"      
 				xmlns:ui="http://java.sun.com/jsf/facelets"
 				xmlns:h="http://java.sun.com/jsf/html"
 				xmlns:f="http://java.sun.com/jsf/core"     
 				template="templates/template.xhtml">
-	<link rel="stylesheet" type="text/css" href="style.css">
 	
 	<ui:define name = "pagetitle">
-		<h1> Search </h1>
+		Search
 	</ui:define>
 <!--REFRESH PAGE EVERY 5 SECONDS TO UPDATE RESULTS-->
-<meta http-equiv="refresh" content="5">
+<meta http-equiv="refresh" content="5"/>
 <ui:define name="body">	
-
-	<div class="page-wrap">
-		<div id="site-header">
-			<h1 id="logo">
-				<a href = ""><!--LOGO ADD--></a>
-			</h1>
-			<div id="navigation">
-				<ul class="menu">
-				  	<li> <img src="images/NB-Gardens.png" width=60px height=30px/> </li>
-				  	<li><a href="/home" class="active"><span>Home</span></a></li>
-				  	<li><a href="/services"><span>Services</span></a></li>
-				  	<li><a href="/about"><span>About</span></a></li>
-				  	<li><a href="/contact"><span>Contact</span></a></li>
-				  	<li><img src="images/basket.png" width=32px height=32px alt="Basket"/></li>
-				</ul>
-			</div>
-		</div>
-		<div id="contentHeader">
-			<ui:insert name="sectiontitle"/>
-		</div>
-		
-		<div class="content">
-			<div id="sidebarRight">
-				BLOG SECTION
-			</div>
-			<ui:insert name="body"/>
 			
  <div class = "main">  
  <p style="font-size:150%"><marquee><i> Items on sale</i></marquee></p> 
 
- 
- 
  <div class = "searchform">
  <p>Search by</p>  
 <form name="SearchForm" method="post" action="SearchServlet">
- Product Name:<br>
-<input type="text" name="productname">
-<br>
-<p>Product ID:</p> <br>
-<input type="text" name="productid">
-<br><br>
-<p>Show products that are:</p> <br>
-<input type="radio" name="instock" value="stockY" checked><p>In Stock</p>
-<br>
-<input type="radio" name="outstock" value="stockN"><p>Out of Stock</p>
-<br><br>
-<input type="submit" value="Submit">
+ <p>Product Name:</p><br/>
+<input type="text" name="productname" value="#{SearchController.searchTerm}"/>
+<br/><br/>
+<p>Show products that are:</p> <br/>
+
+<input type="radio" name="outstock" value="stockN"/><p>Out of Stock</p>
+<br/><br/>
+<input type="submit" value="Submit"/>
 </form> 
 </div> 
  </div>
-		</div> 
-	</div>
 	
 	<div id="productgrid">
 			<div class="section group">
 				<div class="col span_1_of_4">
-					Result 1
-					<hr />
-					<br>
+					<p>Result 1</p>
+					<hr/>
+					<br/>
 					<div class="description">
-						<img src="#{SearchController.pResult.getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<img src='#{SearchController.pResult.getImageLink()}' width="128" height="128"/>
 						<h2><h:outputLabel value="#{SearchController.pResult.getProductSeasonalName()}" /></h2>
 						<h2><h:outputLabel value="#{SearchController.pResult.getProductSeasonalPrice()}" /></h2>
 						<h2><h:outputLabel value="#{SearchController.pResult.getSeasonalFeatureOne()}" /></h2>
@@ -84,10 +48,10 @@
 				</div>
 				<div class="col span_1_of_4">
 					Result 2
-					<hr />
+					<hr/>
 					<br/>
 					<div class="description">
-						<img src="#{SearchController.results[1].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<img src="#{SearchController.results[1].getImageLink()}" width="128" height="128"/>
 						<h2><h:outputLabel value="#{SearchController.results[1].getTrendingProductName()}" /></h2>
 						<h2><h:outputLabel value="#{SearchController.results[1].getTrendingProductPrice()}" /></h2>
 						<h2><h:outputLabel value="#{SearchController.results[1].getTrendingFeatureOne()}" /></h2>
@@ -96,10 +60,10 @@
 				</div>
 				<div class="col span_1_of_4">
 					Result 3
-					<hr />
-					<br>
+					<hr/>
+					<br/>
 					<div class="description">
-						<img src="#{SearchController.results[2].getImageLink()}" style="float: left; width: 128px; height: 128px;">
+						<img src="#{SearchController.results[2].getImageLink()}" width="128" height="128"/>
 						<h2><h:outputLabel value="#{SearchController.results[2].getSaleProductName()}" /></h2>
 						<h2><h:outputLabel value="#{SearchController.results[2].getSaleProductPrice()}" /></h2>
 						<h2><h:outputLabel value="#{SearchController.results[2].getSaleFeatureOne()}" /></h2>
@@ -108,23 +72,6 @@
 				</div>
 			</div>
 		</div>
-
-	<footer class="site-footer">
-	  <div class="left">
-			<div>
-				<ul class="bottommenu">
-				  <li><a href="template.html" class="active"><span>Home</span></a></li>
-				  <li><a href="/services"><span>Services</span></a></li>
-				  <li><a href="/about"><span>About</span></a></li>
-				  <li><a href="/contact"><span>Contact</span></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="center">
-			2015 NBGardens.
-			<a href="">Design by DelphiSoft Consulting</a> 
-		</div>
-	</footer>
 	
 	</ui:define>
 </ui:composition>

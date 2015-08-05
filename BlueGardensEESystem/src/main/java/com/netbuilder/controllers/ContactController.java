@@ -15,6 +15,14 @@ public class ContactController {
 	private ContactFormDetails cfd;
 	public String errorMessage;
 	
+	public String getErrormsg() {
+		return errorMessage;
+	}
+
+	public void setErrormsg(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+	
 	public String sendMessage(){
 		if (cfd.getName().isEmpty() || cfd.getEmail().isEmpty() || cfd.getMessage().isEmpty()) {
 			errorMessage = "please enter details";

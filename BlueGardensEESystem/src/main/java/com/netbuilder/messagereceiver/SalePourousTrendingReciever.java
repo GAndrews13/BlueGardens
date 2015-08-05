@@ -1,5 +1,12 @@
 package com.netbuilder.messagereceiver;
-
+/**
+ * @author lczornyj
+ * This is a message reciever for the landing page.
+ * This does not need to be used as it was purely a test.
+ * The method draws in the products of interest from the sender as an object.
+ * 
+ * This was designed with jboss 7.0 however it should not work with wildfly.
+ */
 import static javax.jms.Session.AUTO_ACKNOWLEDGE;
 
 import javax.jms.Connection;

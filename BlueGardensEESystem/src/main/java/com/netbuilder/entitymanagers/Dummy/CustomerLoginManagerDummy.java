@@ -1,81 +1,57 @@
 package com.netbuilder.entitymanagers.Dummy;
 
-import java.util.ArrayList;
-
 import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
 
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
-import com.netbuilder.util.LoginUtils;
+import com.netbuilder.util.DummyData;
+
 @Alternative
 public class CustomerLoginManagerDummy implements CustomerLoginManager {
-private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>();
 
-	public CustomerLoginManagerDummy()
-	{
-		customerLogins.add(new CustomerLogin("root","password",LoginUtils.getNextSalt()));
-		customerLogins.add(new CustomerLogin("docker","linux",LoginUtils.getNextSalt()));
+	@Inject
+	private DummyData dd;
+	
+	public void persistCustomerLogin(CustomerLogin customerLogin) {
+
 	}
 
 	public long checkDetails(String inUsername, byte[] inPassword){
-		for(int i = 0;i<customerLogins.size();i++)
+		for(CustomerLogin cl : dd.getCustomerLogins())
 		{
-			CustomerLogin cl = customerLogins.get(i);
-			if(cl.getCustomerUsername() == inUsername && cl.getCustomerPassword() == inPassword)
-			{
+			if (cl.getCustomerUsername()==inUsername)
 				return cl.getCustomerID();
-			}
-		}
+		}	
 		return 0;
 	}
 
 	public long checkCustomerID(String inUsername) {
-		for(int i = 0; i<customerLogins.size();i++)
+		for(CustomerLogin cl : dd.getCustomerLogins())
 		{
-			if(customerLogins.get(i).getCustomerUsername() == inUsername)
-			{
-				return customerLogins.get(i).getCustomerID();
+			if (cl.getCustomerUsername().equals(inUsername)){
+				return cl.getCustomerID();
 			}
-		}
+		}	
 		return 0;
 	}
 
-	public ArrayList<String> findAll() {
-		ArrayList<String> ra = new ArrayList<String>();
-		for(int i = 0; i<customerLogins.size();i++)
-		{
-			ra.add(customerLogins.get(i).getCustomerUsername());
-		}
-		return ra;
-	}
-
-	@Override
 	public String getCustomerUsername(String inUserEmail) {
-		for(int i = 0; i<customerLogins.size();i++)
-		{
-			if(inUserEmail == customerLogins.get(i).getCustomerEmail())
-			{
-				return customerLogins.get(i).getCustomerUsername();
+		for(CustomerLogin cl : dd.getCustomerLogins()){
+			if(cl.getCustomerEmail() == inUserEmail){
+				return cl.getCustomerUsername();
 			}
 		}
 		return null;
 	}
 
-	@Override
 	public byte[] getCustomerSalt(String inUsername) {
-		for(int i = 0;i<customerLogins.size();i++)
-		{
-			CustomerLogin cl = customerLogins.get(i);
-			if(cl.getCustomerUsername() == inUsername)
-			{
+		for(CustomerLogin cl : dd.getCustomerLogins()){
+			if(cl.getCustomerUsername() == inUsername){
 				return cl.getSalt();
 			}
 		}
 		return null;
 	}
 
-	@Override
-	public void persistCustomerLogin(CustomerLogin customerLogin) {
-		customerLogins.add(customerLogin);
-	}
 }

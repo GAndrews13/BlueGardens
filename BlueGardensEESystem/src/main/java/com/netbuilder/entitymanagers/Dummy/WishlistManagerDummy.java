@@ -1,12 +1,12 @@
 package com.netbuilder.entitymanagers.Dummy;
-
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
 
-import com.netbuilder.entities.Product;
-import com.netbuilder.entities.Wishlist;
+import com.netbuilder.entities.WishlistItems;
 import com.netbuilder.entitymanagers.WishListManager;
+import com.netbuilder.util.DummyData;
 
 /**
  * 
@@ -15,48 +15,33 @@ import com.netbuilder.entitymanagers.WishListManager;
  */
 @Alternative
 public class WishlistManagerDummy implements WishListManager {
-	ArrayList<Wishlist> wishlists;
+	@Inject
+	private DummyData dd;
 	
-	public WishlistManagerDummy() {
-		wishlists = new ArrayList<Wishlist>();
+	public void persistWishlistItem(WishlistItems wishlistitem) {
+		dd.setWishlistItems(wishlistitem);
 	}
 
-	@Override
-	public void persistWishlist(Wishlist wishList) {
-		wishlists.add(wishList);
+	public void persistWishlistItems(ArrayList<WishlistItems> wishlistitems) {
+		dd.setWishlistProducts(wishlistitems);
 	}
 
-	@Override
-	public void updateWishlist(Wishlist wishList) {
-		wishlists.set(wishlists.indexOf(wishList), wishList);
-	}
-
-	@Override
-	public void updateWishlists(ArrayList<Wishlist> wishlists) {
-		for(Wishlist w : wishlists) {
-			this.wishlists.set(this.wishlists.indexOf(w), w);
+	public void removeProduct(int productID, long customerID) {
+		for(int i=0; i<dd.getWishlistProducts().size(); i++){
+			if(productID == dd.getWishlistProducts().get(i).getProductID() && customerID == dd.getWishlistProducts().get(i).getCustomerID()){
+				dd.getWishlistProducts().remove(i);
+			}
 		}
 	}
 
-	@Override
-	public void removeProduct(Wishlist wishList) {
-		wishlists.remove(wishlists.indexOf(wishList));
+	public ArrayList<WishlistItems> findForUser(long customerID) {
+		ArrayList<WishlistItems> list = new ArrayList<WishlistItems>();
+		for(int i=0; i<dd.getWishlistProducts().size(); i++){
+			if(customerID == dd.getWishlistProducts().get(i).getCustomerID()){
+				list.add(dd.getWishlistProducts().get(i));
+			}
+		}		
+		return list;
 	}
 
-	@Override
-	public void removeProducts(ArrayList<Wishlist> wishlists) {
-		for(Wishlist w : wishlists) {
-			this.wishlists.remove(this.wishlists.indexOf(w));
-		}
-	}
-
-	@Override
-	public ArrayList<Product> findForUser(long customerID) {
-		ArrayList<Product> products = new ArrayList<Product>();
-		for(Wishlist w : wishlists) {
-			if (w.getCustomerID() == customerID)
-				products.addAll(w.getProducts());
-		}
-		return products;
-	}
 }

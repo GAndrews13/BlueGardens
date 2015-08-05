@@ -59,7 +59,16 @@ public class CustomerOrder {
 		this.status = status;
 	}
 
-
+	public CustomerOrder(Customer inCustomer, ArrayList<ProductOrderLine> inProductOrderLines)
+	{
+		this.isAssigned = false;
+		this.worker = null;
+		this.deliveryType = null;
+		
+		this.customer = inCustomer;
+		this.productOrderLine = inProductOrderLines;
+		this.status = DeliveryStatus.ORDER_PLACED;
+	}
 
 	@Id
 	@Column (name = "COID", nullable = false)

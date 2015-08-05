@@ -3,46 +3,45 @@
 <ui:composition	xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:ui="http://java.sun.com/jsf/facelets"
 		xmlns:h="http://java.sun.com/jsf/html"
+		template="templates/template.xhtml"
 		xmlns:f="http://java.sun.com/jsf/core">			
 <ui:define name="pageTitle">Customer Registration</ui:define>
-<ui:define name="content">
-	<div id="customerRegistration">
-		<h:form>
-			<h2>Customer Registration</h2>
-			<h:panelGrid>
-				<h:outputLabel value="#{customerRegistrationController.errormsg"/><br/>
-				<h:outputLabel value="First Name" for="customerfirstname"/>
-				<h:inputText id="customerfirstname" value="#{customerDetails.firstName}" maxlength="45" size="20"/>
-				<br/>
-				<h:outputLabel value="Last Name" for="customerlastname"/>
-				<h:inputText id="customerlastname" value="#{customerDetails.lastName}" maxlength="45" size="20"/>
-				<br/>
-				<h:outputLabel value="Username" for="customerusername"/>
-				<h:inputText id="customerusername" value="#{customerDetails.username}" maxlength="45" size="20"/>
-				<br/>
-				<h:outputLabel value="Password" for="customerpassword"/>
-				<h:inputSecret id="customerpassword" value="#{customerDetails.password}" maxlength="45" size="20"/>
-				<br/>
-				<h:outputLabel value="Confirm Password" for="customerconfirmpassword"/>
-				<h:inputSecret id="customerconfirmpassword" value="#{customerDetails.confirmPassword}" maxlength="45" size="20"/>
-				<br/>
-				<h:outputLabel value="Email" for="customeremail"/>
-				<h:inputText id="customeremail" value="#{customerDetails.email}" maxlength="45" size="20"/>
-				<br/>
-				<h:outputLabel value="Confirm Email" for="customerconfirmemail"/>
-				<h:inputText id="customerconfirmemail" value="#{customerDetails.confirmEmail}" maxlength="45" size="20"/>
-				<br/>
-				<h:outputLabel value="Address" for="customeraddress"/>
-				<h:inputText id="customeraddress" value="#{customerDetails.address}" maxlength="45" size="20"/>
-				<br/>
-				<h:outputLabel value="Contact Number" for="customercontactnumber"/>
-				<h:inputText id="customercontactnumber" value="#{customerDetails.contactNumber}" maxlength="45" size="20"/>
-				<br/>
-				<f:facet name="loginsubmit">
-					<h:commandButton class="button" value="Submit" action="#{customerRegistrationController.registeredCustomer}"/>
-				</f:facet>
-			</h:panelGrid>
-		</h:form>
-	</div>
+<ui:define name="body">
+			<div id="customerRegistration">
+				<h:form>
+					<h2>Customer Registration</h2>
+					<h:panelGrid>
+						<h:outputLabel value="#{customerRegistrationController.errormsg}"/><br/>
+						<h:outputLabel value="First Name" for="customerfirstname"/>
+						<h:inputText id="customerfirstname" value="#{customerDetails.firstName}" maxlength="45" size="20"/>
+						<br/>
+						<h:outputLabel value="Last Name" for="customerlastname"/>
+						<h:inputText id="customerlastname" value="#{customerDetails.lastName}" maxlength="45" size="20"/>
+						<br/>
+						<h:outputLabel value="Username" for="customerusername"/>
+						<h:inputText id="customerusername" value="#{customerDetails.username}" maxlength="45" size="20"/>
+						<br/>
+						<h:outputLabel value="Password" for="customerpassword"/>
+						<h:inputSecret id="customerpassword" value="#{customerDetails.password}" maxlength="45" size="20"/>
+						<br/>
+						<h:outputLabel value="Confirm Password" for="customerconfirmpassword"/>
+						<h:inputSecret id="customerconfirmpassword" value="#{customerDetails.confirmPassword}" maxlength="45" size="20"/>
+						<br/>
+						<h:outputLabel value="Email" for="customeremail"/>
+						<h:inputText id="customeremail" value="#{customerDetails.email}" maxlength="45" size="20"/>
+						<br/>
+						<h:outputLabel value="Confirm Email" for="customerconfirmemail"/>
+						<h:inputText id="customerconfirmemail" value="#{customerDetails.confirmEmail}" maxlength="45" size="20"/>
+						<br/>
+						<h:outputLabel value="Address" for="customeraddress"/>
+						<h:inputText id="customeraddress" value="#{customerDetails.address}" maxlength="45" size="20"/>
+						<br/>
+						<h:outputLabel value="Contact Number" for="customercontactnumber"/>
+						<h:inputText id="customercontactnumber" value="#{customerDetails.contactNumber}" maxlength="45" size="20"/>
+						<br/>
+							<h:commandButton action="#{customerRegistrationController.registeredCustomer()}" value="Register" />
+					</h:panelGrid>
+				</h:form>
+			</div>
 </ui:define>
 </ui:composition>

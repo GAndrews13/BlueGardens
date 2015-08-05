@@ -20,7 +20,7 @@ public class ForgottenPasswordEmail {
 	      String to = customerEmail;
 
 	      // Sender's email ID needs to be mentioned
-	      String from = "gareth.andrews@netbuilder.com";
+	      String from = "jordanmander@gmail.com";
 
 	      // Assuming you are sending email from localhost
 	      String host = "localhost";

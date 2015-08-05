@@ -1,44 +1,20 @@
+
 <!-- Author: GAndrews-->
 <!DOCTYPE html>
 <html 	xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:h="http://java.sun.com/jsf/html">
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		>
 	<header>
 	</header>
 	<meta charset="ISO-8859-1"/>
 	<link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
 	<!-- Javascript -->
-	<script>
-	/*<![CDATA[*/
-		
-		if( QUnit.urlParams.lib && QUnit.urlParams.ver ){
-			document.write('<script src="https://ajax.googleapis.com/ajax/libs/'+ 
-						QUnit.urlParams.lib + '/' + 
-						QUnit.urlParams.ver + '/' + 
-						QUnit.urlParams.lib + '.js"><\/script>');
-		} else {
-			document.write('<script src="../resources/javascript/jquery.1.6.1.min.js"><\/script>');
-		}
-		
-		if( QUnit.urlParams.commit ){
-			document.write('<script src="../resources/javascript/get-raw-javascript.php?file=https://raw.github.com/wojodesign/simplecart-js/'+ QUnit.urlParams.commit +'/simpleCart.js"><\/script>');
-			document.write('<script src="../resources/javascript/get-raw-javascript.php?file=https://raw.github.com/wojodesign/simplecart-js/'+ QUnit.urlParams.commit +'/test/test.core.js"><\/script>');
-		} else {
-			document.write('<script src="../simpleCart.js"><\/script>');
-			document.write('<script type="text/javascript" src="test.core.js"><\/script>');
-		}
-		/*]]>*/
-	</script>
-	<script src="http://swarm.simplecartjs.com/js/inject.js"></script>
-	<script src="resources/javascript/qunit.js"></script>
-	<script src="resources/javascript/simpleCart.js"></script>
-	<script type="text/javascript" src="../resources/javascript/test.core.js"></script>
-	<script src="resources/javascript/jquery.1.6.1.min.js"></script>
-	<script src="resources/javascript/purchase.js"></script>
 	<!--  Javascript Menu -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<!-- <script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script> -->
 	<script type="text/javascript">
 		  $('.tabs_holder').skinableTabs({
 	    effect: 'basic_display',
@@ -47,9 +23,9 @@
 	  });
 	</script>
 	
-	<script>
-		
-	</script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
 	
 	<!-- End of Javascript -->
 	
@@ -61,31 +37,30 @@
 				<tr>
 					<th rowspan="2">
 						<!--<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/>  --> 
-						<a href="landingPage.xhtml"><img src="#0" width="400px" height="80px" alt="NBGardens"/></a>
+						<a href="landingPage.xhtml"><img src="resources/img/logo.gif" id="logo" alt="NBGardens"/></a>
 					</th>
 					<td>
 						
 					</td>
 					<td>
-						<a href="login.xhtml">Login / Sign Up</a>
+						<a href="login.xhtml">#{loginController.loggedInUserName()}</a>
 					</td>
 				</tr>
 				<tr>
-					<td width="72.4%">
+					<td id="headerMenuRow">
 						<ul class="menu">
-							<li><a href="landingPage.xhtml" class="active"><span>Home</span></a></li>
-							<li><a href="services"><span>Services</span></a></li>
-							<li><a href="about"><span>About</span></a></li>
-							<li><a href="contact"><span>Contact</span></a></li>
+							<li><a href="landingPage.xhtml" class="active"><p class="menuItem">Home</p></a></li>
+							<li><a href="aboutUs.xhtml"><p class="menuItem">About</p></a></li>
+							<li><a href="wishlist.xhtml"><p class="menuItem">Wishlist</p></a></li>
+							<li><a href="jsearch.xhtml"><p class="menuItem">JSearch</p></a></li>
+							<li><a href="contactUs.xhtml"><p class="menuItem">Contact</p></a></li>
 						</ul>
 					</td>
 					<td>
 						<div class="cartInfo">
-							<p>	<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" class="javascriptText">
-									Basket:
-								</a>
-							</p>
-							<span id="simpleCart_total" class="simpleCart_total"> 0.00</span>
+							<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" class="javascriptText">
+								<img src="resources\img\basket.png" alt="Basket" width="20%" height="20%"/>
+							</a>
 						</div>
 					</td>
 				</tr>
@@ -95,66 +70,56 @@
 		<div class="page-wrap">
 		<!-- Basket Overlay -->
 					<div id="light" class="white_content" >
-							<div class="basketHeader" style="background-color:coral">
-								<a href="checkout.xhtml"> Checkout</a>
-							</div>
-						<table>						
-							<tr>
-								<td class="tableHeaderCells javascriptText">
-									<a href="javascript:;" class="simpleCart_empty">Empty basket</a>
-								</td>
-								<td class="tableHeaderCells javascriptText">
-									Total: <span id="simpleCart_grandTotal" class="simpleCart_grandTotal"></span>
-								</td>
-								<td class="tableHeaderCells  javascriptText" id="closeBasketCell">
-									<a href = "javascript:void(0)"  onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
-								</td>
-							</tr>
-						</table>
-						<br/>
-						<div class="simpleCart_items"/> 
+						<div>
+							<a href = "javascript:void(0)"  onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+						</div>
+						<div class="basketHeader" style="background-color:coral">
+							<a href="checkout.xhtml"> Checkout</a>
+						</div>
+						<!-- DISPLAY BASKET ITEMS -->
+						<h:dataTable class="basketTable" value="#{basketController.items}" var="item" border="0">
+							<f:facet name="header">
+							</f:facet>
+								<h:column>
+								</h:column>
+							<h:column class="basketTableColumn">
+								<f:facet name="header">
+									<h:outputText value="Product"/>
+								</f:facet>
+								<h:outputText value="#{item.productName}"/>
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Price Per Item"/>
+								</f:facet>
+								<h:outputText value="#{item.price}"/>
+							</h:column>
+						</h:dataTable>
+						<br/> 
 					</div>
     				<div id="fade" class="black_overlay"></div>
-			<table>
-				<tr>
-					
-					<!--  Main Content of the page -->
-					<td width="99.94%">
-						<div id="contentHeader">
-							<ui:insert name="sectiontitle"/>
-						</div>
-						<div class="content">
+    				<br/>
+    				<br/>
+    				
+    				
+    				<div class="content">
+    				<br/>
+							<div id="contentHeader">
+								<ui:insert name="sectiontitle"/>
+							</div>
 							<ui:insert name="body"/>
-							<a href="javascript:;" onclick="simpleCart.add({name:'baby lion', price: 34.95,size:'tiny',thumb:'e.png'});" >add to cart</a>
-						</div>
-					</td>
-					<td>
-						<p id="sidebarRight">
-						a<br/>
-						a<br/>a<br/>
-						a<br/>
-						a<br/>
-						a<br/>
-						a<br/>
-						a<br/>
-						a<br/>
-						
-						</p>
-					</td>
-				</tr>
-			</table>			
+							<br/>
+							<br/>
+    				</div>
 		</div>
 		
 		<footer class="site-footer">
-		  <div>
-				<div>
-					<ul class="bottommenu">
+					<ul class="bottommenu center">
 						<li><a href="aboutUs.xhtml"><span>About Us</span></a></li>
 					  	<li><a href="frequentlyAskedQuestions.xhtml"><span>FAQ</span></a></li>
 					  	<li><a href="contactUs.xhtml"><span>Contact Us</span></a></li>
 					</ul>
-				</div>
-			</div>
 			<div class="center">
 				2015 NBGardens.
 				<a href="">Design by DelphiSoft Consulting</a> 

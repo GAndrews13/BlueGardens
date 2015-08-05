@@ -1,16 +1,12 @@
 package com.netbuilder.entitymanagers.Database;
 
-import java.util.List;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.entities.Product;
-import com.netbuilder.entities.Wishlist;
+import com.netbuilder.entities.WishlistItems;
 import com.netbuilder.entitymanagers.WishListManager;
 
 /**
@@ -22,61 +18,49 @@ import com.netbuilder.entitymanagers.WishListManager;
 public class WishListManagerDB implements WishListManager {
 	@Inject
 	private PersistenceManager pm;
-	
-	public void persistWishlist(Wishlist wishList) {
+
+	public void persistWishlistItem(WishlistItems wishlistitem) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		em.persist(wishList);
+		
+		em.persist(wishlistitem);
+		
 		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-	}
-
-	public void updateWishlist(Wishlist wishList) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		em.merge(wishList);
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-	}
-
-	public void removeProduct(Wishlist wishList) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		em.remove(wishList);
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-	}
-
-	public void removeProducts(ArrayList<Wishlist> wishlists) {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		for(Wishlist p : wishlists) {
-			em.remove(p);
-		}
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-	}
-
-	@Override
-	public ArrayList<Product> findForUser(long customerID) {
-		EntityManager em = pm.CreateEntityManager();
-		TypedQuery<Wishlist> wr = em.createNamedQuery("SELECT * FROM Wishlist w where CustomerID=customerID", Wishlist.class);
-		pm.CloseEntityManager(em);
-		List<Wishlist> wl = wr.getResultList();
-		ArrayList<Product> pl = new ArrayList<Product>();
-		for(Wishlist w : wl) {
-			pl.addAll(w.getProducts());
-		}
-		return pl;
+		pm.CloseEntityManager(em);	
 	}
 	
-	public void updateWishlists(ArrayList<Wishlist> wishlists) {
+	public void persistWishlistItems(ArrayList<WishlistItems> wishlistitems) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		for(Wishlist p : wishlists) {
-			em.merge(p);
+		
+		for(WishlistItems wishlistItem : wishlistitems)
+		{
+			em.persist(wishlistItem);
 		}
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 	}
+
+	public void removeProduct(int productID, long customerID) {
+		EntityManager em = pm.CreateEntityManager();
+		em.createQuery("DELETE FROM WishlistItems WHERE ProductID=productID & CustomerID=customerID",WishlistItems.class);
+		pm.CloseEntityManager(em);
+	}
+
+	public ArrayList<WishlistItems> findForUser(long customerID) {
+		EntityManager em = pm.CreateEntityManager();
+		ArrayList<WishlistItems> wishlist = (ArrayList<WishlistItems>) em.createQuery(WishlistItems.FIND_BY_CUSTOMER_ID,WishlistItems.class).getResultList();
+		pm.CloseEntityManager(em);
+		try
+		{
+			return wishlist;
+		}
+		catch (Exception e)
+		{
+			return null;
+		}
+	}
+
+
+
 }

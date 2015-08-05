@@ -48,7 +48,7 @@ public class ProductOrderLineManagerDummy implements ProductOrderLineManager
 	{
 		for(ProductOrderLine p : pol_Array)
 		{
-			if(p.getProductID() == productID)
+			if(p.getProduct().getProductID() == productID)
 			{
 				return p;
 			}

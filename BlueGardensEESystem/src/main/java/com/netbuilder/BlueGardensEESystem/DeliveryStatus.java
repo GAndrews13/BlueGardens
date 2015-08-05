@@ -4,7 +4,8 @@ public enum DeliveryStatus {
 
 	DELIVERED ("Delivered"),
 	DISPATCHED ("Dispatched"),
-	PROCESSED ("Processed"),
+	PROCESSING ("Processed"),
+	READY("Ready for Dispatch"),
 	ORDER_PLACED ("Order Placed");
 	
 	private String status;

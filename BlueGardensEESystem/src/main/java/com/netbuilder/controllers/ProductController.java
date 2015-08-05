@@ -6,6 +6,8 @@ package com.netbuilder.controllers;
  * the specific product page. There is also some validation for if the product id does not exist.
  * @author lczornyj
  */
+import java.util.ArrayList;
+
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,12 +22,22 @@ public class ProductController {
 	@Inject
 	private ProductManager productmanager;
 	private Product product;
+	private ArrayList<Product> products;
+	public ArrayList<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(ArrayList<Product> products) {
+		this.products = products;
+	}
+
 	public String errormsg;
 
-	private String id = getProduct().getImageLink();
+	private int id = productmanager.findByImageLink(link) // getProduct().getImageLink();
 	
 	public ProductController() {
-		id = id.replace("www.NBGardens.com/Products/", "");
+		//id = id.replace("www.NBGardens.com/Products/", "");
+		//id = id.replace("http://localhost:8080/BlueGardensEESystem/productPage.xhtml/","");
 		try {
 			setProduct(productmanager.findById(Integer.parseInt(id)));
 		} catch (Exception e) {

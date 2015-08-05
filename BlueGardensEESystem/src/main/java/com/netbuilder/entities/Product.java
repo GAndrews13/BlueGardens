@@ -24,7 +24,8 @@ import javax.validation.constraints.Size;
 	@NamedQuery(name = Product.FIND_BY_NAME, query = "SELECT p FROM Products p WHERE p.ProductName = :name"),
 	@NamedQuery(name = Product.FIND_BY_SALE, query = "SELECT p FROM Products p WHERE p.Sale =: true"),
 	@NamedQuery(name = Product.FIND_BY_POUROUSWARE, query = "SELECT p FROM Products p WHERE p.Pourousware =: true"),
-	@NamedQuery(name = Product.FIND_BY_TRENDING, query = "SELECT p FROM Products p WHERE p.Trending =: true")
+	@NamedQuery(name = Product.FIND_BY_TRENDING, query = "SELECT p FROM Products p WHERE p.Trending =: true"),
+	@NamedQuery(name = Product.FIND_BY_IMAGE_LINK, query = "SELECT p FROM Products p WHERE p.ImageLink = imageLink")
 })
 public class Product {
 	public static final String FIND_BY_OUT_STOCK = "Product.findByOutStock";
@@ -33,6 +34,7 @@ public class Product {
 	public static final String FIND_BY_SALE = "Product.findBySale";
 	public static final String FIND_BY_POUROUSWARE = "Product.findByPourousware";
 	public static final String FIND_BY_TRENDING = "Product.findByTrending";
+	public static final String FIND_BY_IMAGE_LINK = "Product.findByImageLink";
 	@Id
 	@Column(name = "productID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -130,6 +132,27 @@ public class Product {
 			int recommendedLevel, boolean isPorousware, double price, boolean isSale,
 			String featureOne, String featureTwo, String featureThree, 
 			String featureFour, String featureFive, String imageLink, boolean isTrending) {
+		this.productName = productName;
+		this.stockLevel = stockLevel;
+		this.minimumThreshold = minimumThreshold;
+		this.recommendedLevel = recommendedLevel;
+		this.isPorousware = isPorousware;
+		this.price = price;
+		this.isSale = isSale;
+		this.featureOne = featureOne;
+		this.featureTwo = featureTwo;
+		this.featureThree = featureThree;
+		this.featureFour = featureFour;
+		this.featureFive = featureFive;
+		this.imageLink = imageLink;
+		this.isTrending = isTrending;
+	}
+	
+	public Product(int productID, String productName, int stockLevel, int minimumThreshold,
+			int recommendedLevel, boolean isPorousware, double price, boolean isSale,
+			String featureOne, String featureTwo, String featureThree, 
+			String featureFour, String featureFive, String imageLink, boolean isTrending) {
+		this.productID = productID;
 		this.productName = productName;
 		this.stockLevel = stockLevel;
 		this.minimumThreshold = minimumThreshold;
@@ -261,8 +284,8 @@ public class Product {
 				+ productName + ", stockLevel=" + stockLevel
 				+ ", minimumThreshold=" + minimumThreshold
 				+ ", recommendedLevel=" + recommendedLevel + ", isPorousware="
-				+ isPorousware + ", price=" + price + ", isSale= "+ isSale + 
-				" features   "+featureOne + featureTwo + featureThree + 
-				featureFour + featureFive + " Imagelink " + imageLink + "isTrending" + isTrending + " ]";
+				+ isPorousware + ", price=" + price + ", isSale="+ isSale + 
+				", features: " + featureOne + "; " + featureTwo + "; "  + featureThree + "; "  + 
+				featureFour + "; "  + featureFive + ", Imagelink='" + imageLink + "', isTrending=" + isTrending + " ]";
 	}
 }

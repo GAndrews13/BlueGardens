@@ -48,16 +48,11 @@ public class UserDetails {
 		this.userID = userID;
 	}
 
-	public UserDetails() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public String getUsername() {
 		return username;
 	}
 
 	public void setUsername(String username) {
-		System.out.println(username);
 		this.username = username;
 	}
 
@@ -66,7 +61,6 @@ public class UserDetails {
 	}
 
 	public void setPassword(String password) {
-		System.out.println(password);
 		this.password = password;
 	}
 }

@@ -105,11 +105,11 @@ public class CustomerRegistrationController {
 		}
 		
 		newCustomer = new Customer(customerDetails.getFirstName(), customerDetails.getLastName(), customerDetails.getAddress(),
-				customerDetails.getContactNumber(), "ACTIVE");
+				customerDetails.getContactNumber(), customerDetails.getEmail(), "ACTIVE");
 		
 		customerSalt = LoginUtils.getNextSalt();
 		
-		newCustomerLogin = new CustomerLogin(customerDetails.getUsername(), customerDetails.getPassword(), customerSalt);
+		newCustomerLogin = new CustomerLogin(newCustomer.getCustomerID(), customerDetails.getUsername(), customerDetails.getPassword(), customerSalt);
 		
 		customerManager.persistCustomer(newCustomer);
 		customerLoginManager.persistCustomerLogin(newCustomerLogin);

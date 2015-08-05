@@ -52,4 +52,9 @@ public interface CustomerManager
 	 *	Find all customers
 	 */
 	public ArrayList<Customer> findAll();
+	
+	/**
+	 * @author GAndrews
+	 */
+	public Customer findByID(long inID);
 }

@@ -9,32 +9,30 @@
 				xmlns:f="http://java.sun.com/jsf/core">
 	<!-- Defines the title of the page using the header 1 tag -->
 	<ui:define name = "pagetitle">
-		<h1> ContactUs </h1>
+		Contact Us
 	</ui:define>
 	
 	<!-- Defines the title displayed on the page -->
-	<ui:define name="sectiontitle">
-		<h2> Contact Us </h2>
-	</ui:define>
+	<!-- <ui:define name="sectiontitle">  -->
+		
+	<!-- </ui:define>  -->
 	
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
-	<div id=" formtitle"><h1>Contact Us</h1></div>
-	<div id="form">	
+	<h2> Contact Us </h2>
+	<div>	
 		<h:form>			
 			<h:panelGrid>
-				<h:outputLabel value="#{ContactController.errorMessage"/><br/>
+				<h:outputLabel value="#{contactController.errorMessage}"/><br/>
 				<h:outputLabel value="name" for="customername"/><br/>
-				<h:inputText id="customername" value="#{ContactFormDetails.name}" maxlength="45" size="20"/><br/>
+				<h:inputText id="customername" value="#{contactFormDetails.name}" maxlength="45" size="20"/><br/>
 				<br/>
 				<h:outputLabel value="email" for="customeremail"/><br/>
-				<h:inputSecret id="customeremail" value="#{ContactFormDetails.email}" maxlength="45" size="20"/><br/>
+				<h:inputText id="customeremail" value="#{contactFormDetails.email}" maxlength="45" size="20"/><br/>
 				<br/>
 				<h:outputLabel value="message" for="customermessage"/><br/>
-				<h:inputSecret id="customermessage" value="#{ContactFormDetails.message}" maxlength="80" size="30"/><br/>
-				<f:facelet name="loginsubmit">
-					<h:commandButton class="button" value="Send" action="#{ContactController.sendMessage}"/>
-				</f:facelet>
+				<h:inputTextarea id="customermessage" value="#{contactFormDetails.message}" maxlength="80" size="40%"/><br/>
+				<h:commandButton action="#{contactController.sendMessage}" value="Send" />
 			</h:panelGrid>
 		</h:form>
 	</div>

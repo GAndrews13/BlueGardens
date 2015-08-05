@@ -12,15 +12,80 @@
 * { 
 	margin: 0;
 	color: black;
-	white-space: nowrap;
-	font-size: 1.5vmin;
+	font-size: 1.8vmin;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
 }
 
+ a.hovertext {
+    position: relative;
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+  }
+  
+ a.hovertext:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+  }
+  
+ a.hovertext:hover:after, a.hovertext:focus:after {
+    opacity: 1.0;
+  }
+  
+ a.titleText {
+    position:
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+  }
+  
+a.titleText:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 460px;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+  }
+  
+a.titleText:hover:after, a.hovertext:focus:after {
+    opacity: 1.0;
+  }
+
 body {
-	background-color: #ffddba;
+    background-image: url("../img/garden-background.jpg");	
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
 
 p {
+	word-wrap: break-word;
+}
+
+p.questionAnswer{
+	width: 20em;
+    display: inline-block;
 	word-wrap: break-word;
 }
 
@@ -30,13 +95,18 @@ p {
 	font-size: 5vmin; 
 }
 
-.basket-table {
+.basketTable{
 	width: 100%;
+	text-align: center;
+}
+
+.basketTableColumn{
+	width: 30%;	
 }
 
 .black_overlay {
 	display: none;
-	position: absolute;
+	position: fixed;
 	top: 0%;
 	left: 0%;
 	width: 100%;
@@ -48,16 +118,24 @@ p {
 	filter: alpha(opacity = 80);
 }
 
+.carouselBack{
+	z-index: -1000;
+}
+
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
 	margin: auto;
-	max-width: 700px;
-	max-height: 375px;
+	max-width: 300px;
+	max-height: 300px;
+	min-height: 300px;
+	min-width: 300px;
 }
 
 .center {
 	text-align: center;
 }
+
+
 
 .col {
 	display: block;
@@ -67,6 +145,15 @@ p {
 
 .col:first-child {
 	margin-left: 0em;
+}
+
+.content{
+    background-color:rgba(255, 184, 148, .8);
+    border-radius: 35px;
+    word-wrap: break-word;
+    padding: 2em;
+    margin-left: 10em;
+    margin-right: 10em;
 }
 
 .group {
@@ -85,7 +172,7 @@ p {
 .javascriptText{
 	font-style:italic bold;
 	text-decoration: underline; 
-	font-size: 2vmin;
+	font-size: 1.5vmin;
 }
 
 
@@ -104,6 +191,12 @@ p {
 .page-wrap:after {
 	content: "";
 	display: block;
+}
+
+.product{
+	height: 40%;
+	width: 40%;
+	
 }
 
 .products {
@@ -134,11 +227,10 @@ p {
 }
 
 .questionAnswer {
-	font: 12px;
+	
 }
 
 .questionHeader {
-	font: 14px;
 	font-weight: bold;
 }
 
@@ -149,19 +241,25 @@ p {
 }
 
 .site-header {
-	height: 90px;
+	height: 9%;
 	top: 0;
 	position: fixed;
 	width: 100%;
-	background-color: #89dcf5;
+	background-color:rgba(137,220,265, 1);
+	opacity: 1;
+	z-index: 50;
 }
 
+.site-header:hover {
+	 opacity: 1;
+}
 .site-footer {
-	height: 60px;
-	background-color: #89dcf5;
+	height: 5%;
+	background-color:rgba(137,220,265, 1);
 	position: fixed;
 	bottom: 0;
 	width: 100%;
+	padding-bottom: 2em;
 }
 
 .span_1_of_4 {
@@ -186,7 +284,7 @@ p {
 
 .white_content {
 	display: none;
-	position: absolute;
+	position: fixed;
 	top: 25%;
 	left: 25%;
 	width: 40%;
@@ -198,16 +296,19 @@ p {
 	overflow: auto;
 }
 
+.bodyOverlay {
+	background-color: #ffffff;
+	margin: 0cm 5cm 2cm 5cm;
+}
+
 /* taken from netbuilder.com */
-.bottommenu {
-	margin-bottom: 875px auto;
+.bottommenu {	
 	padding: 0;
-	height: 30px;
+	height: 20%;
 	width: 100%;
 	display: block;
 	background: url('bottomMenuImages.png') repeat-x;
-	magin: 0 auto;
-	width: 100%;
+	margin-bottom: 1em;	
 }
 
 .bottommenu li {
@@ -216,7 +317,7 @@ p {
 	list-style: none;
 	display: inline-block;
 	text-align: centre;
-	width: 25%;
+	width: 20%;
 	padding-left: 10%;
 }
 
@@ -259,10 +360,20 @@ p {
 	background: url('bottomMenuImages.png') 100% -90px no-repeat;
 }
 
+.container{
+	width: 50%;
+	z-index: 1;
+}
+
+.headerOverlay {
+	background-color: #ffffff;
+	margin: 2cm 5cm 0cm 5cm;
+}
+
 .menu {
 	margin: 0 auto;
 	padding: 0;
-	height: 30px;
+	height: 15%;
 	width: 100%;
 	display: block;
 	background: url('topMenuImages.png') repeat-x;
@@ -280,7 +391,7 @@ p {
 
 .menu li a {
 	float: left;
-	padding-left: 15px;
+	padding-left: 3%;
 	display: block;
 	color: rgb(255, 255, 255);
 	text-decoration: none;
@@ -317,7 +428,26 @@ p {
 	background: url('topMenuImages.png') 100% -90px no-repeat;
 }
 
+.menuItem{
+	font-size: 1.8vmin;
+}
+
+.menuItem:hover{
+	font-size: 2.6vmin;
+}
+
+.productTitle{
+	font-variant: small-caps;
+	font-size: 4.2vmin;
+	text-align: center;
+}
+
+.productDescription {
+	text-align : center;
+}
+
 /* ID tag rules */
+
 #closeBasketCell {
 	text-align: right;
 }
@@ -327,11 +457,22 @@ p {
 }
 
 #contentHeader{
-	font: 120px Verdana;
+	font: 4em Verdana;
 	font-style:italic bold;
 	text-decoration: underline; 
+	text-align: center;
 }
 
+#headerMenuRow{
+	width:75%;
+	padding-left: 15%;
+	height: 150%;
+}
+
+#logo {
+	display: block;
+	max-width : 150%;
+}
 
 #sale {
 	text-transform: uppercase;
@@ -341,8 +482,10 @@ p {
 }
 
 #sidebarRight {
+	position: relative;
 	float: right;
-	position: fixed;
-	word-wrap: break-word;
 }
 
+#tableContentBlog{
+	width:80%;
+}

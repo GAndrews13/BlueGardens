@@ -95,14 +95,30 @@ public class Customer
 	/**
 	 * Initialize customer so instances of customer cannot have null values 
 	 */
-	public Customer(String firstname, String lastname, String address, String contactNUM, String accountSTATUS)
+	public Customer(String firstname, String lastname, String address, String contactNUM, String email, String accountSTATUS)
 	{
 		this.firstName = firstname;
 		this.lastName = lastname;
 		this.address = address;
 		this.contactNUM = contactNUM;
+		this.email = email;
 		this.accountSTATUS = accountSTATUS;
 	}
+	
+	public Customer(long customerID, String firstName, String lastName,
+			String address, String email, String contactNUM,
+			String accountSTATUS) {
+		this.customerID = customerID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.email = email;
+		this.contactNUM = contactNUM;
+		this.accountSTATUS = accountSTATUS;
+	}
+
+
+
 	/**
 	 * @author Jake
 	 *	Getters and Setter for class variables

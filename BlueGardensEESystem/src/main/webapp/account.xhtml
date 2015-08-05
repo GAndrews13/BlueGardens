@@ -1,30 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--  author Jordan -->
 <ui:composition	xmlns="http://www.w3.org/1999/xhtml"
-				xmlns:ui="http://java.sun.com/jsf/facelets"
-				xmlns:h="http://java.sun.com/jsf/html"
-				xmlns:f="http://java.sun.com/jsf/core"
-				xmlns:c="http://java.sun.com/jsp/jstl/core">
-	<ui:define name="head">
-		<h:head>
-	      <title>Account</title>
-	      <h:outputStylesheet library="css" name="/resources/css/style.css"  /> 
-	    </h:head>
-	</ui:define>
-    <ui:define name="body">
-	    <h:body>
-	  		<ui:define name=""><h2>Your Account Details</h2></ui:define>
-	      		<hr />
-	    		<h:panelGrid id="panel" columns="1" border="1"
-		  		cellpadding="10" cellspacing="1">
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="templates/template.xhtml">
+		
+<ui:define name="pageTitle">Account</ui:define>
+<ui:define name="body">
+<table>
+	<tr>
+		<td>
+		<div id="login">
+				<h:form>
+				<h:panelGrid>
 		  			<h3>Personal Details</h3>
-		      		<h:outputText value="#{accountController.showCustomerDetails}"/><br />
+		      		<h:outputText name="#{accountController.firstName}"/><br/>
+		      		<h:outputText name="#{accountController.lastName}"/><br/>
+		      		<h:outputText name="#{accountController.address}"/><br/>
+		      		<h:outputText name="#{accountController.contactNumber}"/><br/>
+		      		<h:outputText name="#{accountController.email}"/><br/>		      		
 		      		<h3>Your Orders</h3>
-		      		
-		        	<h:outputText value="#{accountController.showWishlistItems}" /><br />
-		        	<h3>Your Wishlist</h3>
-		         	<h:outputText value="#{accountController.showOrders}m" />
-		      	</h:panelGrid>
-	      	</h:form> 		
-	   </h:body>
-	</ui:define>   
+					<h:outputText name="#{accountController.orders}"/><br/>
+					</h:panelGrid>	
+				</h:form>
+			</div>
+		</td>
+	</tr>
+</table>
+</ui:define>
 </ui:composition>
