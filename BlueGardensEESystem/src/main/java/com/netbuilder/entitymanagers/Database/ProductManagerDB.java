@@ -184,5 +184,17 @@ public class ProductManagerDB implements ProductManager {
 		
 		return p;
 	}
+	
+	public Product findByImageLink(String link) {
+		EntityManager em = pm.CreateEntityManager();
+		TypedQuery<Product> tq = em.createNamedQuery(Product.FIND_BY_IMAGE_LINK, Product.class);
+		pm.CloseEntityManager(em);
+		tq.setParameter("imageLink", link);
+		try{
+		return tq.getSingleResult();
+		} catch (NoResultException nre) {
+		return null;
+		}
+	}
 
 }

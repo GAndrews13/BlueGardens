@@ -119,7 +119,7 @@ p.questionAnswer{
 }
 
 .carouselBack{
-	z-index: -100;
+	z-index: -1000;
 }
 
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
@@ -246,11 +246,12 @@ p.questionAnswer{
 	position: fixed;
 	width: 100%;
 	background-color:rgba(137,220,265, 1);
-	 opacity: 0;
+	opacity: 1;
+	z-index: 50;
 }
 
 .site-header:hover {
-	 opacity: 100;
+	 opacity: 1;
 }
 .site-footer {
 	height: 5%;
@@ -361,6 +362,7 @@ p.questionAnswer{
 
 .container{
 	width: 50%;
+	z-index: 1;
 }
 
 .headerOverlay {
@@ -389,7 +391,7 @@ p.questionAnswer{
 
 .menu li a {
 	float: left;
-	padding-left: 15px;
+	padding-left: 3%;
 	display: block;
 	color: rgb(255, 255, 255);
 	text-decoration: none;

@@ -33,10 +33,11 @@ public class ProductController {
 
 	public String errormsg;
 
-	private String id = getProduct().getImageLink();
+	private int id = productmanager.findByImageLink(link) // getProduct().getImageLink();
 	
 	public ProductController() {
-		id = id.replace("www.NBGardens.com/Products/", "");
+		//id = id.replace("www.NBGardens.com/Products/", "");
+		//id = id.replace("http://localhost:8080/BlueGardensEESystem/productPage.xhtml/","");
 		try {
 			setProduct(productmanager.findById(Integer.parseInt(id)));
 		} catch (Exception e) {
