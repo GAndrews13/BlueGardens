@@ -17,6 +17,7 @@
 			<h:inputText id="searchdetails" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
 			<h:commandButton action="#{searchController.search}" value="Search" /><br/><hr/>
 			<ui:repeat value="#{searchController.results}" var="product">
+				#{product.getProductID()}<br/><br/>
 				#{product.getProductName()}<br/><br/>
 				#{product.getPrice()}<br/><br/>
 				#{product.getStockLevel()}<br/><br/>
@@ -25,7 +26,7 @@
 				#{product.getFeatureThree()}<br/><br/>
 				#{product.getFeatureFour()}<br/><br/>
 				#{product.getFeatureFive()}<br/><br/>
-				<img src="#{product.getImageLink()}" alt="#{product.getProductName()}" width="460" height="345"/><br/>  	
+				<img src="#{product.getImageLink()}" alt="#{product.getProductName()}" width="460" height="345"/><br/><br/><br/><br/>  	
 			</ui:repeat>
 			</h:panelGrid>	
 		</h:form>

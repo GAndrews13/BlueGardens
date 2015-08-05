@@ -10,6 +10,7 @@ import com.netbuilder.entities.Product;
 import com.netbuilder.entities.WishlistItems;
 import com.netbuilder.entitymanagers.ProductManager;
 import com.netbuilder.entitymanagers.WishListManager;
+import com.netbuilder.util.LoggedInUser;
 
 /**
  * @author abalagel
@@ -24,7 +25,7 @@ public class WishListController {
 	@Inject
 	private ProductManager productManager;
 	@Inject
-	private LoginController loginController;
+	private LoggedInUser loggedInUser;
 	private ArrayList<WishlistItems> results;
 	private ArrayList<Product> realResults = new ArrayList<Product>();
 	
@@ -40,12 +41,7 @@ public class WishListController {
 	}
 
 	public String search() {
-		try {
-			System.out.println(loginController.loggedInUserName());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		this.results = wishlistManager.findForUser(1);
+		this.results = wishlistManager.findForUser(loggedInUser.getUserID());
 		for(int i=0; i<results.size();i++){
 			realResults.add(productManager.findById(results.get(i).getProductID()));
 		}
@@ -59,5 +55,5 @@ public class WishListController {
 	public void setRealResults(ArrayList<Product> realResults) {
 		this.realResults = realResults;
 	}
-
+	
 }

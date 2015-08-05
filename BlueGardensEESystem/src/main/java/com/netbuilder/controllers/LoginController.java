@@ -9,13 +9,17 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.security.auth.login.LoginException;
+
 import com.netbuilder.entitymanagers.CustomerLoginManager;
+import com.netbuilder.util.LoggedInUser;
 
 @ManagedBean(name = "loginController")
 @SessionScoped
 public class LoginController {
 	@Inject
 	private CustomerLoginManager clm;
+	@Inject
+	private LoggedInUser loggedInUser;
 	public String username;
 	private String password;
 	private int userID;
@@ -79,7 +83,6 @@ public class LoginController {
 	}
 
 	public String login() {
-		Long uid;
 		
 		if (username.isEmpty() || password.isEmpty()) {
 			errormsg = "please enter details";
@@ -87,10 +90,11 @@ public class LoginController {
 		}
 		try
 		{
-			uid = clm.checkCustomerID(username);
-			if(uid != 0)
+			if(clm.checkCustomerID(username) != 0)
 			{
 				setLoggedIn(true);
+				loggedInUser.setUsername(username);
+				loggedInUser.setUserID(clm.checkCustomerID(username));
 				return "landingPage";
 			}
 			else
