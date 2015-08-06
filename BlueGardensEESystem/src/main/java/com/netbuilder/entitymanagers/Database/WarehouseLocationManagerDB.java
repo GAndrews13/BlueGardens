@@ -1,5 +1,7 @@
 package com.netbuilder.entitymanagers.Database;
 
+import java.util.ArrayList;
+
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -31,13 +33,13 @@ public class WarehouseLocationManagerDB implements WarehouseLocationManager {
 	}
 
 	@Override
-	public WarehouseLocation findoutbyproductID(int id) {
+	public ArrayList<WarehouseLocation> findByProductID(int id) {
 		EntityManager em = pm.CreateEntityManager();
 		TypedQuery<WarehouseLocation> wr = em.createNamedQuery(WarehouseLocation.FIND_OUT_BY_PRODUCTID, WarehouseLocation.class);
 		pm.CloseEntityManager(em);
 		wr.setParameter("ProductID", id);
 		try{
-			return wr.getSingleResult();
+			return (ArrayList<WarehouseLocation>) wr.getResultList();
 		}catch (NoResultException nre){			
 		return null;
 		}

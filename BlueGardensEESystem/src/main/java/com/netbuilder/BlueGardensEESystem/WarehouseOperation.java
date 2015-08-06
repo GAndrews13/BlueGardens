@@ -335,5 +335,6 @@ public class WarehouseOperation
 	public void showNextProduct(int coid)
 	{
 		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCOID(coid);
+		
 	}
 }

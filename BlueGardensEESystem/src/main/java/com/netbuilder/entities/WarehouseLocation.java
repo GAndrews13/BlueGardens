@@ -27,27 +27,31 @@ public class WarehouseLocation {
 	@Id
 	@Column(name = "locationId", nullable = false)
 	@NotNull
-	private int locationId;	
+	private String locationId;	
 
 	@Column(name = "quantity", nullable = false)
 	@NotNull
 	private int quantity;
 
-	public WarehouseLocation(int productId, int locationId, int quantity) {
+	public WarehouseLocation(int productId, String locationId, int quantity) {
 		this.productId = productId;
 		this.locationId = locationId;
 		this.quantity = quantity;
 	}
 
+	public void setProductId(int id)
+	{
+		this.productId = id;
+	}
 	public int getProductId() {
 		return productId;
 	}
 
-	public int getLocationId() {
+	public String getLocationId() {
 		return locationId;
 	}
 
-	public void setLocationId(int locationId) {
+	public void setLocationId(String locationId) {
 		this.locationId = locationId;
 	}
 	public int getQuantity() {
