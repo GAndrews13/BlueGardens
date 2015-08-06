@@ -176,7 +176,7 @@ public class GUI extends JFrame
 		
 		
 		JLabel lblimage = new JLabel(new ImageIcon(productimage));
-		lblimage.setBounds(5, 400, 200, 200);
+		lblimage.setBounds(5, 100, 200, 200);
 		//mainFrame.add(lblimage);
 		mainFrame.getContentPane().add(lblimage);
 		mainFrame.setVisible(true);
