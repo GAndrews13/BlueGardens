@@ -15,17 +15,25 @@
 	
 	<ui:define name="body">
 		<div id="basket">
-			<h:form>
-				<table>
-					<c:forEach var="item" items="${Basket}">
-						<tr>
-							<td> ${item.ID} </td>
-							<td> ${item.name} </td>
-							<td> ${item.quantity} </td>
-						</tr>
-					</c:foreEach>
-				</table>
-			</h:form>
+			<h:dataTable class="basketTable" value="#{basketController.items}" var="item" border="0">
+							<f:facet name="header">
+							</f:facet>
+								<h:column>
+								</h:column>
+							<h:column class="basketTableColumn">
+								<f:facet name="header">
+									<h:outputText value="Product"/>
+								</f:facet>
+								<h:outputText value="#{item.productName}"/>
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Price Per Item"/>
+								</f:facet>
+								<h:outputText value="#{item.price}"/>
+							</h:column>
+						</h:dataTable>
 		</div>
 		<input type="submit" value="Submit Order">	
 	</ui:define>

@@ -10,6 +10,10 @@ package com.netbuilder.controllers;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
@@ -27,9 +31,20 @@ public class ProductController {
 	public ProductController(){
 	}
 
-	public String search() {
-		System.out.println(this.link.substring(1, this.link.length()-1));
-		this.product = productManager.findByImageLink(this.link.substring(1, this.link.length()-1));
+	@GET
+	@Path("wishlist.xhtml")
+	public String getProductByID
+		(@QueryParam("id") String pid){
+		String temp = pid.replace("http://localhost:8080/BlueGardensEESystem/productPage.xhtml?product=", "");
+		product= productManager.findById(Integer.parseInt(temp));
+		System.out.println(pid);
+		return pid;
+	}
+	
+	public String search(int inID) {
+		//System.out.println(this.link.substring(1, this.link.length()-1));
+		//this.product = productManager.findByImageLink(this.link.substring(1, this.link.length()-1));
+		this.product=productManager.findById(inID);
 		System.out.println(product);
 		return "productPage";
 	}
