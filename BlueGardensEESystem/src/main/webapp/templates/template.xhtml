@@ -10,24 +10,8 @@
 	</header>
 	<meta charset="ISO-8859-1"/>
 	<link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
-	<!-- Javascript -->
-	<!--  Javascript Menu -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-	<!-- <script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script> -->
-	<script type="text/javascript">
-		  $('.tabs_holder').skinableTabs({
-	    effect: 'basic_display',
-	    skin: 'skin5',
-	    position: 'top'
-	  });
-	</script>
+	<Script src="resources/css/bootstrap.css"/>
 	
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
-	
-	<!-- End of Javascript -->
 	
 	<title><ui:insert name = "pagetitle"/></title>
 	
@@ -40,11 +24,17 @@
 						<a href="landingPage.xhtml"><img src="resources/img/logo.gif" id="logo" alt="NBGardens"/></a>
 					</th>
 					<td>
-						
 					</td>
 					<td>
-						<a href="login.xhtml">#{loginController.loggedInUserName()}</a>
-						<a href="landingPage.xhtml">#{loginController.loggedOut()}</a>
+						<span>
+							<a onclick="loginText()" id="loggedInText">#{loginController.loggedInUserName()}</a>
+						</span>
+					</td>
+					<td>
+					
+						<h:form>
+							<h:commandButton action="#{loginController.logOut()}" value="Logout" rendered="#{loginController.loggedIn == true}" height="5%" />
+						</h:form>
 					</td>
 				</tr>
 				<tr>
@@ -121,10 +111,43 @@
 					  	<li><a href="frequentlyAskedQuestions.xhtml"><span>FAQ</span></a></li>
 					  	<li><a href="contactUs.xhtml"><span>Contact Us</span></a></li>
 					</ul>
-			<div class="center">
+			<div class="center" >
 				2015 NBGardens.
 				<a href="">Design by DelphiSoft Consulting</a> 
 			</div>
 		</footer>
 	</body>
+	<!-- Javascript -->
+	<!--  Javascript Menu -->
+	
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
+  
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<!-- <script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script> -->
+	<script type="text/javascript">
+		  $('.tabs_holder').skinableTabs({
+	    effect: 'basic_display',
+	    skin: 'skin5',
+	    position: 'top'
+	  });
+	</script>
+	
+	<script type="text/javascript">	
+		function loginText()
+		{
+			if(#{loginController.isLoggedIn()})
+			{
+				window.location = "landingPage.xhtml";
+			}
+			else
+			{
+				window.location = "login.xhtml";
+			}
+		}
+	</script>
+	<!-- End of Javascript -->
 </html>

@@ -7,8 +7,8 @@ package com.netbuilder.controllers;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.security.auth.login.LoginException;
 
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.util.LoggedInUser;
@@ -83,7 +83,6 @@ public class LoginController {
 	}
 
 	public String login() {
-		
 		if (username.isEmpty() || password.isEmpty()) {
 			errormsg = "please enter details";
 			return "login";
@@ -110,14 +109,6 @@ public class LoginController {
 			return "login";
 	}
 	
-	public String logout() throws LoginException
-	{
-		setLoggedIn(false);
-		username = null;
-		password = null;
-		return "home";
-	}
-	
 	public String loggedInUserName()
 	{
 		if(loggedIn)
@@ -128,5 +119,27 @@ public class LoginController {
 		{
 			return "Login";
 		}
+	}
+	
+	public void logOut(){
+		setLoggedIn(false);
+		username = null;
+		password = null;
+		loggedInUser.setUsername(null);
+		loggedInUser.setUserID(clm.checkCustomerID(null));
+		
+		//Close the session
+				FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+	}
+	
+	public String loggedOut(){
+		if(username!=null){
+			logOut();
+		}
+		if(loggedIn){
+			return "Log Out";
+		}else{
+			return "";
+		}		
 	}
 }

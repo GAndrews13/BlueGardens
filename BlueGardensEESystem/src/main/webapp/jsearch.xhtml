@@ -5,6 +5,17 @@
 				xmlns:t="http://myfaces.apache.org/tomahawk"     
 				template="templates/template.xhtml">
 				
+<script>
+function myFunction(){
+	//#{productController.setLink({product.getImageLink()})}
+	var links = $('#links').getElementsByTagName('li');
+	for(var i=0; i<links.length; i++){
+		var link = links[i];
+		link.onclick=myFunction;
+	}
+}
+</script>
+				
 <!-- Defines the title of the page using the header 1 tag -->
 <ui:define name="pagetitle">Search</ui:define>
 
@@ -26,7 +37,13 @@
 				#{product.getFeatureThree()}<br/><br/>
 				#{product.getFeatureFour()}<br/><br/>
 				#{product.getFeatureFive()}<br/><br/>
-				<img src="#{product.getImageLink()}" alt="#{product.getProductName()}" width="460" height="345"/><br/><br/><br/><br/>  	
+				<div id="links">
+				<h:link onclick="myFunction" outcome="productPage">
+				<f:param value="#{product.getImageLink()}" />
+				<h:graphicImage value="#{product.getImageLink()}"  width="460" height="345" border="0"  />
+				</h:link>
+				</div>
+				<br/><br/><br/><br/> 	
 			</ui:repeat>
 			</h:panelGrid>	
 		</h:form>

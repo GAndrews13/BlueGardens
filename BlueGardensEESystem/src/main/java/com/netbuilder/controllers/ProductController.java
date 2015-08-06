@@ -6,49 +6,53 @@ package com.netbuilder.controllers;
  * the specific product page. There is also some validation for if the product id does not exist.
  * @author lczornyj
  */
-import java.util.ArrayList;
 
-import javax.enterprise.context.Dependent;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
 
-@Named
-@Dependent
+@ManagedBean(name = "productController")
+@SessionScoped
 public class ProductController {
-
 	@Inject
-	private ProductManager productmanager;
+	private ProductManager productManager;
+	@Inject
+	WishListController wishlistController;
+	public String link;
 	private Product product;
-	private ArrayList<Product> products;
-	public ArrayList<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(ArrayList<Product> products) {
-		this.products = products;
-	}
-
-	public String errormsg;
-
-	private String id = getProduct().getImageLink();
 	
-	public ProductController() {
-		id = id.replace("www.NBGardens.com/Products/", "");
-		try {
-			setProduct(productmanager.findById(Integer.parseInt(id)));
-		} catch (Exception e) {
-			errormsg = "please enter details";
-		}
+	public ProductController(){
 	}
+
+	public String search() {
+		System.out.println(this.link.substring(1, this.link.length()-1));
+		this.product = productManager.findByImageLink(this.link.substring(1, this.link.length()-1));
+		System.out.println(product);
+		return "productPage";
+	}
+
+
+	public String getLink() {
+		return link;
+	}
+
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
 
 	public Product getProduct() {
 		return product;
 	}
 
+
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+
+
 }

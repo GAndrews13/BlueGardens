@@ -119,7 +119,7 @@ p.questionAnswer{
 }
 
 .carouselBack{
-	z-index: -100;
+	z-index: -1000;
 }
 
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
@@ -174,7 +174,10 @@ p.questionAnswer{
 	text-decoration: underline; 
 	font-size: 1.5vmin;
 }
-
+.landingContent{
+	padding-left: 7em;
+	padding-right: 7em;
+}
 
 .leftStack {
 	float: left;
@@ -246,11 +249,12 @@ p.questionAnswer{
 	position: fixed;
 	width: 100%;
 	background-color:rgba(137,220,265, 1);
-	 opacity: 0;
+	opacity: 1;
+	z-index: 50;
 }
 
 .site-header:hover {
-	 opacity: 100;
+	 opacity: 1;
 }
 .site-footer {
 	height: 5%;
@@ -259,6 +263,7 @@ p.questionAnswer{
 	bottom: 0;
 	width: 100%;
 	padding-bottom: 2em;
+	z-index: 50;
 }
 
 .span_1_of_4 {
@@ -317,12 +322,11 @@ p.questionAnswer{
 	display: inline-block;
 	text-align: centre;
 	width: 20%;
-	padding-left: 10%;
 }
 
 .bottommenu li a {
 	float: left;
-	padding-left: 15px;
+	padding-left: 20%;
 	display: inline-block;
 	color: rgb(255, 255, 255);
 	text-decoration: none;
@@ -332,10 +336,9 @@ p.questionAnswer{
 }
 
 .bottommenu li a span {
-	line-height: 30px;
+	line-height: 30%;
 	float: left;
 	display: block;
-	padding-right: 15px;
 	background: url('bottomMenuImages.png') 100% -30px no-repeat;
 }
 
@@ -350,7 +353,6 @@ p.questionAnswer{
 
 .bottommenu li a.active, .menu li a.active:hover {
 	line-height: 30px;
-	font: 12px Verdana, Arial, Helvetica, sans-serif;
 	background: url('bottomMenuImages.png') 0px -90px no-repeat;
 	color: rgb(255, 255, 255);
 }
@@ -361,6 +363,7 @@ p.questionAnswer{
 
 .container{
 	width: 50%;
+	z-index: 1;
 }
 
 .headerOverlay {
@@ -389,7 +392,7 @@ p.questionAnswer{
 
 .menu li a {
 	float: left;
-	padding-left: 15px;
+	padding-left: 3%;
 	display: block;
 	color: rgb(255, 255, 255);
 	text-decoration: none;
@@ -455,9 +458,8 @@ p.questionAnswer{
 }
 
 #contentHeader{
-	font: 4em Verdana;
+	font: 4em Century Gothic;
 	font-style:italic bold;
-	text-decoration: underline; 
 	text-align: center;
 }
 

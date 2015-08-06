@@ -141,4 +141,14 @@ public class ProductManagerDummy implements ProductManager {
 		}
 		return list;
 	}
+	
+	public Product findByImageLink(String link) {
+		for(Product p : dd.getProducts())
+		{
+			if (p.getImageLink().equals(link)){
+				return p;
+			}
+		}	
+		return null;
+	}
 }

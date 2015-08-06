@@ -24,7 +24,8 @@ import javax.validation.constraints.Size;
 	@NamedQuery(name = Product.FIND_BY_NAME, query = "SELECT p FROM Products p WHERE p.ProductName = :name"),
 	@NamedQuery(name = Product.FIND_BY_SALE, query = "SELECT p FROM Products p WHERE p.Sale =: true"),
 	@NamedQuery(name = Product.FIND_BY_POUROUSWARE, query = "SELECT p FROM Products p WHERE p.Pourousware =: true"),
-	@NamedQuery(name = Product.FIND_BY_TRENDING, query = "SELECT p FROM Products p WHERE p.Trending =: true")
+	@NamedQuery(name = Product.FIND_BY_TRENDING, query = "SELECT p FROM Products p WHERE p.Trending =: true"),
+	@NamedQuery(name = Product.FIND_BY_IMAGE_LINK, query = "SELECT p FROM Products p WHERE p.ImageLink = imageLink")
 })
 public class Product {
 	public static final String FIND_BY_OUT_STOCK = "Product.findByOutStock";
@@ -33,6 +34,7 @@ public class Product {
 	public static final String FIND_BY_SALE = "Product.findBySale";
 	public static final String FIND_BY_POUROUSWARE = "Product.findByPourousware";
 	public static final String FIND_BY_TRENDING = "Product.findByTrending";
+	public static final String FIND_BY_IMAGE_LINK = "Product.findByImageLink";
 	@Id
 	@Column(name = "productID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
