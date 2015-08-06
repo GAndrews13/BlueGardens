@@ -10,21 +10,27 @@ package com.netbuilder.controllers;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
 
 @ManagedBean(name = "productController")
 @SessionScoped
+
 public class ProductController {
 	@Inject
 	private ProductManager productManager;
 	@Inject
 	WishListController wishlistController;
+	@Inject
+	private LoginController lc;
 	public String link;
 	private Product product;
 	
@@ -32,13 +38,19 @@ public class ProductController {
 	}
 
 	@GET
-	@Path("wishlist.xhtml")
-	public String getProductByID
-		(@QueryParam("id") String pid){
-		String temp = pid.replace("http://localhost:8080/BlueGardensEESystem/productPage.xhtml?product=", "");
-		product= productManager.findById(Integer.parseInt(temp));
-		System.out.println(pid);
-		return pid;
+	@Path("productPage.xhtml")
+	public void getProductByID
+		(@DefaultValue("1") @QueryParam("product") String pid){
+		//pid = pid.replace("http://localhost:8080/BlueGardensEESystem/productPage.xhtml?product=", "");
+		System.out.println("WORKING!");
+		pid = pid.replace("[","");
+		pid = pid.replace("]","");
+		product= productManager.findById(Integer.parseInt(pid));
+		System.out.println("WORKING!!!");
+	
+		//(@Context UriInfo info){
+		//String productIDString = info.getQueryParameters().getFirst("product");
+		//product=productManager.findById(Integer.parseInt(productIDString));
 	}
 	
 	public String search(int inID) {
