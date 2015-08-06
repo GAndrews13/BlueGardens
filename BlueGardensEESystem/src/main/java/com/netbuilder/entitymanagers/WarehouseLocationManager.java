@@ -1,5 +1,7 @@
 package com.netbuilder.entitymanagers;
 
+import java.util.ArrayList;
+
 /**
  * This is the warehouse location manager.
  * Coded by lczornyj, with input from abalgel
@@ -16,6 +18,6 @@ public interface WarehouseLocationManager {
 	
 	public void updateWarehouseLocation(WarehouseLocation warehouseLocation);
 	
-	public WarehouseLocation findoutbyproductID(int id);
+	public ArrayList<WarehouseLocation> findByProductID(int id);
 	
 }

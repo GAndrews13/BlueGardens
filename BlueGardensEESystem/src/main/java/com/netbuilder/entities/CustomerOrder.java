@@ -143,6 +143,11 @@ public class CustomerOrder {
 		productOrderLine.add(p);
 	}
 	
+	public void setWorker(WarehouseWorker worker)
+	{
+		this.setWorker(worker);
+	}
+	
 	public WarehouseWorker getWorker() {
 		return worker;
 	}

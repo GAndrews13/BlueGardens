@@ -49,11 +49,19 @@ public class CustomerOrderLine
 	@NotNull
 	private int quantity;
 	
+	/**
+	 * Quantity cannot be null as at least one product must be in the order line
+	 */
+	@Column(name = "IsPicked", nullable = false)
+	@NotNull
+	private boolean isPicked;
+	
 	public CustomerOrderLine(int productID, int Quantity)
 	{
 		this.productId = productID;
 		this.quantity = Quantity;
 	}
+
 	/**
 	 * @author Jake
 	 *	Getters and Setters for class variables
@@ -81,6 +89,16 @@ public class CustomerOrderLine
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	
+	public void setIsPicked(boolean picked)
+	{
+		isPicked = picked;
+	}
+	
+	public boolean getIsPicked()
+	{
+		return isPicked;
 	}
 	
 }
