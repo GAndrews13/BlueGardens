@@ -49,7 +49,7 @@
 				<ui:repeat value="#{wishlistController.realResults}" var="product">
 				<tr text-align="center">
 					<td class="wishlistColumn">
-						<a href="productPage.xhtml?product=#{product.getProductID()}">	
+						<a href="productPage.xhtml?product=#{product.getProductID()}" onclick="#{productController.search(product.getProductID())}">	
 							<img class="wishlistImage" src="#{product.getImageLink()}" alt="#{product.getProductName()}"/>
 						</a>
 					</td>

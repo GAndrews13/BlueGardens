@@ -27,6 +27,7 @@ public class ProductController {
 	WishListController wishlistController;
 	public String link;
 	private Product product;
+	private int currentID;
 	
 	public ProductController(){
 	}
@@ -35,18 +36,34 @@ public class ProductController {
 	@Path("wishlist.xhtml")
 	public String getProductByID
 		(@QueryParam("id") String pid){
+		//System.out.println(pid);
 		String temp = pid.replace("http://localhost:8080/BlueGardensEESystem/productPage.xhtml?product=", "");
 		product= productManager.findById(Integer.parseInt(temp));
-		System.out.println(pid);
+		//System.out.println(temp);
+		currentID = product.getProductID();
+		//System.out.println(currentID);
 		return pid;
 	}
 	
-	public String search(int inID) {
+	//public void getcurrentProduct()
+	
+	public int getCurrentID() {
+		return currentID;
+	}
+
+	public void setCurrentID(int currentID) {
+		//System.out.println(currentID);
+		this.currentID = currentID;
+		System.out.println(this.currentID);
+	}
+
+	public void search(int inID) {
 		//System.out.println(this.link.substring(1, this.link.length()-1));
 		//this.product = productManager.findByImageLink(this.link.substring(1, this.link.length()-1));
+		System.out.println(inID);
 		this.product=productManager.findById(inID);
-		System.out.println(product);
-		return "productPage";
+		//System.out.println(product);
+		//return "productPage";
 	}
 
 
