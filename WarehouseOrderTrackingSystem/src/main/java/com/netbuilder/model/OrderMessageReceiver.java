@@ -28,7 +28,7 @@ public class OrderMessageReceiver {
     public void receiveMessage(String message) {
         pol.add(new ProductOrderLine(new Product("gnome1", 12, 5, 10, false, 10.5, false, "a", "little", "gnome", "in", "the garden", "test", false), 12));
         pol.add(new ProductOrderLine(new Product("gnome2", 7, 5, 10, false, 10.5, false, "a", "little", "gnome", "in", "the garden", "test", false), 7));
-    	orders.add(new CustomerOrder(false, 12, DeliveryStatus.PROCESSING, new Customer(123654, "John", "Diggle", "here", "john@diggle.com", "004475249873", "ACTIVE"), pol, new WarehouseWorker("john", "12 here", false), ))
+    	orders.add(new CustomerOrder(12, new Customer(123654, "John", "Diggle", "here", "john@diggle.com", "004475249873", "ACTIVE"), pol));
     	System.out.println("Received <" + message + ">");
         
         context.close();

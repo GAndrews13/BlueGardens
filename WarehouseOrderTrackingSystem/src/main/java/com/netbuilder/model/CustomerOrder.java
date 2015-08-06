@@ -43,7 +43,11 @@ public class CustomerOrder {
 		
 	}
 	
-	
+	public CustomerOrder(int trackingID, Customer customer, ArrayList<ProductOrderLine> productOrderLine) {
+		this.trackingID = trackingID;
+		this.customer = customer;
+		this.productOrderLine = productOrderLine;
+	}
 	
 	public CustomerOrder(boolean isAssigned, int trackingID,
 			String deliveryType, Customer customer, ArrayList<ProductOrderLine> productOrderLine,
