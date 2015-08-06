@@ -14,10 +14,11 @@
 	
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
+	<h2>#{productController.getProductByID("http://localhost:8080/BlueGardensEESystem/productPage.xhtml?product=1")}</h2>
 	
-	#{productController.search()}
-	
-	<p>Hi</p>
+	<p>#{productController.product.productName}</p>
+	<p>#{productController.product.price}</p>
+	<img href="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
 	
 
 	
