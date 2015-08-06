@@ -12,7 +12,6 @@
 * { 
 	margin: 0;
 	color: black;
-	font-size: 1.8vmin;
 	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
 }
 
@@ -73,7 +72,8 @@ a.titleText:hover:after, a.hovertext:focus:after {
   }
 
 body {
-    background-image: url("../img/garden-background.jpg");	
+    background-image: url("../img/garden-background.png");	
+    background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
@@ -298,6 +298,27 @@ p.questionAnswer{
 	background-color: white;
 	z-index: 1002;
 	overflow: auto;
+}
+
+
+.wishlistColumn{
+	width:10%;
+}
+
+.wishlistImage{
+	width: 100%;	
+}
+
+.wishlistTable{
+	text-align:center;
+	font: 1.8vmin Century Gothic;
+	font-weight:bold;
+	cellspacing:10;
+}
+
+.wishlistTableHeader{
+	font-weight: bold;
+	font-size: 3vmin;
 }
 
 .bodyOverlay {

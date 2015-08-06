@@ -91,23 +91,23 @@ public class DummyData {
 	public DummyData(){
 		product1 = new Product(1, "Ketchup", 10, 3, 10, false,
 				135.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/ketchup.jpg", true);
+				"resources/img/ketchup.png", true);
 		
 		product2 = new Product(2, "Chocolate", 100, 30, 100, false,
 				10.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/chocolate.jpg", true);
+				"resources/img/chocolate.png", true);
 		
-		product3 = new Product(3, "Kitchen Sink", 70, 50, 180, false,
+		product3 = new Product(3, "Notts County Gnome", 70, 50, 180, false,
 				85.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/kitchenSink.jpg", true);
+				"resources/img/nottsCountyGnome.png", true);
 		
 		product4 = new Product(4, "Floor", 100, 70, 700, true,
 				98.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/floor.jpg", false);
+				"resources/img/floor.png", false);
 		
-		product5 = new Product(5, "Fish", 120, 60, 140, true,
+		product5 = new Product(5, "Machine Gun Gnome", 120, 60, 140, true,
 				35.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/fish.JPG", false);
+				"resources/img/gnome.png", false);
 		
 		product6 = new Product(6, "Plum", 104, 63, 130, true,
 				4.99, false, "that's", "ammmaaaazing", "that", "you", "know",
@@ -115,15 +115,15 @@ public class DummyData {
 		
 		product7 = new Product(7, "Cheese", 150, 13, 163, false,
 				12.00, true, "that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/cheese.jpg", false);
+				"resources/img/cheese.png", false);
 		
 		product8 = new Product(8, "Sofa", 140, 36, 164, false,
 				700.00, true, "that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/sofa.jpg", false);
+				"resources/img/sofa.png", false);
 		
-		product9 = new Product(9, "Shower", 120, 34, 150, false,
+		product9 = new Product(9, "Jacuzzi", 120, 34, 150, false,
 				15.00, true, "that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/shower.jpg", false);
+				"resources/img/jacuzzi.png", false);
 		
 		products.add(product1);
 		products.add(product2);
