@@ -83,7 +83,6 @@ public class LoginController {
 	}
 
 	public String login() {
-		System.out.println("logging in");
 		if (username.isEmpty() || password.isEmpty()) {
 			errormsg = "please enter details";
 			return "login";
@@ -123,7 +122,6 @@ public class LoginController {
 	}
 	
 	public void logOut(){
-		System.out.println("logging out");
 		setLoggedIn(false);
 		username = null;
 		password = null;

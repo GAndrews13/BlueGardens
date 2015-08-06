@@ -5,53 +5,21 @@
 				xmlns:h="http://java.sun.com/jsf/html"   
 				template="templates/template.xhtml">
 	<!-- Defines the title of the page using the header 1 tag -->
-	<ui:define name = "pagetitle">
-		Product
-	</ui:define>
+	<ui:define name = "pagetitle">Product</ui:define>
 	
 	<!-- Defines the title displayed on the page -->
 	<ui:define name="sectiontitle">
-		<h2><h:outputLabel value = "#{productController.product.getProductName()}"/></h2>
+		<h2>Hello</h2>
 	</ui:define>
 	
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
 	
-	<div id = "mainproductimage">
-	<a href="#"><img src="#{productController.product.getImageLink()}" alt="" /></a>
-	</div>
+	#{productController.search()}
 	
-	<div id = "productdescription">
-		<h:outputLabel value = "#{productController.product.getFeatureOne()}"/><br />
-		<h:outputLabel value = "#{productController.product.getFeatureTwo()}"/><br />
-		<h:outputLabel value = "#{productController.product.getFeatureThree()}"/><br />
-		<h:outputLabel value = "#{productController.product.getFeatureFour()}"/><br />
-		<h:outputLabel value = "#{productController.product.getFeatureFive()}"/><br />
-	</div>
-	<div id = "addtobasket">
-	<h:commandButton action="#{basketController.addProduct(productController.product)}" value="Add to Basket" />
-	</div>
+	<p>Hi</p>
 	
-	<div id = "trendingproducts">
-	Trending Products:
-	<ul>
-		<li><a href="#"><img src="#{trendingProductController.trendingProducts[0].getImageLink()}" alt="" /></a></li>
-		<li><a href="#"><img src="#{trendingProductController.trendingProducts[1].getImageLink()}" alt="" /></a></li>
-		<li><a href="#"><img src="#{trendingProductController.trendingProducts[2].getImageLink()}" alt="" /></a></li>
-	</ul>
-	</div>
-	<div id = "customerreviews">
-		<form>
-		<legend>Customer Reviews:</legend>
-		<br />
-		Review 1:
-		<br />
-		Review 2:
-		<br />
-		Review n:
-		<br />
-		</form>
-	</div>
+
 	
 	</ui:define>
 </ui:composition>
