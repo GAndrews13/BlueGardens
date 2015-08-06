@@ -1,11 +1,14 @@
 package com.netbuilder.entitymanagers.Dummy;
 
+import java.util.ArrayList;
+
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.util.DummyData;
+import com.netbuilder.util.LoginUtils;
 
 @Alternative
 public class CustomerLoginManagerDummy implements CustomerLoginManager {
@@ -52,6 +55,24 @@ public class CustomerLoginManagerDummy implements CustomerLoginManager {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public ArrayList<CustomerLogin> findAll() {
+		return dd.getCustomerLogins();
+	}
+
+	@Override
+	public void updateCustomerPassword(long id, String password) {
+		for(CustomerLogin cl: dd.getCustomerLogins()){
+			if(cl.getCustomerID() == id){
+				try {
+					cl.setCustomerPassword(LoginUtils.hash(password, cl.getSalt()));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 }

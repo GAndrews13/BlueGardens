@@ -106,7 +106,7 @@ public class Customer
 	}
 	
 	public Customer(long customerID, String firstName, String lastName,
-			String address, String email, String contactNUM,
+			String address, String contactNUM, String email,
 			String accountSTATUS) {
 		this.customerID = customerID;
 		this.firstName = firstName;
@@ -137,11 +137,11 @@ public class Customer
 	}
 	
 	public String getLastName() {
-		return firstName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
-		this.firstName = lastName;
+		this.lastName = lastName;
 	}
 
 

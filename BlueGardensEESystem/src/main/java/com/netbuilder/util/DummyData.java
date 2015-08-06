@@ -135,7 +135,7 @@ public class DummyData {
 		products.add(product8);
 		products.add(product9);
 		
-		customer1 = new Customer(1, "Oliver", "Queen", "Queen Mansion, Starling City, OL1 V3R", "999", "badboyqueen@queenconsolidated.com", "ACTIVE");
+		customer1 = new Customer(1, "Oliver", "Queen", "Arrow Cave, Underground, Verdant, The Glades, OL1 V3R", "999", "badboyqueen@queenconsolidated.com", "ACTIVE");
 		customer2 = new Customer(2, "Slade", "Wilson", "Lian Yu, China, L14N YU1", "404", "shado@rip.com", "BLACKLISTED");
 		
 		customers.add(customer1);

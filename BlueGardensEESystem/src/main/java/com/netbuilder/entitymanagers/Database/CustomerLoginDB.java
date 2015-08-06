@@ -1,9 +1,12 @@
 package com.netbuilder.entitymanagers.Database;
 
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
@@ -64,6 +67,18 @@ public class CustomerLoginDB implements CustomerLoginManager {
 		em.persist(customerLogin);
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
+	}
+
+	@Override
+	public ArrayList<CustomerLogin> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateCustomerPassword(long id, String password) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
