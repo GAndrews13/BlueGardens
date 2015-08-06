@@ -20,12 +20,18 @@ private ArrayList<WarehouseLocation> warehouseLocations = new ArrayList<Warehous
 		warehouseLocations.set(warehouseLocations.indexOf(warehouseLocation), warehouseLocation);
 	}
 	
-	public WarehouseLocation findoutbyproductID(int prodId) {
+
+	@Override
+	public ArrayList<WarehouseLocation> findByProductID(int id) {
+		// TODO Auto-generated method stub
+		ArrayList<WarehouseLocation> result = new ArrayList<WarehouseLocation>();
 		for (WarehouseLocation wl : warehouseLocations){
-			if(wl.getProductId() == prodId){
-				return wl;
+			if(wl.getProductId() == id){
+				result.add(wl);
 			}
 		}
-		return null;
+		
+		return result;
 	}
+	
 }
