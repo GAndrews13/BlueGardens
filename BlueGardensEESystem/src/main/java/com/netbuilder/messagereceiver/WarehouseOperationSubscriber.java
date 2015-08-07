@@ -1,11 +1,7 @@
 package com.netbuilder.messagereceiver;
 
-import java.awt.event.TextListener;
-import java.io.InputStreamReader;
-
 import javax.jms.JMSException;
 import javax.jms.Session;
-import javax.jms.TextMessage;
 import javax.jms.Topic;
 import javax.jms.TopicConnection;
 import javax.jms.TopicConnectionFactory;
@@ -23,9 +19,8 @@ public class WarehouseOperationSubscriber {
 	private TopicSession topicSession = null;
 	private Topic topic = null;
 	private TopicSubscriber topicSubscriber = null;
-	private TextListener topicListener = null;
-	private TextMessage message = null;
-	private InputStreamReader inputStreamReader = null;
+	private NBGListener topicListener = null;
+	Thread iThread = null;
 	
 	public void recieveMessage()
 	{
@@ -41,13 +36,14 @@ public class WarehouseOperationSubscriber {
 			topicSession =
 					topicConnection.createTopicSession(false,
 					Session.AUTO_ACKNOWLEDGE);
+			topicListener = new NBGListener();
 			topicSubscriber =
 					topicSession.createSubscriber(topic);
-			topicSubscriber.setMessageListener(new NBGListener());
+			topicSubscriber.setMessageListener(topicListener);
 			topicConnection.start();
 			Runnable idleRunnable = new Runnable() {
 				@Override public void run() { while (true) { }}};
-			Thread iThread = new Thread(idleRunnable, "iThread");
+			iThread = new Thread(idleRunnable, "iThread");
 		}
 		catch (NamingException e) 
 		{

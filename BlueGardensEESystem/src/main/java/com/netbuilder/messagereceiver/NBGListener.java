@@ -3,7 +3,7 @@ package com.netbuilder.messagereceiver;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
-import javax.jms.TextMessage;
+import javax.jms.ObjectMessage;
 
 public class NBGListener implements MessageListener
 {
@@ -15,15 +15,15 @@ public class NBGListener implements MessageListener
 	*/
 	public void onMessage(Message message) 
 	{
-		TextMessage msg = null;
+		ObjectMessage msg = null;
 		try 
 		{
-			if (message instanceof TextMessage) 
+			if (message instanceof ObjectMessage) 
 			{
-				msg = (TextMessage) message;
+				msg = (ObjectMessage) message;
 				
 				System.out.println("Reading message: " +
-				msg.getText());
+				msg.getObject());
 			} 
 			else 
 			{

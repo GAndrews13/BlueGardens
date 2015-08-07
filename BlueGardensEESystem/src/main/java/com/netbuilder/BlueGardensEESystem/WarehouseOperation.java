@@ -1,5 +1,6 @@
 package com.netbuilder.BlueGardensEESystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.netbuilder.entities.Customer;
@@ -17,7 +18,7 @@ import com.netbuilder.entitymanagers.Dummy.CustomerOrderManagerDummy;
 import com.netbuilder.entitymanagers.Dummy.WarehouseLocationManagerDummy;
 import com.netbuilder.entitymanagers.Dummy.WarehouseWorkerManagerDummy;
 
-public class WarehouseOperation 
+public class WarehouseOperation implements Serializable
 {
 	WarehouseWorkerManager wwm = new WarehouseWorkerManagerDummy();
 	CustomerOrderManager com = new CustomerOrderManagerDummy();
