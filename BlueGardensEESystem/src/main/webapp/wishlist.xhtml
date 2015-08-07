@@ -49,7 +49,7 @@
 				<ui:repeat value="#{wishlistController.realResults}" var="product">
 				<tr text-align="center">
 					<td class="wishlistColumn">
-						<a href="productPage.xhtml?product=#{product.getProductID()}">	
+						<a href="productPage.xhtml?product=#{product.getProductID()}" onclick="#{productController.search(product.getProductID())}">	
 							<img class="wishlistImage" src="#{product.getImageLink()}" alt="#{product.getProductName()}"/>
 						</a>
 					</td>
@@ -64,6 +64,41 @@
 					</td>
 				</tr>
 			</ui:repeat>
+			</table>
+			
+			<table class = "wishlistTable">
+				<tr class="wishlistTableHeader">
+					<td>
+					</td>
+					<td>
+						Name
+					</td>
+					<td>
+						Current Price (£)
+					</td>
+					<td>
+						Remaining Stock
+					</td>
+				</tr>
+				
+				<ui:repeat value="#{wishlistController.realResults}" var="product">
+					<tr text-align="center">
+						<td class="wishlistColumn">
+							<a href="productPage.xhtml?product=#{product.getProductID()}"  id="#{product.productID}">	
+								<img class="wishlistImage" src="#{product.getImageLink()}" alt="#{product.getProductName()}"/>
+							</a>
+						</td>
+						<td>
+							#{product.getProductName()}
+						</td>
+						<td>
+							#{product.getPrice()}
+						</td>
+						<td>
+							#{product.getStockLevel()}
+						</td>
+					</tr>
+				</ui:repeat>
 			</table>
 
 </ui:define>
