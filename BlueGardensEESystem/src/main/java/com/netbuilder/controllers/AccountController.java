@@ -74,6 +74,10 @@ public class AccountController {
 	}
 	
 	public String changePassword(){
+		if(password.isEmpty() || confirmPassword.isEmpty()){
+			errmsg="Please enter a password";
+			return "account";
+		}
 		if(password.matches(confirmPassword)){
 			errmsg="Password Saved!";
 			try {

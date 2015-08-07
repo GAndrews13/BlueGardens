@@ -55,9 +55,9 @@ public class WarehouseOperation implements Serializable
 	
 	
 	
-	public ArrayList<CustomerOrderLine> setPickingOrder(int coid)
+	public ArrayList<CustomerOrderLine> setPickingOrder(int customerOrderID)
 	{
-		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCOID(coid);
+		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCustomerOrderID(customerOrderID);
 		ArrayList<CustomerOrderLine> pickingOrder = new ArrayList<CustomerOrderLine>();
 		ArrayList<String> ssectionA = new ArrayList<String>();
 		ArrayList<CustomerOrderLine> sectionA = new ArrayList<CustomerOrderLine>();
@@ -333,9 +333,9 @@ public class WarehouseOperation implements Serializable
 		return pickingOrder;
 	}
 	
-	public void showNextProduct(int coid)
+	public void showNextProduct(int customerOrderID)
 	{
-		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCOID(coid);
+		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCustomerOrderID(customerOrderID);
 		
 	}
 }

@@ -23,8 +23,8 @@ public class TrackingController {
 	private CustomerOrderManager customerOrderManager;
 	@Inject
 	private LoggedInUser loggedInUser;
-	//@Inject
-	//private CustomerOrderLineManager customerOrderLineManager;
+	@Inject
+	private CustomerOrderLineManager customerOrderLineManager;
 	private ArrayList<ArrayList<CustomerOrderLine>> customerOrderLines = new ArrayList<ArrayList<CustomerOrderLine>>();
 	private ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
 	
@@ -42,11 +42,10 @@ public class TrackingController {
 	
 	public String search() {
 		customerOrders = customerOrderManager.findByCustomer(loggedInUser.getUserID());
-		/*for(CustomerOrder co : customerOrders){
-			if(co.getCustomerOrderID() == ){
-				
-			}
-		}*/
+		for(int i=0; i<customerOrders.size(); i++){
+			customerOrderLines.add(customerOrderLineManager.findByCustomerOrderID(customerOrders.get(i).getCustomerOrderID()));
+		}
+		System.out.println(customerOrderLines);
 		return "tracking";
 	}
 	

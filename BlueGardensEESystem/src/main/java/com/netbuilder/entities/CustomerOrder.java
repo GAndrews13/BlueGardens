@@ -46,11 +46,10 @@ public class CustomerOrder {
 	}
 	
 	
-	public CustomerOrder(boolean isAssigned, int trackingID,
+	public CustomerOrder(boolean isAssigned, 
 			String deliveryType, long customerID,
 			long workerID, DeliveryStatus status) {
 		this.isAssigned = isAssigned;
-		this.trackingID = trackingID;
 		this.deliveryType = deliveryType;
 		this.customerID = customerID;
 		this.workerID = workerID;

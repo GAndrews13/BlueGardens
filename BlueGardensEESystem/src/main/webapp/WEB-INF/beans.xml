@@ -12,6 +12,9 @@
 			com.netbuilder.entitymanagers.Dummy.CustomerOrderManagerDummy
 		</class>
 		<class>
+			com.netbuilder.entitymanagers.Dummy.CustomerOrderLineManagerDummy
+		</class>
+		<class>
 			com.netbuilder.entitymanagers.Dummy.ProductManagerDummy
 		</class>		
 		<class>
@@ -38,13 +41,14 @@
 		<class>
 			com.netbuilder.entitymanagers.Dummy.WishlistManagerDummy
 		</class>
+			<class>
+			com.netbuilder.entitymanagers.Dummy.BasketManagerDummy
+		</class>
 
 		<!--  End of Dummy Bracket -->
 		<!--  Add all your SQL classes into this bracket -->
 		
 		<!--  End of SQL bracket -->
 	</alternatives>
-	<class>
-			com.netbuilder.entitymanagers.Dummy.BasketManagerDummy
-	</class>
+
 </beans>

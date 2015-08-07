@@ -1,31 +1,26 @@
 package com.netbuilder.entitymanagers.Dummy;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
 import javax.enterprise.inject.Alternative;
-import javax.enterprise.inject.Default;
-
-import com.netbuilder.controllers.LoginController;
+import javax.inject.Inject;
 import com.netbuilder.entities.Basket;
-import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Product;
-import com.netbuilder.entities.ProductOrderLine;
+import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entitymanagers.BasketManager;
-import com.netbuilder.entitymanagers.CustomerOrderManager;
-import com.netbuilder.service.AccountsService;
-import com.netbuilder.service.BasketProductOrderService;
+import com.netbuilder.entitymanagers.ProductManager;
 
 
 /**
  * @author abalagel
  * links interface with db
  */
-@Default
 
+@Alternative
 public class BasketManagerDummy implements BasketManager,Serializable {
-Basket localbasket = new Basket(0, null); 
+	Basket localbasket = new Basket(0, null); 
+	@Inject
+	ProductManager productManager;
 	
 	public void persistBasket(Basket basket){
 		localbasket = basket;
@@ -39,11 +34,12 @@ Basket localbasket = new Basket(0, null);
 	@Override
 	public double findTotal() {
 		double total = 0;
-		if(localbasket.getProductOrderLine()!= null)
+		if(localbasket.getCustomerOrderLine()!= null)
 		{
-			for(int i = 0;i<localbasket.getProductOrderLine().size();i++)
+			for(int i = 0;i<localbasket.getCustomerOrderLine().size();i++)
 			{
-				total+=localbasket.getProductOrderLine().get(i).getQuantity()*localbasket.getProductOrderLine().get(i).getProduct().getPrice(); 
+				total+=localbasket.getCustomerOrderLine().get(i).getQuantity()*productManager.findById(
+						localbasket.getCustomerOrderLine().get(i).getProductId()).getPrice(); 
 			}
 		}
 		return total;
@@ -52,40 +48,46 @@ Basket localbasket = new Basket(0, null);
 	/**
 	 * @author GAndrews
 	 */
+	public void addProduct(int inProduct,int inQuantity)
+	{
+		localbasket.getCustomerOrderLine().add(new CustomerOrderLine(inProduct,inQuantity));
+	}
+	
 	public void addProduct(Product inProduct,int inQuantity)
 	{
-		localbasket.getProductOrderLine().add(new ProductOrderLine(inProduct,inQuantity));
+		localbasket.getCustomerOrderLine().add(new CustomerOrderLine(inProduct.getProductID(),inQuantity));
 	}
+	
 	public void changeQuantity(Product inProduct,int inQuantity)
 	{
-		for(int i = 0;i<localbasket.getProductOrderLine().size();i++)
+		for(int i = 0;i<localbasket.getCustomerOrderLine().size();i++)
 		{
-			ProductOrderLine temp = localbasket.getProductOrderLine().get(i);
-			if(inProduct.getProductID() == temp.getProduct().getProductID())
+			CustomerOrderLine temp = localbasket.getCustomerOrderLine().get(i);
+			if(inProduct.getProductID() == temp.getProductId())
 			{
 				temp.setQuantity(inQuantity);
-				localbasket.getProductOrderLine().set(i, temp);
+				localbasket.getCustomerOrderLine().set(i, temp);
 			}
 		}
 	}
 	
 	public void removeProduct(Product inProduct)
 	{
-		for(int i = 0;i<localbasket.getProductOrderLine().size();i++)
+		for(int i = 0;i<localbasket.getCustomerOrderLine().size();i++)
 		{
-			if(inProduct.getProductID()==localbasket.getProductOrderLine().get(i).getProduct().getProductID())
+			if(inProduct.getProductID()==localbasket.getCustomerOrderLine().get(i).getProductId())
 			{
-				localbasket.getProductOrderLine().remove(i);
+				localbasket.getCustomerOrderLine().remove(i);
 			}
 		}
 	}
 
 	@Override
-	public ArrayList<ProductOrderLine> products() {
-		ArrayList<ProductOrderLine> POL = localbasket.getProductOrderLine();
+	public ArrayList<CustomerOrderLine> products() {
+		ArrayList<CustomerOrderLine> POL = localbasket.getCustomerOrderLine();
 		if(POL == null)
 		{
-			return new ArrayList<ProductOrderLine>();
+			return new ArrayList<CustomerOrderLine>();
 		}
 		return POL;
 	}
