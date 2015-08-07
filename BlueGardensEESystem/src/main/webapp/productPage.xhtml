@@ -1,3 +1,6 @@
+<!-- @Author JThomas -->
+<!-- @Author JMander -->
+<!-- @Author GAndrews -->
 <!DOCTYPE xhtml>
 <!-- Outlines the code that the system uses and the template it is based off of -->
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"      
@@ -6,45 +9,17 @@
 				template="templates/template.xhtml">
 	<!-- Defines the title of the page using the header 1 tag -->
 	<ui:define name = "pagetitle">Product</ui:define>
-	
 	<!-- Defines the title displayed on the page -->
 	<ui:define name="sectiontitle">
-		<h2>Hello</h2>
-		<button onclick="myFunction()">Try it</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-    var x = document.URL;
-    var split = x.split('=');
-	var id = split[1];
-	document.getElementById("demo").innerHTML = id;
-	
-	
-   
-}
-
-function getvalue()
-{
-	var value = document.getElementById("demo");
-	return value;
-}
-window.onload = myFunction;
-
-
-</script>
-
+		#{productController.product.productName}
 	</ui:define>
 	
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
-	
-	#{productController.getProductByID()}
-	<p>#{productController.product.productName}</p>
-	<p>#{productController.product.price}</p>
-	<img href="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
-
-	
+	<div>
+		#{productController.getProductByID()}
+		<p>#{productController.product.price}</p>
+		<img src="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
+		</div>
 	</ui:define>
 </ui:composition>
