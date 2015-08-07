@@ -2,9 +2,10 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
 import com.netbuilder.entities.CustomerOrderLine;
-import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.CustomerOrderLineManager;
+import com.netbuilder.util.DummyData;
 /**
  * 
  * @author Jake
@@ -13,6 +14,9 @@ import com.netbuilder.entitymanagers.CustomerOrderLineManager;
 
 public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager
 {
+	@Inject
+	DummyData dummyData;
+	
 	ArrayList<CustomerOrderLine> col_Array = new ArrayList<CustomerOrderLine>();
 	@Override
 	public void persistCOL(CustomerOrderLine col) 

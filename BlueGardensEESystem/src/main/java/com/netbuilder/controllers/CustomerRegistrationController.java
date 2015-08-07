@@ -57,7 +57,9 @@ public class CustomerRegistrationController {
 			errormsg = "Please enter a username";
 			return "registeredCustomer";
 		}
-		usernames = customerLoginManager.findAll();
+		for(CustomerLogin cl : customerLoginManager.findAll()){
+			usernames.add(cl.getCustomerUsername());
+		}
 		for(String username: usernames){
 			if(customerDetails.getUsername() == username){
 				errormsg = "This username already exists";

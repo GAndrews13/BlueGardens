@@ -3,9 +3,7 @@ package com.netbuilder.controllers;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
-
 import com.netbuilder.entities.Customer;
-import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.util.LoggedInUser;
@@ -24,7 +22,6 @@ public class AccountController {
 	private LoggedInUser loggedInUser;
 	@Inject
 	private CustomerLoginManager customerLoginManager;
-	private CustomerLogin customerLogin;
 	private String username;
 	private String password;
 	private String confirmPassword;
@@ -78,10 +75,9 @@ public class AccountController {
 	
 	public String changePassword(){
 		if(password.matches(confirmPassword)){
+			errmsg="Password Saved!";
 			try {
-				System.out.println(customerLogin.getCustomerPassword());
-				customerLoginManager.updateCustomerPassword(customer.getCustomerID(), password);
-				System.out.println(customerLogin.getCustomerPassword());
+				customerLoginManager.updateCustomerPassword(loggedInUser.getUserID(), password);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -98,6 +94,5 @@ public class AccountController {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	
 }
