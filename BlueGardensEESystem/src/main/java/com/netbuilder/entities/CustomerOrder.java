@@ -1,7 +1,5 @@
 package com.netbuilder.entities;
 
-import java.util.ArrayList;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
 
 /**
@@ -48,26 +47,27 @@ public class CustomerOrder {
 	
 	
 	public CustomerOrder(boolean isAssigned, int trackingID,
-			String deliveryType, Customer customer, ArrayList<ProductOrderLine> productOrderLine,
-			WarehouseWorker worker, DeliveryStatus status) {
+			String deliveryType, long customerID,
+			long workerID, DeliveryStatus status) {
 		this.isAssigned = isAssigned;
 		this.trackingID = trackingID;
 		this.deliveryType = deliveryType;
-		this.customer = customer;
-		this.productOrderLine = productOrderLine;
-		this.worker = worker;
+		this.customerID = customerID;
+		this.workerID = workerID;
 		this.status = status;
 	}
+	
 
-	public CustomerOrder(Customer inCustomer, ArrayList<ProductOrderLine> inProductOrderLines)
-	{
-		this.isAssigned = false;
-		this.worker = null;
-		this.deliveryType = null;
-		
-		this.customer = inCustomer;
-		this.productOrderLine = inProductOrderLines;
-		this.status = DeliveryStatus.ORDER_PLACED;
+	public CustomerOrder(int customerOrderID, boolean isAssigned,
+			int trackingID, String deliveryType, long customerID,
+			long workerID, DeliveryStatus status) {
+		this.customerOrderID = customerOrderID;
+		this.isAssigned = isAssigned;
+		this.trackingID = trackingID;
+		this.deliveryType = deliveryType;
+		this.customerID = customerID;
+		this.workerID = workerID;
+		this.status = status;
 	}
 
 	@Id
@@ -93,16 +93,11 @@ public class CustomerOrder {
 	@ManyToOne
 	@JoinColumn(name ="Customer ID", nullable = false)
 	@NotNull
-	private Customer customer;
-	
-	@ManyToOne
-	@JoinColumn(name ="POLID", nullable = false)
-	@NotNull
-	private ArrayList<ProductOrderLine> productOrderLine;
+	private long customerID;
 	
 	@ManyToOne
 	@JoinColumn(name ="WorkerID", nullable = true)
-	private WarehouseWorker worker;
+	private long workerID;
 	
 	@Column(name = "DeliveryStatus", nullable = false)
 	@NotNull
@@ -131,16 +126,8 @@ public class CustomerOrder {
 		this.deliveryType = deliveryType;
 	}
 	
-	public Customer getCustomer() {
-		return customer;
-	}
-	
-	public ArrayList<ProductOrderLine> getProductOrderLines() {
-		return productOrderLine;
-	}
-	
-	public void addProductOrderLine(ProductOrderLine p){
-		productOrderLine.add(p);
+	public long getCustomer() {
+		return customerID;
 	}
 	
 	public void setWorker(WarehouseWorker worker)
@@ -148,8 +135,8 @@ public class CustomerOrder {
 		this.setWorker(worker);
 	}
 	
-	public WarehouseWorker getWorker() {
-		return worker;
+	public long getWorker() {
+		return workerID;
 	}
 	
 	public DeliveryStatus getStatus(){

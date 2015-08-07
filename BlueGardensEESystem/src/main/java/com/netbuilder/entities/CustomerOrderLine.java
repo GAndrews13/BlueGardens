@@ -60,6 +60,14 @@ public class CustomerOrderLine
 	{
 		this.productId = productID;
 		this.quantity = Quantity;
+	}	
+	
+	public CustomerOrderLine(int customerOrderID, int productId, int quantity,
+			boolean isPicked) {
+		CustomerOrderID = customerOrderID;
+		this.productId = productId;
+		this.quantity = quantity;
+		this.isPicked = isPicked;
 	}
 
 	/**

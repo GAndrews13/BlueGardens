@@ -1,29 +1,29 @@
-<ui:compositon xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	template="templates/exampletemplate.xhtml">
+<!-- author jmander -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:t="http://myfaces.apache.org/tomahawk"     
+		template="templates/template.xhtml">
+				
+<!-- Defines the title of the page using the header 1 tag -->
+<ui:define name="pagetitle">Tracking</ui:define>	
+<ui:define name="sectiontitle">Tracking</ui:define>
+<ui:define name="body">
 
-	<ui:define name="pagetitle">
-		Tracking
-	</ui:define>
-	<ui:define name="sectiontitle">
-		<h2>Tracking</h2>
-	</ui:define>
-	<ui:define name="body">
-		<h:form>
-			<table>
-				<c:forEach var="custOrd" items="#{CustomerOrder}">
-					<tr>
-						<td>${custOrd.trackingID}</td>
-						<td>${custOrd.deliveryType}</td>
-						<c:forEach var="pol" items="#{ProductOrderLine}">
-							<td>${custOrd.pol.name}</td>
-							<td>${custOrd.pol.quantity}</td>
-						</c:forEach>
-					</tr>
-					</c:forEach>
-			</table>
-		</h:form>
+			<!--#{trackingController.search()}-->
+			
+			<h:form>
+			<h1></h1>
+				<h:panelGrid>
+					<ui:repeat value="#{trackingController.customerOrders}" var="order">
+				    	Order ID: #{order.getCustomerOrderID()}<br/><br/>
+				    	Tracking ID: #{order.getTrackingID()}<br/><br/>
+				    	Delivery Type: #{order.getDeliveryType()}<br/><br/>
+				    	Delivery Status: #{order.getStatus()}<br/><br/><br/><br/>    	
+					</ui:repeat>
+				</h:panelGrid>	
+			</h:form>
+
 </ui:define>
-</ui:compositon>
+</ui:composition>
