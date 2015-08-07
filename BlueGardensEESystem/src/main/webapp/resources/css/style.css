@@ -13,6 +13,7 @@
 	margin: 0;
 	color: black;
 	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	height:initial;
 }
 
  a.hovertext {
@@ -236,6 +237,7 @@ p.questionAnswer{
 
 .questionHeader {
 	font-weight: bold;
+	font-size: 2.2vmin;
 }
 
 .section {
@@ -488,7 +490,7 @@ p.questionAnswer{
 #headerMenuRow{
 	width:75%;
 	padding-left: 15%;
-	height: 150%;
+	
 }
 
 #logo {

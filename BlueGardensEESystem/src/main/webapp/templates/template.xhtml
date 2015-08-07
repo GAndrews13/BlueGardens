@@ -7,14 +7,14 @@
 		xmlns:f="http://java.sun.com/jsf/core"
 		xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
-	<header>
-	</header>
 	<meta charset="ISO-8859-1"/>
 	<link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
 	<Script src="resources/css/bootstrap.css"/>
 	
+	<head>
+		<title><ui:insert name = "pagetitle"/></title>
+	</head>
 	
-	<title><ui:insert name = "pagetitle"/></title>
 	
 	<body>
 		<div class="site-header">
@@ -43,8 +43,8 @@
 						<ul class="menu">
 							<li><a href="landingPage.xhtml" class="active"><p class="menuItem">Home</p></a></li>
 							<li><a href="aboutUs.xhtml"><p class="menuItem">About</p></a></li>
-							<li><a href="wishlist.xhtml"><p class="menuItem">Wishlist</p></a></li>
-							<li><a href="jsearch.xhtml"><p class="menuItem">JSearch</p></a></li>
+							<li><a href="productCatalog.xhtml"><p class="menuItem">Products</p></a></li>
+							<li><a href="jsearch.xhtml"><p class="menuItem">Search</p></a></li>
 							<li><a href="contactUs.xhtml"><p class="menuItem">Contact</p></a></li>
 						</ul>
 					</td>
