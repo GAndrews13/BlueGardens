@@ -5,19 +5,13 @@
 				xmlns:t="http://myfaces.apache.org/tomahawk"     
 				template="templates/template.xhtml">
 				
-<script>
-function myFunction(){
-	//#{productController.setLink({product.getImageLink()})}
-	var links = $('#links').getElementsByTagName('li');
-	for(var i=0; i<links.length; i++){
-		var link = links[i];
-		link.onclick=myFunction;
-	}
-}
-</script>
+
 				
 <!-- Defines the title of the page using the header 1 tag -->
 <ui:define name="pagetitle">Search</ui:define>
+<script>
+document.getElementById("demo").innerHTML = "My First JavaScript";
+</script>
 
 <ui:define name="body">	
 	<div id="search">
@@ -28,7 +22,7 @@ function myFunction(){
 			<h:inputText id="searchdetails" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
 			<h:commandButton action="#{searchController.search}" value="Search" /><br/><hr/>
 			<ui:repeat value="#{searchController.results}" var="product">
-				#{product.getProductID()}<br/><br/>
+				<p id="productid"> #{product.getProductID()}</p><br/><br/>
 				#{product.getProductName()}<br/><br/>
 				#{product.getPrice()}<br/><br/>
 				#{product.getStockLevel()}<br/><br/>

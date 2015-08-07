@@ -9,7 +9,35 @@
 	
 	<!-- Defines the title displayed on the page -->
 	<ui:define name="sectiontitle">
+<<<<<<< HEAD
 		Hello
+=======
+		<h2>Hello</h2>
+		<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.URL;
+    var split = x.split('=');
+	var id = split[1];
+	document.getElementById("demo").innerHTML = id;
+	
+	
+   
+}
+
+function getvalue()
+{
+	var value = document.getElementById("demo");
+	return value;
+}
+window.onload = myFunction;
+
+
+</script>
+>>>>>>> 8b5c5f895e25ac4b9386e2fefce31123b8fa203e
 	</ui:define>
 	
 	<!-- Contains the actual content of the page -->
