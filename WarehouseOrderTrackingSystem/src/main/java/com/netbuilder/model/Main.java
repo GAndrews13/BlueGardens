@@ -1,6 +1,6 @@
-package com.netbuilder.model;
+package main.java.com.netbuilder.model;
 
-import com.netbuilder.view.GUI;
+import main.java.com.netbuilder.view.GUI;
 
 public class Main {
 	public static void main(String[] args) 
