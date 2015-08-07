@@ -35,6 +35,7 @@ public class Product {
 	public static final String FIND_BY_POUROUSWARE = "Product.findByPourousware";
 	public static final String FIND_BY_TRENDING = "Product.findByTrending";
 	public static final String FIND_BY_IMAGE_LINK = "Product.findByImageLink";
+
 	@Id
 	@Column(name = "productID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,18 +67,9 @@ public class Product {
 	@NotNull
 	private double price;
 	
-	/**
-	 * Added more attributes in a boolean for whether in sale, along with the description strings and
-	 * a string which contains the link for the products image.
-	 * @author lczornyj
-	 */
-	
 	@Column(name = "isSale", nullable = false)
 	@NotNull
 	private boolean isSale;
-	
-	// FEATURE 1 AND FEATURE 2 ARE THE ONES THAT ARE VISABLE IN THE LANDING PAGE, MAKE SURE THESE ARE THE MAIN FEATURES
-	// THAT YOU WANT VISABLE FOR THE USER.
 	
 	@Column(name = "featureOne", nullable = false, length = 50)
 	@NotNull
@@ -106,18 +98,8 @@ public class Product {
 	@Column(name = "isTrending", nullable = false)
 	@NotNull
 	private boolean isTrending;
-	/**
-	 * The isTrending above is the last implementation for the variables
-	 * @author lczornyj
-	 */
-	
-	
-	/**
-	 * This is the default constructor for the Product entity. It sets all of the properties to their default values.
-	 */
-	public Product() {
-		this("test", 0, 0, 0, false, 0.0, false, "feature","feature","feature","feature","feature","imagelink", false);
-	}
+
+	public Product() { this("test", 0, 0, 0, false, 0.0, false, "feature","feature","feature","feature","feature","imagelink", false); }
 	
 	/**
 	 * This is the preferred constructor implementation as it forces us to specify all of the values that are not nullable
@@ -128,10 +110,7 @@ public class Product {
 	 * @param isPorousware This indicates whether this item should be treated for porousware
 	 * @param price This is the price of the product
 	 */
-	public Product(String productName, int stockLevel, int minimumThreshold,
-			int recommendedLevel, boolean isPorousware, double price, boolean isSale,
-			String featureOne, String featureTwo, String featureThree, 
-			String featureFour, String featureFive, String imageLink, boolean isTrending) {
+	public Product(String productName, int stockLevel, int minimumThreshold, int recommendedLevel, boolean isPorousware, double price, boolean isSale, String featureOne, String featureTwo, String featureThree, String featureFour, String featureFive, String imageLink, boolean isTrending) {
 		this.productName = productName;
 		this.stockLevel = stockLevel;
 		this.minimumThreshold = minimumThreshold;
@@ -148,10 +127,7 @@ public class Product {
 		this.isTrending = isTrending;
 	}
 	
-	public Product(int productID, String productName, int stockLevel, int minimumThreshold,
-			int recommendedLevel, boolean isPorousware, double price, boolean isSale,
-			String featureOne, String featureTwo, String featureThree, 
-			String featureFour, String featureFive, String imageLink, boolean isTrending) {
+	public Product(int productID, String productName, int stockLevel, int minimumThreshold, int recommendedLevel, boolean isPorousware, double price, boolean isSale, String featureOne, String featureTwo, String featureThree, String featureFour, String featureFive, String imageLink, boolean isTrending) {
 		this.productID = productID;
 		this.productName = productName;
 		this.stockLevel = stockLevel;
@@ -169,123 +145,39 @@ public class Product {
 		this.isTrending = isTrending;
 	}
 	
-	public String getProductName() {
-		return productName;
-	}
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
+	public String getProductName() { return productName; }
+	public int getStockLevel() { return stockLevel; }
+	public int getMinimumThreshold() { return minimumThreshold; }
+	public int getRecommendedLevel() { return recommendedLevel; }
+	public boolean isPorousware() { return isPorousware; }
+	public double getPrice() { return price; }
+	public int getProductID() { return productID; }
+	public boolean isSale() { return isSale; }
+	public String getFeatureOne() { return featureOne; }
+	public String getFeatureTwo() { return featureTwo; }
+	public String getFeatureThree() { return featureThree; }
+	public String getFeatureFour() { return featureFour; }
+	public String getFeatureFive() { return featureFive; }
+	public String getImageLink(){ return imageLink; }
+	public boolean isTrending(){ return isTrending; }
 	
-	public int getStockLevel() {
-		return stockLevel;
-	}
-	public void setStockLevel(int stockLevel) {
-		this.stockLevel = stockLevel;
-	}
+	public void setProductName(String productName) { this.productName = productName; }
+	public void setStockLevel(int stockLevel) { this.stockLevel = stockLevel; }
+	public void setMinimumThreshold(int minimumThreshold) { this.minimumThreshold = minimumThreshold; }
+	public void setRecommendedLevel(int recommendedLevel) { this.recommendedLevel = recommendedLevel; }
+	public void setPorousware(boolean isPorousware) { this.isPorousware = isPorousware; }
+	public void setPrice(double price) { this.price = price; }
+	public void setSale(boolean isSale) { this.isSale = isSale; }
+	public void setFeatureOne(String featureOne) { this.featureOne = featureOne; }
+	public void setFeatureTwo(String featureTwo) { this.featureTwo = featureTwo; }
+	public void setFeatureThree(String featureThree) { this.featureThree = featureThree; }
+	public void setFeatureFour(String featureFour) { this.featureFour = featureFour; }
+	public void setFeatureFive(String featureFive) { this.featureFive = featureFive; }	
+	public void setImageLink(String imageLink){ this.imageLink = imageLink; }
+	public void setTrending(boolean isTrending){ this.isTrending = isTrending; }
 	
-	public int getMinimumThreshold() {
-		return minimumThreshold;
-	}
-	public void setMinimumThreshold(int minimumThreshold) {
-		this.minimumThreshold = minimumThreshold;
-	}
-	
-	public int getRecommendedLevel() {
-		return recommendedLevel;
-	}
-	public void setRecommendedLevel(int recommendedLevel) {
-		this.recommendedLevel = recommendedLevel;
-	}
-	
-	public boolean isPorousware() {
-		return isPorousware;
-	}
-	public void setPorousware(boolean isPorousware) {
-		this.isPorousware = isPorousware;
-	}
-	
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	
-	public int getProductID() {
-		return productID;
-	}
-	/**
-	 * Added setters and getters for new variables added
-	 * @author lczornyj
-	 * @return
-	 */
-	public boolean isSale() {
-		return isSale;
-	}
-	public void setSale(boolean isSale) {
-		this.isSale = isSale;
-	}
-	
-	public String getFeatureOne() {
-		return featureOne;
-	}
-	public void setFeatureOne(String featureOne) {
-		this.featureOne = featureOne;
-	}
-	
-	public String getFeatureTwo() {
-		return featureTwo;
-	}
-	public void setFeatureTwo(String featureTwo) {
-		this.featureTwo = featureTwo;
-	}
-	
-	public String getFeatureThree() {
-		return featureThree;
-	}
-	public void setFeatureThree(String featureThree) {
-		this.featureThree = featureThree;
-	}
-	
-	public String getFeatureFour() {
-		return featureFour;
-	}
-	public void setFeatureFour(String featureFour) {
-		this.featureFour = featureFour;
-	}
-	
-	public String getFeatureFive() {
-		return featureFive;
-	}
-	public void setFeatureFive(String featureFive) {
-		this.featureFive = featureFive;
-	}
-	
-	public String getImageLink(){
-		return imageLink;
-	}
-	public void setImageLink(String imageLink){
-		this.imageLink = imageLink;
-	}
-	
-	public boolean isTrending(){
-		return isTrending;
-	}
-	public void setTrending(boolean isTrending){
-		this.isTrending = isTrending;
-	}
-	
-	/**
-	 * Overrides the to wring method to return all the relevant information for the product alongside tags outlining what each piece of data represents
-	 */
 	@Override
 	public String toString() {
-		return "Products [productID=" + productID + ", productName="
-				+ productName + ", stockLevel=" + stockLevel
-				+ ", minimumThreshold=" + minimumThreshold
-				+ ", recommendedLevel=" + recommendedLevel + ", isPorousware="
-				+ isPorousware + ", price=" + price + ", isSale="+ isSale + 
-				", features: " + featureOne + "; " + featureTwo + "; "  + featureThree + "; "  + 
-				featureFour + "; "  + featureFive + ", Imagelink='" + imageLink + "', isTrending=" + isTrending + " ]";
+		return "Products [productID=" + productID + ", productName=" + productName + ", stockLevel=" + stockLevel + ", minimumThreshold=" + minimumThreshold + ", recommendedLevel=" + recommendedLevel + ", isPorousware=" + isPorousware + ", price=" + price + ", isSale="+ isSale + ", features: " + featureOne + "; " + featureTwo + "; "  + featureThree + "; "  + featureFour + "; "  + featureFive + ", Imagelink='" + imageLink + "', isTrending=" + isTrending + " ]";
 	}
 }

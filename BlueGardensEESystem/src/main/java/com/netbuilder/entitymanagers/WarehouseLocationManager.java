@@ -13,11 +13,7 @@ import java.util.ArrayList;
 import com.netbuilder.entities.WarehouseLocation;
 
 public interface WarehouseLocationManager {
-
 	public void persistWarehouseLocation(WarehouseLocation warehouseLocation);
-	
 	public void updateWarehouseLocation(WarehouseLocation warehouseLocation);
-	
-	public ArrayList<WarehouseLocation> findByProductID(int id);
-	
+	public ArrayList<WarehouseLocation> findByProductID(int id);	
 }

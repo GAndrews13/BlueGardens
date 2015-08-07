@@ -2,10 +2,8 @@ package com.netbuilder.BlueGardensEESystem;
 
 import java.util.ArrayList;
 
-import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.CustomerOrderLine;
-import com.netbuilder.entities.Product;
 import com.netbuilder.entities.WarehouseLocation;
 import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entitymanagers.CustomerOrderLineManager;
@@ -26,14 +24,12 @@ public class WarehouseOperation
 	ArrayList<CustomerOrder> openOrders;
 	ArrayList<CustomerOrder> assignedOrders;
 	
-	public WarehouseOperation()
-	{
+	public WarehouseOperation() {
 		openOrders = com.findByDeliveryStatus(DeliveryStatus.ORDER_PLACED);	
 		assignedOrders = com.findByDeliveryStatus(DeliveryStatus.PROCESSING);
 	}
 	
-	public void assignWorkerToOrder(int id)
-	{
+	public void assignWorkerToOrder(int id) {
 		WarehouseWorker worker = wwm.findById(id);
 		CustomerOrder order = openOrders.get(1);
 		worker.setAssigned(true);
@@ -42,8 +38,7 @@ public class WarehouseOperation
 		order.setStatus(DeliveryStatus.PROCESSING);
 	}
 	
-	public void completeOrder(int id)
-	{
+	public void completeOrder(int id) {
 		WarehouseWorker worker = wwm.findById(id);
 		CustomerOrder order = openOrders.get(1);
 		worker.setAssigned(false);
@@ -52,10 +47,8 @@ public class WarehouseOperation
 		order.setStatus(DeliveryStatus.READY);
 	} 
 	
-	
-	
-	public ArrayList<CustomerOrderLine> setPickingOrder(int coid)
-	{
+	@SuppressWarnings("unchecked")
+	public ArrayList<CustomerOrderLine> setPickingOrder(int coid) {
 		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCOID(coid);
 		ArrayList<CustomerOrderLine> pickingOrder = new ArrayList<CustomerOrderLine>();
 		ArrayList<String> ssectionA = new ArrayList<String>();
@@ -76,265 +69,97 @@ public class WarehouseOperation
 		ArrayList<CustomerOrderLine> sectionH = new ArrayList<CustomerOrderLine>();
 		ArrayList<String> ssectionI = new ArrayList<String>();
 		ArrayList<CustomerOrderLine> sectionI = new ArrayList<CustomerOrderLine>();
-		
-		for(CustomerOrderLine col : currentOrderLines)
-		{
+		for(CustomerOrderLine col : currentOrderLines) {
 			int productID = col.getProductId();
 			ArrayList<WarehouseLocation> thisIDLocations = wlm.findByProductID(productID);
 			WarehouseLocation selected = thisIDLocations.get(1);
 			String locID = selected.getLocationId();
-			
-			if(locID.startsWith("A"))
-			{
-				String[] s = locID.split("A");
-				int row = Integer.parseInt(s[1]); 
-				if(sectionA.size() == 0)
-				{
-					ssectionA.add(locID);
-					sectionA.add(col);
-				}
-				else
-				{
-					for(int i = 0; i < ssectionA.size(); i++)
-					{
-						String[] tempS = ssectionA.get(i).split("A");
-						int tempRow = Integer.parseInt(tempS[1]); 						
-						if(row > tempRow)
-						{
-							ssectionA.add(i, locID);
-							sectionA.add(i, col);
-						}
-					}
-				}
-			}
-			else if(locID.startsWith("B"))
-			{		
-				String[] s = locID.split("B");
-				int row = Integer.parseInt(s[1]); 
-				if(ssectionB.size() == 0)
-				{
-					ssectionB.add(locID);
-					sectionB.add(col);
-				}
-				else
-				{
-					for(int i = 0; i < ssectionB.size(); i++)
-					{
-						String[] tempS = ssectionB.get(i).split("B");
-						int tempRow = Integer.parseInt(tempS[1]); 						
-						if(row > tempRow)
-						{
-							ssectionB.add(i, locID);
-							sectionB.add(i, col);
-						}
-					}
-				}
-			}
-			if(locID.startsWith("C"))
-			{	
-				String[] s = locID.split("C");
-				int row = Integer.parseInt(s[1]); 
-				if(ssectionC.size() == 0)
-				{
-					ssectionC.add(locID);
-					sectionC.add(col);
-				}
-				else
-				{
-					for(int i = 0; i < sectionC.size(); i++)
-					{
-						String[] tempS = ssectionC.get(i).split("C");
-						int tempRow = Integer.parseInt(tempS[1]); 						
-						if(row > tempRow)
-						{
-							ssectionC.add(i, locID);
-							sectionC.add(i, col);
-						}
-					}
-				}
-			}
-			if(locID.startsWith("D"))
-			{
-				String[] s = locID.split("D");
-				int row = Integer.parseInt(s[1]); 
-				if(ssectionD.size() == 0)
-				{
-					ssectionD.add(locID);
-					sectionD.add(col);
-				}
-				else
-				{
-					for(int i = 0; i < ssectionD.size(); i++)
-					{
-						String[] tempS = ssectionD.get(i).split("D");
-						int tempRow = Integer.parseInt(tempS[1]); 						
-						if(row > tempRow)
-						{
-							ssectionD.add(i, locID);
-							sectionD.add(i, col);
-						}
-					}
-				}
-			}
-			if(locID.startsWith("E"))
-			{
-				String[] s = locID.split("E");
-				int row = Integer.parseInt(s[1]); 
-				if(ssectionE.size() == 0)
-				{
-					ssectionE.add(locID);
-					sectionE.add(col);
-				}
-				else
-				{
-					for(int i = 0; i < ssectionE.size(); i++)
-					{
-						String[] tempS = ssectionE.get(i).split("E");
-						int tempRow = Integer.parseInt(tempS[1]); 						
-						if(row > tempRow)
-						{
-							ssectionE.add(i, locID);
-							sectionE.add(i, col);
-						}
-					}
-				}
-			}
-			if(locID.startsWith("F"))
-			{
-				String[] s = locID.split("F");
-				int row = Integer.parseInt(s[1]); 
-				if(ssectionF.size() == 0)
-				{
-					ssectionF.add(locID);
-					sectionF.add(col);
-				}
-				else
-				{
-					for(int i = 0; i < ssectionF.size(); i++)
-					{
-						String[] tempS = ssectionF.get(i).split("F");
-						int tempRow = Integer.parseInt(tempS[1]); 						
-						if(row > tempRow)
-						{
-							ssectionF.add(i, locID);
-							sectionF.add(i, col);
-						}
-					}
-				}
-			}
-			if(locID.startsWith("G"))
-			{
-				String[] s = locID.split("G");
-				int row = Integer.parseInt(s[1]); 
-				if(ssectionG.size() == 0)
-				{
-					ssectionG.add(locID);
-					sectionG.add(col);
-				}
-				else
-				{
-					for(int i = 0; i < ssectionG.size(); i++)
-					{
-						String[] tempS = ssectionG.get(i).split("G");
-						int tempRow = Integer.parseInt(tempS[1]); 						
-						if(row > tempRow)
-						{
-							ssectionG.add(i, locID);
-							sectionG.add(i, col);
-						}
-					}
-				}
-			}
-			if(locID.startsWith("H"))
-			{	
-				String[] s = locID.split("H");
-				int row = Integer.parseInt(s[1]); 
-				if(sectionH.size() == 0)
-				{
-					ssectionH.add(locID);
-					sectionH.add(col);
-				}
-				else
-				{
-					for(int i = 0; i < ssectionH.size(); i++)
-					{
-						String[] tempS = ssectionH.get(i).split("H");
-						int tempRow = Integer.parseInt(tempS[1]); 						
-						if(row > tempRow)
-						{
-							ssectionH.add(i, locID);
-							sectionH.add(i, col);
-						}
-					}
-				}
-			}
-			if(locID.startsWith("I"))
-			{
-				String[] s = locID.split("I");
-				int row = Integer.parseInt(s[1]); 
-				if(sectionI.size() == 0)
-				{
-					ssectionI.add(locID);
-					sectionI.add(col);
-				}
-				else
-				{
-					for(int i = 0; i < ssectionI.size(); i++)
-					{
-						String[] tempS = ssectionI.get(i).split("I");
-						int tempRow = Integer.parseInt(tempS[1]); 						
-						if(row > tempRow)
-						{
-							ssectionI.add(i, locID);
-							sectionI.add(i, col);
+			Object[] sections = new Object[2];
+			if(locID.startsWith("A")) {
+				sections = addProduct("A", col, ssectionA, sectionA, locID);
+				ssectionA = (ArrayList<String>) sections[0];
+				sectionA = (ArrayList<CustomerOrderLine>) sections[1];
+			} else { if(locID.startsWith("B")) {		
+					sections = addProduct("B", col, ssectionB, sectionB, locID);
+					ssectionB = (ArrayList<String>) sections[0];
+					sectionB = (ArrayList<CustomerOrderLine>) sections[1];
+				} else { if(locID.startsWith("C")) {	
+						sections = addProduct("C", col, ssectionC, sectionC, locID);
+						ssectionC = (ArrayList<String>) sections[0];
+						sectionC = (ArrayList<CustomerOrderLine>) sections[1];
+					} else { if(locID.startsWith("D")) {
+							sections = addProduct("C", col, ssectionC, sectionC, locID);
+							ssectionD = (ArrayList<String>) sections[0];
+							sectionD = (ArrayList<CustomerOrderLine>) sections[1];
+						} else { if(locID.startsWith("E")) {
+								sections = addProduct("C", col, ssectionC, sectionC, locID);
+								ssectionE = (ArrayList<String>) sections[0];
+								sectionE = (ArrayList<CustomerOrderLine>) sections[1];
+							} else { if(locID.startsWith("F")) {
+									sections = addProduct("C", col, ssectionC, sectionC, locID);
+									ssectionF = (ArrayList<String>) sections[0];
+									sectionF = (ArrayList<CustomerOrderLine>) sections[1];
+								} else { if(locID.startsWith("G")) {
+										sections = addProduct("C", col, ssectionC, sectionC, locID);
+										ssectionG = (ArrayList<String>) sections[0];
+										sectionG = (ArrayList<CustomerOrderLine>) sections[1];
+									} else { if(locID.startsWith("H")) {	
+											sections = addProduct("C", col, ssectionC, sectionC, locID);
+											ssectionH = (ArrayList<String>) sections[0];
+											sectionH = (ArrayList<CustomerOrderLine>) sections[1];
+										} else { if(locID.startsWith("I")) {
+												sections = addProduct("C", col, ssectionC, sectionC, locID);
+												ssectionI = (ArrayList<String>) sections[0];
+												sectionI = (ArrayList<CustomerOrderLine>) sections[1];
+											}
+										}
+									}
+								}
+							}
 						}
 					}
 				}
 			}
 		}
-		
-		for(CustomerOrderLine col : sectionA)
-		{
-			pickingOrder.add(col);
-		}
-		for(CustomerOrderLine col : sectionB)
-		{
-			pickingOrder.add(col);
-		}
-		for(CustomerOrderLine col : sectionC)
-		{
-			pickingOrder.add(col);
-		}
-		for(CustomerOrderLine col : sectionD)
-		{
-			pickingOrder.add(col);
-		}
-		for(CustomerOrderLine col : sectionE)
-		{
-			pickingOrder.add(col);
-		}
-		for(CustomerOrderLine col : sectionF)
-		{
-			pickingOrder.add(col);
-		}
-		for(CustomerOrderLine col : sectionG)
-		{
-			pickingOrder.add(col);
-		}
-		for(CustomerOrderLine col : sectionH)
-		{
-			pickingOrder.add(col);
-		}
-		for(CustomerOrderLine col : sectionI)
-		{
-			pickingOrder.add(col);
-		}
+		pickingOrder = addToPicking(pickingOrder, sectionA);
+		pickingOrder = addToPicking(pickingOrder, sectionB);
+		pickingOrder = addToPicking(pickingOrder, sectionC);
+		pickingOrder = addToPicking(pickingOrder, sectionD);
+		pickingOrder = addToPicking(pickingOrder, sectionE);
+		pickingOrder = addToPicking(pickingOrder, sectionF);
+		pickingOrder = addToPicking(pickingOrder, sectionG);
+		pickingOrder = addToPicking(pickingOrder, sectionH);
+		pickingOrder = addToPicking(pickingOrder, sectionI);
 		return pickingOrder;
 	}
 	
-	public void showNextProduct(int coid)
-	{
+	private ArrayList<CustomerOrderLine> addToPicking(ArrayList<CustomerOrderLine> pickOrder, ArrayList<CustomerOrderLine> section) {
+		for (CustomerOrderLine line : section) {
+			pickOrder.add(line);
+		}
+		return pickOrder;
+	}
+	
+	private Object[] addProduct(String spliter, CustomerOrderLine col, ArrayList<String> ssection, ArrayList<CustomerOrderLine> section, String locid) {
+		String[] s = locid.split(spliter);
+		int row = Integer.parseInt(s[1]); 
+		if(section.size() == 0) {
+			ssection.add(locid);
+			section.add(col);
+		} else {
+			for(int i = 0; i < ssection.size(); i++) {
+				String[] tempS = ssection.get(i).split(spliter);
+				int tempRow = Integer.parseInt(tempS[1]); 						
+				if(row > tempRow) {
+					ssection.add(i, locid);
+					section.add(i, col);
+				}
+			}
+		}
+		return new Object[]{ssection, section};
+	}
+	
+	public void showNextProduct(int coid) {
 		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCOID(coid);
-		
 	}
 }

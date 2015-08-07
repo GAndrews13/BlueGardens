@@ -11,39 +11,35 @@ import com.netbuilder.entities.SupplierProduct;
 import com.netbuilder.entitymanagers.SupplierProductManager;
 
 /**
- * @author abalagel
- * implements the database connectivity
+ * @author abalagel implements the database connectivity
  */
 public class SupplierProductManagerDb implements SupplierProductManager {
-	
 	@Inject
 	private PersistenceManager pm;
-	
+
 	public void persistSupplierProduct(SupplierProduct supplierProduct) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		em.persist(supplierProduct);
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
-
 	}
 
-	public void persistSupplierProducts( ArrayList<SupplierProduct> supplierProducts) {
+	public void persistSupplierProducts(ArrayList<SupplierProduct> supplierProducts) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		for (SupplierProduct supplierProduct :supplierProducts )
+		for (SupplierProduct supplierProduct : supplierProducts)
 			em.persist(supplierProduct);
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
-
 	}
 
 	public void updateSupplierProduct(SupplierProduct supplierProduct) {
-		if (supplierProduct == null) throw new ValidationException("null value");
+		if (supplierProduct == null)
+			throw new ValidationException("null value");
 		EntityManager em = pm.CreateEntityManager();
 		em.merge(supplierProduct);
 		pm.CloseEntityManager(em);
-
 	}
 
 	public SupplierProduct findById(int id) {
@@ -51,10 +47,10 @@ public class SupplierProductManagerDb implements SupplierProductManager {
 		TypedQuery<SupplierProduct> tq = em.createNamedQuery(SupplierProduct.FIND_OUT_BY_PRODUCTID, SupplierProduct.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("ProductID", id);
-		try{
+		try {
 			return tq.getSingleResult();
-		} catch (NoResultException nre){
-		return null;
+		} catch (NoResultException nre) {
+			return null;
 		}
 	}
 
@@ -62,12 +58,11 @@ public class SupplierProductManagerDb implements SupplierProductManager {
 		EntityManager em = pm.CreateEntityManager();
 		TypedQuery<SupplierProduct> tq = em.createNamedQuery(SupplierProduct.FIND_OUT_BY_PRICE, SupplierProduct.class);
 		pm.CloseEntityManager(em);
-		tq.setParameter("Price", price );
-		try{
+		tq.setParameter("Price", price);
+		try {
 			return tq.getSingleResult();
-		} catch (NoResultException nre){
-		return null;
+		} catch (NoResultException nre) {
+			return null;
 		}
 	}
-
 }

@@ -14,14 +14,10 @@ import com.netbuilder.entities.WarehouseWorker;
  * Entity manager for Customer Orders
 *
 **/
- 
 public interface CustomerOrderManager {
-
        public void persistCustomerOrder(CustomerOrder customerOrder);
-       public void persistCustomerOrders(ArrayList<CustomerOrder> customerOrders);
-       
+       public void persistCustomerOrders(ArrayList<CustomerOrder> customerOrders);    
        public void updateCustomerOrder(CustomerOrder customerOrder);
-       
        public CustomerOrder findByCustomerOrderId(int customerOrderId);  //any ID
        public ArrayList<CustomerOrder> findByisAssigned(boolean isAssigned);
        public CustomerOrder findByTrackingId(int trackingId);
@@ -29,5 +25,4 @@ public interface CustomerOrderManager {
        public ArrayList<CustomerOrder> findByCustomer(Customer customer);
        public ArrayList<CustomerOrder> findByWorker(WarehouseWorker worker);
        public ArrayList<CustomerOrder> findByDeliveryStatus(DeliveryStatus status);
-              
 }

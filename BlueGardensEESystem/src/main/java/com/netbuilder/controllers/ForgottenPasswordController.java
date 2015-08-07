@@ -13,7 +13,6 @@ import com.netbuilder.util.ForgottenPasswordDetails;
 /**
  * @author jmander
  **/
-
 @Named
 @Dependent
 public class ForgottenPasswordController {
@@ -21,18 +20,9 @@ public class ForgottenPasswordController {
 	private CustomerManager customerManager;
 	@Inject
 	private CustomerLoginManager customerLoginManager;
-	//@Inject
 	private ForgottenPasswordDetails forgottenPasswordDetails;
 	private String customerEmail;
 	public String errormsg;
-	
-	public String getErrormsg() {
-		return errormsg;
-	}
-
-	public void setErrormsg(String errormsg) {
-		this.errormsg = errormsg;
-	}
 
 	public String forgottenPassword() {
 		if (forgottenPasswordDetails.getUsername().isEmpty() || forgottenPasswordDetails.getEmail().isEmpty()) {
@@ -41,23 +31,24 @@ public class ForgottenPasswordController {
 		}
 		Long uid = customerLoginManager.checkCustomerID(forgottenPasswordDetails.getUsername());
 		Customer customer = customerManager.findByEmail(forgottenPasswordDetails.getEmail());
-		if(uid == null)
-		{
+		if(uid == null) {
 			errormsg = "Incorrect details";
 			return "forgottenPassword";
-		}else if(customer == null){
-			errormsg = "Incorrect details";
-			return "forgottenPassword";
+		} else { if(customer == null) {
+				errormsg = "Incorrect details";
+				return "forgottenPassword";
+			} if(forgottenPasswordDetails.getUsername().isEmpty())
+				customerEmail = forgottenPasswordDetails.getEmail();
+			else { if(forgottenPasswordDetails.getEmail().isEmpty()) {
+					customerEmail = customer.getEmail();
+				}
+			}
 		}
-		if(forgottenPasswordDetails.getUsername().isEmpty()){
-			customerEmail = forgottenPasswordDetails.getEmail();
-		}else if(forgottenPasswordDetails.getEmail().isEmpty()){
-			customerEmail = customer.getEmail();
-		}
-		
-		new ForgottenPasswordEmail(customerEmail);
-		
+		new ForgottenPasswordEmail(customerEmail);		
 		return "login";
 	}
 
+	public String getErrormsg() { return errormsg; }
+
+	public void setErrormsg(String errormsg) { this.errormsg = errormsg; }
 }

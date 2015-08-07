@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.WarehouseLocation;
 import com.netbuilder.entitymanagers.WarehouseLocationManager;
+
 /**@author anca*/
 @Alternative
 public class WarehouseLocationManagerDB implements WarehouseLocationManager {
@@ -38,10 +39,10 @@ public class WarehouseLocationManagerDB implements WarehouseLocationManager {
 		TypedQuery<WarehouseLocation> wr = em.createNamedQuery(WarehouseLocation.FIND_OUT_BY_PRODUCTID, WarehouseLocation.class);
 		pm.CloseEntityManager(em);
 		wr.setParameter("ProductID", id);
-		try{
+		try {
 			return (ArrayList<WarehouseLocation>) wr.getResultList();
-		}catch (NoResultException nre){			
-		return null;
+		} catch (NoResultException nre) {			
+			return null;
 		}
 	}	
 }

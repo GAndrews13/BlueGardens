@@ -14,19 +14,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table (name = "Basket")
-@NamedQueries({ 
-	@NamedQuery(name = Basket.FIND_OUT_BY_PRODUCTID, query = "SELECT b FROM Basket WHERE b.productId = 1")	
-})
-public class Basket {
 /**
  * @author abalagel
  * Attributes for the Basket
  * unique customer id from customer table
  * list of order lines that each contains a product and its required quantity passed from ProductOrderLine.java
 */	
+@Entity
+@Table (name = "Basket")
+@NamedQueries({ @NamedQuery(name = Basket.FIND_OUT_BY_PRODUCTID, query = "SELECT b FROM Basket WHERE b.productId = 1") })
+public class Basket {
 	public static final String FIND_OUT_BY_PRODUCTID = "Basket.findByProductId";
+	
 	@Id
 	@Column (name = "Customer ID", nullable = false)
 	@NotNull
@@ -37,28 +36,20 @@ public class Basket {
 	@NotNull
 	@OneToMany
 	private ArrayList<ProductOrderLine> ProductOrderLine;
-public Basket(int customerId, ArrayList<ProductOrderLine> productOrderLine) {
 	
+	public Basket(int customerId, ArrayList<ProductOrderLine> productOrderLine) {
 		this.customerId = customerId;
 		ProductOrderLine = productOrderLine;
 	}
-/**
-* @author abalagel
-*  getters and setters for class variables
-*  initialise class
-*/	
-	public int getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
-	public ArrayList<ProductOrderLine> getProductOrderLine() {
-		return ProductOrderLine;
-	}
-	public void setProductOrderLine(ArrayList<ProductOrderLine> productOrderLine) {
-		ProductOrderLine = productOrderLine;
-	}
 	
-
+	/**
+	 * @author abalagel
+	 *  getters and setters for class variables
+	 *  initialise class
+	 **/	
+	public int getCustomerId() { return customerId; }
+	public ArrayList<ProductOrderLine> getProductOrderLine() { return ProductOrderLine; }
+	
+	public void setCustomerId(int customerId) { this.customerId = customerId; }
+	public void setProductOrderLine(ArrayList<ProductOrderLine> productOrderLine) { ProductOrderLine = productOrderLine; }
 }

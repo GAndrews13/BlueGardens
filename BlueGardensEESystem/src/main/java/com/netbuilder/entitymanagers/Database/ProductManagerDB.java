@@ -9,9 +9,10 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.customannotations.MethodAuthor;
+import com.netbuilder.annotations.MethodAuthor;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
+
 /**
  * 
  * @author gandrews
@@ -25,10 +26,8 @@ public class ProductManagerDB implements ProductManager {
 	@MethodAuthor (name = "Gandrews")
 	public void persistProduct(Product product) {
 		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		
+		em.getTransaction().begin();		
 		em.persist(product);
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 	}
@@ -37,9 +36,7 @@ public class ProductManagerDB implements ProductManager {
 	public void persistProducts(ArrayList<Product> products) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
-		for(Product product : products)
-		{
+		for(Product product : products) {
 			em.persist(product);
 		}
 		em.getTransaction().commit();
@@ -50,9 +47,7 @@ public class ProductManagerDB implements ProductManager {
 	public void updateProduct(Product product) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
 		em.merge(product);
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 	}
@@ -62,12 +57,9 @@ public class ProductManagerDB implements ProductManager {
 		EntityManager em = pm.CreateEntityManager();
 		ArrayList<Product> products = (ArrayList<Product>) em.createQuery(Product.FIND_BY_NAME,Product.class).getResultList();
 		pm.CloseEntityManager(em);
-		try
-		{
+		try {
 			return products;
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			return null;
 		}
 	}
@@ -81,9 +73,7 @@ public class ProductManagerDB implements ProductManager {
 		ArrayList<Product> p = new ArrayList<Product>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
 		p = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE Price = price",Product.class).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return p;
@@ -93,9 +83,7 @@ public class ProductManagerDB implements ProductManager {
 		ArrayList<Product> p = new ArrayList<Product>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
 		p = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE Stock = 0",Product.class).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return p;
@@ -107,9 +95,9 @@ public class ProductManagerDB implements ProductManager {
 		pm.CloseEntityManager(em);
 		tq.setParameter("id", id);
 		try{
-		return tq.getSingleResult();
+			return tq.getSingleResult();
 		} catch (NoResultException nre) {
-		return null;
+			return null;
 		}
 	}
 
@@ -117,9 +105,7 @@ public class ProductManagerDB implements ProductManager {
 		ArrayList<Product> p = new ArrayList<Product>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
-		p = (ArrayList<Product>) em.createQuery("SELECT * FROM Product ",Product.class).getResultList();
-		
+		p = (ArrayList<Product>) em.createQuery("SELECT * FROM Product ",Product.class).getResultList();		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return p;
@@ -129,9 +115,7 @@ public class ProductManagerDB implements ProductManager {
 		ArrayList<Product> p = new ArrayList<Product>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
 		p = (ArrayList<Product>) em.createQuery("SELECT * FROM Product WHERE Price < price",Product.class).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return p;
@@ -148,7 +132,6 @@ public class ProductManagerDB implements ProductManager {
 		ArrayList<Product> p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_SALE).getResultList();
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
-		
 		return p;
 	}
 
@@ -161,12 +144,9 @@ public class ProductManagerDB implements ProductManager {
 		ArrayList<Product> p = new ArrayList<Product>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
 		p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_POUROUSWARE).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
-		
 		return p;
 	}
 	/**
@@ -181,7 +161,6 @@ public class ProductManagerDB implements ProductManager {
 		p = (ArrayList<Product>) em.createNamedQuery(Product.FIND_BY_TRENDING).getResultList();
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
-		
 		return p;
 	}
 	
@@ -190,11 +169,10 @@ public class ProductManagerDB implements ProductManager {
 		TypedQuery<Product> tq = em.createNamedQuery(Product.FIND_BY_IMAGE_LINK, Product.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("imageLink", link);
-		try{
-		return tq.getSingleResult();
+		try {
+			return tq.getSingleResult();
 		} catch (NoResultException nre) {
-		return null;
+			return null;
 		}
 	}
-
 }

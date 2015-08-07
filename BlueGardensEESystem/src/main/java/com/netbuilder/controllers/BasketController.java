@@ -22,7 +22,7 @@ public class BasketController implements Serializable{
 	@Inject
 	private BasketManager bm;
 	private String errormsg; 
-	private double basketTotal =0;
+	private double basketTotal = 0;
 	private ArrayList<Product> items;
 	
 	public ArrayList<Product> getItems() {
@@ -30,11 +30,9 @@ public class BasketController implements Serializable{
 		return items;
 	}
 	
-	public ArrayList<Product> getItemsFromPOLS()
-	{
+	public ArrayList<Product> getItemsFromPOLS() {
 		ArrayList<Product> temp = new ArrayList<Product>();
-		for(int i = 0;i<bm.products().size();i++)
-		{
+		for(int i = 0;i<bm.products().size();i++) {
 			temp.add(bm.products().get(i).getProduct());
 		}
 		return temp;
@@ -42,48 +40,22 @@ public class BasketController implements Serializable{
 	
 	public double getBasketTotal() {
 		basketTotal = bm.findTotal();
-		return basketTotal;//bm.findTotal();
-	}
-
-	public void setBasketTotal(double basketTotal) {
-		this.basketTotal = basketTotal;
-	}
-
-	public BasketManager getBm() {
-		return bm;
-	}
-
-	public void setBm(BasketManager bm) {
-		this.bm = bm;
-	}
-
-	public String getErrormsg() {
-		return errormsg;
-	}
-
-	public void setErrormsg(String errormsg) {
-		this.errormsg = errormsg;
-	}
-
-	public ArrayList<ProductOrderLine> pols()
-	{
-		return bm.products();
+		return basketTotal;
 	}
 	
-	public void addProduct(Product inProduct)
-	{
+	public String getErrormsg() { return errormsg; }
+	public BasketManager getBm() { return bm; }
+	public ArrayList<ProductOrderLine> pols() { return bm.products(); }
+	
+	public void setBasketTotal(double basketTotal) { this.basketTotal = basketTotal; }
+	public void setBm(BasketManager bm) { this.bm = bm; }
+	public void setErrormsg(String errormsg) { this.errormsg = errormsg; }
+
+	public void addProduct(Product inProduct) {
 		bm.products().add(new ProductOrderLine(inProduct,1));
 	}
 	
-	public void submitBasket(Basket inBasket)
-	{
+	public void submitBasket(Basket inBasket) {
 		BasketProductOrderService.createBasketOrder(inBasket);
 	}
 }
-/*
-* dispay basket on page
-* from contoller (thep page doesnt know what to do with a basket) you need to go to the se4rvice layer
-* from the tte service you need to got o the basket managfer, get the basket, bull out the products. send back to controller as array
-* XHTML have some dynamic table thing to display each element in array.
-* 
-*/

@@ -17,7 +17,6 @@ import com.netbuilder.util.LoginUtils;
 /**
  * @author jmander
  **/
-
 @Named
 @Dependent
 public class CustomerRegistrationController {
@@ -33,18 +32,10 @@ public class CustomerRegistrationController {
 	private CustomerLogin newCustomerLogin;
 	private byte[] customerSalt;
 	public String errormsg;
-	public String getErrormsg() {
-		return errormsg;
-	}
-
-	public void setErrormsg(String errormsg) {
-		this.errormsg = errormsg;
-	}
-
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<String> usernames = new ArrayList<String>();
 	
-	public String registeredCustomer(){
+	public String registeredCustomer() {
 		if (customerDetails.getFirstName().isEmpty()) {
 			errormsg = "Please enter a first name";
 			return "registeredCustomer";
@@ -58,8 +49,8 @@ public class CustomerRegistrationController {
 			return "registeredCustomer";
 		}
 		usernames = customerLoginManager.findAll();
-		for(String username: usernames){
-			if(customerDetails.getUsername() == username){
+		for(String username: usernames) {
+			if(customerDetails.getUsername() == username) {
 				errormsg = "This username already exists";
 				return "registeredCustomer";
 			}
@@ -72,7 +63,7 @@ public class CustomerRegistrationController {
 			errormsg = "Please confirm your password";
 			return "registeredCustomer";
 		}
-		if(confirmPassword != customerDetails.getPassword()){
+		if(confirmPassword != customerDetails.getPassword()) {
 			errormsg = "The passwords do not match";
 			return "registeredCustomer";
 		}
@@ -81,8 +72,8 @@ public class CustomerRegistrationController {
 			return "registeredCustomer";
 		}
 		customers = customerManager.findAll();
-		for(Customer c: customers){
-			if(customerDetails.getEmail() == c.getEmail()){
+		for(Customer c: customers) {
+			if(customerDetails.getEmail() == c.getEmail()) {
 				errormsg = "This email already exists";
 				return "registeredCustomer";
 			}
@@ -91,7 +82,7 @@ public class CustomerRegistrationController {
 			errormsg = "Please confirm your email";
 			return "registeredCustomer";
 		}
-		if(confirmEmail != customerDetails.getUsername()){
+		if(confirmEmail != customerDetails.getUsername()) {
 			errormsg = "The emails do not match";
 			return "registeredCustomer";
 		}
@@ -103,20 +94,16 @@ public class CustomerRegistrationController {
 			errormsg = "Please enter a contact number";
 			return "registeredCustomer";
 		}
-		
-		newCustomer = new Customer(customerDetails.getFirstName(), customerDetails.getLastName(), customerDetails.getAddress(),
-				customerDetails.getContactNumber(), customerDetails.getEmail(), "ACTIVE");
-		
+		newCustomer = new Customer(customerDetails.getFirstName(), customerDetails.getLastName(), customerDetails.getAddress(), customerDetails.getContactNumber(), customerDetails.getEmail(), "ACTIVE");
 		customerSalt = LoginUtils.getNextSalt();
-		
 		newCustomerLogin = new CustomerLogin(newCustomer.getCustomerID(), customerDetails.getUsername(), customerDetails.getPassword(), customerSalt);
-		
 		customerManager.persistCustomer(newCustomer);
 		customerLoginManager.persistCustomerLogin(newCustomerLogin);
-
 		new RegistrationEmail(customerDetails.getEmail(), customerDetails.getFirstName(), customerDetails.getUsername());
-		
 		return "login";
 	}
+	
+	public String getErrormsg() { return errormsg; }
 
+	public void setErrormsg(String errormsg) { this.errormsg = errormsg; }
 }

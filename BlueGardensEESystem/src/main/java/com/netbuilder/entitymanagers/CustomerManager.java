@@ -1,14 +1,14 @@
 package com.netbuilder.entitymanagers;
-/**
- * @author Jake
- *	Entity Manager for the Customer entity
- *	
- */
 
 import java.util.ArrayList;
 
 import com.netbuilder.entities.Customer;
 
+/**
+ * @author Jake
+ *	Entity Manager for the Customer entity
+ *	
+ */
 public interface CustomerManager 
 {
 	/**

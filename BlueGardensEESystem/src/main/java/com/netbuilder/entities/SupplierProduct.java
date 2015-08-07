@@ -18,13 +18,9 @@ import javax.validation.constraints.NotNull;
 	@NamedQuery( name = SupplierProduct.FIND_OUT_BY_PRICE, query = "SELECT p FROM SupplierProduct WHERE p.Price =1.5")
 })
 public class SupplierProduct {
-/**
- * @author abalagel
- * Attributes for product received from supplier
- * includes supplier unique ID, product unique ID and the purchasing price from supplier
-*/
 	public static final String FIND_OUT_BY_PRODUCTID = "SupplierProduct.findByProductId";
 	public static final String FIND_OUT_BY_PRICE = "SupplierProduct.findbyPrice";
+
 	@Id
 	@Column (name = "Supplier ID", nullable = false)
 	@NotNull
@@ -39,31 +35,15 @@ public class SupplierProduct {
 	@NotNull
 	private double price;
 	
-public SupplierProduct(int supplierId, int productId, double price) {
-		
+	public SupplierProduct(int supplierId, int productId, double price) {		
 		this.supplierId = supplierId;
 		this.productId = productId;
 		this.price = price;
 	}
-/**
- * @author abalagel
- * getters and setters for class variables
- *initialise class
-*/
-	public int getProductId() {
-		return productId;
-	}
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public int getSupplierId() {
-		return supplierId;
-	}
-
+	
+	public int getProductId() { return productId; }
+	public double getPrice() { return price; }
+	public int getSupplierId() { return supplierId; }
+	public void setProductId(int productId) { this.productId = productId; }
+	public void setPrice(double price) { this.price = price; }
 }

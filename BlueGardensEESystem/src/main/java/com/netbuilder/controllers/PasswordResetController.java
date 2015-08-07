@@ -10,38 +10,25 @@ import com.netbuilder.util.PasswordReset;
 /**
  * @author jmander
  **/
-
 @Named
 @Dependent
 public class PasswordResetController {
-	//@Inject
 	private CustomerLogin customerLogin;
-	//@Inject
 	private PasswordReset passwordReset;
 	public String errormsg;
-	
-	public String getErrormsg() {
-		return errormsg;
-	}
-
-	public void setErrormsg(String errormsg) {
-		this.errormsg = errormsg;
-	}
 
 	public String passwordReset() {
 		if(passwordReset.getNewPassword() != passwordReset.getConfirmNewPassword()){
 			errormsg = "Passwords do not match";
 			return "passwordReset";
 		}
-		try
-		{
+		try {
 			customerLogin.setCustomerPassword(LoginUtils.hash(passwordReset.getNewPassword(),customerLogin.getSalt()));
-		}
-		catch (Exception e)
-		{
-			System.out.println(e.toString());
-		}
-		
+		} catch (Exception e) { System.out.println(e.toString()); }		
 		return "login";
 	}
+	
+	public String getErrormsg() { return errormsg; }
+
+	public void setErrormsg(String errormsg) { this.errormsg = errormsg; }
 }

@@ -27,78 +27,34 @@ public class CustomerOrderLine
 	public static final String FIND_BY_CO_ID = "CustomerOrderLine.findByCOID";
 	public static final String FIND_BY_PRODUCT_ID = "CustomerOrderLine.findByPID";
 	
-	/**
-	 * Customer Order Line ID is the primary key for the this table
-	 */
 	@Id
 	@Column(name = "COID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
 	private int CustomerOrderID;
 	
-	/**
-	 *  Product ID will be linked to the product entity
-	 */
 	@Column(name = "ProductID", nullable = false)
 	private int productId;
 	
-	/**
-	 * Quantity cannot be null as at least one product must be in the order line
-	 */
 	@Column(name = "Quantity", nullable = false)
 	@NotNull
 	private int quantity;
 	
-	/**
-	 * Quantity cannot be null as at least one product must be in the order line
-	 */
 	@Column(name = "IsPicked", nullable = false)
 	@NotNull
 	private boolean isPicked;
 	
-	public CustomerOrderLine(int productID, int Quantity)
-	{
+	public CustomerOrderLine(int productID, int Quantity) {
 		this.productId = productID;
 		this.quantity = Quantity;
 	}
 
-	/**
-	 * @author Jake
-	 *	Getters and Setters for class variables
-	 *	Initialise class
-	 */
-	public int getCustomerOrderLineID() {
-		return CustomerOrderID;
-	}
-
-	public void setCustomerOrderLineID(int customerOrderID) {
-		CustomerOrderID = customerOrderID;
-	}
-
-	public int getProductId() {
-		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	
-	public void setIsPicked(boolean picked)
-	{
-		isPicked = picked;
-	}
-	
-	public boolean getIsPicked()
-	{
-		return isPicked;
-	}
-	
+	public int getCustomerOrderLineID() { return CustomerOrderID; }
+	public int getProductId() { return productId; }
+	public int getQuantity() { return quantity; }
+	public boolean getIsPicked() { return isPicked; }	
+	public void setCustomerOrderLineID(int customerOrderID) { CustomerOrderID = customerOrderID; }
+	public void setProductId(int productId) { this.productId = productId; }
+	public void setQuantity(int quantity) {this.quantity = quantity; }
+	public void setIsPicked(boolean picked) { isPicked = picked; }	
 }

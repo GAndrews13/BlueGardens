@@ -12,8 +12,7 @@ import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.ProductOrderLineManager;
 
-public class ProductOrderLineDB implements ProductOrderLineManager 
-{
+public class ProductOrderLineDB implements ProductOrderLineManager {
 	@Inject
 	private PersistenceManager pm;
 	
@@ -21,8 +20,7 @@ public class ProductOrderLineDB implements ProductOrderLineManager
 	 * @author Jake
 	 *	Add a new product order line into the system
 	 */
-	public void persistPOL(ProductOrderLine pol)
-	{
+	public void persistPOL(ProductOrderLine pol) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		em.persist(pol);
@@ -34,48 +32,39 @@ public class ProductOrderLineDB implements ProductOrderLineManager
 	 * @author Jake
 	 *	Find a product order line by its ID
 	 */
-	public ProductOrderLine findByPOLID(int pol_ID)
-	{
+	public ProductOrderLine findByPOLID(int pol_ID) {
 		EntityManager em = pm.CreateEntityManager(); 
 		TypedQuery<ProductOrderLine> tq = em.createNamedQuery(ProductOrderLine.FIND_BY_POL_ID, ProductOrderLine.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("POLID", pol_ID);
-		try
-		{
+		try {
 			return tq.getSingleResult(); 
-		}
-		catch (NoResultException nre) 
-			{
-				return null;
-			} 
+		} catch (NoResultException nre) {
+			return null;
+		} 
 	}
 	
 	/**
 	 * @author Jake
 	 *	Find a product order line by the customer ID
 	 */
-	public ProductOrderLine findByCID(int customerID)
-	{
+	public ProductOrderLine findByCID(int customerID) {
 		EntityManager em = pm.CreateEntityManager(); 
 		TypedQuery<ProductOrderLine> tq = em.createNamedQuery(ProductOrderLine.FIND_BY_CUSTOMER_ID, ProductOrderLine.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("CustomerID", customerID);
-		try
-		{
+		try {
 			return tq.getSingleResult(); 
-		}
-		catch (NoResultException nre) 
-			{
-				return null;
-			} 
+		} catch (NoResultException nre) {
+			return null;
+		} 
 	}
 	
 	/**
 	 * @author Jake
 	 *	Find all product order lines above a certain quantity
 	 */
-	public ArrayList<ProductOrderLine> findByQuantity(int quantity)
-	{
+	public ArrayList<ProductOrderLine> findByQuantity(int quantity) {
 		EntityManager em = pm.CreateEntityManager();
 		ArrayList<ProductOrderLine> POL = (ArrayList<ProductOrderLine>) em.createQuery("select * from ProductOrderLine a", ProductOrderLine.class).getResultList(); 
 		pm.CloseEntityManager(em); 
@@ -86,8 +75,7 @@ public class ProductOrderLineDB implements ProductOrderLineManager
 	 * @author Jake
 	 *	Update details in a product order line
 	 */
-	public void updatePOL(ProductOrderLine pol)
-	{
+	public void updatePOL(ProductOrderLine pol) {
 		if(pol == null)
 			throw new ValidationException("null value passed");
 		EntityManager em = pm.CreateEntityManager();
@@ -99,8 +87,7 @@ public class ProductOrderLineDB implements ProductOrderLineManager
 	 * @author Jake
 	 *	Return all product order lines
 	 */
-	public ArrayList <ProductOrderLine> findall()
-	{
+	public ArrayList <ProductOrderLine> findall() {
 		EntityManager em = pm.CreateEntityManager();
 		ArrayList<ProductOrderLine> POL = (ArrayList<ProductOrderLine>) em.createQuery("select * from ProductOrderLine a", ProductOrderLine.class).getResultList(); 
 		pm.CloseEntityManager(em); 

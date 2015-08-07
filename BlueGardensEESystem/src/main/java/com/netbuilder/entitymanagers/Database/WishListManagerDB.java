@@ -22,9 +22,7 @@ public class WishListManagerDB implements WishListManager {
 	public void persistWishlistItem(WishlistItems wishlistitem) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
 		em.persist(wishlistitem);
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);	
 	}
@@ -32,9 +30,7 @@ public class WishListManagerDB implements WishListManager {
 	public void persistWishlistItems(ArrayList<WishlistItems> wishlistitems) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
-		for(WishlistItems wishlistItem : wishlistitems)
-		{
+		for(WishlistItems wishlistItem : wishlistitems) {
 			em.persist(wishlistItem);
 		}
 		em.getTransaction().commit();
@@ -51,16 +47,10 @@ public class WishListManagerDB implements WishListManager {
 		EntityManager em = pm.CreateEntityManager();
 		ArrayList<WishlistItems> wishlist = (ArrayList<WishlistItems>) em.createQuery(WishlistItems.FIND_BY_CUSTOMER_ID,WishlistItems.class).getResultList();
 		pm.CloseEntityManager(em);
-		try
-		{
+		try {
 			return wishlist;
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			return null;
 		}
 	}
-
-
-
 }

@@ -7,10 +7,10 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 /**
  * @author abalagel
  */
-
 @Entity
 @Table(name = "WarehouseLocation")
 @NamedQueries({
@@ -39,27 +39,11 @@ public class WarehouseLocation {
 		this.quantity = quantity;
 	}
 
-	public void setProductId(int id)
-	{
-		this.productId = id;
-	}
-	public int getProductId() {
-		return productId;
-	}
-
-	public String getLocationId() {
-		return locationId;
-	}
-
-	public void setLocationId(String locationId) {
-		this.locationId = locationId;
-	}
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
+	public void setProductId(int id) { this.productId = id; }
+	public String getLocationId() { return locationId; }	
+	public int getProductId() { return productId; }
+	public int getQuantity() { return quantity; }
+	
+	public void setLocationId(String locationId) { this.locationId = locationId; }
+	public void setQuantity(int quantity) { this.quantity = quantity; }
 }

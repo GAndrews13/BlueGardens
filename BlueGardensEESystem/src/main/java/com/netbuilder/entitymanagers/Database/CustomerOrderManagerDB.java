@@ -15,7 +15,6 @@ import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entitymanagers.CustomerOrderManager;
 
-
 /**
  * 
  * @author jmander
@@ -23,9 +22,7 @@ import com.netbuilder.entitymanagers.CustomerOrderManager;
  * Created DB interface for Customer Order class and its queries
  *
  **/
-
 public class CustomerOrderManagerDB implements CustomerOrderManager {
-	
 	@Inject
 	private PersistenceManager pm;
     ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
@@ -41,7 +38,7 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 	public void persistCustomerOrders(ArrayList<CustomerOrder> customerOrders) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		for (CustomerOrder customerOrder : customerOrders){
+		for (CustomerOrder customerOrder : customerOrders) {
 			em.persist(customerOrder);
 		}
 		em.getTransaction().commit();
@@ -51,20 +48,20 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 	public void updateCustomerOrder(CustomerOrder customerOrder) {
 		if (customerOrder == null)
 			throw new ValidationException("null value passed ");
-			EntityManager em = pm.CreateEntityManager();
-			em.merge(customerOrder);
-			pm.CloseEntityManager(em);
+		EntityManager em = pm.CreateEntityManager();
+		em.merge(customerOrder);
+		pm.CloseEntityManager(em);
 	}
-
+	
 	public CustomerOrder findByCustomerOrderId(int customerOrderId) {
 		EntityManager em = pm.CreateEntityManager();
 		TypedQuery<CustomerOrder> tq = em.createNamedQuery(CustomerOrder.FIND_BY_CUSTOMER_ORDER_ID, CustomerOrder.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("id", customerOrderId);
 		try{
-		return tq.getSingleResult();
+			return tq.getSingleResult();
 		} catch (NoResultException nre) {
-		return null;
+			return null;
 		}
 	}
 
@@ -72,9 +69,7 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
 		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE Is_Assigned = isAssigned ",CustomerOrder.class).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return co;
@@ -86,9 +81,9 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		pm.CloseEntityManager(em);
 		tq.setParameter("id", trackingId);
 		try{
-		return tq.getSingleResult();
+			return tq.getSingleResult();
 		} catch (NoResultException nre) {
-		return null;
+			return null;
 		}
 	}
 
@@ -96,9 +91,7 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
 		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE DeliveryType = deliveryType",CustomerOrder.class).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return co;
@@ -108,9 +101,7 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
 		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE Customer.CustomerID = customer ",CustomerOrder.class).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return co;
@@ -120,9 +111,7 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
 		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE WarehouseWorker.WorkerId = worker ",CustomerOrder.class).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return co;
@@ -132,12 +121,9 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-
 		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE DeliveryStatus = status ",CustomerOrder.class).getResultList();
-		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return co;
-    }
-    
+    }   
 }

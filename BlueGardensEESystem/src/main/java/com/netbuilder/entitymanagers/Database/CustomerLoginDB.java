@@ -12,7 +12,6 @@ import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 
 public class CustomerLoginDB implements CustomerLoginManager {
-
 	@Inject 
 	private PersistenceManager pm;
 	
@@ -21,12 +20,9 @@ public class CustomerLoginDB implements CustomerLoginManager {
 		EntityManager em = pm.CreateEntityManager();
 		TypedQuery<CustomerLogin> tq = em.createQuery(SQLStatement, CustomerLogin.class);
 		tq.setParameter("username", inUsername);
-		try
-		{
+		try {
 			return tq.getSingleResult().getCustomerID();
-		}
-		catch (NoResultException nre)
-		{
+		} catch (NoResultException nre) {
 			return 0;
 		}
 	}
@@ -36,12 +32,9 @@ public class CustomerLoginDB implements CustomerLoginManager {
 		EntityManager em = pm.CreateEntityManager();
 		TypedQuery<CustomerLogin> tq = em.createQuery(SQLStatement, CustomerLogin.class);
 		tq.setParameter("username",inUsername);
-		try
-		{
+		try {
 			return tq.getSingleResult().getCustomerID();
-		}
-		catch (NoResultException nre)
-		{
+		} catch (NoResultException nre) {
 			return 0;			
 		}
 	}
@@ -78,7 +71,5 @@ public class CustomerLoginDB implements CustomerLoginManager {
 	@Override
 	public void updateCustomerPassword(long id, String password) {
 		// TODO Auto-generated method stub
-		
 	}
-
 }

@@ -12,23 +12,13 @@ import com.netbuilder.util.ForgottenUsernameDetails;
 /**
  * @author jmander
  **/
-
 @Named
 @Dependent
 public class ForgottenUsernameController {
 	@Inject
 	private CustomerManager customerManager;
-	//@Inject
 	private ForgottenUsernameDetails forgottenUsernameDetails;
 	public String errormsg;
-	
-	public String getErrormsg() {
-		return errormsg;
-	}
-
-	public void setErrormsg(String errormsg) {
-		this.errormsg = errormsg;
-	}
 
 	public String forgottenUsername() {
 		if (forgottenUsernameDetails.getEmail().isEmpty()) {
@@ -36,11 +26,15 @@ public class ForgottenUsernameController {
 			return "forgottenUsername";
 		}
 		Customer email = customerManager.findByEmail(forgottenUsernameDetails.getEmail());
-		if(email == null){
+		if(email == null) {
 			errormsg = "Incorrect details";
 			return "forgottenUsername";
 		}
 		new ForgottenUsernameEmail(forgottenUsernameDetails.getEmail());
 		return "login";
 	}
+	
+	public String getErrormsg() { return errormsg; }
+
+	public void setErrormsg(String errormsg) { this.errormsg = errormsg; }
 }

@@ -24,17 +24,17 @@ import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
  * the type of delivery (first class etc.) that the customer has requested and a means of tracking the differing states of the order  
  *
  **/
-
 @Entity
 @Table (name = "Customer Order")
-@NamedQueries ({@NamedQuery (name = CustomerOrder.FIND_BY_CUSTOMER_ORDER_ID, query = "SELECT co FROM CustomerOrder co WHERE co.customerOrderID = :id"),
+@NamedQueries ({
+	@NamedQuery (name = CustomerOrder.FIND_BY_CUSTOMER_ORDER_ID, query = "SELECT co FROM CustomerOrder co WHERE co.customerOrderID = :id"),
 	@NamedQuery (name = CustomerOrder.FIND_BY_ASSIGNED, query = "SELECT co FROM CustomerOrder co WHERE co.Is_Assigned = :assigned"),
 	@NamedQuery (name = CustomerOrder.FIND_BY_TRACKING_ID, query = "SELECT co FROM CustomerOrder co WHERE co.TrackingID = :id"),
 	@NamedQuery (name = CustomerOrder.FIND_BY_DELIVERY_TYPE, query = "SELECT co FROM CustomerOrder co WHERE co.DeliveryType = :deliveryType"),
 	@NamedQuery (name = CustomerOrder.FIND_BY_CUSTOMER, query = "SELECT co FROM CustomerOrder co WHERE Customer.CustomerID = :customer"),
-	@NamedQuery (name = CustomerOrder.FIND_BY_WORKER, query = "SELECT co FROM CustomerOrder co WHERE WarehouseWorker.WorkerID = :worker")})
+	@NamedQuery (name = CustomerOrder.FIND_BY_WORKER, query = "SELECT co FROM CustomerOrder co WHERE WarehouseWorker.WorkerID = :worker")
+})
 public class CustomerOrder {
-	
 	public static final String FIND_BY_CUSTOMER_ORDER_ID = "CustomerOrder.findByCustomerOrderId";
 	public static final String FIND_BY_ASSIGNED = "CustomerOrder.findByAssigned";
 	public static final String FIND_BY_TRACKING_ID = "CustomerOrder.findByTrackingId";
@@ -42,34 +42,6 @@ public class CustomerOrder {
 	public static final String FIND_BY_CUSTOMER = "CustomerOrder.findByCustomer";
 	public static final String FIND_BY_WORKER = "CustomerOrder.findByWorker";
 	
-	public CustomerOrder(){
-		
-	}
-	
-	
-	public CustomerOrder(boolean isAssigned, int trackingID,
-			String deliveryType, Customer customer, ArrayList<ProductOrderLine> productOrderLine,
-			WarehouseWorker worker, DeliveryStatus status) {
-		this.isAssigned = isAssigned;
-		this.trackingID = trackingID;
-		this.deliveryType = deliveryType;
-		this.customer = customer;
-		this.productOrderLine = productOrderLine;
-		this.worker = worker;
-		this.status = status;
-	}
-
-	public CustomerOrder(Customer inCustomer, ArrayList<ProductOrderLine> inProductOrderLines)
-	{
-		this.isAssigned = false;
-		this.worker = null;
-		this.deliveryType = null;
-		
-		this.customer = inCustomer;
-		this.productOrderLine = inProductOrderLines;
-		this.status = DeliveryStatus.ORDER_PLACED;
-	}
-
 	@Id
 	@Column (name = "COID", nullable = false)
 	@NotNull
@@ -108,56 +80,40 @@ public class CustomerOrder {
 	@NotNull
 	private DeliveryStatus status;
 	
-	public int getCustomerOrderID() {
-		return customerOrderID;
+	public CustomerOrder() { }
+	
+	public CustomerOrder(boolean isAssigned, int trackingID, String deliveryType, Customer customer, ArrayList<ProductOrderLine> productOrderLine, WarehouseWorker worker, DeliveryStatus status) {
+		this.isAssigned = isAssigned;
+		this.trackingID = trackingID;
+		this.deliveryType = deliveryType;
+		this.customer = customer;
+		this.productOrderLine = productOrderLine;
+		this.worker = worker;
+		this.status = status;
 	}
 
+	public CustomerOrder(Customer inCustomer, ArrayList<ProductOrderLine> inProductOrderLines) {
+		this.isAssigned = false;
+		this.worker = null;
+		this.deliveryType = null;
+		this.customer = inCustomer;
+		this.productOrderLine = inProductOrderLines;
+		this.status = DeliveryStatus.ORDER_PLACED;
+	}
+
+	public int getCustomerOrderID() { return customerOrderID; }
+	public int getTrackingID() { return trackingID; }
+	public boolean getIsAssigned() { return isAssigned; }
+	public String getDeliveryType() { return deliveryType; }
+	public Customer getCustomer() { return customer; }
+	public ArrayList<ProductOrderLine> getProductOrderLines() { return productOrderLine; }
+	public WarehouseWorker getWorker() { return worker; }
+	public DeliveryStatus getStatus(){ return status; }
 	
-	public boolean getIsAssigned() {
-		return isAssigned;
-	}
-	public void setIsAssigned(boolean isAssigned) {
-		this.isAssigned = isAssigned;
-	}
+	public void setIsAssigned(boolean isAssigned) { this.isAssigned = isAssigned; }
+	public void setDeliveryType(String deliveryType) { this.deliveryType = deliveryType; }
+	public void setWorker(WarehouseWorker worker) { this.setWorker(worker); }
+	public void setStatus(DeliveryStatus status){ this.status= status; }
 	
-	public int getTrackingID() {
-		return trackingID;
-	}
-	
-	public String getDeliveryType() {
-		return deliveryType;
-	}
-	public void setDeliveryType(String deliveryType) {
-		this.deliveryType = deliveryType;
-	}
-	
-	public Customer getCustomer() {
-		return customer;
-	}
-	
-	public ArrayList<ProductOrderLine> getProductOrderLines() {
-		return productOrderLine;
-	}
-	
-	public void addProductOrderLine(ProductOrderLine p){
-		productOrderLine.add(p);
-	}
-	
-	public void setWorker(WarehouseWorker worker)
-	{
-		this.setWorker(worker);
-	}
-	
-	public WarehouseWorker getWorker() {
-		return worker;
-	}
-	
-	public DeliveryStatus getStatus(){
-		return status;
-	}
-	
-	public void setStatus(DeliveryStatus status){
-		 this.status= status;
-	}
-	
+	public void addProductOrderLine(ProductOrderLine p){ productOrderLine.add(p); }
 }

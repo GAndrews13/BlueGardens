@@ -12,7 +12,6 @@ import com.netbuilder.entities.WeeklySales;
 public interface WeeklySalesManager {
 	public void persistWeeklySales(WeeklySales inWeeklySales);
 	public void persistWeeklySales(ArrayList<WeeklySales> inWeeklySalesList);
-	
 	public ArrayList<WeeklySales> findByMonth(int inMonthNumber);
 	public ArrayList<WeeklySales> findByMinimumSales(int inMinimumSales);
 }

@@ -4,13 +4,10 @@ import java.util.ArrayList;
 
 import com.netbuilder.entities.PurchaseOrderLine;
 
-public interface PurchaseOrderLineManager 
-{
+public interface PurchaseOrderLineManager {
 	public void persistPurchaseOrderLine(PurchaseOrderLine pol);
 	public void persistPurchaseOrderLines(ArrayList<PurchaseOrderLine> pols);
-	
-	public void updatePurchaseOrderLine(PurchaseOrderLine pol);
-	
+	public void updatePurchaseOrderLine(PurchaseOrderLine pol);	
 	public ArrayList<PurchaseOrderLine> findbyPurchaseOrderID(int poid);
 	public ArrayList<PurchaseOrderLine> findbyProductID(int pid);
 }

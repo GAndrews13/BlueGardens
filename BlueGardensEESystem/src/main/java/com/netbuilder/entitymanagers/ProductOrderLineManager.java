@@ -1,12 +1,13 @@
 package com.netbuilder.entitymanagers;
-/**
- * @author Jake
- *	Entity manager for the product order line
- */
+
 import java.util.ArrayList;
 
 import com.netbuilder.entities.ProductOrderLine;
 
+/**
+ * @author Jake
+ *	Entity manager for the product order line
+ */
 public interface ProductOrderLineManager 
 {
 	/**
@@ -44,6 +45,4 @@ public interface ProductOrderLineManager
 	 *	Return all product order lines
 	 */
 	public ArrayList <ProductOrderLine> findall();
-	
-
 }

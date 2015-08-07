@@ -1,4 +1,4 @@
-package com.netbuilder.customannotations;
+package com.netbuilder.annotations;
 
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.CONSTRUCTOR;
