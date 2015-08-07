@@ -104,24 +104,24 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		return co;
 	}
 
-	public ArrayList<CustomerOrder> findByCustomer(Customer customer) {
+	public ArrayList<CustomerOrder> findByCustomer(long customerID) {
 		ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 
-		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE Customer.CustomerID = customer ",CustomerOrder.class).getResultList();
+		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE Customer.CustomerID = customerID ",CustomerOrder.class).getResultList();
 		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return co;
 	}
 
-	public ArrayList<CustomerOrder> findByWorker(WarehouseWorker worker) {
+	public ArrayList<CustomerOrder> findByWorker(long workerID) {
 		ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 
-		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE WarehouseWorker.WorkerId = worker ",CustomerOrder.class).getResultList();
+		co = (ArrayList<CustomerOrder>) em.createQuery("SELECT * FROM CustomerOrder WHERE WarehouseWorker.WorkerId = workerID ",CustomerOrder.class).getResultList();
 		
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);

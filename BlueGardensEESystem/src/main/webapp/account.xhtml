@@ -7,25 +7,36 @@
 		
 <ui:define name="pageTitle">Account</ui:define>
 <ui:define name="body">
-<table>
-	<tr>
-		<td>
-		<div id="login">
-				<h:form>
+<div class = "landingContent">
+<h:form>
+
+			<!-- #{accountController.search()} -->
+			<h1></h1>
 				<h:panelGrid>
-		  			<h3>Personal Details</h3>
-		      		<h:outputText name="#{accountController.firstName}"/><br/>
-		      		<h:outputText name="#{accountController.lastName}"/><br/>
-		      		<h:outputText name="#{accountController.address}"/><br/>
-		      		<h:outputText name="#{accountController.contactNumber}"/><br/>
-		      		<h:outputText name="#{accountController.email}"/><br/>		      		
-		      		<h3>Your Orders</h3>
-					<h:outputText name="#{accountController.orders}"/><br/>
-					</h:panelGrid>	
-				</h:form>
+				
+					Username:  #{accountController.username}<br/><br/>
+					Customer ID:  #{accountController.customer.getCustomerID()}<br/><br/>
+					Name:  #{accountController.customer.getFirstName()}
+					#{accountController.customer.getLastName()}<br/><br/>
+					Address:  #{accountController.customer.getAddress()}<br/><br/>
+					Email:  #{accountController.customer.getEmail()}<br/><br/>
+					Contact Number:  #{accountController.customer.getContactNUM()}<br/><br/>
+					Account Status:  #{accountController.customer.getAccountSTATUS()}<br/>
+					<h:form>
+					<h:outputLabel value="#{accountController.errmsg}"/><br/>
+					<h:outputLabel value="Password" for="password"/><br/>
+					<h:inputSecret id="password" value="#{accountController.password}" maxlength="45" size="20"/><br/>
+					<br/>
+					<h:outputLabel value="Confirm Password" for="confirmPassword"/><br/>
+					<h:inputSecret id="confirmPassword" value="#{accountController.confirmPassword}" maxlength="45" size="20"/><br/><br/>
+					<h:commandButton action="#{accountController.changePassword}" value="Change Password" />
+					</h:form>
+					<br/><br/>
+					<h:button value="Wishlist" outcome="wishlist" />
+					<br/><br/>
+					<h:button value="Previous Orders" outcome="tracking" />
+				</h:panelGrid>	
+			</h:form>
 			</div>
-		</td>
-	</tr>
-</table>
 </ui:define>
 </ui:composition>

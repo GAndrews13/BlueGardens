@@ -1,94 +1,98 @@
 package com.netbuilder.controllers;
 
-import java.util.ArrayList;
-
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
-import com.netbuilder.entities.CustomerOrder;
+import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
+import com.netbuilder.entities.Customer;
+import com.netbuilder.entitymanagers.CustomerLoginManager;
+import com.netbuilder.entitymanagers.CustomerManager;
+import com.netbuilder.util.LoggedInUser;
 
-@Named
+/**
+ * @author abalagel
+ * @author jmander
+ *
+ */
+@ManagedBean(name = "accountController")
 @RequestScoped
-public class AccountController 
-{
+public class AccountController {
+	@Inject
+	private CustomerManager customerManager;
+	@Inject
+	private LoggedInUser loggedInUser;
+	@Inject
+	private CustomerLoginManager customerLoginManager;
+	private String username;
+	private String password;
+	private String confirmPassword;
+	private String errmsg;
 	
-	private String firstName;
-	private String LastName;
-	private String address;
-	private String contactNumber;
-	private String email;
-	private ArrayList<CustomerOrder> orders = new ArrayList<CustomerOrder>();
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public String getErrmsg() {
+		return errmsg;
+	}
+
+	public void setErrmsg(String errormsg) {
+		this.errmsg = errormsg;
+	}
+
+	private Customer customer;
 	
-	public ArrayList<CustomerOrder> getOrders() {
-		return orders;
+	public AccountController(){
 	}
 
-	public void setOrders(ArrayList<CustomerOrder> orders) {
-		this.orders = orders;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return LastName;
-	}
-
-	public void setLastName(String lastName) {
-		LastName = lastName;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getContactNumber() {
-		return contactNumber;
-	}
-
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-/*
-	public String showCustomerDetails()
-	{
-		String line1 = cust.getFirstName() + " " + cust.getLastName();
-		String line2 = cust.getAddress();
-		String line3 = cust.getContactNUM();
-		String line4 = cust.getEmail();
-		return line1 + "/r/r" + line2 + "/r/r" + line3 + "/r/r" + line4 + "/r/r"; 
-	}
-	
-	public String showOrders()
-	{
-		String orderList = null;
-		ArrayList<CustomerOrder> list = com.findByCustomer(cust);
-		for(CustomerOrder co: list)
-		{
-			ArrayList<ProductOrderLine> polList = co.getProductOrderLines();
-			for(ProductOrderLine pol : polList)
-			{
-				orderList += pol.getProductID() + "/t/t/t/t" + pol.getQuantity() + "/r/r";
-			}
+	public String search() {
+		this.customer = customerManager.findByID(loggedInUser.getUserID());
+		this.username = loggedInUser.getUsername();
+		if(customer.getCustomerID()<1 || username==null){
+			return "account";
 		}
-		return orderList;
+		return "account";
 	}
-*/
+	
+	public String changePassword(){
+		if(password.matches(confirmPassword)){
+			errmsg="Password Saved!";
+			try {
+				customerLoginManager.updateCustomerPassword(loggedInUser.getUserID(), password);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return "account";
+		}
+		errmsg="Passwords do not match, please try again";
+		return "account";
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 }

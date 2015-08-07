@@ -10,16 +10,40 @@
 	<!-- Defines the title displayed on the page -->
 	<ui:define name="sectiontitle">
 		<h2>Hello</h2>
+		<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.URL;
+    var split = x.split('=');
+	var id = split[1];
+	document.getElementById("demo").innerHTML = id;
+	
+	
+   
+}
+
+function getvalue()
+{
+	var value = document.getElementById("demo");
+	return value;
+}
+window.onload = myFunction;
+
+
+</script>
+
 	</ui:define>
 	
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
-	<h2>#{productController.getProductByID("http://localhost:8080/BlueGardensEESystem/productPage.xhtml?product=1")}</h2>
 	
+	#{productController.getProductByID()}
 	<p>#{productController.product.productName}</p>
 	<p>#{productController.product.price}</p>
 	<img href="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
-	
 
 	
 	</ui:define>

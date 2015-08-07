@@ -30,7 +30,7 @@ public class WishListController {
 	private ArrayList<Product> realResults = new ArrayList<Product>();
 	
 	public WishListController(){
-	}
+	} 
 	
 	public void setResults(ArrayList<WishlistItems> results) {
 		this.results = results;

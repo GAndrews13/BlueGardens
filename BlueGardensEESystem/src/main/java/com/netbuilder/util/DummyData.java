@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
+import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
+import com.netbuilder.entities.CustomerOrder;
+import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.WishlistItems;
 
@@ -28,17 +31,32 @@ public class DummyData {
 	private Product product7;
 	private Product product8;
 	private Product product9;
-	
-	private ArrayList<WishlistItems> wishlistProducts = new ArrayList<WishlistItems>();
+	private Product product10;
 	private WishlistItems wishlist1 = new WishlistItems(1,1);
 	private WishlistItems wishlist2 = new WishlistItems(1,4);
 	private WishlistItems wishlist3 = new WishlistItems(1,7);
 	private WishlistItems wishlist4 = new WishlistItems(2,2);
 	private WishlistItems wishlist5 = new WishlistItems(2,4);
 	private WishlistItems wishlist6 = new WishlistItems(2,8);
+	private CustomerOrder customerOrder1;
+	private CustomerOrder customerOrder2;
+	private CustomerOrder customerOrder3;
+	private CustomerOrder customerOrder4;
+	private CustomerOrderLine customerOrderLine1;
+	private CustomerOrderLine customerOrderLine2;
+	private CustomerOrderLine customerOrderLine3;
+	private CustomerOrderLine customerOrderLine4;
+	private CustomerOrderLine customerOrderLine5;
+	private CustomerOrderLine customerOrderLine6;
+	private CustomerOrderLine customerOrderLine7;
+	
+	private ArrayList<WishlistItems> wishlistProducts = new ArrayList<WishlistItems>();
+	private ArrayList<CustomerOrderLine> customerOrderLines = new ArrayList<CustomerOrderLine>();
+	private ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
 	private ArrayList<Product> products = new ArrayList<Product>();
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>();
+	
 	
 	public ArrayList<Product> getProducts() {
 		return products;
@@ -50,6 +68,31 @@ public class DummyData {
 
 	public void setProducts(ArrayList<Product> products) {
 		this.products.addAll(products);
+	}
+	
+	public ArrayList<CustomerOrderLine> getCustomerOrderLines() {
+		return customerOrderLines;
+	}
+	
+	public void setCustomerOrderLine(CustomerOrderLine customerOrderLine){
+		customerOrderLines.add(customerOrderLine);
+	}
+
+	public void setCustomerOrderLines(
+			ArrayList<CustomerOrderLine> customerOrderLines) {
+		this.customerOrderLines.addAll(customerOrderLines);
+	}
+
+	public ArrayList<CustomerOrder> getCustomerOrders() {
+		return customerOrders;
+	}
+	
+	public void setCustomerOrder(CustomerOrder customerOrder){
+		customerOrders.add(customerOrder);
+	}
+
+	public void setCustomerOrders(ArrayList<CustomerOrder> customerOrders) {
+		this.customerOrders.addAll(customerOrders);
 	}
 	
 	public ArrayList<Customer> getCustomers() {
@@ -125,6 +168,10 @@ public class DummyData {
 				15.00, true, "that's", "ammmaaaazing", "that", "you", "know",
 				"resources/img/jacuzzi.png", false);
 		
+		product10 = new Product(10, "Wand", 230, 25, 300, true,
+				31.50, true, "You", "are", "a", "wizard", "Harry",
+				"resources/img/wand.png", true);
+		
 		products.add(product1);
 		products.add(product2);
 		products.add(product3);
@@ -134,8 +181,9 @@ public class DummyData {
 		products.add(product7);
 		products.add(product8);
 		products.add(product9);
+		products.add(product10);
 		
-		customer1 = new Customer(1, "Oliver", "Queen", "Queen Mansion, Starling City, OL1 V3R", "999", "badboyqueen@queenconsolidated.com", "ACTIVE");
+		customer1 = new Customer(1, "Oliver", "Queen", "Arrow Cave, Underground, Verdant, The Glades, OL1 V3R", "999", "badboyqueen@queenconsolidated.com", "ACTIVE");
 		customer2 = new Customer(2, "Slade", "Wilson", "Lian Yu, China, L14N YU1", "404", "shado@rip.com", "BLACKLISTED");
 		
 		customers.add(customer1);
@@ -147,13 +195,43 @@ public class DummyData {
 		customerLogins.add(customerLogin1);
 		customerLogins.add(customerLogin2);
 		
+		customerOrderLine1 = new CustomerOrderLine(1, 1, 23, true);
+		customerOrderLine2 = new CustomerOrderLine(1, 10, 1, true);
+		customerOrderLine3 = new CustomerOrderLine(2, 6, 12, true);
+		customerOrderLine4 = new CustomerOrderLine(2, 8, 9, true);
+		customerOrderLine5 = new CustomerOrderLine(3, 4, 3, false);
+		customerOrderLine6 = new CustomerOrderLine(3, 6, 7, true);
+		customerOrderLine7 = new CustomerOrderLine(4, 9, 1, false);
+		//new CustomerOrderLine(customerOrderID, productId, quantity, isPicked)
+		
+		customerOrder1 = new CustomerOrder(1, true, 1, "1st Class", 1, 1, DeliveryStatus.DELIVERED);
+		customerOrder2 = new CustomerOrder(2, true, 2, "1st Class", 1, 2, DeliveryStatus.DISPATCHED);
+		customerOrder3 = new CustomerOrder(3, true, 3, "Standard Delivery", 2, 1, DeliveryStatus.PROCESSING);
+		customerOrder4 = new CustomerOrder(4, false, 4, "1st Class", 1, 0, DeliveryStatus.ORDER_PLACED);
+		//new CustomerOrder(customerOrderID, isAssigned, trackingID, deliveryType, customerID, workerID, status)
+		
+		
 		wishlistProducts.add(wishlist1);
 		wishlistProducts.add(wishlist2);
 		wishlistProducts.add(wishlist3);
 		wishlistProducts.add(wishlist4);
 		wishlistProducts.add(wishlist5);
 		wishlistProducts.add(wishlist6);
+		
+		customerOrders.add(customerOrder1);
+		customerOrders.add(customerOrder2);
+		customerOrders.add(customerOrder3);
+		customerOrders.add(customerOrder4);
+		
+		customerOrderLines.add(customerOrderLine1);
+		customerOrderLines.add(customerOrderLine2);
+		customerOrderLines.add(customerOrderLine3);
+		customerOrderLines.add(customerOrderLine4);
+		customerOrderLines.add(customerOrderLine5);
+		customerOrderLines.add(customerOrderLine6);
+		customerOrderLines.add(customerOrderLine7);
 
 	}
+
 	
 }
