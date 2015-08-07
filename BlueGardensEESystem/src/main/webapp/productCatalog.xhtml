@@ -16,17 +16,21 @@
 	</ui:define>
 
 	<ui:define name="body">
+	#{productController.pullCatalog()}
 		<div id="productgrid">
 			<div class="section group">
 				<div class="col span_1_of_4">
-					Seasonal
+					Porousware
 					<hr/>
 					<br/> <!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" -->
 					<div class="description">
-						<img src="#{productController.product[0].getImageLink()}" width="128" height="128"/>
-						<h2><h:outputLabel value="#{productcatalogController.product[0].getProductSeasonalName()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[0].getProductSeasonalPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[0].getSeasonalFeatureOne()}" /></h2>
+						<a href="productPage.xhtml?product=#{productController.porousProduct.getProductID()}"  id="#{productController.porousProduct.productID}">	
+						<img class="productImage"  alt="#{porousProduct.getProductName()}" src="#{productController.porousProduct.getImageLink()}" width="128" height="128"/>
+						</a>
+						<h2><h:outputLabel value="#{productController.porousProduct.getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{productController.porousProduct.getPrice()}" /></h2>
+						<h2><h:outputLabel value="#{productController.porousProduct.getFeatureOne()}" /></h2>
+					
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
 					</div>
 				</div>
@@ -35,10 +39,12 @@
 					<hr/>
 					<br/>
 					<div class="description">
-						<img src="#{productController.product[1].getImageLink()}" width="128" height="128"/>
-						<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingProductName()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingFeatureOne()}" /></h2>
+						<a href="productPage.xhtml?product=#{productController.trendingProduct.getProductID()}"  id="#{productController.trendingProduct.productID}">	
+						<img class="productImage"  alt="#{trendingProduct.getProductName()}" src="#{productController.trendingProduct.getImageLink()}" width="128" height="128"/>
+						</a>
+						<h2><h:outputLabel value="#{productController.trendingProduct.getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{productController.trendingProduct.getPrice()}" /></h2>
+						<h2><h:outputLabel value="#{productController.trendingProduct.getFeatureOne()}" /></h2>
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
 					</div>
 				</div>
@@ -47,10 +53,12 @@
 					<hr/>
 					<br/>
 					<div class="description">
-						<img src="#{productController.product[2].getImageLink()}" width="128" height="128"/>
-						<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleProductName()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleFeatureOne()}" /></h2>
+						<a href="productPage.xhtml?product=#{productController.saleProduct.getProductID()}"  id="#{productController.saleProduct.productID}">	
+						<img class="productImage"  alt="#{saleProduct.getProductName()}" src="#{productController.saleProduct.getImageLink()}" width="128" height="128"/>
+						</a>
+						<h2><h:outputLabel value="#{productController.saleProduct.getProductName()}" /></h2>
+						<h2><h:outputLabel value="#{productController.saleProduct.getPrice()}" /></h2>
+						<h2><h:outputLabel value="#{productController.saleProduct.getFeatureOne()}" /></h2>
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
 					</div>
 				</div>
