@@ -94,7 +94,7 @@ public class LoginController {
 				setLoggedIn(true);
 				loggedInUser.setUsername(username);
 				loggedInUser.setUserID(clm.checkCustomerID(username));
-				return "landingPage";
+				return "account";
 			}
 			else
 			{

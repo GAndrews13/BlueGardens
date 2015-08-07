@@ -1,0 +1,142 @@
+<!DOCTYPE xhtml>
+<!-- saved from url=(0069)http://localhost:8080/BlueGardensEESystem/productPage.xhtml?product=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><header>
+	</header>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="./Product_files/style.css">
+	<script src="./Product_files/bootstrap.css"></script>
+	
+	
+	<title>Product</title>
+	
+	
+		<div class="site-header">
+			<table>
+				<tbody><tr>
+					<th rowspan="2">
+						<!--&lt;img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/&gt;  --> 
+						<a href="http://localhost:8080/BlueGardensEESystem/landingPage.xhtml"><img src="./Product_files/logo.png" id="logo" alt="NBGardens"></a>
+					</th>
+					<td>
+					</td>
+					<td>
+						<span>
+							<a onclick="loginText()" id="loggedInText">The Arrow</a>
+						</span>
+					</td>
+					<td>
+<form id="j_idt5" name="j_idt5" method="post" action="http://localhost:8080/BlueGardensEESystem/productPage.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_idt5" value="j_idt5">
+<input type="submit" name="j_idt5:j_idt6" value="Logout"><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="-6135735287253608413:2157122540928121770" autocomplete="off">
+</form>
+					</td>
+				</tr>
+				<tr>
+					<td id="headerMenuRow">
+						<ul class="menu">
+							<li><a href="http://localhost:8080/BlueGardensEESystem/landingPage.xhtml" class="active"><p class="menuItem">Home</p></a></li>
+							<li><a href="http://localhost:8080/BlueGardensEESystem/aboutUs.xhtml"><p class="menuItem">About</p></a></li>
+							<li><a href="http://localhost:8080/BlueGardensEESystem/wishlist.xhtml"><p class="menuItem">Wishlist</p></a></li>
+							<li><a href="http://localhost:8080/BlueGardensEESystem/jsearch.xhtml"><p class="menuItem">JSearch</p></a></li>
+							<li><a href="http://localhost:8080/BlueGardensEESystem/contactUs.xhtml"><p class="menuItem">Contact</p></a></li>
+						</ul>
+					</td>
+					<td>
+						<div class="cartInfo">
+							<a href="javascript:void(0)" onclick="document.getElementById(&#39;light&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;fade&#39;).style.display=&#39;block&#39;" class="javascriptText">
+								<img src="./Product_files/basket.png" alt="Basket" width="20%" height="20%">
+							</a>
+						</div>
+					</td>
+				</tr>
+			</tbody></table>
+		</div>
+		
+		<div class="page-wrap">
+		<!-- Basket Overlay -->
+					<div id="light" class="white_content">
+						<div>
+							<a href="javascript:void(0)" onclick="document.getElementById(&#39;light&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fade&#39;).style.display=&#39;none&#39;">Close</a>
+						</div>
+						<div class="basketHeader" style="background-color:coral">
+							<a href="http://localhost:8080/BlueGardensEESystem/checkout.xhtml"> Checkout</a>
+						</div>
+						<!-- DISPLAY BASKET ITEMS --><table class="basketTable" border="0">
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Product</th>
+<th scope="col">Price Per Item</th>
+</tr>
+</thead>
+<tbody>
+<tr><td></td><td></td><td></td></tr></tbody>
+</table>
+
+						<br> 
+					</div>
+    				<div id="fade" class="black_overlay"></div>
+    				<br>
+    				<br>
+    				
+    				
+    				<div class="content">
+    				<br>
+							<div id="contentHeader">
+		<h2>Hello</h2>
+							</div>
+	
+	<p></p>
+	<p></p>
+	<img>
+							<br>
+							<br>
+    				</div>
+		</div>
+		
+		<footer class="site-footer">
+					<ul class="bottommenu center">
+						<li><a href="http://localhost:8080/BlueGardensEESystem/aboutUs.xhtml"><span>About Us</span></a></li>
+					  	<li><a href="http://localhost:8080/BlueGardensEESystem/frequentlyAskedQuestions.xhtml"><span>FAQ</span></a></li>
+					  	<li><a href="http://localhost:8080/BlueGardensEESystem/contactUs.xhtml"><span>Contact Us</span></a></li>
+					</ul>
+			<div class="center">
+				2015 NBGardens.
+				<a href="">Design by DelphiSoft Consulting</a> 
+			</div>
+		</footer>
+	
+	<!-- Javascript -->
+	<!--  Javascript Menu -->
+	
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="./Product_files/jquery.min.js"></script>
+  <script src="./Product_files/bootstrap.min.js"></script>
+  
+  <script type="text/javascript" src="./Product_files/jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="./Product_files/jquery-ui.min.js"></script>
+	<!-- &lt;script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"&gt;&lt;/script&gt; -->
+	<script type="text/javascript">
+		  $('.tabs_holder').skinableTabs({
+	    effect: 'basic_display',
+	    skin: 'skin5',
+	    position: 'top'
+	  });
+	</script>
+	
+	<script type="text/javascript">	
+		function loginText()
+		{
+			if(true)
+			{
+				window.location = "landingPage.xhtml";
+			}
+			else
+			{
+				window.location = "login.xhtml";
+			}
+		}
+	</script>
+	<!-- End of Javascript -->
+</body></html>
