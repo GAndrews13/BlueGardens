@@ -9,7 +9,11 @@ package com.netbuilder.controllers;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.Servlet;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -39,18 +43,13 @@ public class ProductController {
 
 	@GET
 	@Path("productPage.xhtml")
-	public void getProductByID
-		(@DefaultValue("1") @QueryParam("product") String pid){
-		//pid = pid.replace("http://localhost:8080/BlueGardensEESystem/productPage.xhtml?product=", "");
-		System.out.println("WORKING!");
+	public void getProductByID() {
+		HttpServletRequest hsr = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		String pid= hsr.getQueryString();
 		pid = pid.replace("[","");
 		pid = pid.replace("]","");
+		pid = pid.replace("product=","");
 		product= productManager.findById(Integer.parseInt(pid));
-		System.out.println("WORKING!!!");
-	
-		//(@Context UriInfo info){
-		//String productIDString = info.getQueryParameters().getFirst("product");
-		//product=productManager.findById(Integer.parseInt(productIDString));
 	}
 	
 	public String search(int inID) {

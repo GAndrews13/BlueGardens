@@ -9,11 +9,13 @@
 	
 	<!-- Defines the title displayed on the page -->
 	<ui:define name="sectiontitle">
-		<h2>Hello</h2>
+		Hello
 	</ui:define>
 	
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
+	
+	#{productController.getProductByID()}
 	<p>#{productController.product.productName}</p>
 	<p>#{productController.product.price}</p>
 	<img href="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
