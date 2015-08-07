@@ -33,10 +33,43 @@ public class ProductController {
 	private ProductManager productManager;
 	@Inject
 	WishListController wishlistController;
-	@Inject
-	private LoginController lc;
 	public String link;
 	private Product product;
+	private Product trendingProduct;
+	private Product porousProduct;
+	private Product saleProduct;
+	
+	public Product getTrendingProduct() {
+		return trendingProduct;
+	}
+
+	public void setTrendingProduct(Product trendingProduct) {
+		this.trendingProduct = trendingProduct;
+	}
+
+	public Product getPorousProduct() {
+		return porousProduct;
+	}
+
+	public void setPorousProduct(Product porousProduct) {
+		this.porousProduct = porousProduct;
+	}
+
+	public Product getSaleProduct() {
+		return saleProduct;
+	}
+
+	public void setSaleProduct(Product saleProduct) {
+		this.saleProduct = saleProduct;
+	}
+
+	public void pullCatalog()
+	{
+		trendingProduct = productManager.findByTrending().get(0);
+		saleProduct = productManager.findBySale().get(0);
+		porousProduct = productManager.findByPourousware(true).get(0);
+	}
+
 	private int currentID;
 	
 	public ProductController(){
@@ -51,6 +84,7 @@ public class ProductController {
 		pid = pid.replace("]","");
 		pid = pid.replace("product=","");
 		product= productManager.findById(Integer.parseInt(pid));
+		pullCatalog();
 	}
 	
 	public int getCurrentID() {
