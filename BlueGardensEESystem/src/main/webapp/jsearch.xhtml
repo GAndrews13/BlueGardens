@@ -32,10 +32,9 @@ document.getElementById("demo").innerHTML = "My First JavaScript";
 				#{product.getFeatureFour()}<br/><br/>
 				#{product.getFeatureFive()}<br/><br/>
 				<div id="links">
-				<h:link onclick="myFunction" outcome="productPage">
-				<f:param value="#{product.getImageLink()}" />
-				<h:graphicImage value="#{product.getImageLink()}"  width="460" height="345" border="0"  />
-				</h:link>
+				<a href="productPage.xhtml?product=#{product.getProductID()}"  id="#{product.productID}">	
+				<img class="productImage" src="#{product.getImageLink()}" alt="#{product.getProductName()}"/>
+				</a>
 				</div>
 				<br/><br/><br/><br/> 	
 			</ui:repeat>
