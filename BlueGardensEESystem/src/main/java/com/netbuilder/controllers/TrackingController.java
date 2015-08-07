@@ -26,8 +26,9 @@ public class TrackingController {
 	@Inject
 	private CustomerOrderLineManager customerOrderLineManager;
 	private ArrayList<ArrayList<CustomerOrderLine>> customerOrderLines = new ArrayList<ArrayList<CustomerOrderLine>>();
+	private ArrayList<CustomerOrderLine> currentCustomerOrderLine = new ArrayList<CustomerOrderLine>();
 	private ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
-	
+	private int orderLineCount =0;
 	public ArrayList<CustomerOrder> getCustomerOrders() {
 		return customerOrders;
 	}
@@ -45,8 +46,33 @@ public class TrackingController {
 		for(int i=0; i<customerOrders.size(); i++){
 			customerOrderLines.add(customerOrderLineManager.findByCustomerOrderID(customerOrders.get(i).getCustomerOrderID()));
 		}
-		System.out.println(customerOrderLines);
 		return "tracking";
+	}
+	
+	public String customerOrderLineSearch(){
+		currentCustomerOrderLine = customerOrderLines.get(orderLineCount);
+		orderLineCount++;
+		return "tracking";
+	}
+	
+	
+
+	public ArrayList<CustomerOrderLine> getCurrentCustomerOrderLine() {
+		return currentCustomerOrderLine;
+	}
+
+	public void setCurrentCustomerOrderLine(
+			ArrayList<CustomerOrderLine> currentCustomerOrderLine) {
+		this.currentCustomerOrderLine = currentCustomerOrderLine;
+	}
+
+	public ArrayList<ArrayList<CustomerOrderLine>> getCustomerOrderLines() {
+		return customerOrderLines;
+	}
+
+	public void setCustomerOrderLines(
+			ArrayList<ArrayList<CustomerOrderLine>> customerOrderLines) {
+		this.customerOrderLines = customerOrderLines;
 	}
 	
 }

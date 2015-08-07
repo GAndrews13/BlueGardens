@@ -20,10 +20,15 @@
 				    	Order ID: #{order.getCustomerOrderID()}<br/><br/>
 				    	Tracking ID: #{order.getTrackingID()}<br/><br/>
 				    	Delivery Type: #{order.getDeliveryType()}<br/><br/>
-				    	Delivery Status: #{order.getStatus()}<br/><br/><br/><br/>    	
+				    	Delivery Status: #{order.getStatus()}<br/><br/><br/>
+				    	<!-- #{trackingController.customerOrderLineSearch()} -->
+				    	<ui:repeat var="orderLines" value="#{trackingController.currentCustomerOrderLine}">
+					    	Product: #{orderLines.getProductId()}<br/><br/>
+					    	Quantity: #{orderLines.getQuantity()}<br/><br/>
+				    	</ui:repeat>    	
+				    	<br/><br/><br/>
 					</ui:repeat>
 				</h:panelGrid>	
 			</h:form>
-
 </ui:define>
 </ui:composition>
