@@ -37,13 +37,10 @@ window.onload = myFunction;
 	</ui:define>
 	
 	<!-- Contains the actual content of the page -->
-	<ui:define name="body" >
-	
-	
+	<ui:define name="body">
 	<p>#{productController.product.productName}</p>
 	<p>#{productController.product.price}</p>
 	<img href="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
-	
 
 	
 	</ui:define>
