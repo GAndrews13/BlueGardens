@@ -46,7 +46,7 @@ public class ProductOrderLine
 	 */
 	@Column(name = "Product", nullable = false)
 	@NotNull
-	private Product product;
+	private int productID;
 	
 	/**
 	 * Quantity cannot be null as at least one product must be in the order line
@@ -56,9 +56,9 @@ public class ProductOrderLine
 	private int quantity;
 	
 	
-	public ProductOrderLine( Product product, int quantity) 
+	public ProductOrderLine(int productID, int quantity) 
 	{
-		this.product = product;
+		this.productID = productID;
 		this.quantity = quantity;
 	}
 	/**
@@ -72,11 +72,11 @@ public class ProductOrderLine
 	public void setProductOrderLineID(int productOrderLineID) {
 		this.productOrderLineID = productOrderLineID;
 	}
-	public Product getProduct() {
-		return product;
+	public int getProductID() {
+		return productID;
 	}
-	public void setProductID(Product product) {
-		this.product = product;
+	public void setProductID(int productID) {
+		this.productID = productID;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -85,12 +85,5 @@ public class ProductOrderLine
 		this.quantity = quantity;
 	}
 	
-	/**
-	 * @author GAndrews
-	 * @return
-	 */
-	public double getTotal() {
-		double total =quantity*product.getPrice() ;
-		return total;
-	}
+
 }

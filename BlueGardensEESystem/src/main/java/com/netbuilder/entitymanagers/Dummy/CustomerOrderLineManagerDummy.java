@@ -2,73 +2,80 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
+
 import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entitymanagers.CustomerOrderLineManager;
 import com.netbuilder.util.DummyData;
 /**
  * 
  * @author Jake
+ * @author jmander
  *	Dummy class for testing the customer order line
  */
 
+@Alternative
 public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager
 {
 	@Inject
-	DummyData dummyData;
-	
-	ArrayList<CustomerOrderLine> col_Array = new ArrayList<CustomerOrderLine>();
-	@Override
-	public void persistCOL(CustomerOrderLine col) 
-	{
-		col_Array.add(col);
+	DummyData dd;
+
+	public void persistCustomerOrderLine(CustomerOrderLine customerOrderLine) {
+			dd.setCustomerOrderLine(customerOrderLine);		
 	}
 
-	@Override
-	public ArrayList<CustomerOrderLine> findByPOID(int po_ID) {
-		return null;
+	public void persistCustomerOrderLines(ArrayList<CustomerOrderLine> customerOrderLines) {
+		dd.setCustomerOrderLines(customerOrderLines);		
 	}
 
-	@Override
-	public ArrayList<CustomerOrderLine> findByCOID(int customerID) 
-	{
-		ArrayList<CustomerOrderLine> localLine = new ArrayList<CustomerOrderLine>();
-		for(CustomerOrderLine col : col_Array)
+	public ArrayList<CustomerOrderLine> findByCustomerOrderID(int customerOrderID) {
+		ArrayList<CustomerOrderLine> list = new ArrayList<CustomerOrderLine>();
+		for(CustomerOrderLine co : dd.getCustomerOrderLines())
 		{
-			if(col.getCustomerOrderLineID() == customerID)
+			if(co.getCustomerOrderID() == customerOrderID)
 			{
-				localLine.add(col);
+				list.add(co);
 			}
-		}
-		
-		return localLine;
+		}		
+		return list;
 	}
 
-	@Override
-	public ArrayList<CustomerOrderLine> findByQuantity(int quantity)
-	{
-		ArrayList<CustomerOrderLine> localLine = new ArrayList<CustomerOrderLine>();
-		for(CustomerOrderLine col : col_Array)
+	public ArrayList<CustomerOrderLine> findByQuantity(int quantity) {
+		ArrayList<CustomerOrderLine> list = new ArrayList<CustomerOrderLine>();
+		for(CustomerOrderLine co : dd.getCustomerOrderLines())
 		{
-			if(col.getQuantity() <= quantity)
+			if(co.getQuantity() == quantity)
 			{
-				localLine.add(col);
+				list.add(co);
 			}
-		}
-		return localLine;
+		}		
+		return list;
 	}
 
-	@Override
-	public void updateCOL(CustomerOrderLine pol) 
-	{
-		col_Array.set(col_Array.indexOf(pol), pol);
-
+	public void updateCustomerOrderLine(CustomerOrderLine customerOrderLine) {
+		for(int i=0; i<dd.getCustomerOrderLines().size(); i++){
+			if(customerOrderLine.getCustomerOrderID() == dd.getCustomerOrderLines().get(i).getCustomerOrderID()){
+				dd.setCustomerOrderLine(customerOrderLine);;
+			}
+		}		
 	}
 
-	@Override
 	public ArrayList<CustomerOrderLine> findAll() {
-		// TODO Auto-generated method stub
-		return col_Array;
+		return dd.getCustomerOrderLines();
 	}
+
+	public ArrayList<CustomerOrderLine> finyByProductID(int productID) {
+		ArrayList<CustomerOrderLine> list = new ArrayList<CustomerOrderLine>();
+		for(CustomerOrderLine co : dd.getCustomerOrderLines())
+		{
+			if(co.getProductId() == productID)
+			{
+				list.add(co);
+			}
+		}		
+		return list;
+	}
+
 
 }

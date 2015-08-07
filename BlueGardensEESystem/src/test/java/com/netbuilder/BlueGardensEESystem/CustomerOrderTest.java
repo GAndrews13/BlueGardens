@@ -18,7 +18,7 @@ public class CustomerOrderTest {
 	CustomerOrder customerOrder;
 
 	public CustomerOrderTest(){
-		customerOrder = new CustomerOrder(true, 01245, "1st Class", null, null, null, DeliveryStatus.DELIVERED);
+		customerOrder = new CustomerOrder(1, true, 1, "1st Class", 1, 1, DeliveryStatus.DELIVERED);
 		assertNotNull(customerOrder.getTrackingID());
 		
 	}
@@ -26,10 +26,7 @@ public class CustomerOrderTest {
 	@Test public void testgetCustomerId() {
 		assertEquals(customerOrder.getCustomer(), null);
 	}	
-	
-	@Test public void testgetPOLIDS() {
-		assertEquals(customerOrder.getProductOrderLines(), null);
-	}	
+
 	
 	@Test public void testgetWorkerId() {
 		assertEquals(customerOrder.getWorker(), null);

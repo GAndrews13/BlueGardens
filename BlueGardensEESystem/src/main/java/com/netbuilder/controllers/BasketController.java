@@ -3,6 +3,8 @@ package com.netbuilder.controllers;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -11,16 +13,21 @@ import javax.inject.Named;
 import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
 import com.netbuilder.entities.Basket;
 import com.netbuilder.entities.CustomerOrder;
+import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.BasketManager;
+import com.netbuilder.entitymanagers.ProductManager;
 import com.netbuilder.service.BasketProductOrderService;
 
-@SessionScoped
-@ManagedBean (name="basketController")
+
+@Singleton
+@Startup
 public class BasketController implements Serializable{
 	@Inject
 	private BasketManager bm;
+	@Inject
+	private ProductManager productManager;
 	private String errormsg; 
 	private double basketTotal =0;
 	private ArrayList<Product> items;
@@ -35,7 +42,7 @@ public class BasketController implements Serializable{
 		ArrayList<Product> temp = new ArrayList<Product>();
 		for(int i = 0;i<bm.products().size();i++)
 		{
-			temp.add(bm.products().get(i).getProduct());
+			temp.add(productManager.findById(bm.products().get(i).getProductId()));
 		}
 		return temp;
 	}
@@ -65,14 +72,14 @@ public class BasketController implements Serializable{
 		this.errormsg = errormsg;
 	}
 
-	public ArrayList<ProductOrderLine> pols()
+	public ArrayList<CustomerOrderLine> pols()
 	{
 		return bm.products();
 	}
 	
-	public void addProduct(Product inProduct)
+	public void addProduct(int inProduct)
 	{
-		bm.products().add(new ProductOrderLine(inProduct,1));
+		bm.products().add(new CustomerOrderLine(inProduct,1));
 	}
 	
 	public void submitBasket(Basket inBasket)

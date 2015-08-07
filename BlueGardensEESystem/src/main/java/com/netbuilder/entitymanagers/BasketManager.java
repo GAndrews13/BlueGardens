@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.enterprise.inject.Alternative;
 
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.ProductOrderLine;
 
@@ -24,5 +25,5 @@ public interface BasketManager {
 	 * @author gandrews
 	 */
 	public double findTotal();
-	public ArrayList<ProductOrderLine> products();
+	public ArrayList<CustomerOrderLine> products();
 }

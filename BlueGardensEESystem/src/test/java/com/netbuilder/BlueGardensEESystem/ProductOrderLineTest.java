@@ -19,7 +19,7 @@ public class ProductOrderLineTest
 		 * @author Jake
 		 *	Testing if the quantity in Ptest is NotNull
 		 */
-		ProductOrderLine Ptest = new ProductOrderLine(1,1,12);
+		ProductOrderLine Ptest = new ProductOrderLine(1, 12);
 		assertNotNull(Ptest.getQuantity());
 	}
 }

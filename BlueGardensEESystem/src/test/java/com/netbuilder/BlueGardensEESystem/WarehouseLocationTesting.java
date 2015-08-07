@@ -15,14 +15,14 @@ public class WarehouseLocationTesting {
 	@Test
 	public void testProductID(){
 	
-		WarehouseLocation testing = new WarehouseLocation(1, 1, 1);
+		WarehouseLocation testing = new WarehouseLocation(1, "a", 1);
 		assertNotNull(testing.getProductId());
 	}
 	
 	@Test
 	public void testLocationID(){
 	
-		WarehouseLocation testing = new WarehouseLocation(1, 1, 1);
+		WarehouseLocation testing = new WarehouseLocation(1, "b", 1);
 		assertNotNull(testing.getLocationId());
 	}
 	
