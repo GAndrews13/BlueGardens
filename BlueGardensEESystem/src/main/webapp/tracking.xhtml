@@ -17,16 +17,15 @@
 			<h1></h1>
 				<h:panelGrid>
 					<ui:repeat value="#{trackingController.customerOrders}" var="order">
-				    	Order ID: #{order.getCustomerOrderID()}<br/><br/>
-				    	Tracking ID: #{order.getTrackingID()}<br/><br/>
-				    	Delivery Type: #{order.getDeliveryType()}<br/><br/>
-				    	Delivery Status: #{order.getStatus()}<br/><br/><br/>
+				    	Order ID: #{order.getCustomerOrderID()}<br/>
+				    	Delivery Status: #{order.getStatus()}<br/><br/>
 				    	<!-- #{trackingController.customerOrderLineSearch()} -->
-				    	<ui:repeat var="orderLines" value="#{trackingController.currentCustomerOrderLine}">
-					    	Product: #{orderLines.getProductId()}<br/><br/>
-					    	Quantity: #{orderLines.getQuantity()}<br/><br/>
-				    	</ui:repeat>    	
-				    	<br/><br/><br/>
+				    	<ui:repeat var="products" value="#{trackingController.displayOrderLines}">
+				    		Product Name: #{products.getProduct().getProductName()} <br/>
+				    		Individual Price:£ #{products.getProduct().getPrice()} <br/>
+				    		Quantity: #{products.getQuantity()} <br/><br/>
+				    	</ui:repeat>  	
+						<br/><br/><br/>
 					</ui:repeat>
 				</h:panelGrid>	
 			</h:form>

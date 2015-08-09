@@ -8,8 +8,11 @@ import javax.inject.Inject;
 
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.CustomerOrderLine;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.CustomerOrderLineManager;
 import com.netbuilder.entitymanagers.CustomerOrderManager;
+import com.netbuilder.entitymanagers.ProductManager;
+import com.netbuilder.service.DisplayOrderLine;
 import com.netbuilder.util.LoggedInUser;
 
 /**
@@ -25,10 +28,15 @@ public class TrackingController {
 	private LoggedInUser loggedInUser;
 	@Inject
 	private CustomerOrderLineManager customerOrderLineManager;
+	@Inject
+	private ProductManager productManager;
+	private ArrayList<DisplayOrderLine> displayOrderLines;
+	private DisplayOrderLine currentDisplayOrderLine;
 	private ArrayList<ArrayList<CustomerOrderLine>> customerOrderLines = new ArrayList<ArrayList<CustomerOrderLine>>();
 	private ArrayList<CustomerOrderLine> currentCustomerOrderLine = new ArrayList<CustomerOrderLine>();
 	private ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
 	private int orderLineCount =0;
+	private int totalPrice;
 	public ArrayList<CustomerOrder> getCustomerOrders() {
 		return customerOrders;
 	}
@@ -50,12 +58,40 @@ public class TrackingController {
 	}
 	
 	public String customerOrderLineSearch(){
+		totalPrice=0;
+		displayOrderLines = new ArrayList<DisplayOrderLine>();
 		currentCustomerOrderLine = customerOrderLines.get(orderLineCount);
+		for(int i = 0; i<currentCustomerOrderLine.size(); i++){
+			currentDisplayOrderLine = new DisplayOrderLine(
+					productManager.findById(currentCustomerOrderLine.get(i).getProductId()),
+					currentCustomerOrderLine.get(i).getQuantity());
+			displayOrderLines.add(currentDisplayOrderLine);
+		}
+		for(int i=0; i<displayOrderLines.size(); i++){
+			totalPrice += (displayOrderLines.get(i).getQuantity()*displayOrderLines.get(i).getProduct().getPrice());
+		}
+		//find product from id
+		//store product as current customer order line product
+		//print product instead of product ID
 		orderLineCount++;
 		return "tracking";
 	}
 	
-	
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public ArrayList<DisplayOrderLine> getDisplayOrderLines() {
+		return displayOrderLines;
+	}
+
+	public void setDisplayOrderLines(ArrayList<DisplayOrderLine> displayOrderLines) {
+		this.displayOrderLines = displayOrderLines;
+	}
 
 	public ArrayList<CustomerOrderLine> getCurrentCustomerOrderLine() {
 		return currentCustomerOrderLine;

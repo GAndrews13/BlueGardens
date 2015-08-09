@@ -24,7 +24,7 @@ document.getElementById("demo").innerHTML = "My First JavaScript";
 			<ui:repeat value="#{searchController.results}" var="product">
 				<p id="productid"> #{product.getProductID()}</p><br/><br/>
 				#{product.getProductName()}<br/><br/>
-				#{product.getPrice()}<br/><br/>
+				£ #{product.getPrice()}<br/><br/>
 				#{product.getStockLevel()}<br/><br/>
 				#{product.getFeatureOne()}<br/><br/>
 				#{product.getFeatureTwo()}<br/><br/>
@@ -33,7 +33,7 @@ document.getElementById("demo").innerHTML = "My First JavaScript";
 				#{product.getFeatureFive()}<br/><br/>
 				<div id="links">
 				<a href="productPage.xhtml?product=#{product.getProductID()}"  id="#{product.productID}">	
-				<img class="productImage" src="#{product.getImageLink()}" alt="#{product.getProductName()}"/>
+				<img class="productImage" src="#{product.getImageLink()}" alt="#{product.getProductName()}" />
 				</a>
 				</div>
 				<br/><br/><br/><br/> 	
