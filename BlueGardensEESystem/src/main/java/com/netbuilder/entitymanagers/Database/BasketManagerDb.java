@@ -12,6 +12,7 @@ import javax.validation.ValidationException;
 import com.netbuilder.BlueGardensEESystem.*;
 import com.netbuilder.entities.Basket;
 import com.netbuilder.entities.CustomerOrder;
+import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.BasketManager;
 import com.netbuilder.entitymanagers.CustomerOrderManager;
@@ -60,7 +61,7 @@ public class BasketManagerDb implements BasketManager {
 	}
 
 	@Override
-	public ArrayList<ProductOrderLine> products() {
+	public ArrayList<CustomerOrderLine> products() {
 		// TODO Auto-generated method stub
 		return null;
 	}

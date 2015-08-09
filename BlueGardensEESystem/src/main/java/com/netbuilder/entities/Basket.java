@@ -24,7 +24,7 @@ public class Basket {
  * @author abalagel
  * Attributes for the Basket
  * unique customer id from customer table
- * list of order lines that each contains a product and its required quantity passed from ProductOrderLine.java
+ * list of order lines that each contains a product and its required quantity passed from CustomerOrderLine.java
 */	
 	public static final String FIND_OUT_BY_PRODUCTID = "Basket.findByProductId";
 	@Id
@@ -36,11 +36,11 @@ public class Basket {
 	@JoinColumn (name = "POLID", nullable = false)
 	@NotNull
 	@OneToMany
-	private ArrayList<ProductOrderLine> ProductOrderLine;
-public Basket(int customerId, ArrayList<ProductOrderLine> productOrderLine) {
+	private ArrayList<CustomerOrderLine> CustomerOrderLine;
+public Basket(int customerId, ArrayList<CustomerOrderLine> customerOrderLine) {
 	
 		this.customerId = customerId;
-		ProductOrderLine = productOrderLine;
+		CustomerOrderLine = customerOrderLine;
 	}
 /**
 * @author abalagel
@@ -53,11 +53,11 @@ public Basket(int customerId, ArrayList<ProductOrderLine> productOrderLine) {
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
-	public ArrayList<ProductOrderLine> getProductOrderLine() {
-		return ProductOrderLine;
+	public ArrayList<CustomerOrderLine> getCustomerOrderLine() {
+		return CustomerOrderLine;
 	}
-	public void setProductOrderLine(ArrayList<ProductOrderLine> productOrderLine) {
-		ProductOrderLine = productOrderLine;
+	public void setCustomerOrderLine(ArrayList<CustomerOrderLine> customerOrderLine) {
+		CustomerOrderLine = customerOrderLine;
 	}
 	
 

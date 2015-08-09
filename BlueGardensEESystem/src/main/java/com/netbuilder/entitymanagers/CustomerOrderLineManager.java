@@ -1,6 +1,7 @@
 package com.netbuilder.entitymanagers;
 /**
  * @author Jake
+ * @author jmander
  *	
  */
 import java.util.ArrayList;
@@ -10,11 +11,12 @@ import com.netbuilder.entities.CustomerOrderLine;
 public interface CustomerOrderLineManager 
 {	
 
-	public void persistCOL(CustomerOrderLine col);
-	public ArrayList<CustomerOrderLine> findByPOID(int po_ID);
-	public ArrayList<CustomerOrderLine> findByCOID(int coid);
+	public void persistCustomerOrderLine(CustomerOrderLine customerOrderLine);
+	public void persistCustomerOrderLines(ArrayList<CustomerOrderLine> customerOrderLines);
+	public ArrayList<CustomerOrderLine> findByCustomerOrderID(int customerOrderID);
+	public ArrayList<CustomerOrderLine> finyByProductID(int productID);
 	public ArrayList<CustomerOrderLine> findByQuantity(int quantity);
-	public void updateCOL(CustomerOrderLine pol);
+	public void updateCustomerOrderLine(CustomerOrderLine customerOrderLine);
 	public ArrayList<CustomerOrderLine> findAll();
 	
 }

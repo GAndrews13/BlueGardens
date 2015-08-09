@@ -20,12 +20,14 @@ import javax.validation.constraints.NotNull;
 @NamedQueries
 ({
 	@NamedQuery(name = CustomerOrderLine.FIND_BY_CO_ID, query = "SELECT * FROM CustomerOrderLine where COID = :id"),
+	@NamedQuery(name = CustomerOrderLine.FIND_BY_QUANTITY, query = "SELECT * FROM CustomerOrderLine where QUANTITY = quantity"),
 	@NamedQuery(name = CustomerOrderLine.FIND_BY_PRODUCT_ID, query = "SELECT c FROM CustomerOrderLine c WHERE CUSTOMER ID = :productid")
 })
 public class CustomerOrderLine 
 {
 	public static final String FIND_BY_CO_ID = "CustomerOrderLine.findByCOID";
 	public static final String FIND_BY_PRODUCT_ID = "CustomerOrderLine.findByPID";
+	public static final String FIND_BY_QUANTITY = "CustomerOrderLine.findByQUANTITY";
 	
 	/**
 	 * Customer Order Line ID is the primary key for the this table
@@ -75,11 +77,11 @@ public class CustomerOrderLine
 	 *	Getters and Setters for class variables
 	 *	Initialise class
 	 */
-	public int getCustomerOrderLineID() {
+	public int getCustomerOrderID() {
 		return CustomerOrderID;
 	}
 
-	public void setCustomerOrderLineID(int customerOrderID) {
+	public void setCustomerOrderID(int customerOrderID) {
 		CustomerOrderID = customerOrderID;
 	}
 
