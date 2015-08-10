@@ -31,7 +31,7 @@
 				<h:inputText id="customeremail" value="#{contactFormDetails.email}" maxlength="45" size="20"/><br/>
 				<br/>
 				<h:outputLabel value="Message" for="customermessage"/><br/>
-				<h:inputTextarea id="customermessage" value="#{contactFormDetails.message}" maxlength="80" rows="4" cols="50"/><br/>
+				<h:inputTextarea id="customermessage" value="#{contactFormDetails.message}" maxlength="80" width="50%" height="70%"/><br/>
 				<h:commandButton action="#{contactController.sendMessage}" value="Send" />
 			</h:panelGrid>
 		</h:form>

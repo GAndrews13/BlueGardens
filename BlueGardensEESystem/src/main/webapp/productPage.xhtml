@@ -13,7 +13,6 @@
 	<ui:define name="sectiontitle">
 		#{productController.getProductByID()}
 		#{productController.product.productName}
-		#{productController.product.getProductID()}
 	</ui:define>
 	
 	<!-- Contains the actual content of the page -->
@@ -25,5 +24,11 @@
 			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}"  value="Add to Basket" /><br/><hr/>
 		</h:form>
 		</div>
+		<div>
+			<h:form>
+				<h:commandButton action="#{basketController.addToBasket(productController.product)}" value="Add to Basket"/>
+			</h:form>
+		</div>
+		
 	</ui:define>
 </ui:composition>
