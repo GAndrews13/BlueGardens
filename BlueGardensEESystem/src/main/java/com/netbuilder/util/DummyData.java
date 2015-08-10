@@ -150,15 +150,15 @@ public class DummyData {
 				35.00, false, "that's", "ammmaaaazing", "that", "you", "know",
 				"resources/img/gnome.png", false);
 
-		product6 = new Product(6, "Plum", 104, 63, 130, true, 4.99, false,
+		product6 = new Product(6, "Garden Fountain", 104, 63, 130, true, 4.99, false,
 				"that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/plum.png", false);
+				"resources/img/fountain.png", false);
 
 		product7 = new Product(7, "Garden Lights", 150, 13, 163, false, 12.00,
 				true, "that's", "ammmaaaazing", "that", "you", "know",
 				"resources/img/lights.png", false);
 
-		product8 = new Product(8, " Garden Bench", 140, 36, 164, false, 700.00,
+		product8 = new Product(8, "Garden Bench", 140, 36, 164, false, 700.00,
 				true, "that's", "ammmaaaazing", "that", "you", "know",
 				"resources/img/bench.png", false);
 
@@ -166,8 +166,8 @@ public class DummyData {
 				"that's", "ammmaaaazing", "that", "you", "know",
 				"resources/img/jacuzzi.png", false);
 
-		product10 = new Product(10, "Wand", 230, 25, 300, true, 31.50, true,
-				"You", "are", "a", "wizard", "Harry", "resources/img/wand.png",
+		product10 = new Product(10, "Heater", 230, 25, 300, true, 31.50, true,
+				"You", "are", "a", "wizard", "Harry", "resources/img/heater.png",
 				true);
 
 		products.add(product1);
