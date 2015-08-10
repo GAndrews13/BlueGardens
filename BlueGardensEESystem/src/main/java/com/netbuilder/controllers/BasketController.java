@@ -7,6 +7,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ReferencedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -23,6 +24,7 @@ import com.netbuilder.service.BasketProductOrderService;
 
 @Singleton
 @Startup
+@ReferencedBean(name = "basketController")
 public class BasketController implements Serializable{
 	@Inject
 	private BasketManager bm;
