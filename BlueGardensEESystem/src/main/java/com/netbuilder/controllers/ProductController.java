@@ -7,6 +7,8 @@ package com.netbuilder.controllers;
  * @author lczornyj
  */
 
+import java.util.ArrayList;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -26,41 +28,45 @@ public class ProductController {
 	WishListController wishlistController;
 	public String link;
 	private Product product;
-	private Product trendingProduct;
-	private Product porousProduct;
-	private Product saleProduct;
-
-	public Product getTrendingProduct() {
-		return trendingProduct;
+	private ArrayList<Product> trendingProducts;
+	private ArrayList<Product> porousProducts;
+	private ArrayList<Product> saleProducts;
+	public ArrayList<Product> getTrendingProducts() {
+		return trendingProducts;
 	}
 
-	public void setTrendingProduct(Product trendingProduct) {
-		this.trendingProduct = trendingProduct;
+	public void setTrendingProducts(ArrayList<Product> trendingProducts) {
+		this.trendingProducts = trendingProducts;
 	}
 
-	public Product getPorousProduct() {
-		return porousProduct;
+	public ArrayList<Product> getPorousProducts() {
+		return porousProducts;
 	}
 
-	public void setPorousProduct(Product porousProduct) {
-		this.porousProduct = porousProduct;
+	public void setPorousProducts(ArrayList<Product> porousProducts) {
+		this.porousProducts = porousProducts;
 	}
 
-	public Product getSaleProduct() {
-		return saleProduct;
+	public ArrayList<Product> getSaleProducts() {
+		return saleProducts;
 	}
 
-	public void setSaleProduct(Product saleProduct) {
-		this.saleProduct = saleProduct;
+	public void setSaleProducts(ArrayList<Product> saleProducts) {
+		this.saleProducts = saleProducts;
 	}
 
 	public void pullCatalog() {
-		trendingProduct = productManager.findByTrending().get(0);
-		saleProduct = productManager.findBySale().get(0);
-		porousProduct = productManager.findByPourousware(true).get(0);
+		trendingProducts = new ArrayList<Product>();
+		porousProducts = new ArrayList<Product>();
+		saleProducts = new ArrayList<Product>();
+		for(int i=0; i<3; i++){
+			trendingProducts.add(productManager.findByTrending().get(i));
+			porousProducts.add(productManager.findByPourousware(true).get(i));
+		}
+		for(int i=0; i<4; i++){
+			saleProducts.add(productManager.findBySale().get(i));
+		}
 	}
-
-	private int currentID;
 
 	public ProductController() {
 	}
@@ -77,26 +83,6 @@ public class ProductController {
 		pid = pid.replace("product=", "");
 		product = productManager.findById(Integer.parseInt(pid));
 		pullCatalog();
-	}
-
-	public int getCurrentID() {
-		return currentID;
-	}
-
-	public void setCurrentID(int currentID) {
-		// System.out.println(currentID);
-		this.currentID = currentID;
-		System.out.println(this.currentID);
-	}
-
-	public void search(int inID) {
-		// System.out.println(this.link.substring(1, this.link.length()-1));
-		// this.product = productManager.findByImageLink(this.link.substring(1,
-		// this.link.length()-1));
-		System.out.println(inID);
-		this.product = productManager.findById(inID);
-		// System.out.println(product);
-		// return "productPage";
 	}
 
 	public String getLink() {

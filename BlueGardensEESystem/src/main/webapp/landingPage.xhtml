@@ -40,20 +40,20 @@
 	
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
-						<div class="item">
-							<img src="resources\img\minigarden.png" alt="Mini Garden" width="35%" height="25%" />
-						</div>
-	
-						<div class="item">
-							<img src="resources\img\lights.png"  alt="Garden Lights" width="35%" height="25%" />
-						</div>
-	
-						<div class="item">
-							<img src="resources\img\gnome.png" alt="Gnome" width="35%" height="25%" />
-						</div>
-	
 						<div class="item active">
-							<img src="resources\img\gnomesswing.png" alt="Gnomes" width="35%" height="25%" />
+							<img src="#{productController.saleProducts.get(0).getImageLink()}" alt="#{productController.saleProducts.get(0).getProductName()}" width="35%" height="25%" />
+						</div>
+	
+						<div class="item">
+							<img src="#{productController.saleProducts.get(1).getImageLink()}" alt="#{productController.saleProducts.get(1).getProductName()}" width="35%" height="25%" />
+						</div>
+	
+						<div class="item">
+							<img src="#{productController.saleProducts.get(2).getImageLink()}" alt="#{productController.saleProducts.get(2).getProductName()}" width="35%" height="25%" />
+						</div>
+	
+						<div class="item">
+							<img src="#{productController.saleProducts.get(3).getImageLink()}" alt="#{productController.saleProducts.get(3).getProductName()}" width="35%" height="25%" />
 						</div>
 					</div>
 	
@@ -78,26 +78,15 @@
 			</p>
 			<table>
 				<tr class="center">
-					<td>
-						<p>
-							<a class="hovertext" title="Popular!!!" href="#"><img
-								class="product" src="#{productController.trendingProduct.getImageLink()}" alt="" /></a>
-						</p>
-					</td>
-					<td>
-						<p>
-							<a class="hovertext" title="Popular!!!" href="#"> <img
-								class="product" src="#{productController.trendingProduct.getImageLink()}" alt="" />
-							</a>
-						</p>
-					</td>
-					<td>
-						<p>
-							<a class="hovertext" title="Popular!!!" href="#{productController.trendingProduct.productID}"><img
-								class="product" src="#{productController.trendingProduct.getImageLink()}" alt="" /></a>
-
-						</p>
-					</td>
+				<ui:repeat var="trending" value="#{productController.trendingProducts}">
+				<td>
+				<p>
+				<a href="productPage.xhtml?product=#{trending.getProductID()}"  id="#{trending.productID}" class="hovertext" title="Popular!!!">	
+				<img class="product" src="#{trending.getImageLink()}" alt="#{trending.getProductName()}" />
+				</a>
+				</p>
+				</td>
+				</ui:repeat>
 				</tr>
 			</table>
 			
@@ -108,26 +97,15 @@
 			</p>
 			<table>
 				<tr class="center">
-					<td>
-						<p>
-							<a class="hovertext" title="Porousware Applied!!!" href="#"><img
-								class="product" src="#{productController.porousProduct.getImageLink()}" alt="" /></a>
-						</p>
-					</td>
-					<td>
-						<p>
-							<a class="hovertext" title="Porousware Applied!!!" href="#"> <img
-								class="product" src="#{productController.porousProduct.getImageLink()}" alt="" />
-							</a>
-						</p>
-					</td>
-					<td>
-						<p>
-							<a class="hovertext" title="Porousware Applied!!!" href="#"><img
-								class="product" src="#{productController.porousProduct.getImageLink()}" alt="" /></a>
-
-						</p>
-					</td>
+				<ui:repeat var="porous" value="#{productController.porousProducts}">
+				<td>
+				<p>
+				<a href="productPage.xhtml?product=#{porous.getProductID()}"  id="#{porous.productID}" class="hovertext" title="Porousware Applied!!!">	
+				<img class="product" src="#{porous.getImageLink()}" alt="#{porous.getProductName()}" />
+				</a>
+				</p>
+				</td>
+				</ui:repeat>
 				</tr>
 			</table>
 		</div>
