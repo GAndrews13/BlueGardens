@@ -156,7 +156,7 @@ public class DummyData {
 				4.99, false, "that's", "ammmaaaazing", "that", "you", "know",
 				"resources/img/plum.png", false);
 		
-		product7 = new Product(7, "Lighting", 150, 13, 163, false,
+		product7 = new Product(7, "Garden Lights", 150, 13, 163, false,
 				12.00, true, "that's", "ammmaaaazing", "that", "you", "know",
 				"resources/img/lights.png", false);
 		
