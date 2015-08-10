@@ -18,7 +18,7 @@ import com.netbuilder.entitymanagers.ProductManager;
 
 @Alternative
 public class BasketManagerDummy implements BasketManager,Serializable {
-	Basket localbasket = new Basket(0, null); 
+	Basket localbasket = new Basket(0, new ArrayList<CustomerOrderLine>()); 
 	@Inject
 	ProductManager productManager;
 	
@@ -50,12 +50,8 @@ public class BasketManagerDummy implements BasketManager,Serializable {
 	 */
 	public void addProduct(int inProduct,int inQuantity)
 	{
+		System.out.println(inProduct + inQuantity + "VALUES");
 		localbasket.getCustomerOrderLine().add(new CustomerOrderLine(inProduct,inQuantity));
-	}
-	
-	public void addProduct(Product inProduct,int inQuantity)
-	{
-		localbasket.getCustomerOrderLine().add(new CustomerOrderLine(inProduct.getProductID(),inQuantity));
 	}
 	
 	public void changeQuantity(Product inProduct,int inQuantity)
@@ -87,6 +83,7 @@ public class BasketManagerDummy implements BasketManager,Serializable {
 		ArrayList<CustomerOrderLine> POL = localbasket.getCustomerOrderLine();
 		if(POL == null)
 		{
+			System.out.println("YEAH");
 			return new ArrayList<CustomerOrderLine>();
 		}
 		return POL;

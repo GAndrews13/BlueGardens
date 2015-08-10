@@ -1,4 +1,4 @@
-package main.java.com.netbuilder.view;
+package com.netbuilder.view;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
