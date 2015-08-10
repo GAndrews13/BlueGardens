@@ -5,16 +5,10 @@ import javax.inject.Singleton;
 
 @SessionScoped
 @Singleton
-public class SelectedProduct{
+public class SelectedProduct {
+	private int ProductID;
 
-private int ProductID;
+	public int getProductID() { return ProductID; }
 
-public int getProductID() {
-	return ProductID;
-}
-
-public void setProductID(int productID) {
-	ProductID = productID;
-}
-
+	public void setProductID(int productID) { ProductID = productID; }
 }

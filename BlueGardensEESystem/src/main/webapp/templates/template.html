@@ -1,14 +1,13 @@
 <!-- Author: GAndrews-->
-
 <!DOCTYPE html>
-<html 	xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:h="http://java.sun.com/jsf/html">
-<header>
-</header>
-	<meta charset="ISO-8859-1"/>
-	<link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
-	<title><ui:insert name = "pagetitle"/></title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta charset="ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+<title><ui:insert name="pagetitle" /></title>
+</head>
 <body>
 	<div class="site-header">
 		<table>
@@ -16,12 +15,8 @@
 				<th rowspan="2">
 					<!--<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px />-->
 				</th>
-				<td width="80%">
-					
-				</td>
-				<td>
-					<img src="" alt="Login"/>
-				</td>
+				<td width="80%"></td>
+				<td><img src="" alt="Login" /></td>
 			</tr>
 			<tr>
 				<td width="100%">
@@ -33,101 +28,110 @@
 					</ul>
 				</td>
 				<td>
-					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">		  		
-	   					<input type="hidden" name="business" value="garethedwardfrankandrews@hotmail.com"/>
-		    					<input type="hidden" name="cmd" value="_cart"/>
-	    				<input type="hidden" name="display" value="1"/>
-	   					<input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" alt="PayPal - The safer, easier way to pay online"/>
-	   					<img alt="" border="0" width="1" height="1"     src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
+					<form target="paypal"
+						action="https://www.paypal.com/cgi-bin/webscr" method="post">
+						<input type="hidden" name="business"
+							value="garethedwardfrankandrews@hotmail.com" /> <input
+							type="hidden" name="cmd" value="_cart" /> <input type="hidden"
+							name="display" value="1" /> <input type="image" name="submit"
+							src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif"
+							alt="PayPal - The safer, easier way to pay online" /> <img alt=""
+							border="0" width="1" height="1"
+							src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
 					</form>
 				</td>
 			</tr>
 		</table>
 	</div>
-	
 	<div class="page-wrap">
 		<table>
 			<tr>
-				<td width = "120%">
+				<td width="120%">
 					<div id="contentHeader">
-						<ui:insert name="sectiontitle"/>
+						<ui:insert name="sectiontitle" />
 					</div>
 					<div class="content">
 						<form action="http:www.google.co.uk">
-					<fieldset>
-					<legend>Log In:</legend>
-					<br/>
-					Username or Email:
-					<input type="text" name="username" value="Enter a Username or Email"/>
-					<br/><br/>
-					Password:
-					<input type="text" name="password" value="Enter a password"/>
-					<br/><br/>
-					<input type="submit" value="Submit"/></fieldset>
-					</form>
-						<ui:insert name="body"/>
+							<fieldset>
+								<legend>Log In:</legend>
+								<br /> Username or Email: <input type="text" name="username"
+									value="Enter a Username or Email" /> <br />
+								<br /> Password: <input type="text" name="password"
+									value="Enter a password" /> <br />
+								<br /> <input type="submit" value="Submit" />
+							</fieldset>
+						</form>
+						<ui:insert name="body" />
 					</div>
 				</td>
-				<td id ="sidebarRight">
+				<td id="sidebarRight">
 					<p>
-						<div id="fb-root"></div>
-<script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '403001713105454',
-          xfbml      : true,
-          version    : 'v2.4'
-        });
-      };
-      
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-	
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=403001713105454";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/pages/NB-Gardens/1451279795195170" 
-data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true" 
-fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=113869198637480&amp;container_width=588&amp;
-hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;sdk=joey&amp;
-show_facepile=true&amp;show_posts=true&amp;small_header=false">
-<span style="width: 340px; height: 384px; vertical-align: bottom;">
-<iframe name="f240358ac6cd2c8" width="1000px" height="1000px" title="fb:page Facebook Social Plugin" 
-src="https://www.facebook.com/v2.3/plugins/page.php?adapt_container_width=true&amp;app_id=113869198637480&amp;channel=https%3A%2F%2Fs-static.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FX9pYjJn4xhW.js%3Fversion%3D41%23cb%3Df1399277ae16a01%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ff26033454e3ee62%26relation%3Dparent.parent&amp;
-container_width=588&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;
-sdk=joey&amp;show_facepile=true&amp;show_posts=true&amp;small_header=false"
-frameborder="0" scrolling="no" allowfullscreen="true" style="border: medium; border-image: none; width: 340px; height: 384px;
- visibility: visible;" allowtransparency="true"></iframe></span></div>
+						<div id="fb-root"></div> 
+						<script>
+								window.fbAsyncInit = function() {
+								FB.init({
+									appId : '403001713105454',
+									xfbml : true,
+									version : 'v2.4'
+								});
+							};
+							(function(d, s, id) {
+								var js, fjs = d.getElementsByTagName(s)[0];
+								if (d.getElementById(id))
+									return;
+								js = d.createElement(s);
+								js.id = id;
+								js.src = "//connect.facebook.net/en_US/sdk.js";
+								fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));
+						</script>
+						<script>
+							(function(d, s, id) {
+								var js, fjs = d.getElementsByTagName(s)[0];
+								if (d.getElementById(id))
+									return;
+								js = d.createElement(s);
+								js.id = id;
+								js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=403001713105454";
+								fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));
+						</script>
+						<div class="fb-page fb_iframe_widget"
+							data-href="https://www.facebook.com/pages/NB-Gardens/1451279795195170"
+							data-small-header="false" data-adapt-container-width="true"
+							data-hide-cover="false" data-show-facepile="true"
+							data-show-posts="true" fb-xfbml-state="rendered"
+							fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=113869198637480&amp;container_width=588&amp;
+													hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;sdk=joey&amp;
+													show_facepile=true&amp;show_posts=true&amp;small_header=false">
+							<span style="width: 340px; height: 384px; vertical-align: bottom;">
+								<iframe name="f240358ac6cd2c8" width="1000px" height="1000px"
+									title="fb:page Facebook Social Plugin"
+									src="https://www.facebook.com/v2.3/plugins/page.php?adapt_container_width=true&amp;app_id=113869198637480&amp;channel=https%3A%2F%2Fs-static.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FX9pYjJn4xhW.js%3Fversion%3D41%23cb%3Df1399277ae16a01%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ff26033454e3ee62%26relation%3Dparent.parent&amp;
+										container_width=588&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;
+										sdk=joey&amp;show_facepile=true&amp;show_posts=true&amp;small_header=false"
+									frameborder="0" scrolling="no" allowfullscreen="true"
+									style="border: medium; border-image: none; width: 340px; height: 384px; visibility: visible;"
+									allowtransparency="true"></iframe>
+							</span>
+						</div>
 					</p>
 				</td>
 			</tr>
-		</table>			
+		</table>
 	</div>
-	
 	<footer class="site-footer">
-	  <div>
+		<div>
 			<div>
 				<ul class="bottommenu">
 					<li><a href="/services"><span>About Us</span></a></li>
-				  	<li><a href="/services"><span>FAQ</span></a></li>
-				  	<li><a href="/services"><span>Contact Us</span></a></li>
+					<li><a href="/services"><span>FAQ</span></a></li>
+					<li><a href="/services"><span>Contact Us</span></a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="center">
-			2015 NBGardens.
-			<a href="">Design by DelphiSoft Consulting</a> 
+			2015 NBGardens. <a href="">Design by DelphiSoft Consulting</a>
 		</div>
 	</footer>
 </body>

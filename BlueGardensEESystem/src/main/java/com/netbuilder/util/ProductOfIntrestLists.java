@@ -1,16 +1,16 @@
 package com.netbuilder.util;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.netbuilder.entities.Product;
 
-
+/**
+ * Serialized the POI and passed them as strings so that they can be contained within an object
+ * ready for the message sender to send the message.
+ * @author lczornyj
+ */
 public class ProductOfIntrestLists implements Serializable {
-	/**
-	 * Serialized the POI and passed them as strings so that they can be contained within an object
-	 * ready for the message sender to send the message.
-	 * @author lczornyj
-	 */
 	private static final long serialVersionUID = -3677387888461989010L;
 	private ArrayList<Product> sale;
 	private ArrayList<Product> pourous;
@@ -22,28 +22,16 @@ public class ProductOfIntrestLists implements Serializable {
 		this.trending = trending;
 	}
 	
-	public ArrayList<Product> getSale() {
-		return sale;
-	}
-	public void setSale(ArrayList<Product> sale) {
-		this.sale = sale;
-	}
-	public ArrayList<Product> getPourous() {
-		return pourous;
-	}
-	public void setPourous(ArrayList<Product> pourous) {
-		this.pourous = pourous;
-	}
-	public ArrayList<Product> getTrending() {
-		return trending;
-	}
-	public void setTrending(ArrayList<Product> trending) {
-		this.trending = trending;
-	}
+	public ArrayList<Product> getSale() { return sale; }
+	public ArrayList<Product> getPourous() { return pourous; }
+	public ArrayList<Product> getTrending() { return trending; }
+	
+	public void setSale(ArrayList<Product> sale) { this.sale = sale; }
+	public void setPourous(ArrayList<Product> pourous) { this.pourous = pourous; }	
+	public void setTrending(ArrayList<Product> trending) { this.trending = trending; }
 
 	@Override
 	public String toString() {
-		return "ProductOfIntrestLists [sale=" + sale.toString() + ", pourous=" + pourous.toString()
-				+ ", trending=" + trending.toString() + "]";
+		return "ProductOfIntrestLists [sale=" + sale.toString() + ", pourous=" + pourous.toString() + ", trending=" + trending.toString() + "]";
 	}
 }

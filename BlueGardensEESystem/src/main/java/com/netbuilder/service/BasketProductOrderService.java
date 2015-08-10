@@ -1,16 +1,13 @@
 package com.netbuilder.service;
+
 import javax.inject.Inject;
 
-import com.netbuilder.controllers.LoginController;
 import com.netbuilder.entities.Basket;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.entitymanagers.CustomerOrderManager;
-import com.netbuilder.entitymanagers.ProductOrderLineManager;
-import com.netbuilder.util.LoginUtils;
 import com.netbuilder.util.UserDetails;
-
 
 public class BasketProductOrderService {
 	@Inject
@@ -19,11 +16,10 @@ public class BasketProductOrderService {
 	private static CustomerManager customerManager;
 	@Inject
 	private static CustomerOrderManager com;
-	public static void createBasketOrder(Basket inBasket)
-	{
+	
+	public static void createBasketOrder(Basket inBasket) {
 		Customer customer = customerManager.findByID(ud.getUserID());
 		CustomerOrder co = new CustomerOrder(customer,inBasket.getProductOrderLine());
-		
 		//create product order line
 		com.persistCustomerOrder(co);
 	}

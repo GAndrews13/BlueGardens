@@ -15,7 +15,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 public class MessageReciever implements MessageListener {
-		
 	private Context cxt = null;
 	private TopicConnectionFactory cF = null;
 	private TopicConnection con = null;
@@ -26,45 +25,39 @@ public class MessageReciever implements MessageListener {
 		
 	public void receiveObjectMessage() {
 		try {
-		cxt = new InitialContext();
-		cF = (TopicConnectionFactory) cxt.lookup("ConnectionFactory");
-		topic = (Topic) cxt.lookup("topic1");
-		con = cF.createTopicConnection();
-		session = con.createTopicSession(false, AUTO_ACKNOWLEDGE);
-		tS = session.createSubscriber(topic);
-		con.start();
-		tS.setMessageListener(new ExampleListener());
+			cxt = new InitialContext();
+			cF = (TopicConnectionFactory) cxt.lookup("ConnectionFactory");
+			topic = (Topic) cxt.lookup("topic1");
+			con = cF.createTopicConnection();
+			session = con.createTopicSession(false, AUTO_ACKNOWLEDGE);
+			tS = session.createSubscriber(topic);
+			con.start();
+			tS.setMessageListener(new ExampleListener());
 		} catch (NamingException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		} catch (JMSException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		} finally {
-		if (cxt != null) { try {
-		cxt.close();
-		} catch (NamingException e) {
-		e.printStackTrace();
-		}}
-		if (con != null) { try {
-		con.close();
-		} catch (JMSException e) {
-		e.printStackTrace();
-		}}}}
+			if (cxt != null) { try {
+					cxt.close();
+				} catch (NamingException e) { e.printStackTrace(); }
+			}
+			if (con != null) { try {
+					con.close();
+				} catch (JMSException e) { e.printStackTrace(); }
+			}
+		}
+	}
 
-	private class ExampleListener implements MessageListener
-	{
-
+	private class ExampleListener implements MessageListener {
 		@Override
 		public void onMessage(Message arg0) {
 			// TODO Auto-generated method stub
-			
 		}
-		
 	}
 
 	@Override
 	public void onMessage(Message arg0) {
 		// TODO Auto-generated method stub
-		
 	}
-	
 }

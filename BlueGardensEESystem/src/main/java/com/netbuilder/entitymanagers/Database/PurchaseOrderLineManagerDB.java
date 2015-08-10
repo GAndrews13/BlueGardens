@@ -2,6 +2,7 @@ package com.netbuilder.entitymanagers.Database;
 
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
@@ -11,6 +12,7 @@ import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.PurchaseOrderLine;
 import com.netbuilder.entitymanagers.PurchaseOrderLineManager;
 
+@Default
 public class PurchaseOrderLineManagerDB implements PurchaseOrderLineManager {
 	PersistenceManager pm = new PersistenceManager();
 	

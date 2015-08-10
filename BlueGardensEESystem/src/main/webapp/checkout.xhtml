@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!-- Outlines the code that the system uses and the template it is based off of -->
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"      
@@ -6,43 +5,37 @@
 				xmlns:h="http://java.sun.com/jsf/html"
 				xmlns:f="http://java.sun.com/jsf/core"     
 				template="templates/template.xhtml">
-	<!-- Defines the title of the page using the header 1 tag -->
-	<ui:define name = "pagetitle">
-		NBGardens: Checkout
-	</ui:define>
-	<!-- Defines the title displayed on the page -->
-	<ui:define name="sectiontitle">
+<!-- Defines the title of the page using the header 1 tag -->
+<ui:define name = "pagetitle">
+	NBGardens: Checkout
+</ui:define>
+<!-- Defines the title displayed on the page -->
+<ui:define name="sectiontitle">
 	<h:commandButton action="#{basketController.submitBasket(basketController.bm)}" value="Checkout" />
-	</ui:define>
-	<!-- Contains the actual content of the page -->
-	<ui:define name="body">
-		<br/>
-		<p>
-		Total Price: 
-		</p>
-		<h:outputText value="#{basketController.basketTotal}"/>
-		<br/>
-		<div id="checkout">
-			<!-- DISPLAY BASKET ITEMS -->
-						<h:dataTable class="basketTable" value="#{basketController.items}" var="item" border="0">
-							<f:facet name="header">
-							</f:facet>
-								<h:column>
-								</h:column>
-							<h:column class="basketTableColumn">
-								<f:facet name="header">
-									<h:outputText value="Product"/>
-								</f:facet>
-								<h:outputText value="#{item.productName}"/>
-							</h:column>
-							
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="Price Per Item"/>
-								</f:facet>
-								<h:outputText value="#{item.price}"/>
-							</h:column>
-						</h:dataTable>
-		</div>
-	</ui:define>
+</ui:define>
+<!-- Contains the actual content of the page -->
+<ui:define name="body">
+	<br/>
+	<p>Total Price:</p>
+	<h:outputText value="#{basketController.basketTotal}"/><br/>
+	<div id="checkout">
+		<!-- DISPLAY BASKET ITEMS -->
+		<h:dataTable class="basketTable" value="#{basketController.items}" var="item" border="0">
+			<f:facet name="header"></f:facet>
+			<h:column></h:column>
+			<h:column class="basketTableColumn">
+				<f:facet name="header">
+					<h:outputText value="Product"/>
+				</f:facet>
+				<h:outputText value="#{item.productName}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Price Per Item"/>
+				</f:facet>
+				<h:outputText value="#{item.price}"/>
+			</h:column>
+		</h:dataTable>
+	</div>
+</ui:define>
 </ui:composition>

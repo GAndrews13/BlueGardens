@@ -1,153 +1,123 @@
-
 <!-- Author: GAndrews-->
 <!DOCTYPE html>
-<html 	xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:f="http://java.sun.com/jsf/core"
-		>
-	<header>
-	</header>
-	<meta charset="ISO-8859-1"/>
-	<link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
-	<Script src="resources/css/bootstrap.css"/>
-	
-	
-	<title><ui:insert name = "pagetitle"/></title>
-	
-	<body>
-		<div class="site-header">
-			<table>
-				<tr>
-					<th rowspan="2">
-						<!--<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/>  --> 
-						<a href="landingPage.xhtml"><img src="resources/img/logo.png" id="logo" alt="NBGardens"/></a>
-					</th>
-					<td>
-					</td>
-					<td>
-						<span>
-							<a onclick="loginText()" id="loggedInText">#{loginController.loggedInUserName()}</a>
-						</span>
-					</td>
-					<td>
-					
-						<h:form>
-							<h:commandButton action="#{loginController.logOut()}" value="Logout" rendered="#{loginController.loggedIn == true}" height="5%" />
-						</h:form>
-					</td>
-				</tr>
-				<tr>
-					<td id="headerMenuRow">
-						<ul class="menu">
-							<li><a href="landingPage.xhtml" class="active"><p class="menuItem">Home</p></a></li>
-							<li><a href="aboutUs.xhtml"><p class="menuItem">About</p></a></li>
-							<li><a href="wishlist.xhtml"><p class="menuItem">Wishlist</p></a></li>
-							<li><a href="jsearch.xhtml"><p class="menuItem">JSearch</p></a></li>
-							<li><a href="contactUs.xhtml"><p class="menuItem">Contact</p></a></li>
-						</ul>
-					</td>
-					<td>
-						<div class="cartInfo">
-							<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" class="javascriptText">
-								<img src="resources\img\basket.png" alt="Basket" width="20%" height="20%"/>
-							</a>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-		
-		<div class="page-wrap">
-		<!-- Basket Overlay -->
-					<div id="light" class="white_content" >
-						<div>
-							<a href = "javascript:void(0)"  onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
-						</div>
-						<div class="basketHeader" style="background-color:coral">
-							<a href="checkout.xhtml"> Checkout</a>
-						</div>
-						<!-- DISPLAY BASKET ITEMS -->
-						<h:dataTable class="basketTable" value="#{basketController.items}" var="item" border="0">
-							<f:facet name="header">
-							</f:facet>
-								<h:column>
-								</h:column>
-							<h:column class="basketTableColumn">
-								<f:facet name="header">
-									<h:outputText value="Product"/>
-								</f:facet>
-								<h:outputText value="#{item.productName}"/>
-							</h:column>
-							
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="Price Per Item"/>
-								</f:facet>
-								<h:outputText value="#{item.price}"/>
-							</h:column>
-						</h:dataTable>
-						<br/> 
-					</div>
-    				<div id="fade" class="black_overlay"></div>
-    				<br/>
-    				<br/>
-    				
-    				
-    				<div class="content">
-    				<br/>
-							<div id="contentHeader">
-								<ui:insert name="sectiontitle"/>
-							</div>
-							<ui:insert name="body"/>
-							<br/>
-							<br/>
-    				</div>
-		</div>
-		
-		<footer class="site-footer">
-					<ul class="bottommenu center">
-						<li><a href="aboutUs.xhtml"><span>About Us</span></a></li>
-					  	<li><a href="frequentlyAskedQuestions.xhtml"><span>FAQ</span></a></li>
-					  	<li><a href="contactUs.xhtml"><span>Contact Us</span></a></li>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+	<meta charset="ISO-8859-1" />
+	<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+	<Script src="resources/css/bootstrap.css" />
+	<title><ui:insert name="pagetitle" /></title>
+</head>
+<body>
+	<div class="site-header">
+		<table>
+			<tr>
+				<th rowspan="2">
+					<!--<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/>  -->
+					<a href="landingPage.xhtml"><img src="resources/img/logo.png" id="logo" alt="NBGardens" /></a>
+				</th>
+				<td></td>
+				<td><span><a onclick="loginText()" id="loggedInText">#{loginController.loggedInUserName()}</a></span></td>
+				<td><h:form>
+						<h:commandButton action="#{loginController.logOut()}" value="Logout" rendered="#{loginController.loggedIn == true}" height="5%" />
+				</h:form></td>
+			</tr>
+			<tr>
+				<td id="headerMenuRow">
+					<ul class="menu">
+						<li><a href="landingPage.xhtml" class="active"><p class="menuItem">Home</p></a></li>
+						<li><a href="aboutUs.xhtml"><p class="menuItem">About</p></a></li>
+						<li><a href="wishlist.xhtml"><p class="menuItem">Wishlist</p></a></li>
+						<li><a href="jsearch.xhtml"><p class="menuItem">JSearch</p></a></li>
+						<li><a href="contactUs.xhtml"><p class="menuItem">Contact</p></a></li>
 					</ul>
-			<div class="center" >
-				2015 NBGardens.
-				<a href="">Design by DelphiSoft Consulting</a> 
+				</td>
+				<td>
+					<div class="cartInfo">
+						<a href="javascript:void(0)"
+							onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"
+							class="javascriptText"> <img src="resources\img\basket.png"
+							alt="Basket" width="20%" height="20%" />
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="page-wrap">
+		<!-- Basket Overlay -->
+		<div id="light" class="white_content">
+			<div>
+				<a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 			</div>
-		</footer>
-	</body>
-	<!-- Javascript -->
-	<!--  Javascript Menu -->
-	
-	
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
-  
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-	<!-- <script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script> -->
-	<script type="text/javascript">
-		  $('.tabs_holder').skinableTabs({
-	    effect: 'basic_display',
+			<div class="basketHeader" style="background-color: coral">
+				<a href="checkout.xhtml"> Checkout</a>
+			</div>
+			<!-- DISPLAY BASKET ITEMS -->
+			<h:dataTable class="basketTable" value="#{basketController.items}" var="item" border="0">
+				<f:facet name="header"></f:facet>
+				<h:column></h:column>
+				<h:column class="basketTableColumn">
+					<f:facet name="header">
+						<h:outputText value="Product" />
+					</f:facet>
+					<h:outputText value="#{item.productName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Price Per Item" />
+					</f:facet>
+					<h:outputText value="#{item.price}" />
+				</h:column>
+			</h:dataTable>
+			<br />
+		</div>
+		<div id="fade" class="black_overlay"></div>
+		<br /> <br />
+		<div class="content">
+			<br />
+			<div id="contentHeader">
+				<ui:insert name="sectiontitle" />
+			</div>
+			<ui:insert name="body" />
+			<br /> <br />
+		</div>
+	</div>
+	<footer class="site-footer">
+		<ul class="bottommenu center">
+			<li><a href="aboutUs.xhtml"><span>About Us</span></a></li>
+			<li><a href="frequentlyAskedQuestions.xhtml"><span>FAQ</span></a></li>
+			<li><a href="contactUs.xhtml"><span>Contact Us</span></a></li>
+		</ul>
+		<div class="center">
+			2015 NBGardens. <a href="">Design by DelphiSoft Consulting</a>
+		</div>
+	</footer>
+</body>
+<!-- Javascript -->
+<!--  Javascript Menu -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" />
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<!-- <script type="text/javascript" src="http://onlinehtmltools.com/tab-generator/skinable_tabs.min.js"></script> -->
+<script type="text/javascript">
+	$('.tabs_holder').skinableTabs({
+		effect: 'basic_display',
 	    skin: 'skin5',
 	    position: 'top'
-	  });
-	</script>
-	
-	<script type="text/javascript">	
-		function loginText()
-		{
-			if(#{loginController.isLoggedIn()})
-			{
-				window.location = "landingPage.xhtml";
-			}
-			else
-			{
-				window.location = "login.xhtml";
-			}
-		}
-	</script>
-	<!-- End of Javascript -->
+	});
+</script>
+<script type="text/javascript">	
+	function loginText() {
+		if(#{loginController.isLoggedIn()})
+			window.location = "landingPage.xhtml";
+		else
+			window.location = "login.xhtml";
+	}
+</script>
+<!-- End of Javascript -->
 </html>

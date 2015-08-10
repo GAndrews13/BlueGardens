@@ -1,11 +1,10 @@
 package com.netbuilder.util;
 
-import java.lang.reflect.Array;
 import java.security.SecureRandom;
-import java.util.Arrays;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+
 /**
  * Tools that enable the secure login and management of the user
  * @author gandrews
@@ -16,8 +15,7 @@ public class LoginUtils {
 	 * A method used to generate a 16 bit salt that can be applied to encrypt the password
 	 * @return Returns a random salt that can be used to hash the user password
 	 */
-	public static byte[] getNextSalt()
-	{
+	public static byte[] getNextSalt() {
 		SecureRandom random = new SecureRandom();
 		byte[] salt = new byte[16];
 		random.nextBytes(salt);
@@ -31,25 +29,15 @@ public class LoginUtils {
 	 * @return Returns the users password in its hashed form
 	 * @throws Exception 
 	 */
-	public static byte[] hash(String inPassword, byte[] inSalt) throws Exception
-	{
-		//Link all the elements together to form a key
+	public static byte[] hash(String inPassword, byte[] inSalt) throws Exception {
 		PBEKeySpec spec = new PBEKeySpec(inPassword.toCharArray(),inSalt,1000,16);
-		try
-		{
-			//Generate the secret key
+		try {
 			SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
 			return skf.generateSecret(spec).getEncoded();
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) { 
 			System.out.println(e.toString());
 			throw new Exception("broken hash system");
-		}
-		finally
-		{
-			spec.clearPassword();
-		}
+		} finally { spec.clearPassword(); }
 	}
 	
 	/**
@@ -59,50 +47,35 @@ public class LoginUtils {
 	 * @param inExpectedPassword
 	 * @return
 	 */
-	public static boolean isExpectedPassword(String inPassword, byte[] inSalt, byte[] inExpectedPassword)
-	{
+	public static boolean isExpectedPassword(String inPassword, byte[] inSalt, byte[] inExpectedPassword) {
 		byte[] hashedUserPassword;
 		try {
 			hashedUserPassword = hash(inPassword,inSalt);
 			if(hashedUserPassword.length != inExpectedPassword.length)
-			{
 				return false;
-			}
-			for(int i = 0;i<hashedUserPassword.length;i++)
-			{
+			for(int i = 0;i<hashedUserPassword.length;i++) {
 				if(hashedUserPassword[i] != inExpectedPassword[i])
-				{
 					return false;
-				}
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		} catch (Exception e) { e.printStackTrace(); }
 		return true;
 	}
 	
 	/**
 	 * Random password generator, used to assign temporary or new passwords
 	 */
-	public static String generateRandomPassword()
-	{
+	public static String generateRandomPassword() {
 		StringBuilder sb= new StringBuilder(16);
 		SecureRandom random = new SecureRandom();
-		for(int i = 0;i<16;i++)
-		{
+		for(int i = 0;i<16;i++) {
 			int c = random.nextInt(62);
-			
 			if(c <= 9)
-			{
 				sb.append(String.valueOf(c));
-			}
-			else if (c< 36)
-			{
-				sb.append((char) ('a' + c - 10));
-			}
-			else
-			{
-				sb.append((char)('A' + c - 36));
+			else { if (c< 36)
+					sb.append((char) ('a' + c - 10));
+				else {
+					sb.append((char)('A' + c - 36));
+				}
 			}
 		}
 		return sb.toString();

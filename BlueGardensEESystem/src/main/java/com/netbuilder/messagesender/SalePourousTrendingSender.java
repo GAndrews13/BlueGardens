@@ -1,12 +1,5 @@
 package com.netbuilder.messagesender;
-/**
- * @author lczornyj
- * This is a message sender for the landing page.
- * This does not need to be used as it was purely a test.
- * The method draws in the products of interest from the products of interest page and places them into an object to be sent.
- * 
- * This was designed with jboss 7.0 however it should not work with wildfly.
- */
+
 import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.Destination;
@@ -25,6 +18,14 @@ import com.netbuilder.util.ProductOfIntrestLists;
 
 import static javax.jms.Session.AUTO_ACKNOWLEDGE;
 
+/**
+ * @author lczornyj
+ * This is a message sender for the landing page.
+ * This does not need to be used as it was purely a test.
+ * The method draws in the products of interest from the products of interest page and places them into an object to be sent.
+ * 
+ * This was designed with jboss 7.0 however it should not work with wildfly.
+ */
 public class SalePourousTrendingSender {
 	@Inject
 	ProductsOfIntrest poi;
@@ -53,19 +54,13 @@ public class SalePourousTrendingSender {
 		} catch (JMSException e) {
 			e.printStackTrace();
 		} finally {
-			if (context != null) {
-				try {
+			if (context != null) { try {
 					context.close();
-				} catch (NamingException e) {
-					e.printStackTrace();
-				}
+				} catch (NamingException e) { e.printStackTrace(); }
 			}
-			if (connection != null) {
-				try {
+			if (connection != null) { try {
 					connection.close();
-				} catch (JMSException e) {
-					e.printStackTrace();
-				}
+				} catch (JMSException e) { e.printStackTrace(); }
 			}
 		}
 	}

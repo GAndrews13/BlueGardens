@@ -2,7 +2,7 @@ package com.netbuilder.entitymanagers.Database;
 
 import java.util.ArrayList;
 
-import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -18,7 +18,7 @@ import com.netbuilder.entitymanagers.BasketManager;
  * @author abalagel
  *	implements the database connectivity
  */
-@Alternative
+@Default
 public class BasketManagerDb implements BasketManager {
 	@Inject
 	private PersistenceManager pm;

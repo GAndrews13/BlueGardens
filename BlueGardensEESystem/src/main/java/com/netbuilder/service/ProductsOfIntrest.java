@@ -96,7 +96,7 @@ public class ProductsOfIntrest {
 	 * 
 	 * @return returns an Array list of array lists of products.
 	 */
-	private ArrayList<ArrayList<Product>> listSizes(){
+	private ArrayList<ArrayList<Product>> listSizes() {
 		ArrayList<ArrayList<Product>> list = new ArrayList<ArrayList<Product>>();
 		if (saleList.size() <= pourouswareList.size()) {
 			if(saleList.size() <= trendingList.size()) {
@@ -159,23 +159,18 @@ public class ProductsOfIntrest {
 	 *  name = fewer results
 	 *  id = only one result
 	 */
-	public ArrayList<Product> getSearchResults(int id, String name, boolean stock) 
-		{
+	public ArrayList<Product> getSearchResults(int id, String name, boolean stock) {
 		ArrayList<Product> searchResults = new ArrayList<Product>();
-		if(stock == false)
-			{
-				searchResults = productManager.findByOutStock();
-				return searchResults;
-			}
-			else
-			if(name != null)
-			{
+		if(stock == false) {
+			searchResults = productManager.findByOutStock();
+			return searchResults;
+		} else { if(name != null) {
 				searchResults = productManager.findByName(name);
 				return searchResults;
-
-			}
-			else
+			} else {
 				searchResults.set(0, productManager.findById(id));
 				return searchResults;
+			}
 		}
+	}
 }

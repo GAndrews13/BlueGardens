@@ -4,44 +4,31 @@
 				xmlns:ui="http://java.sun.com/jsf/facelets"  
 				xmlns:h="http://java.sun.com/jsf/html"   
 				template="templates/template.xhtml">
-	<!-- Defines the title of the page using the header 1 tag -->
-	<ui:define name = "pagetitle">Product</ui:define>
-	
-	<!-- Defines the title displayed on the page -->
-	<ui:define name="sectiontitle">
-		<h2>Hello</h2>
-		<button onclick="myFunction()">Try it</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-    var x = document.URL;
-    var split = x.split('=');
-	var id = split[1];
-	document.getElementById("demo").innerHTML = id;
-	
-	
-   
-}
-
-function getvalue()
-{
-	var value = document.getElementById("demo");
-	return value;
-}
-window.onload = myFunction;
-
-
-</script>
-	</ui:define>
-	
-	<!-- Contains the actual content of the page -->
-	<ui:define name="body">
+<!-- Defines the title of the page using the header 1 tag -->
+<ui:define name = "pagetitle">Product</ui:define>
+<!-- Defines the title displayed on the page -->
+<ui:define name="sectiontitle">
+	<h2>Hello</h2>
+	<button onclick="myFunction()">Try it</button>
+	<p id="demo"></p>
+	<script>
+		function myFunction() {
+    		var x = document.URL;
+    		var split = x.split('=');
+			var id = split[1];
+			document.getElementById("demo").innerHTML = id;
+		}
+		function getvalue() {
+			var value = document.getElementById("demo");
+			return value;
+		}
+		window.onload = myFunction;
+	</script>
+</ui:define>
+<!-- Contains the actual content of the page -->
+<ui:define name="body">
 	<p>#{productController.product.productName}</p>
 	<p>#{productController.product.price}</p>
 	<img href="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
-
-	
-	</ui:define>
+</ui:define>
 </ui:composition>

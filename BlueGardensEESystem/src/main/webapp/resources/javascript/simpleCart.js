@@ -13,56 +13,29 @@
 ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~*/
 /*jslint browser: true, unparam: true, white: true, nomen: true, regexp: true, maxerr: 50, indent: 4 */
 
-(function (window, document) {
-	/*global HTMLElement */
-
-	var typeof_string			= typeof "",
-		typeof_undefined		= typeof undefined,
-		typeof_function			= typeof function () {},
-		typeof_object			= typeof {},
-		isTypeOf				= function (item, type) { return typeof item === type; },
-		isString				= function (item) { return isTypeOf(item, typeof_string); },
-		isUndefined				= function (item) { return isTypeOf(item, typeof_undefined); },
-		isFunction				= function (item) { return isTypeOf(item, typeof_function); },
-
-		isObject				= function (item) { return isTypeOf(item, typeof_object); },
-		//Returns true if it is a DOM element
-		isElement				= function (o) {
-			return typeof HTMLElement === "object" ? o instanceof HTMLElement : typeof o === "object" && o.nodeType === 1 && typeof o.nodeName === "string";
-		},
-
-
-
-		generateSimpleCart = function (space) {
-
-			// stealing this from selectivizr
-			var selectorEngines = {
-				"MooTools"							: "$$",
-				"Prototype"							: "$$",
-				"jQuery"							: "*"
-			},
-
-
-				// local variables for internal use
-				item_id					= 0,
-				item_id_namespace		= "SCI-",
-				sc_items				= {},
-				namespace				= space || "simpleCart",
-				selectorFunctions		= {},
-				eventFunctions			= {},
-				baseEvents				= {},
-
+(function(window, document) {
+	/* global HTMLElement */
+	var typeof_string = typeof "", typeof_undefined = typeof undefined, typeof_function = typeof function() { }, typeof_object = typeof {}, isTypeOf = function (item, type) { 
+			return typeof item === type; 
+		}, isString = function (item) { 
+			return isTypeOf(item, typeof_string); 
+		}, isUndefined = function (item) { 
+			return isTypeOf(item, typeof_undefined); 
+		}, isFunction = function (item) { 
+			return isTypeOf(item, typeof_function); 
+		}, isObject = function (item) { 
+			return isTypeOf(item, typeof_object); 
+		}, isElement = function (o) { 
+			return typeof HTMLElement === "object" ? o instanceof HTMLElement : typeof o === "object" && o.nodeType === 1 && typeof o.nodeName === "string"; 
+		}, generateSimpleCart = function (space) {
+			var selectorEngines = { "MooTools" : "$$", "Prototype" : "$$", "jQuery" : "*" },
+				item_id = 0, item_id_namespace = "SCI-", sc_items = {}, namespace = space || "simpleCart", selectorFunctions = {}, eventFunctions = {}, baseEvents = {},
 				// local references
-				localStorage			= window.localStorage,
-				console					= window.console || { msgs: [], log: function (msg) { console.msgs.push(msg); } },
-
-				// used in views 
-				_VALUE_		= 'value',
-				_TEXT_		= 'text',
-				_HTML_		= 'html',
-				_CLICK_		= 'click',
-
-				// Currencies
+				localStorage = window.localStorage,
+				console	= window.console || { msgs: [], log: function (msg) { 
+						console.msgs.push(msg); 
+				}	},
+				_VALUE_ = 'value', _TEXT_ = 'text', _HTML_ = 'html', _CLICK_ = 'click',
 				currencies = {
 					"USD": { code: "USD", symbol: "&#36;", name: "US Dollar" },
 					"AUD": { code: "AUD", symbol: "&#36;", name: "Australian Dollar" },
@@ -86,68 +59,40 @@
 					"THB": { code: "THB", symbol: "&#3647;", name: "Thai Baht" },
 					"BTC": { code: "BTC", symbol: " BTC", name: "Bitcoin", accuracy: 4, after: true	}
 				},
-
-				// default options
 				settings = {
-					checkout				: { type: "PayPal", email: "garethedwardfrankandrews@hotmail.com", success: "LandingPage.xhtml", cancel: "LandingPage.xhtml"},
-					currency				: "GBP",
-					language				: "english-us",
-
-					cartStyle				: "table",
-					cartColumns			: [
-						{ attr: "name", label: "Name" },
-						{ attr: "price", label: "Price", view: 'currency' },
-						{ view: "decrement", label: false },
-						{ attr: "quantity", label: "Qty" },
-						{ view: "increment", label: false },
-						{ attr: "total", label: "SubTotal", view: 'currency' },
-						{ view: "remove", text: "Remove", label: false }
-					],
-
+					checkout : { type: "PayPal", email: "garethedwardfrankandrews@hotmail.com", success: "LandingPage.xhtml", cancel: "LandingPage.xhtml"}, currency : "GBP", language : "english-us", cartStyle : "table", cartColumns : [ { attr: "name", label: "Name" }, { attr: "price", label: "Price", view: 'currency' }, { view: "decrement", label: false }, { attr: "quantity", label: "Qty" }, { view: "increment", label: false }, { attr: "total", label: "SubTotal", view: 'currency' }, { view: "remove", text: "Remove", label: false } ],
 					excludeFromCheckout	: ['thumb'],
-
 					shippingFlatRate		: 0,
 					shippingQuantityRate	: 0,
 					shippingTotalRate		: 0,
 					shippingCustom		: null,
-
-					taxRate				:  0.2,
-					
+					taxRate				:  0.2,		
 					taxShipping			: false,
-
 					data				: {}
-
 				},
-
-
-				// main simpleCart object, function call is used for setting options
+				// main simpleCart object, function call is used for setting
+				// options
 				simpleCart = function (options) {
 					// shortcut for simpleCart.ready
 					if (isFunction(options)) {
 						return simpleCart.ready(options);
 					}
-
 					// set options
 					if (isObject(options)) {
 						return simpleCart.extend(settings, options);
 					}
 				},
-
 				// selector engine
 				$engine,
-
 				// built in cart views for item cells
 				cartColumnViews;
-
 			// function for extending objects
 			simpleCart.extend = function (target, opts) {
 				var next;
-
 				if (isUndefined(opts)) {
 					opts = target;
 					target = simpleCart;
 				}
-
 				for (next in opts) {
 					if (Object.prototype.hasOwnProperty.call(opts, next)) {
 						target[next] = opts[next];
@@ -155,7 +100,6 @@
 				}
 				return target;
 			};
-
 			// create copy function
 			simpleCart.extend({
 				copy: function (n) {
@@ -164,12 +108,9 @@
 					return cp;
 				}
 			});
-
 			// add in the core functionality
 			simpleCart.extend({
-
 				isReady: false,
-
 				// this is where the magic happens, the add function
 				add: function (values, opt_quiet) {
 					var info		= values || {},
@@ -178,40 +119,31 @@
 						// optionally supress event triggers
 						quiet 		= opt_quiet === true ? opt_quiet : false,
 						oldItem;
-
 					// trigger before add event
 					if (!quiet) {
 					  	addItem = simpleCart.trigger('beforeAdd', [newItem]);
-					
 						if (addItem === false) {
 							return false;
 						}
 					}
-					
 					// if the new item already exists, increment the value
 					oldItem = simpleCart.has(newItem);
 					if (oldItem) {
 						oldItem.increment(newItem.quantity());
 						newItem = oldItem;
-
 					// otherwise add the item
 					} else {
 						sc_items[newItem.id()] = newItem;
 					}
-
 					// update the cart
 					simpleCart.update();
-
 					if (!quiet) {
 						// trigger after add event
 						simpleCart.trigger('afterAdd', [newItem, isUndefined(oldItem)]);
 					}
-
 					// return a reference to the added item
 					return newItem;
 				},
-
-
 				// iteration function
 				each: function (array, callback) {
 					var next,
@@ -219,7 +151,6 @@
 						result,
 						cb,
 						items;
-
 					if (isFunction(array)) {
 						cb = array;
 						items = sc_items;
@@ -229,7 +160,6 @@
 					} else {
 						return;
 					}
-
 					for (next in items) {
 						if (Object.prototype.hasOwnProperty.call(items, next)) {
 							result = cb.call(simpleCart, items[next], x, next);
@@ -240,10 +170,8 @@
 						}
 					}
 				},
-
 				find: function (id) {
 					var items = [];
-
 					// return object for id if it exists
 					if (isObject(sc_items[id])) {
 						return sc_items[id];
@@ -261,41 +189,34 @@
 										if (!(item.get(attr) && parseFloat(item.get(attr)) <= val)) {
 											match = false;
 										}
-
 									// less than
 									} else if (val.match(/</)) {
 										val = parseFloat(val.replace('<', ''));
 										if (!(item.get(attr) && parseFloat(item.get(attr)) < val)) {
 											match = false;
 										}
-
 									// greater than or equal to
 									} else if (val.match(/>=/)) {
 										val = parseFloat(val.replace('>=', ''));
 										if (!(item.get(attr) && parseFloat(item.get(attr)) >= val)) {
 											match = false;
 										}
-
 									// greater than
 									} else if (val.match(/>/)) {
 										val = parseFloat(val.replace('>', ''));
 										if (!(item.get(attr) && parseFloat(item.get(attr)) > val)) {
 											match = false;
 										}
-
 									// equal to
 									} else if (!(item.get(attr) && item.get(attr) === val)) {
 										match = false;
 									}
-
 								// equal to non string
 								} else if (!(item.get(attr) && item.get(attr) === val)) {
 									match = false;
 								}
-
 								return match;
 							});
-
 							// add the item if it matches
 							if (match) {
 								items.push(item);
@@ -303,7 +224,6 @@
 						});
 						return items;
 					}
-
 					// if no criteria is given we return all items
 					if (isUndefined(id)) {
 
@@ -344,7 +264,7 @@
 						// send a param of true to make sure it doesn't
 						// update after every removal
 						// keep the item if the function returns false,
-						// because we know it has been prevented 
+						// because we know it has been prevented
 						// from being removed
 						if (item.remove(true) === false) {
 							newItems[item.id()] = item
@@ -410,7 +330,8 @@
 								context = context[member];
 							}
 							if (typeof context === "function") {
-								// set the selector engine and extend the prototype of our
+								// set the selector engine and extend the
+								// prototype of our
 								// element wrapper class
 								$engine = context;
 								simpleCart.extend(simpleCart.ELEMENT._, selectorFunctions[engine]);
@@ -458,7 +379,7 @@
 						return;
 					}
 					
-					// we wrap this in a try statement so we can catch 
+					// we wrap this in a try statement so we can catch
 					// any json parsing errors. no more stick and we
 					// have a playing card pluckin the spokes now...
 					// soundin like a harley.
@@ -510,8 +431,8 @@
 
 
 			/*******************************************************************
-			 *	TAX AND SHIPPING
-			 *******************************************************************/
+			 * TAX AND SHIPPING
+			 ******************************************************************/
 			simpleCart.extend({
 
 				tax: function () {
@@ -559,8 +480,8 @@
 			});
 
 			/*******************************************************************
-			 *	CART VIEWS
-			 *******************************************************************/
+			 * CART VIEWS
+			 ******************************************************************/
 
 			// built in cart views for item cells
 			cartColumnViews = {
@@ -678,7 +599,8 @@
 
 					container.append(row);
 
-					// cycle through the columns to create each cell for the item
+					// cycle through the columns to create each cell for the
+					// item
 					for (j = 0, jlen = settings.cartColumns.length; j < jlen; j += 1) {
 						column	= cartColumn(settings.cartColumns[j]);
 						klass	= "item-" + (column.attr || (isString(column.view) ? column.view : column.label || column.text || "cell")) + " " + column.className;
@@ -693,8 +615,8 @@
 			});
 
 			/*******************************************************************
-			 *	CART ITEM CLASS MANAGEMENT
-			 *******************************************************************/
+			 * CART ITEM CLASS MANAGEMENT
+			 ******************************************************************/
 
 			simpleCart.Item = function (info) {
 				
@@ -702,7 +624,8 @@
 				var _data = {},
 					me = this;
 
-				// cycle through given attributes and set them to the data object
+				// cycle through given attributes and set them to the data
+				// object
 				if (isObject(info)) {
 					simpleCart.extend(_data, info);
 				}
@@ -754,7 +677,8 @@
 						return name;
 					}
 
-					// return the value in order of the data object and then the prototype
+					// return the value in order of the data object and then the
+					// prototype
 					return isFunction(_data[name])	? _data[name].call(me) :
 							!isUndefined(_data[name]) ? _data[name] :
 
@@ -881,24 +805,29 @@
 
 
 			/*******************************************************************
-			 *	CHECKOUT MANAGEMENT
-			 *******************************************************************/
+			 * CHECKOUT MANAGEMENT
+			 ******************************************************************/
 
 			simpleCart.extend({
 				checkout: function () {
-					//Test Code
-					/*simpleCart.add({name: "bob" , price: 2 , color:'blue' , size: 6 });*/
-					//Send information to basket for tracking
-					//var basketItems = simpleCart.find();
+					// Test Code
+					/*
+					 * simpleCart.add({name: "bob" , price: 2 , color:'blue' ,
+					 * size: 6 });
+					 */
+					// Send information to basket for tracking
+					// var basketItems = simpleCart.find();
 					
 					if (settings.checkout.type.toLowerCase() === 'custom' && isFunction(settings.checkout.fn)) {
 						settings.checkout.fn.call(simpleCart,settings.checkout);
 					} else if (isFunction(simpleCart.checkout[settings.checkout.type])) {
 						var checkoutData = simpleCart.checkout[settings.checkout.type].call(simpleCart,settings.checkout);
 						
-						// if the checkout method returns data, try to send the form
+						// if the checkout method returns data, try to send the
+						// form
 						if( checkoutData.data && checkoutData.action && checkoutData.method ){
-							// if no one has any objections, send the checkout form
+							// if no one has any objections, send the checkout
+							// form
 							if( false !== simpleCart.trigger('beforeCheckout', [checkoutData.data]) ){
 								simpleCart.generateAndSendForm( checkoutData );
 							}
@@ -981,7 +910,8 @@
 							// paypal limits us to 10 options
 							if (k < 10) {
 		
-								// check to see if we need to exclude this from checkout
+								// check to see if we need to exclude this from
+								// checkout
 								send = true;
 								simpleCart.each(settings.excludeFromCheckout, function (field_name) {
 									if (field_name === attr) { send = false; }
@@ -1045,7 +975,8 @@
 
 						// create array of extra options
 						simpleCart.each(item.options(), function (val,x,attr) {
-							// check to see if we need to exclude this from checkout
+							// check to see if we need to exclude this from
+							// checkout
 							send = true;
 							simpleCart.each(settings.excludeFromCheckout, function (field_name) {
 								if (field_name === attr) { send = false; }
@@ -1114,7 +1045,8 @@
 
 						// create array of extra options
 						simpleCart.each(item.options(), function (val,x,attr) {
-							// check to see if we need to exclude this from checkout
+							// check to see if we need to exclude this from
+							// checkout
 							var send = true;
 							simpleCart.each(settings.excludeFromCheckout, function (field_name) {
 								if (field_name === attr) { send = false; }
@@ -1167,7 +1099,8 @@
 
 						// create array of extra options
 						simpleCart.each(item.options(), function (val,x,attr) {
-							// check to see if we need to exclude this from checkout
+							// check to see if we need to exclude this from
+							// checkout
 							send = true;
 							simpleCart.each(settings.excludeFromCheckout, function (field_name) {
 								if (field_name === attr) { send = false; }
@@ -1207,8 +1140,8 @@
 
 
 			/*******************************************************************
-			 *	EVENT MANAGEMENT
-			 *******************************************************************/
+			 * EVENT MANAGEMENT
+			 ******************************************************************/
 			eventFunctions = {
 
 				// bind a callback to an event
@@ -1221,7 +1154,8 @@
 						this._events = {};
 					}
 					
-					// split by spaces to allow for multiple event bindings at once
+					// split by spaces to allow for multiple event bindings at
+					// once
 					var eventNameList = name.split(/ +/);
 					
 					// iterate through and bind each event
@@ -1294,8 +1228,8 @@
 			});
 
 			/*******************************************************************
-			 *	FORMATTING FUNCTIONS
-			 *******************************************************************/
+			 * FORMATTING FUNCTIONS
+			 ******************************************************************/
 			simpleCart.extend({
 				toCurrency: function (number,opts) {
 					var num = parseFloat(number),
@@ -1356,8 +1290,8 @@
 
 
 			/*******************************************************************
-			 *	VIEW MANAGEMENT
-			 *******************************************************************/
+			 * VIEW MANAGEMENT
+			 ******************************************************************/
 
 			simpleCart.extend({
 				// bind outlets to function
@@ -1387,7 +1321,7 @@
 					});
 				},
 
-				// attach events to inputs	
+				// attach events to inputs
 				setInput: function (selector, event, func) {
 					simpleCart.$(selector).live(event, func);
 				}
@@ -1398,7 +1332,7 @@
 			simpleCart.ELEMENT = function (selector) {
 
 				this.create(selector);
-				this.selector = selector || null; // "#" + this.attr('id'); 
+				this.selector = selector || null; // "#" + this.attr('id');
 			};
 
 			simpleCart.extend(selectorFunctions, {
@@ -1705,7 +1639,7 @@
 					}
 					, items: function (selector) {
 						simpleCart.writeCart(selector);
-						//Adds formatting for the table
+						// Adds formatting for the table
 						simpleCart.trigger("afterCreate");
 					}
 					, tax: function () {
@@ -1790,7 +1724,8 @@
 							$button.closest("." + namespace + "_shelfItem").descendants().each(function (x,item) {
 								var $item = simpleCart.$(item);
 
-								// check to see if the class matches the item_[fieldname] pattern
+								// check to see if the class matches the
+								// item_[fieldname] pattern
 								if ($item.attr("class") &&
 									$item.attr("class").match(/item_.+/) &&
 									!$item.attr('class').match(/item_add/)) {
@@ -1801,7 +1736,8 @@
 											val,
 											type;
 
-										// get the value or text depending on the tagName
+										// get the value or text depending on
+										// the tagName
 										if (klass.match(/item_.+/)) {
 											attr = klass.split("_")[1];
 											val = "";
@@ -1839,11 +1775,11 @@
 
 
 			/*******************************************************************
-			 *	DOM READY
-			 *******************************************************************/
+			 * DOM READY
+			 ******************************************************************/
 			// Cleanup functions for the document ready method
 			// used from jQuery
-			/*global DOMContentLoaded */
+			/* global DOMContentLoaded */
 			if (document.addEventListener) {
 				window.DOMContentLoaded = function () {
 					document.removeEventListener("DOMContentLoaded", DOMContentLoaded, false);
@@ -1852,7 +1788,8 @@
 
 			} else if (document.attachEvent) {
 				window.DOMContentLoaded = function () {
-					// Make sure body exists, at least, in case IE gets a little overzealous (ticket #5443).
+					// Make sure body exists, at least, in case IE gets a little
+					// overzealous (ticket #5443).
 					if (document.readyState === "complete") {
 						document.detachEvent("onreadystatechange", DOMContentLoaded);
 						simpleCart.init();
@@ -1885,11 +1822,13 @@
 				// Catch cases where $(document).ready() is called after the
 				// browser event has already occurred.
 				if (document.readyState === "complete") {
-					// Handle it asynchronously to allow scripts the opportunity to delay ready
+					// Handle it asynchronously to allow scripts the opportunity
+					// to delay ready
 					return setTimeout(simpleCart.init, 1);
 				}
 
-				// Mozilla, Opera and webkit nightlies currently support this event
+				// Mozilla, Opera and webkit nightlies currently support this
+				// event
 				if (document.addEventListener) {
 					// Use the handy event callback
 					document.addEventListener("DOMContentLoaded", DOMContentLoaded, false);
@@ -1931,7 +1870,7 @@
 
 }(window, document));
 
-/************ JSON *************/
+/** ********** JSON ************ */
 var JSON;JSON||(JSON={});
 (function () {function k(a) {return a<10?"0"+a:a}function o(a) {p.lastIndex=0;return p.test(a)?'"'+a.replace(p,function (a) {var c=r[a];return typeof c==="string"?c:"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+a+'"'}function l(a,j) {var c,d,h,m,g=e,f,b=j[a];b&&typeof b==="object"&&typeof b.toJSON==="function"&&(b=b.toJSON(a));typeof i==="function"&&(b=i.call(j,a,b));switch(typeof b) {case "string":return o(b);case "number":return isFinite(b)?String(b):"null";case "boolean":case "null":return String(b);case "object":if (!b)return"null";
 e += n;f=[];if (Object.prototype.toString.apply(b)==="[object Array]") {m=b.length;for (c=0;c<m;c += 1)f[c]=l(c,b)||"null";h=f.length===0?"[]":e?"[\n"+e+f.join(",\n"+e)+"\n"+g+"]":"["+f.join(",")+"]";e=g;return h}if (i&&typeof i==="object") {m=i.length;for (c=0;c<m;c += 1)typeof i[c]==="string"&&(d=i[c],(h=l(d,b))&&f.push(o(d)+(e?": ":":")+h))}else for (d in b)Object.prototype.hasOwnProperty.call(b,d)&&(h=l(d,b))&&f.push(o(d)+(e?": ":":")+h);h=f.length===0?"{}":e?"{\n"+e+f.join(",\n"+e)+"\n"+g+"}":"{"+f.join(",")+
@@ -1941,7 +1880,7 @@ p=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u20
 "]").replace(/(?:^|:|,)(?:\s*\[)+/g,"")))return d=eval("("+a+")"),typeof e==="function"?c({"":d},""):d;throw new SyntaxError("JSON.parse");}})();
 
 
-/************ HTML5 Local Storage Support *************/
+/** ********** HTML5 Local Storage Support ************ */
 (function () {if (!this.localStorage)if (this.globalStorage)try {this.localStorage=this.globalStorage}catch(e) {}else{var a=document.createElement("div");a.style.display="none";document.getElementsByTagName("head")[0].appendChild(a);if (a.addBehavior) {a.addBehavior("#default#userdata");var d=this.localStorage={length:0,setItem:function (b,d) {a.load("localStorage");b=c(b);a.getAttribute(b)||this.length++;a.setAttribute(b,d);a.save("localStorage")},getItem:function (b) {a.load("localStorage");b=c(b);return a.getAttribute(b)},
 removeItem:function (b) {a.load("localStorage");b=c(b);a.removeAttribute(b);a.save("localStorage");this.length=0},clear:function () {a.load("localStorage");for (var b=0;attr=a.XMLDocument.documentElement.attributes[b++];)a.removeAttribute(attr.name);a.save("localStorage");this.length=0},key:function (b) {a.load("localStorage");return a.XMLDocument.documentElement.attributes[b]}},c=function (a) {return a.replace(/[^-._0-9A-Za-z\xb7\xc0-\xd6\xd8-\xf6\xf8-\u037d\u37f-\u1fff\u200c-\u200d\u203f\u2040\u2070-\u218f]/g,
 "-")};a.load("localStorage");d.length=a.XMLDocument.documentElement.attributes.length}}})();

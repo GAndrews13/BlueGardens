@@ -20,7 +20,7 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>4.3.0.Final</version>
 		</dependency>
-<!--	<dependency>
+		<!--<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.0.Final</version>
@@ -63,12 +63,12 @@
 		</dependency>
 	</dependencies>
  
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!--  Fixes Java Compiler Problem -->
-  	<maven.compiler.source>1.7</maven.compiler.source>
-  	<maven.compiler.target>1.7</maven.compiler.target>
-  </properties>
+	<properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <!--  Fixes Java Compiler Problem -->
+	  	<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+	</properties>
   
 	<build>
 	  	<plugins>

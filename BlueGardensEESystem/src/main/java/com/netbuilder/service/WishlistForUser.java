@@ -10,7 +10,6 @@ import com.netbuilder.entitymanagers.WishListManager;
 /**
  * @author abalagel
  */
-
 //@Stateless
 public class WishlistForUser {
 	@Inject
@@ -22,13 +21,12 @@ public class WishlistForUser {
 		ArrayList<WishlistItems> wli = wishListManager.findForUser(1);
 		ArrayList<Product> ap = productManager.findAll();
 		ArrayList<Product> wl = new ArrayList<Product>();
-		for(WishlistItems w : wli){
-			for(int i=0; i<ap.size(); i++)
-			if(w.getProductID() == ap.get(i).getProductID()){
-				wl.add(productManager.findById(w.getProductID()));
+		for(WishlistItems w : wli) {
+			for(int i=0; i<ap.size(); i++) {
+				if(w.getProductID() == ap.get(i).getProductID())
+					wl.add(productManager.findById(w.getProductID()));
 			}
 		}
 		return wl;
 	}
-	
 }

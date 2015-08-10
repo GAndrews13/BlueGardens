@@ -7,17 +7,16 @@
 		template="templates/template.xhtml">
 <ui:define name="pageTitle">Forgotten Username</ui:define>
 <ui:define name="body">
-			<div id="forgottenUsername">
-				<h:form>
-					<h2>Forgotten Username</h2>
-					<h:panelGrid>
-						<h:outputLabel value="#{forgottenUsernameController.errormsg}"/><br/>
-						<h:outputLabel value="Email" for="forgottenusernameemail"/>
-						<h:inputText id="forgottenusernameemail" value="#{forgottenUsernameDetails.email}" maxlength="45" size="20"/>
-						<br/>
-						<h:commandButton action="#{forgottenUsernameController.forgottenUsername()}" value="Submit" />
-					</h:panelGrid>
-				</h:form>
-			</div>
+	<div id="forgottenUsername">
+		<h:form>
+			<h2>Forgotten Username</h2>
+			<h:panelGrid>
+				<h:outputLabel value="#{forgottenUsernameController.errormsg}"/><br/>
+				<h:outputLabel value="Email" for="forgottenusernameemail"/>
+				<h:inputText id="forgottenusernameemail" value="#{forgottenUsernameDetails.email}" maxlength="45" size="20"/><br/>
+				<h:commandButton action="#{forgottenUsernameController.forgottenUsername()}" value="Submit" />
+			</h:panelGrid>
+		</h:form>
+	</div>
 </ui:define>
 </ui:composition>

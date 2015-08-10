@@ -4,44 +4,37 @@
 				xmlns:f="http://java.sun.com/jsf/core"
 				xmlns:t="http://myfaces.apache.org/tomahawk"     
 				template="templates/template.xhtml">
-				
-
-				
 <!-- Defines the title of the page using the header 1 tag -->
 <ui:define name="pagetitle">Search</ui:define>
 <script>
-document.getElementById("demo").innerHTML = "My First JavaScript";
+	document.getElementById("demo").innerHTML = "My First JavaScript";
 </script>
-
 <ui:define name="body">	
-	<div id="search">
-	
+	<div id="search">	
 		<h:form>
 			<h:panelGrid>
-			<h:outputLabel value="#{searchController.msg}"/><br/>
-			<h:inputText id="searchdetails" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
-			<h:commandButton action="#{searchController.search}" value="Search" /><br/><hr/>
-			<ui:repeat value="#{searchController.results}" var="product">
-				<p id="productid"> #{product.getProductID()}</p><br/><br/>
-				#{product.getProductName()}<br/><br/>
-				#{product.getPrice()}<br/><br/>
-				#{product.getStockLevel()}<br/><br/>
-				#{product.getFeatureOne()}<br/><br/>
-				#{product.getFeatureTwo()}<br/><br/>
-				#{product.getFeatureThree()}<br/><br/>
-				#{product.getFeatureFour()}<br/><br/>
-				#{product.getFeatureFive()}<br/><br/>
-				<div id="links">
-				<h:link onclick="myFunction" outcome="productPage">
-				<f:param value="#{product.getImageLink()}" />
-				<h:graphicImage value="#{product.getImageLink()}"  width="460" height="345" border="0"  />
-				</h:link>
-				</div>
-				<br/><br/><br/><br/> 	
-			</ui:repeat>
+				<h:outputLabel value="#{searchController.msg}"/><br/>
+				<h:inputText id="searchdetails" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
+				<h:commandButton action="#{searchController.search}" value="Search" /><br/><hr/>
+				<ui:repeat value="#{searchController.results}" var="product">
+					<p id="productid"> #{product.getProductID()}</p><br/><br/>
+					#{product.getProductName()}<br/><br/>
+					#{product.getPrice()}<br/><br/>
+					#{product.getStockLevel()}<br/><br/>
+					#{product.getFeatureOne()}<br/><br/>
+					#{product.getFeatureTwo()}<br/><br/>
+					#{product.getFeatureThree()}<br/><br/>
+					#{product.getFeatureFour()}<br/><br/>
+					#{product.getFeatureFive()}<br/><br/>
+					<div id="links">
+						<h:link onclick="myFunction" outcome="productPage">
+							<f:param value="#{product.getImageLink()}" />
+							<h:graphicImage value="#{product.getImageLink()}"  width="460" height="345" border="0"  />
+						</h:link>
+					</div><br/><br/><br/><br/> 	
+				</ui:repeat>
 			</h:panelGrid>	
 		</h:form>
-
 	</div>
 </ui:define>
 </ui:composition>

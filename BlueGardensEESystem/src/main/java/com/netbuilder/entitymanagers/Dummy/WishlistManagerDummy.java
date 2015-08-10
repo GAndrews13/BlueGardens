@@ -27,21 +27,18 @@ public class WishlistManagerDummy implements WishListManager {
 	}
 
 	public void removeProduct(int productID, long customerID) {
-		for(int i=0; i<dd.getWishlistProducts().size(); i++){
-			if(productID == dd.getWishlistProducts().get(i).getProductID() && customerID == dd.getWishlistProducts().get(i).getCustomerID()){
+		for(int i=0; i<dd.getWishlistProducts().size(); i++) {
+			if(productID == dd.getWishlistProducts().get(i).getProductID() && customerID == dd.getWishlistProducts().get(i).getCustomerID())
 				dd.getWishlistProducts().remove(i);
-			}
 		}
 	}
 
 	public ArrayList<WishlistItems> findForUser(long customerID) {
 		ArrayList<WishlistItems> list = new ArrayList<WishlistItems>();
-		for(int i=0; i<dd.getWishlistProducts().size(); i++){
-			if(customerID == dd.getWishlistProducts().get(i).getCustomerID()){
+		for(int i=0; i<dd.getWishlistProducts().size(); i++) {
+			if(customerID == dd.getWishlistProducts().get(i).getCustomerID())
 				list.add(dd.getWishlistProducts().get(i));
-			}
 		}		
 		return list;
 	}
-
 }

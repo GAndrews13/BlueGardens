@@ -3,27 +3,22 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	template="templates/exampletemplate.xhtml">
-
-	<ui:define name="pagetitle">
-		Tracking
-	</ui:define>
-	<ui:define name="sectiontitle">
-		<h2>Tracking</h2>
-	</ui:define>
-	<ui:define name="body">
-		<h:form>
-			<table>
-				<c:forEach var="custOrd" items="#{CustomerOrder}">
-					<tr>
-						<td>${custOrd.trackingID}</td>
-						<td>${custOrd.deliveryType}</td>
-						<c:forEach var="pol" items="#{ProductOrderLine}">
-							<td>${custOrd.pol.name}</td>
-							<td>${custOrd.pol.quantity}</td>
-						</c:forEach>
-					</tr>
+<ui:define name="pagetitle">Tracking</ui:define>
+<ui:define name="sectiontitle"><h2>Tracking</h2></ui:define>
+<ui:define name="body">
+	<h:form>
+		<table>
+			<c:forEach var="custOrd" items="#{CustomerOrder}">
+				<tr>
+					<td>${custOrd.trackingID}</td>
+					<td>${custOrd.deliveryType}</td>
+					<c:forEach var="pol" items="#{ProductOrderLine}">
+						<td>${custOrd.pol.name}</td>
+						<td>${custOrd.pol.quantity}</td>
 					</c:forEach>
-			</table>
-		</h:form>
+				</tr>
+			</c:forEach>
+		</table>
+	</h:form>
 </ui:define>
 </ui:compositon>

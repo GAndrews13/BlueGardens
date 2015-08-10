@@ -1,60 +1,49 @@
-<!-- @author Jake
-	product catalogue page showing products from three sections:
-	On sale
-	Trending
-	Porousware
--->
+<!-- @author Jake product catalogue page showing products from three sections: On sale, Trending & Porousware-->
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	template="templates/template.xhtml">
-
-	<ui:define name="pagetitle">
-		Product Catalog
-	</ui:define>
-
-	<ui:define name="body">
-		<div id="productgrid">
-			<div class="section group">
-				<div class="col span_1_of_4">
-					Seasonal
-					<hr/>
-					<br/> <!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" -->
-					<div class="description">
-						<img src="#{productController.product[0].getImageLink()}" width="128" height="128"/>
-						<h2><h:outputLabel value="#{productcatalogController.product[0].getProductSeasonalName()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[0].getProductSeasonalPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[0].getSeasonalFeatureOne()}" /></h2>
-						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-					</div>
+<ui:define name="pagetitle">Product Catalog</ui:define>
+<ui:define name="body">
+	<div id="productgrid">
+		<div class="section group">
+			<div class="col span_1_of_4">
+				Seasonal
+				<hr/><br/> 
+				<!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" -->
+				<div class="description">
+					<img src="#{productController.product[0].getImageLink()}" width="128" height="128"/>
+					<h2><h:outputLabel value="#{productcatalogController.product[0].getProductSeasonalName()}" /></h2>
+					<h2><h:outputLabel value="#{productcatalogController.product[0].getProductSeasonalPrice()}" /></h2>
+					<h2><h:outputLabel value="#{productcatalogController.product[0].getSeasonalFeatureOne()}" /></h2>
+					<!--  Product Name <br> price £2.99 <br> Item info <br> -->
 				</div>
-				<div class="col span_1_of_4">
-					Trending
-					<hr/>
-					<br/>
-					<div class="description">
-						<img src="#{productController.product[1].getImageLink()}" width="128" height="128"/>
-						<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingProductName()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingFeatureOne()}" /></h2>
-						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-					</div>
+			</div>
+			<div class="col span_1_of_4">
+				Trending
+				<hr/><br/>
+				<div class="description">
+					<img src="#{productController.product[1].getImageLink()}" width="128" height="128"/>
+					<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingProductName()}" /></h2>
+					<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingProductPrice()}" /></h2>
+					<h2><h:outputLabel value="#{productcatalogController.product[1].getTrendingFeatureOne()}" /></h2>
+					<!--  Product Name <br> price £2.99 <br> Item info <br> -->
 				</div>
-				<div class="col span_1_of_4">
-					On Sale
-					<hr/>
-					<br/>
-					<div class="description">
-						<img src="#{productController.product[2].getImageLink()}" width="128" height="128"/>
-						<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleProductName()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleProductPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleFeatureOne()}" /></h2>
-						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
-					</div>
+			</div>
+			<div class="col span_1_of_4">
+				On Sale
+				<hr/><br/>
+				<div class="description">
+					<img src="#{productController.product[2].getImageLink()}" width="128" height="128"/>
+					<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleProductName()}" /></h2>
+					<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleProductPrice()}" /></h2>
+					<h2><h:outputLabel value="#{productcatalogController.product[2].getSaleFeatureOne()}" /></h2>
+					<!--  Product Name <br> price £2.99 <br> Item info <br> -->
 				</div>
 			</div>
 		</div>
-	</ui:define>
+	</div>
+</ui:define>
 </ui:composition>

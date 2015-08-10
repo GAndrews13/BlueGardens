@@ -1,3 +1,1 @@
-function purchase(){
-	
-}
+function purchase(){ }

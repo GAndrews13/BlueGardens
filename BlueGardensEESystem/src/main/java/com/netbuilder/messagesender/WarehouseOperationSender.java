@@ -16,5 +16,4 @@ public class WarehouseOperationSender {
 	private Session session;
 	private MessageProducer messageProducer;
 	private ObjectMessage objectMessage;
-
 }

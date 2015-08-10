@@ -9,21 +9,17 @@ import com.netbuilder.controllers.SearchController;
 import com.netbuilder.entities.Product;
 
 @WebServlet(name="/specificProduct")
-public class SpecificProduct extends HttpServlet{
-	
+public class SpecificProduct extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private ProductController productController;
 	private SearchController searchController;
-
-	private static final long serialVersionUID = 1L;
 	
-	protected void doPost(HttpServletRequest request){
+	protected void doPost(HttpServletRequest request) {
 		String link;
-		for(Product p : searchController.getResults()){
+		for(Product p : searchController.getResults()) {
 			link = request.getParameter("#{product.getImageLink()}");
-			if(link==p.getImageLink()){
+			if(link==p.getImageLink())
 				productController.search();
-			}
 		}
 	}
-
 }

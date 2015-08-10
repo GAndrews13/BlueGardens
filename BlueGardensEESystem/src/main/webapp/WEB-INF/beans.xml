@@ -2,49 +2,21 @@
 <beans>
 	<alternatives>
 	<!--  Add all your dummy classes into this bracket -->
-		<class>
-			com.netbuilder.entitymanagers.Dummy.CustomerLoginManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.CustomerManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.CustomerOrderManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.ProductManagerDummy
-		</class>		
-		<class>
-			com.netbuilder.entitymanagers.Dummy.ProductOrderLineManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.PurchaseOrderManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.SupplierManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.SupplierProductManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.WarehouseLocationManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.WarehouseWorkerManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.WeeklySalesManagerDummy
-		</class>
-		<class>
-			com.netbuilder.entitymanagers.Dummy.WishlistManagerDummy
-		</class>
-
+		<class>com.netbuilder.entitymanagers.Dummy.CustomerLoginManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.CustomerManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.CustomerOrderManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.ProductManagerDummy</class>		
+		<class>com.netbuilder.entitymanagers.Dummy.ProductOrderLineManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.PurchaseOrderManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.SupplierManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.SupplierProductManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.WarehouseLocationManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.WarehouseWorkerManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.WeeklySalesManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.WishlistManagerDummy</class>
+		<class>com.netbuilder.entitymanagers.Dummy.BasketManagerDummy</class>
 		<!--  End of Dummy Bracket -->
 		<!--  Add all your SQL classes into this bracket -->
-		
 		<!--  End of SQL bracket -->
 	</alternatives>
-	<class>
-			com.netbuilder.entitymanagers.Dummy.BasketManagerDummy
-	</class>
 </beans>

@@ -1,48 +1,32 @@
 package com.netbuilder.entitymanagers.Dummy;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
-import javax.enterprise.inject.Default;
 
-import com.netbuilder.controllers.LoginController;
 import com.netbuilder.entities.Basket;
-import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.BasketManager;
-import com.netbuilder.entitymanagers.CustomerOrderManager;
-import com.netbuilder.service.AccountsService;
-import com.netbuilder.service.BasketProductOrderService;
-
 
 /**
  * @author abalagel
  * links interface with db
  */
-@Default
-
-public class BasketManagerDummy implements BasketManager,Serializable {
-Basket localbasket = new Basket(0, null); 
+@Alternative
+public class BasketManagerDummy implements BasketManager, Serializable {
+	Basket localbasket = new Basket(0, null); 
 	
-	public void persistBasket(Basket basket){
-		localbasket = basket;
-	}
+	public void persistBasket(Basket basket){ localbasket = basket; }
 	
-	public void updateBasket(Basket basket){
-	//localbasket.set(localbasket.indexOf(basket),basket);
-		localbasket = basket;
-	}
+	public void updateBasket(Basket basket){ localbasket = basket; }
 
 	@Override
 	public double findTotal() {
 		double total = 0;
-		if(localbasket.getProductOrderLine()!= null)
-		{
-			for(int i = 0;i<localbasket.getProductOrderLine().size();i++)
-			{
+		if(localbasket.getProductOrderLine()!= null) {
+			for(int i = 0;i<localbasket.getProductOrderLine().size();i++) {
 				total+=localbasket.getProductOrderLine().get(i).getQuantity()*localbasket.getProductOrderLine().get(i).getProduct().getPrice(); 
 			}
 		}
@@ -52,29 +36,23 @@ Basket localbasket = new Basket(0, null);
 	/**
 	 * @author GAndrews
 	 */
-	public void addProduct(Product inProduct,int inQuantity)
-	{
+	public void addProduct(Product inProduct,int inQuantity) {
 		localbasket.getProductOrderLine().add(new ProductOrderLine(inProduct,inQuantity));
 	}
-	public void changeQuantity(Product inProduct,int inQuantity)
-	{
-		for(int i = 0;i<localbasket.getProductOrderLine().size();i++)
-		{
+	
+	public void changeQuantity(Product inProduct,int inQuantity) {
+		for(int i = 0;i<localbasket.getProductOrderLine().size();i++) {
 			ProductOrderLine temp = localbasket.getProductOrderLine().get(i);
-			if(inProduct.getProductID() == temp.getProduct().getProductID())
-			{
+			if(inProduct.getProductID() == temp.getProduct().getProductID()) {
 				temp.setQuantity(inQuantity);
 				localbasket.getProductOrderLine().set(i, temp);
 			}
 		}
 	}
 	
-	public void removeProduct(Product inProduct)
-	{
-		for(int i = 0;i<localbasket.getProductOrderLine().size();i++)
-		{
-			if(inProduct.getProductID()==localbasket.getProductOrderLine().get(i).getProduct().getProductID())
-			{
+	public void removeProduct(Product inProduct) {
+		for(int i = 0;i<localbasket.getProductOrderLine().size();i++) {
+			if(inProduct.getProductID()==localbasket.getProductOrderLine().get(i).getProduct().getProductID()) {
 				localbasket.getProductOrderLine().remove(i);
 			}
 		}
@@ -84,9 +62,7 @@ Basket localbasket = new Basket(0, null);
 	public ArrayList<ProductOrderLine> products() {
 		ArrayList<ProductOrderLine> POL = localbasket.getProductOrderLine();
 		if(POL == null)
-		{
 			return new ArrayList<ProductOrderLine>();
-		}
 		return POL;
 	}
 }

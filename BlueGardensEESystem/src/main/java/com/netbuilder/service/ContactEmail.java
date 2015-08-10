@@ -8,6 +8,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
 /**
  * @author abalagel
  */
@@ -19,14 +20,12 @@ public class ContactEmail {
 		Properties properties = System.getProperties();
 		properties.setProperty("mail.smtp.host", host);
 		Session session = Session.getDefaultInstance(properties);
-		try{
+		try {
 			 MimeMessage comm = new MimeMessage(session);
 			 comm.setFrom(new InternetAddress(email));
 	         comm.addRecipient(Message.RecipientType.TO, new InternetAddress(emailAddressTo));	         
 	         comm.setText(name + " sent this message: " + message);
 	         Transport.send(comm);	
-		} catch (MessagingException mex) {
-            mex.printStackTrace();
-        }
+		} catch (MessagingException mex) {  mex.printStackTrace(); }
 	}
 }

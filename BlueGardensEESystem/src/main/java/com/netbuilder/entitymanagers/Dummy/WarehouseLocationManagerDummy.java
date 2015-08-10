@@ -7,7 +7,6 @@ import com.netbuilder.entities.WarehouseLocation;
 import com.netbuilder.entitymanagers.WarehouseLocationManager;
 
 /**@author anca*/
-
 @Alternative
 public class WarehouseLocationManagerDummy implements WarehouseLocationManager {
 private ArrayList<WarehouseLocation> warehouseLocations = new ArrayList<WarehouseLocation>();	
@@ -19,19 +18,14 @@ private ArrayList<WarehouseLocation> warehouseLocations = new ArrayList<Warehous
 	public void updateWarehouseLocation(WarehouseLocation warehouseLocation) {
 		warehouseLocations.set(warehouseLocations.indexOf(warehouseLocation), warehouseLocation);
 	}
-	
 
 	@Override
 	public ArrayList<WarehouseLocation> findByProductID(int id) {
-		// TODO Auto-generated method stub
 		ArrayList<WarehouseLocation> result = new ArrayList<WarehouseLocation>();
 		for (WarehouseLocation wl : warehouseLocations){
-			if(wl.getProductId() == id){
+			if(wl.getProductId() == id)
 				result.add(wl);
-			}
 		}
-		
 		return result;
 	}
-	
 }

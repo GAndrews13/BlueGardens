@@ -7,34 +7,29 @@
 				xmlns:t="http://myfaces.apache.org/tomahawk"
 				template="templates/template.xhtml"
 				xmlns:f="http://java.sun.com/jsf/core">
-	<!-- Defines the title of the page using the header 1 tag -->
-	<ui:define name = "pagetitle">
-		Contact Us
-	</ui:define>
-	
-	<!-- Defines the title displayed on the page -->
-	<!-- <ui:define name="sectiontitle">  -->
-		
-	<!-- </ui:define>  -->
-	
-	<!-- Contains the actual content of the page -->
-	<ui:define name="body">
+<!-- Defines the title of the page using the header 1 tag -->
+<ui:define name = "pagetitle">
+	Contact Us
+</ui:define>
+<!-- Defines the title displayed on the page -->
+<!-- <ui:define name="sectiontitle">  -->
+<!-- </ui:define>  -->
+<!-- Contains the actual content of the page -->
+<ui:define name="body">
 	<h2> Contact Us </h2>
 	<div>	
 		<h:form>			
 			<h:panelGrid>
 				<h:outputLabel value="#{contactController.errorMessage}"/><br/>
 				<h:outputLabel value="Name" for="customername"/><br/>
-				<h:inputText id="customername" value="#{contactFormDetails.name}" maxlength="45" size="20"/><br/>
-				<br/>
+				<h:inputText id="customername" value="#{contactFormDetails.name}" maxlength="45" size="20"/><br/><br/>
 				<h:outputLabel value="Email" for="customeremail"/><br/>
-				<h:inputText id="customeremail" value="#{contactFormDetails.email}" maxlength="45" size="20"/><br/>
-				<br/>
+				<h:inputText id="customeremail" value="#{contactFormDetails.email}" maxlength="45" size="20"/><br/><br/>
 				<h:outputLabel value="Message" for="customermessage"/><br/>
 				<h:inputTextarea id="customermessage" value="#{contactFormDetails.message}" maxlength="80" rows="4" cols="50"/><br/>
 				<h:commandButton action="#{contactController.sendMessage}" value="Send" />
 			</h:panelGrid>
 		</h:form>
 	</div>
-	</ui:define>
+</ui:define>
 </ui:composition>
