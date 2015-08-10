@@ -14,14 +14,13 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "PurchaseOrderLine")
 @NamedQueries({
-	@NamedQuery(name = PurchaseOrderLine.FIND_OUT_BY_PURCHASE_ORDER_ID, query = "SELECT pol FROM PurchaseOrderLine WHERE pol.purchaseOrderID = :poid"),
-	@NamedQuery(name = PurchaseOrderLine.FIND_OUT_BY_PRODUCT_ID, query = "SELECT pol FROM PurchaseOrderLine WHERE pol.productID = :pid")
-})
+		@NamedQuery(name = PurchaseOrderLine.FIND_OUT_BY_PURCHASE_ORDER_ID, query = "SELECT pol FROM PurchaseOrderLine WHERE pol.purchaseOrderID = :poid"),
+		@NamedQuery(name = PurchaseOrderLine.FIND_OUT_BY_PRODUCT_ID, query = "SELECT pol FROM PurchaseOrderLine WHERE pol.productID = :pid") })
 public class PurchaseOrderLine {
-	
+
 	public static final String FIND_OUT_BY_PURCHASE_ORDER_ID = "PurchaseOrderLine.findbyid";
 	public static final String FIND_OUT_BY_PRODUCT_ID = "PurchaseOrderLine.findoutbyid";
-	
+
 	@Id
 	@Column(name = "purchaseOrderID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,31 +36,27 @@ public class PurchaseOrderLine {
 	@Size(min = 2, max = 30)
 	private int quantity;
 
-	public int getPurchaseOrderID()
-	{
+	public int getPurchaseOrderID() {
 		return purchaseOrderID;
 	}
-	
-	public void setPurchaseOrderID(int id)
-	{
+
+	public void setPurchaseOrderID(int id) {
 		purchaseOrderID = id;
 	}
-	
-	public int getProductID()
-	{
+
+	public int getProductID() {
 		return productID;
 	}
-	
-	public void setProductID(int id)
-	{
+
+	public void setProductID(int id) {
 		productID = id;
 	}
-	public int getQuantity()
-	{
+
+	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quan)
-	{
+
+	public void setQuantity(int quan) {
 		quantity = quan;
 	}
 }

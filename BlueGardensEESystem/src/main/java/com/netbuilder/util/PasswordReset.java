@@ -2,6 +2,7 @@ package com.netbuilder.util;
 
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
+
 /**
  * @author jmander
  **/
@@ -10,7 +11,7 @@ import javax.inject.Named;
 public class PasswordReset {
 	private String newPassword;
 	private String confirmNewPassword;
-	
+
 	public String getNewPassword() {
 		return newPassword;
 	}
@@ -25,11 +26,11 @@ public class PasswordReset {
 
 	public void setConfirmNewPassword(String confirmNewPassword) {
 		this.confirmNewPassword = confirmNewPassword;
-	}	
-	
+	}
+
 	public PasswordReset(String newPassword, String confirmNewPassword) {
 		this.newPassword = newPassword;
 		this.confirmNewPassword = confirmNewPassword;
 	}
-	
+
 }

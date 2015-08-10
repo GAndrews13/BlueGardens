@@ -9,24 +9,19 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.validation.ValidationException;
 
-import com.netbuilder.BlueGardensEESystem.*;
+import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.Basket;
-import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.CustomerOrderLine;
-import com.netbuilder.entities.ProductOrderLine;
 import com.netbuilder.entitymanagers.BasketManager;
-import com.netbuilder.entitymanagers.CustomerOrderManager;
-import com.netbuilder.service.BasketProductOrderService;
 
 /**
- * @author abalagel
- *	implements the database connectivity
+ * @author abalagel implements the database connectivity
  */
 @Alternative
 public class BasketManagerDb implements BasketManager {
 	@Inject
 	private PersistenceManager pm;
-	
+
 	public void persistBasket(Basket basket) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
@@ -36,21 +31,23 @@ public class BasketManagerDb implements BasketManager {
 	}
 
 	public void updateBasket(Basket basket) {
-		if (basket == null) throw new ValidationException("null value");
+		if (basket == null)
+			throw new ValidationException("null value");
 		EntityManager em = pm.CreateEntityManager();
 		em.merge(basket);
 		pm.CloseEntityManager(em);
 	}
-	
+
 	public Basket findById(int id) {
 		EntityManager em = pm.CreateEntityManager();
-		TypedQuery<Basket> tq = em.createNamedQuery(Basket.FIND_OUT_BY_PRODUCTID, Basket.class);
+		TypedQuery<Basket> tq = em.createNamedQuery(
+				Basket.FIND_OUT_BY_PRODUCTID, Basket.class);
 		pm.CloseEntityManager(em);
 		tq.setParameter("ProductID", id);
-		try{
+		try {
 			return tq.getSingleResult();
-		} catch (NoResultException nre){
-		return null;
+		} catch (NoResultException nre) {
+			return null;
 		}
 	}
 
@@ -65,6 +62,5 @@ public class BasketManagerDb implements BasketManager {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 }

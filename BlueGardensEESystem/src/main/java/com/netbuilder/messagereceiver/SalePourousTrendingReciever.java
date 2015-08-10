@@ -1,4 +1,5 @@
 package com.netbuilder.messagereceiver;
+
 /**
  * @author lczornyj
  * This is a message reciever for the landing page.
@@ -38,7 +39,8 @@ public class SalePourousTrendingReciever {
 	public String receiveObjectMessage() {
 		try {
 			context = new InitialContext();
-			connectionFactory = (QueueConnectionFactory) context.lookup("ConnectionFactory");
+			connectionFactory = (QueueConnectionFactory) context
+					.lookup("ConnectionFactory");
 			destination = (Queue) context.lookup("messagequeue");
 			connection = connectionFactory.createConnection();
 			session = connection.createSession(false, AUTO_ACKNOWLEDGE);
@@ -49,7 +51,8 @@ public class SalePourousTrendingReciever {
 				public void onMessage(Message message) {
 					try {
 						ObjectMessage objectMessage = (ObjectMessage) message;
-						poil = (ProductOfIntrestLists) objectMessage.getObject();
+						poil = (ProductOfIntrestLists) objectMessage
+								.getObject();
 						System.out.println(poil.toString());
 					} catch (JMSException e) {
 						e.printStackTrace();

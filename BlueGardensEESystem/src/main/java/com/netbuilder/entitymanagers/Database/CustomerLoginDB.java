@@ -13,50 +13,52 @@ import com.netbuilder.entitymanagers.CustomerLoginManager;
 
 public class CustomerLoginDB implements CustomerLoginManager {
 
-	@Inject 
+	@Inject
 	private PersistenceManager pm;
-	
+
 	public long checkDetails(String inUsername, byte[] inPassword) {
-		String SQLStatement = "SELECT * FROM CustomerLogin c WHERE c.username = "+  inUsername + " AND c.password = " + inPassword;
+		String SQLStatement = "SELECT * FROM CustomerLogin c WHERE c.username = "
+				+ inUsername + " AND c.password = " + inPassword;
 		EntityManager em = pm.CreateEntityManager();
-		TypedQuery<CustomerLogin> tq = em.createQuery(SQLStatement, CustomerLogin.class);
+		TypedQuery<CustomerLogin> tq = em.createQuery(SQLStatement,
+				CustomerLogin.class);
 		tq.setParameter("username", inUsername);
-		try
-		{
+		try {
 			return tq.getSingleResult().getCustomerID();
-		}
-		catch (NoResultException nre)
-		{
+		} catch (NoResultException nre) {
 			return 0;
 		}
 	}
 
 	public long checkCustomerID(String inUsername) {
-		String SQLStatement = "SELECT * FROM CustomerLogin c WHERE c.username = " + inUsername;
+		String SQLStatement = "SELECT * FROM CustomerLogin c WHERE c.username = "
+				+ inUsername;
 		EntityManager em = pm.CreateEntityManager();
-		TypedQuery<CustomerLogin> tq = em.createQuery(SQLStatement, CustomerLogin.class);
-		tq.setParameter("username",inUsername);
-		try
-		{
+		TypedQuery<CustomerLogin> tq = em.createQuery(SQLStatement,
+				CustomerLogin.class);
+		tq.setParameter("username", inUsername);
+		try {
 			return tq.getSingleResult().getCustomerID();
-		}
-		catch (NoResultException nre)
-		{
-			return 0;			
+		} catch (NoResultException nre) {
+			return 0;
 		}
 	}
 
 	@Override
 	public String getCustomerUsername(String inUserEmail) {
 		EntityManager em = pm.CreateEntityManager();
-		CustomerLogin cl = em.createQuery("SELECT * FROM CustomerLogin c WHERE c.email = " + inUserEmail,CustomerLogin.class).getSingleResult();
+		CustomerLogin cl = em.createQuery(
+				"SELECT * FROM CustomerLogin c WHERE c.email = " + inUserEmail,
+				CustomerLogin.class).getSingleResult();
 		return cl.getCustomerUsername();
 	}
 
 	@Override
 	public byte[] getCustomerSalt(String inUsername) {
 		EntityManager em = pm.CreateEntityManager();
-		byte[] saltArray = em.createQuery("SELECT salt FROM CustomerLogin c WHERE c.username = " + inUsername,byte[].class).getSingleResult();
+		byte[] saltArray = em.createQuery(
+				"SELECT salt FROM CustomerLogin c WHERE c.username = "
+						+ inUsername, byte[].class).getSingleResult();
 		return saltArray;
 	}
 
@@ -78,7 +80,7 @@ public class CustomerLoginDB implements CustomerLoginManager {
 	@Override
 	public void updateCustomerPassword(long id, String password) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

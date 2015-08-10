@@ -6,25 +6,24 @@ import com.netbuilder.entities.WarehouseWorker;
 
 /**
  * 
- * @author lczornyj
- *Created the Warehouse	Entity interface.
+ * @author lczornyj Created the Warehouse Entity interface.
  */
 public interface WarehouseWorkerManager {
 
-	
-	///////// CREATE /////////
+	// /////// CREATE /////////
 	public void persistWarehouseWorker(WarehouseWorker warehouseWorker);
-	public void persistWarehouseWorker(ArrayList<WarehouseWorker> warehouseWorker);
-	
-	///////// UPDATE ////////
+
+	public void persistWarehouseWorker(
+			ArrayList<WarehouseWorker> warehouseWorker);
+
+	// /////// UPDATE ////////
 	public void updateWarehouseWorker(WarehouseWorker warehouseWorker);
-	
-	///////// READ /////////
+
+	// /////// READ /////////
 	public WarehouseWorker findByName(String name);
-	public WarehouseWorker findById(int id); 
+
+	public WarehouseWorker findById(int id);
+
 	public WarehouseWorker isAssigned(boolean isAssigned);
-	
-	
-	
-	
+
 }

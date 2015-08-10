@@ -1,68 +1,64 @@
 package com.netbuilder.model;
+
 /**
- * @author Jake
- * Customer Entity
+ * @author Jake Customer Entity
  */
 
-
-public class Customer 
-{
+public class Customer {
 	public static final String FIND_BY_OUT_STOCK = "Customer.findByOutStock";
 	public static final String FIND_BY_NAME = "Customer.findByName";
 
 	/**
-	 * @author Jake
-	 *	Attributes for customer including
-	 *	unique ID for customer (int)
-	 *	name, address, email and accountSTATUS are all Strings
-	 *	contactNUM is string so that String operations can be applied
-	 *	
+	 * @author Jake Attributes for customer including unique ID for customer
+	 *         (int) name, address, email and accountSTATUS are all Strings
+	 *         contactNUM is string so that String operations can be applied
+	 *
 	 */
-	
+
 	/**
-	 * Customer ID will be the primary key in the customer table/ NOT NULL 
+	 * Customer ID will be the primary key in the customer table/ NOT NULL
 	 */
-	
+
 	private long customerID;
-	
+
 	/**
 	 * First Name represents the customer name in the table, cannot be null
 	 */
 	private String firstName;
-	
+
 	/**
 	 * Name represents the customer name in the table, cannot be null
 	 */
 	private String lastName;
-	
-	
+
 	/**
 	 * Address represents the customer address, length may need to be longer
 	 */
 	private String address;
-	
+
 	/**
 	 * Email can be an optional field to enter, i.e can be null
 	 */
 	private String email;
-	
+
 	/**
-	 * Contact number for the customer, cannot be null 
+	 * Contact number for the customer, cannot be null
 	 */
-	
+
 	private String contactNUM;
-	
+
 	/**
-	 * Account status cannot be null but can have a value like N/A for not active 
+	 * Account status cannot be null but can have a value like N/A for not
+	 * active
 	 */
-	
+
 	private String accountSTATUS;
-	
+
 	/**
-	 * Initialize customer so instances of customer cannot have null values 
+	 * Initialize customer so instances of customer cannot have null values
 	 */
-	public Customer(String firstname, String lastname, String address, String contactNUM, String email, String accountSTATUS)
-	{
+	public Customer(String firstname, String lastname, String address,
+			String contactNUM, String email, String accountSTATUS) {
 		this.firstName = firstname;
 		this.lastName = lastname;
 		this.address = address;
@@ -70,7 +66,7 @@ public class Customer
 		this.email = email;
 		this.accountSTATUS = accountSTATUS;
 	}
-	
+
 	public Customer(long customerID, String firstName, String lastName,
 			String address, String email, String contactNUM,
 			String accountSTATUS) {
@@ -83,12 +79,9 @@ public class Customer
 		this.accountSTATUS = accountSTATUS;
 	}
 
-
-
 	/**
-	 * @author Jake
-	 *	Getters and Setter for class variables
-	 *	
+	 * @author Jake Getters and Setter for class variables
+	 *
 	 */
 	public long getCustomerID() {
 		return customerID;
@@ -101,7 +94,7 @@ public class Customer
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
+
 	public String getLastName() {
 		return firstName;
 	}
@@ -109,7 +102,6 @@ public class Customer
 	public void setLastName(String lastName) {
 		this.firstName = lastName;
 	}
-
 
 	public String getAddress() {
 		return address;
@@ -142,9 +134,5 @@ public class Customer
 	public void setAccountSTATUS(String accountSTATUS) {
 		this.accountSTATUS = accountSTATUS;
 	}
-	
-	
-	
-	
 
 }

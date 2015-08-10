@@ -11,23 +11,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.servlet.Servlet;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
 
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.ProductManager;
 
 @ManagedBean(name = "productController")
 @SessionScoped
-
 public class ProductController {
 	@Inject
 	private ProductManager productManager;
@@ -38,7 +29,7 @@ public class ProductController {
 	private Product trendingProduct;
 	private Product porousProduct;
 	private Product saleProduct;
-	
+
 	public Product getTrendingProduct() {
 		return trendingProduct;
 	}
@@ -63,69 +54,65 @@ public class ProductController {
 		this.saleProduct = saleProduct;
 	}
 
-	public void pullCatalog()
-	{
+	public void pullCatalog() {
 		trendingProduct = productManager.findByTrending().get(0);
 		saleProduct = productManager.findBySale().get(0);
 		porousProduct = productManager.findByPourousware(true).get(0);
 	}
 
 	private int currentID;
-	
-	public ProductController(){
+
+	public ProductController() {
 	}
 
 	@GET
-	//@Path("productPage.xhtml")
+	// @Path("productPage.xhtml")
 	public void getProductByID() {
-		HttpServletRequest hsr = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		String pid= hsr.getQueryString();
+		HttpServletRequest hsr = (HttpServletRequest) FacesContext
+				.getCurrentInstance().getExternalContext().getRequest();
+		String pid = hsr.getQueryString();
 		System.out.println(pid);
-		pid = pid.replace("[","");
-		pid = pid.replace("]","");
-		pid = pid.replace("product=","");
-		product= productManager.findById(Integer.parseInt(pid));
+		pid = pid.replace("[", "");
+		pid = pid.replace("]", "");
+		pid = pid.replace("product=", "");
+		product = productManager.findById(Integer.parseInt(pid));
 		pullCatalog();
 	}
-	
+
 	public int getCurrentID() {
 		return currentID;
 	}
 
 	public void setCurrentID(int currentID) {
-		//System.out.println(currentID);
+		// System.out.println(currentID);
 		this.currentID = currentID;
 		System.out.println(this.currentID);
 	}
 
 	public void search(int inID) {
-		//System.out.println(this.link.substring(1, this.link.length()-1));
-		//this.product = productManager.findByImageLink(this.link.substring(1, this.link.length()-1));
+		// System.out.println(this.link.substring(1, this.link.length()-1));
+		// this.product = productManager.findByImageLink(this.link.substring(1,
+		// this.link.length()-1));
 		System.out.println(inID);
-		this.product=productManager.findById(inID);
-		//System.out.println(product);
-		//return "productPage";
+		this.product = productManager.findById(inID);
+		// System.out.println(product);
+		// return "productPage";
 	}
-
 
 	public String getLink() {
 		return link;
 	}
 
-
 	public void setLink(String link) {
 		this.link = link;
 	}
-
 
 	public Product getProduct() {
 		return product;
 	}
 
-
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-
 
 }

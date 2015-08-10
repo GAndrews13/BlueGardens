@@ -12,23 +12,19 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 
- * @author Jake
- *	Customer Order Line Entity
+ * @author Jake Customer Order Line Entity
  */
 @Entity
 @Table(name = "CustomerOrderLine")
-@NamedQueries
-({
-	@NamedQuery(name = CustomerOrderLine.FIND_BY_CO_ID, query = "SELECT * FROM CustomerOrderLine where COID = :id"),
-	@NamedQuery(name = CustomerOrderLine.FIND_BY_QUANTITY, query = "SELECT * FROM CustomerOrderLine where QUANTITY = quantity"),
-	@NamedQuery(name = CustomerOrderLine.FIND_BY_PRODUCT_ID, query = "SELECT c FROM CustomerOrderLine c WHERE CUSTOMER ID = :productid")
-})
-public class CustomerOrderLine 
-{
+@NamedQueries({
+		@NamedQuery(name = CustomerOrderLine.FIND_BY_CO_ID, query = "SELECT * FROM CustomerOrderLine where COID = :id"),
+		@NamedQuery(name = CustomerOrderLine.FIND_BY_QUANTITY, query = "SELECT * FROM CustomerOrderLine where QUANTITY = quantity"),
+		@NamedQuery(name = CustomerOrderLine.FIND_BY_PRODUCT_ID, query = "SELECT c FROM CustomerOrderLine c WHERE CUSTOMER ID = :productid") })
+public class CustomerOrderLine {
 	public static final String FIND_BY_CO_ID = "CustomerOrderLine.findByCOID";
 	public static final String FIND_BY_PRODUCT_ID = "CustomerOrderLine.findByPID";
 	public static final String FIND_BY_QUANTITY = "CustomerOrderLine.findByQUANTITY";
-	
+
 	/**
 	 * Customer Order Line ID is the primary key for the this table
 	 */
@@ -37,33 +33,32 @@ public class CustomerOrderLine
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
 	private int CustomerOrderID;
-	
+
 	/**
-	 *  Product ID will be linked to the product entity
+	 * Product ID will be linked to the product entity
 	 */
 	@Column(name = "ProductID", nullable = false)
 	private int productId;
-	
+
 	/**
 	 * Quantity cannot be null as at least one product must be in the order line
 	 */
 	@Column(name = "Quantity", nullable = false)
 	@NotNull
 	private int quantity;
-	
+
 	/**
 	 * Quantity cannot be null as at least one product must be in the order line
 	 */
 	@Column(name = "IsPicked", nullable = false)
 	@NotNull
 	private boolean isPicked;
-	
-	public CustomerOrderLine(int productID, int Quantity)
-	{
+
+	public CustomerOrderLine(int productID, int Quantity) {
 		this.productId = productID;
 		this.quantity = Quantity;
-	}	
-	
+	}
+
 	public CustomerOrderLine(int customerOrderID, int productId, int quantity,
 			boolean isPicked) {
 		CustomerOrderID = customerOrderID;
@@ -73,9 +68,7 @@ public class CustomerOrderLine
 	}
 
 	/**
-	 * @author Jake
-	 *	Getters and Setters for class variables
-	 *	Initialise class
+	 * @author Jake Getters and Setters for class variables Initialise class
 	 */
 	public int getCustomerOrderID() {
 		return CustomerOrderID;
@@ -100,15 +93,13 @@ public class CustomerOrderLine
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
-	public void setIsPicked(boolean picked)
-	{
+
+	public void setIsPicked(boolean picked) {
 		isPicked = picked;
 	}
-	
-	public boolean getIsPicked()
-	{
+
+	public boolean getIsPicked() {
 		return isPicked;
 	}
-	
+
 }

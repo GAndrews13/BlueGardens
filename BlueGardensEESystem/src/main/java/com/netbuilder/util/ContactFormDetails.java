@@ -2,6 +2,7 @@ package com.netbuilder.util;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+
 /**
  * @author abalagel
  */
@@ -12,8 +13,8 @@ public class ContactFormDetails {
 	private String name;
 	private String email;
 	private String message;
-	
-	public ContactFormDetails(String name, String email, String message){
+
+	public ContactFormDetails(String name, String email, String message) {
 		this.name = name;
 		this.email = email;
 		this.message = message;
@@ -42,5 +43,5 @@ public class ContactFormDetails {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
 }

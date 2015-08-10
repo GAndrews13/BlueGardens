@@ -1,23 +1,21 @@
 package com.netbuilder.BlueGardensEESystem;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
 import com.netbuilder.entities.ProductOrderLine;
 
 /**
- * @author Jake
- *	Testing ProductOrderLine class using Junit
- *	Currently successful with values test values used to setup this instance of the Product Order Line
+ * @author Jake Testing ProductOrderLine class using Junit Currently successful
+ *         with values test values used to setup this instance of the Product
+ *         Order Line
  */
-public class ProductOrderLineTest 
-{
-	@Test public void ProductOrderLineTesting()
-	{
+public class ProductOrderLineTest {
+	@Test
+	public void ProductOrderLineTesting() {
 		/**
-		 * @author Jake
-		 *	Testing if the quantity in Ptest is NotNull
+		 * @author Jake Testing if the quantity in Ptest is NotNull
 		 */
 		ProductOrderLine Ptest = new ProductOrderLine(1, 12);
 		assertNotNull(Ptest.getQuantity());

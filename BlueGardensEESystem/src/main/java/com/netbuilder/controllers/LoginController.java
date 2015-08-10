@@ -26,15 +26,15 @@ public class LoginController {
 	private byte[] salt;
 	public boolean loggedIn = false;
 	public String errormsg;
-	
-	public LoginController(){
+
+	public LoginController() {
 	}
-	
+
 	public LoginController(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
-	
+
 	public boolean isLoggedIn() {
 		return loggedIn;
 	}
@@ -58,10 +58,11 @@ public class LoginController {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -69,11 +70,11 @@ public class LoginController {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
-		
+
 	public String getErrormsg() {
 		return errormsg;
 	}
@@ -87,59 +88,50 @@ public class LoginController {
 			errormsg = "please enter details";
 			return "login";
 		}
-		try
-		{
-			if(clm.checkCustomerID(username) != 0)
-			{
+		try {
+			if (clm.checkCustomerID(username) != 0) {
 				setLoggedIn(true);
 				loggedInUser.setUsername(username);
 				loggedInUser.setUserID(clm.checkCustomerID(username));
 				return "account";
-			}
-			else
-			{
+			} else {
 				errormsg = "Incorrect details";
 				return "login";
 			}
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			errormsg = "Error logging in";
 		}
-			return "login";
+		return "login";
 	}
-	
-	public String loggedInUserName()
-	{
-		if(loggedIn)
-		{
+
+	public String loggedInUserName() {
+		if (loggedIn) {
 			return username;
-		}
-		else
-		{
+		} else {
 			return "Login";
 		}
 	}
-	
-	public void logOut(){
+
+	public void logOut() {
 		setLoggedIn(false);
 		username = null;
 		password = null;
 		loggedInUser.setUsername(null);
 		loggedInUser.setUserID(clm.checkCustomerID(null));
-		
-		//Close the session
-				FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+
+		// Close the session
+		FacesContext.getCurrentInstance().getExternalContext()
+				.invalidateSession();
 	}
-	
-	public String loggedOut(){
-		if(username!=null){
+
+	public String loggedOut() {
+		if (username != null) {
 			logOut();
 		}
-		if(loggedIn){
+		if (loggedIn) {
 			return "Log Out";
-		}else{
+		} else {
 			return "";
-		}		
+		}
 	}
 }

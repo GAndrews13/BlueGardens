@@ -30,6 +30,5 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/David/workspace/apache-activemq-5.11.1-bin/apache-activemq-5.11.1/activemq-all-5.11.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

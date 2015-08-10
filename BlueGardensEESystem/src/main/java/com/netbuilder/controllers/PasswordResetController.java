@@ -14,12 +14,12 @@ import com.netbuilder.util.PasswordReset;
 @Named
 @Dependent
 public class PasswordResetController {
-	//@Inject
+	// @Inject
 	private CustomerLogin customerLogin;
-	//@Inject
+	// @Inject
 	private PasswordReset passwordReset;
 	public String errormsg;
-	
+
 	public String getErrormsg() {
 		return errormsg;
 	}
@@ -29,19 +29,18 @@ public class PasswordResetController {
 	}
 
 	public String passwordReset() {
-		if(passwordReset.getNewPassword() != passwordReset.getConfirmNewPassword()){
+		if (passwordReset.getNewPassword() != passwordReset
+				.getConfirmNewPassword()) {
 			errormsg = "Passwords do not match";
 			return "passwordReset";
 		}
-		try
-		{
-			customerLogin.setCustomerPassword(LoginUtils.hash(passwordReset.getNewPassword(),customerLogin.getSalt()));
-		}
-		catch (Exception e)
-		{
+		try {
+			customerLogin.setCustomerPassword(LoginUtils.hash(
+					passwordReset.getNewPassword(), customerLogin.getSalt()));
+		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		
+
 		return "login";
 	}
 }

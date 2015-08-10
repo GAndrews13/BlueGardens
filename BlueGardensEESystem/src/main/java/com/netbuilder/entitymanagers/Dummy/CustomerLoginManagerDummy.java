@@ -15,33 +15,31 @@ public class CustomerLoginManagerDummy implements CustomerLoginManager {
 
 	@Inject
 	private DummyData dd;
-	
+
 	public void persistCustomerLogin(CustomerLogin customerLogin) {
 
 	}
 
-	public long checkDetails(String inUsername, byte[] inPassword){
-		for(CustomerLogin cl : dd.getCustomerLogins())
-		{
-			if (cl.getCustomerUsername()==inUsername)
+	public long checkDetails(String inUsername, byte[] inPassword) {
+		for (CustomerLogin cl : dd.getCustomerLogins()) {
+			if (cl.getCustomerUsername() == inUsername)
 				return cl.getCustomerID();
-		}	
+		}
 		return 0;
 	}
 
 	public long checkCustomerID(String inUsername) {
-		for(CustomerLogin cl : dd.getCustomerLogins())
-		{
-			if (cl.getCustomerUsername().equals(inUsername)){
+		for (CustomerLogin cl : dd.getCustomerLogins()) {
+			if (cl.getCustomerUsername().equals(inUsername)) {
 				return cl.getCustomerID();
 			}
-		}	
+		}
 		return 0;
 	}
 
 	public String getCustomerUsername(String inUserEmail) {
-		for(CustomerLogin cl : dd.getCustomerLogins()){
-			if(cl.getCustomerEmail() == inUserEmail){
+		for (CustomerLogin cl : dd.getCustomerLogins()) {
+			if (cl.getCustomerEmail() == inUserEmail) {
 				return cl.getCustomerUsername();
 			}
 		}
@@ -49,8 +47,8 @@ public class CustomerLoginManagerDummy implements CustomerLoginManager {
 	}
 
 	public byte[] getCustomerSalt(String inUsername) {
-		for(CustomerLogin cl : dd.getCustomerLogins()){
-			if(cl.getCustomerUsername() == inUsername){
+		for (CustomerLogin cl : dd.getCustomerLogins()) {
+			if (cl.getCustomerUsername() == inUsername) {
 				return cl.getSalt();
 			}
 		}
@@ -64,10 +62,11 @@ public class CustomerLoginManagerDummy implements CustomerLoginManager {
 
 	@Override
 	public void updateCustomerPassword(long id, String password) {
-		for(CustomerLogin cl: dd.getCustomerLogins()){
-			if(cl.getCustomerID() == id){
+		for (CustomerLogin cl : dd.getCustomerLogins()) {
+			if (cl.getCustomerID() == id) {
 				try {
-					cl.setCustomerPassword(LoginUtils.hash(password, cl.getSalt()));
+					cl.setCustomerPassword(LoginUtils.hash(password,
+							cl.getSalt()));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

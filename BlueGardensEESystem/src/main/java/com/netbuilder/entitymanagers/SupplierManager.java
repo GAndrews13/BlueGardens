@@ -6,21 +6,22 @@ import com.netbuilder.entities.Supplier;
 
 /**
  * 
- * @author lczornyj
- *Supplier manager and its implementations
+ * @author lczornyj Supplier manager and its implementations
  */
 
 public interface SupplierManager {
 
-	///////// Create /////////
+	// /////// Create /////////
 	public void persistSupplier(Supplier supplier);
+
 	public void persistSupplier(ArrayList<Supplier> supplier);
-	
-	///////// UPDATE /////////
+
+	// /////// UPDATE /////////
 	public void updateSupplier(Supplier supplier);
-	
-	///////// READ //////////
+
+	// /////// READ //////////
 	public Supplier findByName(String name);
-	public Supplier findById(int id); 
-	
+
+	public Supplier findById(int id);
+
 }

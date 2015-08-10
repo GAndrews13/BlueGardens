@@ -1,4 +1,5 @@
 package com.netbuilder.controllers;
+
 /**
  * @author lczornyj
  * 
@@ -19,7 +20,7 @@ public class SaleProductController {
 	@Inject
 	private ProductsOfIntrest poi;
 	private ArrayList<Product> saleProducts;
-	
+
 	public ArrayList<Product> getSaleProducts() {
 		return saleProducts;
 	}

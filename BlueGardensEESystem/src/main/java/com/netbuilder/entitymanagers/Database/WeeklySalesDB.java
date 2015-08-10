@@ -12,6 +12,7 @@ import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.BlueGardensEESystem.SQLCreator;
 import com.netbuilder.entities.WeeklySales;
 import com.netbuilder.entitymanagers.WeeklySalesManager;
+
 /**
  * 
  * @author gandrews
@@ -20,13 +21,13 @@ import com.netbuilder.entitymanagers.WeeklySalesManager;
 public class WeeklySalesDB implements WeeklySalesManager {
 	@Inject
 	private PersistenceManager pm;
-	
+
 	public void persistWeeklySales(WeeklySales inWeeklySales) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
+
 		em.persist(inWeeklySales);
-		
+
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 
@@ -34,9 +35,8 @@ public class WeeklySalesDB implements WeeklySalesManager {
 
 	public void persistWeeklySales(ArrayList<WeeklySales> inWeeklySalesList) {
 		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();		
-		for(WeeklySales ws : inWeeklySalesList)
-		{
+		em.getTransaction().begin();
+		for (WeeklySales ws : inWeeklySalesList) {
 			em.persist(ws);
 		}
 		em.getTransaction().commit();
@@ -44,21 +44,19 @@ public class WeeklySalesDB implements WeeklySalesManager {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<WeeklySales> findByMonth(int inMonthNumber)
-	{
+	public ArrayList<WeeklySales> findByMonth(int inMonthNumber) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
-		TypedQuery<WeeklySales> tq = (TypedQuery<WeeklySales>) em.createNamedQuery("SELECT * FROM WeeklySales WHERE MONTH(happened_at) = " + inMonthNumber);
-		
+
+		TypedQuery<WeeklySales> tq = (TypedQuery<WeeklySales>) em
+				.createNamedQuery("SELECT * FROM WeeklySales WHERE MONTH(happened_at) = "
+						+ inMonthNumber);
+
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
-		try
-		{
+		try {
 			return (ArrayList<WeeklySales>) tq.getResultList();
-		}
-		catch(NoResultException nre)
-		{
+		} catch (NoResultException nre) {
 			return null;
 		}
 	}
@@ -67,15 +65,14 @@ public class WeeklySalesDB implements WeeklySalesManager {
 	public ArrayList<WeeklySales> findByMinimumSales(int inMinimumSales) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<WeeklySales> tq = (TypedQuery<WeeklySales>) em.createNamedQuery(SQLCreator.Select("WeeklySales", "amountSold", "<" + inMinimumSales));
+		TypedQuery<WeeklySales> tq = (TypedQuery<WeeklySales>) em
+				.createNamedQuery(SQLCreator.Select("WeeklySales",
+						"amountSold", "<" + inMinimumSales));
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
-		try
-		{
+		try {
 			return (ArrayList<WeeklySales>) tq.getResultList();
-		}
-		catch (NoResultException nre)
-		{
+		} catch (NoResultException nre) {
 			return null;
 		}
 	}

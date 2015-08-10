@@ -1,5 +1,7 @@
 package com.netbuilder.examplejms;
 
+import static javax.jms.Session.AUTO_ACKNOWLEDGE;
+
 import javax.jms.Connection;
 import javax.jms.Destination;
 import javax.jms.JMSException;
@@ -11,8 +13,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import static javax.jms.Session.AUTO_ACKNOWLEDGE;
-
 public class MessageReceiver {
 	private Context context;
 	private QueueConnectionFactory connectionFactory;
@@ -21,11 +21,12 @@ public class MessageReceiver {
 	private Session session;
 	private MessageConsumer messageConsumer;
 	Thread thread;
-	
+
 	public void receiveObjectMessage() {
 		try {
 			context = new InitialContext();
-			connectionFactory = (QueueConnectionFactory) context.lookup("ConnectionFactory");
+			connectionFactory = (QueueConnectionFactory) context
+					.lookup("ConnectionFactory");
 			destination = (Queue) context.lookup("messagequeue");
 			connection = connectionFactory.createConnection();
 			session = connection.createSession(false, AUTO_ACKNOWLEDGE);
@@ -35,7 +36,8 @@ public class MessageReceiver {
 			Runnable runnable = new Runnable() {
 				@Override
 				public void run() {
-					while(true){}
+					while (true) {
+					}
 				}
 			};
 			thread = new Thread(runnable, "runnable");

@@ -2,77 +2,73 @@ package com.netbuilder.entitymanagers.Dummy;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
+
 import com.netbuilder.entities.Basket;
-import com.netbuilder.entities.Product;
 import com.netbuilder.entities.CustomerOrderLine;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.BasketManager;
 import com.netbuilder.entitymanagers.ProductManager;
 
-
 /**
- * @author abalagel
- * links interface with db
+ * @author abalagel links interface with db
  */
 
 @Alternative
-public class BasketManagerDummy implements BasketManager,Serializable {
-	Basket localbasket = new Basket(0, new ArrayList<CustomerOrderLine>()); 
+public class BasketManagerDummy implements BasketManager, Serializable {
+	Basket localbasket = new Basket(0, new ArrayList<CustomerOrderLine>());
 	@Inject
 	ProductManager productManager;
-	
-	public void persistBasket(Basket basket){
+
+	public void persistBasket(Basket basket) {
 		localbasket = basket;
 	}
-	
-	public void updateBasket(Basket basket){
-	//localbasket.set(localbasket.indexOf(basket),basket);
+
+	public void updateBasket(Basket basket) {
+		// localbasket.set(localbasket.indexOf(basket),basket);
 		localbasket = basket;
 	}
 
 	@Override
 	public double findTotal() {
 		double total = 0;
-		if(localbasket.getCustomerOrderLine()!= null)
-		{
-			for(int i = 0;i<localbasket.getCustomerOrderLine().size();i++)
-			{
-				total+=localbasket.getCustomerOrderLine().get(i).getQuantity()*productManager.findById(
-						localbasket.getCustomerOrderLine().get(i).getProductId()).getPrice(); 
+		if (localbasket.getCustomerOrderLine() != null) {
+			for (int i = 0; i < localbasket.getCustomerOrderLine().size(); i++) {
+				total += localbasket.getCustomerOrderLine().get(i)
+						.getQuantity()
+						* productManager.findById(
+								localbasket.getCustomerOrderLine().get(i)
+										.getProductId()).getPrice();
 			}
 		}
 		return total;
 	}
-	
+
 	/**
 	 * @author GAndrews
 	 */
-	public void addProduct(int inProduct,int inQuantity)
-	{
+	public void addProduct(int inProduct, int inQuantity) {
 		System.out.println(inProduct + inQuantity + "VALUES");
-		localbasket.getCustomerOrderLine().add(new CustomerOrderLine(inProduct,inQuantity));
+		localbasket.getCustomerOrderLine().add(
+				new CustomerOrderLine(inProduct, inQuantity));
 	}
-	
-	public void changeQuantity(Product inProduct,int inQuantity)
-	{
-		for(int i = 0;i<localbasket.getCustomerOrderLine().size();i++)
-		{
+
+	public void changeQuantity(Product inProduct, int inQuantity) {
+		for (int i = 0; i < localbasket.getCustomerOrderLine().size(); i++) {
 			CustomerOrderLine temp = localbasket.getCustomerOrderLine().get(i);
-			if(inProduct.getProductID() == temp.getProductId())
-			{
+			if (inProduct.getProductID() == temp.getProductId()) {
 				temp.setQuantity(inQuantity);
 				localbasket.getCustomerOrderLine().set(i, temp);
 			}
 		}
 	}
-	
-	public void removeProduct(Product inProduct)
-	{
-		for(int i = 0;i<localbasket.getCustomerOrderLine().size();i++)
-		{
-			if(inProduct.getProductID()==localbasket.getCustomerOrderLine().get(i).getProductId())
-			{
+
+	public void removeProduct(Product inProduct) {
+		for (int i = 0; i < localbasket.getCustomerOrderLine().size(); i++) {
+			if (inProduct.getProductID() == localbasket.getCustomerOrderLine()
+					.get(i).getProductId()) {
 				localbasket.getCustomerOrderLine().remove(i);
 			}
 		}
@@ -81,8 +77,7 @@ public class BasketManagerDummy implements BasketManager,Serializable {
 	@Override
 	public ArrayList<CustomerOrderLine> products() {
 		ArrayList<CustomerOrderLine> POL = localbasket.getCustomerOrderLine();
-		if(POL == null)
-		{
+		if (POL == null) {
 			System.out.println("YEAH");
 			return new ArrayList<CustomerOrderLine>();
 		}

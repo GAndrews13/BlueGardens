@@ -21,11 +21,11 @@ public class ForgottenPasswordController {
 	private CustomerManager customerManager;
 	@Inject
 	private CustomerLoginManager customerLoginManager;
-	//@Inject
+	// @Inject
 	private ForgottenPasswordDetails forgottenPasswordDetails;
 	private String customerEmail;
 	public String errormsg;
-	
+
 	public String getErrormsg() {
 		return errormsg;
 	}
@@ -35,28 +35,30 @@ public class ForgottenPasswordController {
 	}
 
 	public String forgottenPassword() {
-		if (forgottenPasswordDetails.getUsername().isEmpty() || forgottenPasswordDetails.getEmail().isEmpty()) {
+		if (forgottenPasswordDetails.getUsername().isEmpty()
+				|| forgottenPasswordDetails.getEmail().isEmpty()) {
 			errormsg = "Please enter details";
 			return "forgottenPassword";
 		}
-		Long uid = customerLoginManager.checkCustomerID(forgottenPasswordDetails.getUsername());
-		Customer customer = customerManager.findByEmail(forgottenPasswordDetails.getEmail());
-		if(uid == null)
-		{
+		Long uid = customerLoginManager
+				.checkCustomerID(forgottenPasswordDetails.getUsername());
+		Customer customer = customerManager
+				.findByEmail(forgottenPasswordDetails.getEmail());
+		if (uid == null) {
 			errormsg = "Incorrect details";
 			return "forgottenPassword";
-		}else if(customer == null){
+		} else if (customer == null) {
 			errormsg = "Incorrect details";
 			return "forgottenPassword";
 		}
-		if(forgottenPasswordDetails.getUsername().isEmpty()){
+		if (forgottenPasswordDetails.getUsername().isEmpty()) {
 			customerEmail = forgottenPasswordDetails.getEmail();
-		}else if(forgottenPasswordDetails.getEmail().isEmpty()){
+		} else if (forgottenPasswordDetails.getEmail().isEmpty()) {
 			customerEmail = customer.getEmail();
 		}
-		
+
 		new ForgottenPasswordEmail(customerEmail);
-		
+
 		return "login";
 	}
 

@@ -7,15 +7,14 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 /**
  * @author abalagel
  */
 
 @Entity
 @Table(name = "WarehouseLocation")
-@NamedQueries({
-	@NamedQuery(name = WarehouseLocation.FIND_OUT_BY_PRODUCTID, query = "SELECT w FROM WarehouseLocation WHERE w.productId = :id")
-})
+@NamedQueries({ @NamedQuery(name = WarehouseLocation.FIND_OUT_BY_PRODUCTID, query = "SELECT w FROM WarehouseLocation WHERE w.productId = :id") })
 public class WarehouseLocation {
 	public static final String FIND_OUT_BY_PRODUCTID = "WarehouseLocation.findoutbyproductid";
 
@@ -23,11 +22,11 @@ public class WarehouseLocation {
 	@Column(name = "productId", nullable = false)
 	@NotNull
 	private int productId;
-	
+
 	@Id
 	@Column(name = "locationId", nullable = false)
 	@NotNull
-	private String locationId;	
+	private String locationId;
 
 	@Column(name = "quantity", nullable = false)
 	@NotNull
@@ -39,10 +38,10 @@ public class WarehouseLocation {
 		this.quantity = quantity;
 	}
 
-	public void setProductId(int id)
-	{
+	public void setProductId(int id) {
 		this.productId = id;
 	}
+
 	public int getProductId() {
 		return productId;
 	}
@@ -54,6 +53,7 @@ public class WarehouseLocation {
 	public void setLocationId(String locationId) {
 		this.locationId = locationId;
 	}
+
 	public int getQuantity() {
 		return quantity;
 	}

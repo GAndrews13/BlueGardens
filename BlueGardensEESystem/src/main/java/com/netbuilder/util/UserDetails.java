@@ -2,6 +2,7 @@ package com.netbuilder.util;
 
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
+
 // @Author Gareth
 @Named
 @SessionScoped
@@ -11,7 +12,7 @@ public class UserDetails {
 	private int userID;
 	private byte[] salt;
 	private boolean loggedIn = false;
-	
+
 	public boolean isLoggedIn() {
 		return loggedIn;
 	}
@@ -40,9 +41,8 @@ public class UserDetails {
 		this.username = username;
 		this.password = password;
 	}
-	
-	public UserDetails(String username, String password, int userID)
-	{
+
+	public UserDetails(String username, String password, int userID) {
 		this.username = username;
 		this.password = password;
 		this.userID = userID;

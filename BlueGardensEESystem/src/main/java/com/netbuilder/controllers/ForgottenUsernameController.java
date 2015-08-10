@@ -18,10 +18,10 @@ import com.netbuilder.util.ForgottenUsernameDetails;
 public class ForgottenUsernameController {
 	@Inject
 	private CustomerManager customerManager;
-	//@Inject
+	// @Inject
 	private ForgottenUsernameDetails forgottenUsernameDetails;
 	public String errormsg;
-	
+
 	public String getErrormsg() {
 		return errormsg;
 	}
@@ -35,8 +35,9 @@ public class ForgottenUsernameController {
 			errormsg = "Please enter an email";
 			return "forgottenUsername";
 		}
-		Customer email = customerManager.findByEmail(forgottenUsernameDetails.getEmail());
-		if(email == null){
+		Customer email = customerManager.findByEmail(forgottenUsernameDetails
+				.getEmail());
+		if (email == null) {
 			errormsg = "Incorrect details";
 			return "forgottenUsername";
 		}

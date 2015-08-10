@@ -1,6 +1,6 @@
 package com.netbuilder.examplejms;
-import java.io.Serializable;
 
+import java.io.Serializable;
 
 public class MessageToSend implements Serializable {
 	/**
@@ -9,7 +9,7 @@ public class MessageToSend implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int messageID;
 	private String message = "Hello Guys";
-	
+
 	public MessageToSend(int messageID) {
 		this.messageID = messageID;
 	}

@@ -25,8 +25,8 @@ public class CustomerDetails {
 	private String address;
 	private String contactNumber;
 
-	
-	public CustomerDetails(String firstName, String lastName, String username, String password, String confirmPassword, String email,
+	public CustomerDetails(String firstName, String lastName, String username,
+			String password, String confirmPassword, String email,
 			String confirmEmail, String address, String contactNumber) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -46,7 +46,7 @@ public class CustomerDetails {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
+
 	public String getLastName() {
 		return lastName;
 	}
@@ -54,7 +54,7 @@ public class CustomerDetails {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -70,7 +70,7 @@ public class CustomerDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
@@ -78,7 +78,7 @@ public class CustomerDetails {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -86,7 +86,7 @@ public class CustomerDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public String getConfirmEmail() {
 		return confirmEmail;
 	}
@@ -94,7 +94,7 @@ public class CustomerDetails {
 	public void setConfirmEmail(String confirmEmail) {
 		this.confirmEmail = confirmEmail;
 	}
-	
+
 	public String getAddress() {
 		return address;
 	}
@@ -102,7 +102,7 @@ public class CustomerDetails {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
 	public String getContactNumber() {
 		return contactNumber;
 	}
@@ -110,5 +110,5 @@ public class CustomerDetails {
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
-	
+
 }

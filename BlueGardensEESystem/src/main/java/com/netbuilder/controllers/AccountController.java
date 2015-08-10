@@ -3,6 +3,7 @@ package com.netbuilder.controllers;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
@@ -26,7 +27,7 @@ public class AccountController {
 	private String password;
 	private String confirmPassword;
 	private String errmsg;
-	
+
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
@@ -60,34 +61,35 @@ public class AccountController {
 	}
 
 	private Customer customer;
-	
-	public AccountController(){
+
+	public AccountController() {
 	}
 
 	public String search() {
 		this.customer = customerManager.findByID(loggedInUser.getUserID());
 		this.username = loggedInUser.getUsername();
-		if(customer.getCustomerID()<1 || username==null){
+		if (customer.getCustomerID() < 1 || username == null) {
 			return "account";
 		}
 		return "account";
 	}
-	
-	public String changePassword(){
-		if(password.isEmpty() || confirmPassword.isEmpty()){
-			errmsg="Please enter a password";
+
+	public String changePassword() {
+		if (password.isEmpty() || confirmPassword.isEmpty()) {
+			errmsg = "Please enter a password";
 			return "account";
 		}
-		if(password.matches(confirmPassword)){
-			errmsg="Password Saved!";
+		if (password.matches(confirmPassword)) {
+			errmsg = "Password Saved!";
 			try {
-				customerLoginManager.updateCustomerPassword(loggedInUser.getUserID(), password);
+				customerLoginManager.updateCustomerPassword(
+						loggedInUser.getUserID(), password);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			return "account";
 		}
-		errmsg="Passwords do not match, please try again";
+		errmsg = "Passwords do not match, please try again";
 		return "account";
 	}
 
@@ -98,5 +100,5 @@ public class AccountController {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 }

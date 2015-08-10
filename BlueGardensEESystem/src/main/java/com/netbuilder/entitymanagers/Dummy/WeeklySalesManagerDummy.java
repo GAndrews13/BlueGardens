@@ -13,23 +13,22 @@ import com.netbuilder.entitymanagers.WeeklySalesManager;
 
 /**
  * 
- * @author gandrews
- *	Uses a list of WeeklySales to mimic a database interaction
+ * @author gandrews Uses a list of WeeklySales to mimic a database interaction
  */
 @Alternative
 public class WeeklySalesManagerDummy implements WeeklySalesManager {
 	@Inject
 	private PersistenceManager pm;
-	
+
 	private ArrayList<WeeklySales> salesRecord;
 
 	public void persistWeeklySales(WeeklySales inWeeklySales) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
+
 		em.persist(inWeeklySales);
 		salesRecord.add(inWeeklySales);
-		
+
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 
@@ -38,9 +37,9 @@ public class WeeklySalesManagerDummy implements WeeklySalesManager {
 	public void persistWeeklySales(ArrayList<WeeklySales> inWeeklySalesList) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
+
 		em.persist(inWeeklySalesList);
-		
+
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 	}
@@ -49,14 +48,12 @@ public class WeeklySalesManagerDummy implements WeeklySalesManager {
 	public ArrayList<WeeklySales> findByMonth(int inMonthNumber) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
-		
+
 		ArrayList<WeeklySales> returnList = new ArrayList<WeeklySales>();
-		for(WeeklySales w : salesRecord)
-		{
-			//XXX replace with calender?
+		for (WeeklySales w : salesRecord) {
+			// XXX replace with calender?
 			Calendar c = Calendar.getInstance();
-			if(w.getDateSold().getMonth() == inMonthNumber-1)
-			{
+			if (w.getDateSold().getMonth() == inMonthNumber - 1) {
 				returnList.add(w);
 			}
 		}
@@ -69,19 +66,17 @@ public class WeeklySalesManagerDummy implements WeeklySalesManager {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
 		ArrayList<WeeklySales> returnList = new ArrayList<WeeklySales>();
-		
-		for(WeeklySales w : salesRecord)
-		{
-			if(w.getAmountSold() >= inMinimumSales)
-			{
+
+		for (WeeklySales w : salesRecord) {
+			if (w.getAmountSold() >= inMinimumSales) {
 				returnList.add(w);
 			}
 		}
-		
+
 		em.getTransaction().commit();
 		pm.CloseEntityManager(em);
 		return returnList;
-		
+
 	}
 
 }

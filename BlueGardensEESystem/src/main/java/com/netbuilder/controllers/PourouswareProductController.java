@@ -1,4 +1,5 @@
 package com.netbuilder.controllers;
+
 /**
  * @author lczornyj
  * 
@@ -19,7 +20,7 @@ public class PourouswareProductController {
 	@Inject
 	private ProductsOfIntrest poi;
 	private ArrayList<Product> pourouswareProducts;
-	
+
 	public ArrayList<Product> getPourouswareProducts() {
 		return pourouswareProducts;
 	}

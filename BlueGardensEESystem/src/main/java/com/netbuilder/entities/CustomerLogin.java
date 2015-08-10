@@ -19,12 +19,14 @@ import com.netbuilder.util.LoginUtils;
  */
 public class CustomerLogin {
 
-	@Column(name ="email")
+	@Column(name = "email")
 	@NotNull
 	private String customerEmail;
+
 	public String getCustomerEmail() {
 		return customerEmail;
 	}
+
 	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
 	}
@@ -33,59 +35,66 @@ public class CustomerLogin {
 	 * The password a user on the website provides
 	 */
 	@Column(name = "password", nullable = false)
-	@Size (min = 6, max = 25)
+	@Size(min = 6, max = 25)
 	@NotNull
 	private byte[] customerPassword;
 	/**
 	 * The username that is provided on the website
 	 */
 	@Column(name = "username", nullable = false)
-	@Size(min = 6, max =25)
+	@Size(min = 6, max = 25)
 	@NotNull
 	private String customerUsername;
-	
+
 	@OneToOne
-	@JoinColumn(name ="customerID", nullable = false)
+	@JoinColumn(name = "customerID", nullable = false)
 	@NotNull
 	private long customerID;
-	
-	@Column(name="salt",nullable=false)
+
+	@Column(name = "salt", nullable = false)
 	@NotNull
 	private byte[] salt;
-	
+
 	public byte[] getSalt() {
 		return salt;
 	}
+
 	public void setSalt(byte[] salt) {
 		this.salt = salt;
 	}
+
 	public byte[] getCustomerPassword() {
 		return customerPassword;
 	}
+
 	public void setCustomerPassword(byte[] customerPassword) {
 		this.customerPassword = customerPassword;
 	}
+
 	public String getCustomerUsername() {
 		return customerUsername;
 	}
+
 	public void setCustomerUsername(String customerUsername) {
 		this.customerUsername = customerUsername;
 	}
-	public long getCustomerID()	{
+
+	public long getCustomerID() {
 		return this.customerID;
 	}
 
 	/**
 	 * Basic constructor containing both username and password
+	 * 
 	 * @param inUsername
 	 * @param inPassword
 	 */
-	public CustomerLogin(long customerID, String inUsername, String inPassword, byte[] inSalt)
-	{
+	public CustomerLogin(long customerID, String inUsername, String inPassword,
+			byte[] inSalt) {
 		this.customerID = customerID;
 		this.customerUsername = inUsername;
 		try {
-			this.customerPassword = LoginUtils.hash(inPassword,inSalt);
+			this.customerPassword = LoginUtils.hash(inPassword, inSalt);
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}

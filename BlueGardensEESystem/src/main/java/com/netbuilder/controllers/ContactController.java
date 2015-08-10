@@ -11,10 +11,10 @@ import com.netbuilder.util.ContactFormDetails;
 public class ContactController {
 	@Inject
 	private ContactEmail email;
-	//@Inject
+	// @Inject
 	private ContactFormDetails cfd;
 	public String errorMessage;
-	
+
 	public String getErrormsg() {
 		return errorMessage;
 	}
@@ -22,14 +22,15 @@ public class ContactController {
 	public void setErrormsg(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
-	
-	public String sendMessage(){
-		if (cfd.getName().isEmpty() || cfd.getEmail().isEmpty() || cfd.getMessage().isEmpty()) {
+
+	public String sendMessage() {
+		if (cfd.getName().isEmpty() || cfd.getEmail().isEmpty()
+				|| cfd.getMessage().isEmpty()) {
 			errorMessage = "please enter details";
 			return "ContactUs";
 		}
 		email.sendEmail(cfd.getName(), cfd.getEmail(), cfd.getMessage());
 		return "LandingPage";
 	}
-	
+
 }

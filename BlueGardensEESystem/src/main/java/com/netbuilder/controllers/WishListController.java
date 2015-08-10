@@ -28,24 +28,25 @@ public class WishListController {
 	private LoggedInUser loggedInUser;
 	private ArrayList<WishlistItems> results;
 	private ArrayList<Product> realResults = new ArrayList<Product>();
-	
-	public WishListController(){
-	} 
-	
+
+	public WishListController() {
+	}
+
 	public void setResults(ArrayList<WishlistItems> results) {
 		this.results = results;
 	}
-	
+
 	public ArrayList<WishlistItems> getResults() {
 		return results;
 	}
 
 	public String search() {
 		this.results = wishlistManager.findForUser(loggedInUser.getUserID());
-		for(int i=0; i<results.size();i++){
-			realResults.add(productManager.findById(results.get(i).getProductID()));
+		for (int i = 0; i < results.size(); i++) {
+			realResults.add(productManager.findById(results.get(i)
+					.getProductID()));
 		}
-			return "wishlist";
+		return "wishlist";
 	}
 
 	public ArrayList<Product> getRealResults() {
@@ -55,5 +56,5 @@ public class WishListController {
 	public void setRealResults(ArrayList<Product> realResults) {
 		this.realResults = realResults;
 	}
-	
+
 }
