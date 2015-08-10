@@ -13,6 +13,7 @@
 	<ui:define name="sectiontitle">
 		#{productController.getProductByID()}
 		#{productController.product.productName}
+		#{productController.product.getProductID()}
 	</ui:define>
 	
 	<!-- Contains the actual content of the page -->
@@ -20,7 +21,9 @@
 	<div>
 		<p>#{productController.product.price}</p>
 		<img src="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
-		<button type="button">Click Me!</button>
+		<h:form>
+			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}" value="Add to Basket" /><br/><hr/>
+		</h:form>
 		</div>
 	</ui:define>
 </ui:composition>

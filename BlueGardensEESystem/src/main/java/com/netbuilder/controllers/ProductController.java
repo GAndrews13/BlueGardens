@@ -80,10 +80,20 @@ public class ProductController {
 	public void getProductByID() {
 		HttpServletRequest hsr = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		String pid= hsr.getQueryString();
+		System.out.println(pid);
 		pid = pid.replace("[","");
 		pid = pid.replace("]","");
 		pid = pid.replace("product=","");
 		product= productManager.findById(Integer.parseInt(pid));
+		pullCatalog();
+	}
+	
+	@Path("productPage.xhtml")
+	public void prepareForBasket()
+	{
+		int id= product.getProductID();
+		System.out.println(id);
+		product= productManager.findById(id);
 		pullCatalog();
 	}
 	
