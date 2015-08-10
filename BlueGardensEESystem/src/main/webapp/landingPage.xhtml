@@ -81,7 +81,7 @@
 				<ui:repeat var="trending" value="#{productController.trendingProducts}">
 				<td>
 				<p>
-				<a href="productPage.xhtml?product=#{trending.getProductID()}"  id="#{trending.productID}" class="hovertext" title="Popular!!!">	
+				<a href="productPage.xhtml?product=#{trending.getProductID()}"  id="#{trending.productID}" class="hovertext" title="#{trending.getProductName()}">	
 				<img class="product" src="#{trending.getImageLink()}" alt="#{trending.getProductName()}" />
 				</a>
 				</p>
@@ -100,7 +100,7 @@
 				<ui:repeat var="porous" value="#{productController.porousProducts}">
 				<td>
 				<p>
-				<a href="productPage.xhtml?product=#{porous.getProductID()}"  id="#{porous.productID}" class="hovertext" title="Porousware Applied!!!">	
+				<a href="productPage.xhtml?product=#{porous.getProductID()}"  id="#{porous.productID}" class="hovertext" title="#{porous.getProductName()}">	
 				<img class="product" src="#{porous.getImageLink()}" alt="#{porous.getProductName()}" />
 				</a>
 				</p>
