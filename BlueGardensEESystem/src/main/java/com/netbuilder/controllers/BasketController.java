@@ -24,7 +24,7 @@ import com.netbuilder.service.BasketProductOrderService;
 
 @Singleton
 @Startup
-@ReferencedBean(name = "basketController")
+@ManagedBean(name = "basketController")
 public class BasketController implements Serializable{
 	@Inject
 	private BasketManager bm;
@@ -81,7 +81,8 @@ public class BasketController implements Serializable{
 	
 	public void addProduct(int inProduct)
 	{
-		bm.products().add(new CustomerOrderLine(inProduct,1));
+		bm.addProduct(inProduct,1);
+		//System.out.println(bm);
 	}
 	
 	public void submitBasket(Basket inBasket)

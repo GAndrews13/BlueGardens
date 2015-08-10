@@ -22,7 +22,7 @@
 		<p>#{productController.product.price}</p>
 		<img src="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
 		<h:form>
-			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}" value="Add to Basket" /><br/><hr/>
+			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}"  value="Add to Basket" /><br/><hr/>
 		</h:form>
 		</div>
 	</ui:define>
