@@ -132,7 +132,7 @@ public class DummyData {
 	}
 
 	public DummyData(){
-		product1 = new Product(1, "Gnomes On Swing", 10, 3, 10, false,
+		product1 = new Product(1, "Gnomes On Swing", 10, 3, 10, false, 
 				135.00, false, "that's", "ammmaaaazing", "that", "you", "know",
 				"resources/img/gnomesswing.png", true);
 		
