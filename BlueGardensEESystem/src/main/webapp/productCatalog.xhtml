@@ -20,22 +20,22 @@
 		<div id="productgrid">
 			<div class="section group">
 				<div class="col span_1_of_4">
-					Porousware
+					<h2>Porousware</h2>
 					<hr/>
 					<br/> <!-- <img src="http://www.funchap.com/wp-content/uploads/2014/01/pictures-of-flowers-beautiful.jpg" style="float:left;width:128px;height:128px;" -->
 					<div class="description">
 						<a href="productPage.xhtml?product=#{productController.porousProduct.getProductID()}"  id="#{productController.porousProduct.productID}">	
 						<img class="productImage"  alt="#{porousProduct.getProductName()}" src="#{productController.porousProduct.getImageLink()}" width="128" height="128"/>
 						</a>
-						<h2><h:outputLabel value="#{productController.porousProduct.getProductName()}" /></h2>
-						<h2><h:outputLabel value="#{productController.porousProduct.getPrice()}" /></h2>
-						<h2><h:outputLabel value="#{productController.porousProduct.getFeatureOne()}" /></h2>
+						<h3><h:outputLabel value="#{productController.porousProduct.getProductName()}" /></h3>
+						<h3><h:outputLabel value="#{productController.porousProduct.getPrice()}" /></h3>
+						<h3><h:outputLabel value="#{productController.porousProduct.getFeatureOne()}" /></h3>
 					
 						<!--  Product Name <br> price £2.99 <br> Item info <br> -->
 					</div>
 				</div>
 				<div class="col span_1_of_4">
-					Trending
+					<h2>Trending</h2>
 					<hr/>
 					<br/>
 					<div class="description">
@@ -49,7 +49,7 @@
 					</div>
 				</div>
 				<div class="col span_1_of_4">
-					On Sale
+					<h2>On Sale</h2>
 					<hr/>
 					<br/>
 					<div class="description">

@@ -7,7 +7,6 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ReferencedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -90,10 +89,3 @@ public class BasketController implements Serializable{
 		BasketProductOrderService.createBasketOrder(inBasket);
 	}
 }
-/*
-* dispay basket on page
-* from contoller (thep page doesnt know what to do with a basket) you need to go to the se4rvice layer
-* from the tte service you need to got o the basket managfer, get the basket, bull out the products. send back to controller as array
-* XHTML have some dynamic table thing to display each element in array.
-* 
-*/
