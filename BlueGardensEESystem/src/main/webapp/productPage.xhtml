@@ -17,9 +17,12 @@
 	
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
-		<div>
-			<p>#{productController.product.price}</p>
-			<img src="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
+	<div>
+		<p>#{productController.product.price}</p>
+		<img src="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
+		<h:form>
+			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}"  value="Add to Basket" /><br/><hr/>
+		</h:form>
 		</div>
 		<div>
 			<h:form>

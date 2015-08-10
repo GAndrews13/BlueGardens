@@ -20,6 +20,7 @@ public interface BasketManager {
 	public void persistBasket(Basket basket);
 	public void updateBasket(Basket basket);
 	//public Basket findById(int id);  //customer id
+	public void addProduct(int productID, int quantity);
 	
 	/**
 	 * @author gandrews
