@@ -31,6 +31,16 @@ public class ProductController {
 	private ArrayList<Product> trendingProducts;
 	private ArrayList<Product> porousProducts;
 	private ArrayList<Product> saleProducts;
+	private ArrayList<Product> allProducts = new ArrayList<Product>();
+	
+	public ArrayList<Product> getAllProducts() {
+		return allProducts;
+	}
+
+	public void setAllProducts(ArrayList<Product> allProducts) {
+		this.allProducts = allProducts;
+	}
+
 	public ArrayList<Product> getTrendingProducts() {
 		return trendingProducts;
 	}
@@ -66,6 +76,10 @@ public class ProductController {
 		for(int i=0; i<4; i++){
 			saleProducts.add(productManager.findBySale().get(i));
 		}
+	}
+	
+	public void pullAll(){
+		allProducts = productManager.findAll();
 	}
 
 	public ProductController() {
