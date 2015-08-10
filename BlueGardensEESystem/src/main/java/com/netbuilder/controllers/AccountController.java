@@ -66,11 +66,11 @@ public class AccountController {
 	}
 
 	public String search() {
+		if(loggedInUser.getUsername() == null){
+			return "landingPage";
+		}
 		this.customer = customerManager.findByID(loggedInUser.getUserID());
 		this.username = loggedInUser.getUsername();
-		if (customer.getCustomerID() < 1 || username == null) {
-			return "account";
-		}
 		return "account";
 	}
 
