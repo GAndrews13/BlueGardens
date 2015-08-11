@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-
 import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
@@ -48,7 +47,7 @@ public class DummyData {
 	private CustomerOrderLine customerOrderLine5;
 	private CustomerOrderLine customerOrderLine6;
 	private CustomerOrderLine customerOrderLine7;
-
+	private CustomerOrderLine customerOrderLine8;
 	private ArrayList<WishlistItems> wishlistProducts = new ArrayList<WishlistItems>();
 	private ArrayList<CustomerOrderLine> customerOrderLines = new ArrayList<CustomerOrderLine>();
 	private ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
@@ -143,14 +142,14 @@ public class DummyData {
 				"resources/img/nottsCountyGnome.png", false);
 
 		product4 = new Product(4, "Deck", 100, 70, 700, false, 15.00, true,
-				"£15.00 per metre squared", "material: mahogany", "size: custom ", "water rezistant", "non-slip",
+				"£15.00 per metre squared", "material: mahogany", "size: custom ", "water resistant", "non-slip",
 				"resources/img/floor.png", false);
 
 		product5 = new Product(5, "Machine Gun Gnome", 120, 60, 140, true,
 				35.00, false, "height: 37.5 cm", "angry face gnome", "'Say Hello to my little friend!'", "porousware", "handcrafted",
 				"resources/img/gnome.png", false);
 
-		product6 = new Product(6, "Garden Fountain", 104, 63, 130, false, 4000.99, false,
+		product6 = new Product(6, "Garden Fountain", 104, 63, 130, false, 499.99, false,
 				"suitable for outdoors", "material: granite", "size: 2 m", "diameter: 5 m ", "supplied with a pump, liner and hoses",
 				"resources/img/fountain.png", true);
 
@@ -202,21 +201,22 @@ public class DummyData {
 
 		customerOrderLine1 = new CustomerOrderLine(1, 1, 23, true);
 		customerOrderLine2 = new CustomerOrderLine(1, 10, 1, true);
-		customerOrderLine3 = new CustomerOrderLine(2, 6, 12, true);
-		customerOrderLine4 = new CustomerOrderLine(2, 8, 9, true);
-		customerOrderLine5 = new CustomerOrderLine(3, 4, 3, false);
-		customerOrderLine6 = new CustomerOrderLine(3, 6, 7, true);
-		customerOrderLine7 = new CustomerOrderLine(4, 9, 1, false);
+		customerOrderLine3 = new CustomerOrderLine(2, 7, 12, true);
+		customerOrderLine4 = new CustomerOrderLine(2, 8, 4, true);
+		customerOrderLine5 = new CustomerOrderLine(2, 6, 2, true);
+		customerOrderLine6 = new CustomerOrderLine(3, 4, 3, false);
+		customerOrderLine7 = new CustomerOrderLine(3, 6, 7, true);
+		customerOrderLine8 = new CustomerOrderLine(4, 9, 1, false);
 		// new CustomerOrderLine(customerOrderID, productId, quantity, isPicked)
 
 		customerOrder1 = new CustomerOrder(1, true, 1, "1st Class", 1, 1,
-				DeliveryStatus.DELIVERED);
+				DeliveryStatus.DELIVERED, (3105 +31.49));
 		customerOrder2 = new CustomerOrder(2, true, 2, "1st Class", 1, 2,
-				DeliveryStatus.DISPATCHED);
+				DeliveryStatus.DISPATCHED, (1440 + 2800 + 999.98));
 		customerOrder3 = new CustomerOrder(3, true, 3, "Standard Delivery", 2,
-				1, DeliveryStatus.PROCESSING);
+				1, DeliveryStatus.PROCESSING, (45 + 3499.93));
 		customerOrder4 = new CustomerOrder(4, false, 4, "1st Class", 1, 0,
-				DeliveryStatus.ORDER_PLACED);
+				DeliveryStatus.ORDER_PLACED, (25000));
 		// new CustomerOrder(customerOrderID, isAssigned, trackingID,
 		// deliveryType, customerID, workerID, status)
 
@@ -239,6 +239,7 @@ public class DummyData {
 		customerOrderLines.add(customerOrderLine5);
 		customerOrderLines.add(customerOrderLine6);
 		customerOrderLines.add(customerOrderLine7);
+		customerOrderLines.add(customerOrderLine8);
 
 	}
 

@@ -49,17 +49,18 @@ public class CustomerOrder {
 	}
 
 	public CustomerOrder(boolean isAssigned, String deliveryType,
-			long customerID, long workerID, DeliveryStatus status) {
+			long customerID, long workerID, DeliveryStatus status, double price) {
 		this.isAssigned = isAssigned;
 		this.deliveryType = deliveryType;
 		this.customerID = customerID;
 		this.workerID = workerID;
 		this.status = status;
+		this.price = price;
 	}
 
 	public CustomerOrder(int customerOrderID, boolean isAssigned,
 			int trackingID, String deliveryType, long customerID,
-			long workerID, DeliveryStatus status) {
+			long workerID, DeliveryStatus status, double price) {
 		this.customerOrderID = customerOrderID;
 		this.isAssigned = isAssigned;
 		this.trackingID = trackingID;
@@ -67,6 +68,7 @@ public class CustomerOrder {
 		this.customerID = customerID;
 		this.workerID = workerID;
 		this.status = status;
+		this.price = price;
 	}
 
 	@Id
@@ -101,6 +103,10 @@ public class CustomerOrder {
 	@Column(name = "DeliveryStatus", nullable = false)
 	@NotNull
 	private DeliveryStatus status;
+	
+	@Column(name = "Price", nullable = false)
+	@NotNull
+	private double price;
 
 	public int getCustomerOrderID() {
 		return customerOrderID;
@@ -145,5 +151,15 @@ public class CustomerOrder {
 	public void setStatus(DeliveryStatus status) {
 		this.status = status;
 	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	
 
 }

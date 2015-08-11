@@ -30,15 +30,14 @@
 		<li>#{productController.product.featureFive}</li>
 		</ul>
 		<br/>			
-		<h:form>
+		<h:form rendered="#{loginController.loggedIn == true}">
 			<h:panelGrid>
-			<h:outputLabel value="Quantity: " for="quantity"/>
+			<h:outputLabel  value="Quantity: " for="quantity"/>
 			<h:inputText id="quantity" value="#{basketController.quantity}" maxlength="3" size="20"/><br/>
-			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}" value="Add To Basket" /><br/>
+			<h:commandButton rendered="#{loginController.loggedIn == true}" action="#{basketController.addProduct(productController.product.getProductID())}" value="Add To Basket" /><br/>
 			</h:panelGrid>	
 		</h:form>
-			<h:button action="#{wishlistController.persistWishlistItem()}" value="Add to Wishlist" />
+			<h:button rendered="#{loginController.loggedIn == true}" action="#{wishlistController.persistWishlistItem()}" value="Add to Wishlist" />
 		</div>
-		
 	</ui:define>
 </ui:composition>

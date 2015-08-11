@@ -19,7 +19,7 @@ public class BasketProductOrderService {
 
 	public static void createBasketOrder(Basket inBasket) {
 		CustomerOrder co = new CustomerOrder(false, "standard",
-				loggedInUser.getUserID(), 0, DeliveryStatus.ORDER_PLACED);
+				loggedInUser.getUserID(), 0, DeliveryStatus.ORDER_PLACED, 1);
 
 		// create product order line
 		com.persistCustomerOrder(co);
