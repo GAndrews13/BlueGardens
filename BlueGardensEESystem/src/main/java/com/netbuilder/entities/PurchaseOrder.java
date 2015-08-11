@@ -50,6 +50,14 @@ public class PurchaseOrder {
 
 	private DeliveryStatus status;
 
+	public DeliveryStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(DeliveryStatus status) {
+		this.status = status;
+	}
+
 	/**
 	 * This is the preferred constructor implementation as it forces us to
 	 * specify all of the values that are not nullable

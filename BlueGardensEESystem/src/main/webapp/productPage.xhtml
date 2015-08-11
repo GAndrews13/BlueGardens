@@ -18,7 +18,15 @@
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
 	<div>
-		<p>#{productController.product.price}</p>
+		<p>#{productController.product.name}<br/><br/>
+		#{productController.product.price}<br/><br/>
+		#{productController.product.stockLevel}<br/><br/>
+		#{productController.product.featureOne}<br/><br/>
+		#{productController.product.featureTwo}<br/><br/>
+		#{productController.product.featureThree}<br/><br/>
+		#{productController.product.featureFour}<br/><br/>
+		#{productController.product.featureFive}<br/><br/>
+		</p>
 		<img src="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
 		<h:form>
 			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}"  value="Add to Basket" /><br/><hr/>
@@ -26,7 +34,7 @@
 		</div>
 		<div>
 			<h:form>
-				<h:commandButton action="#{basketController.addToBasket(productController.product)}" value="Add to Basket"/>
+				<h:button action="#{wishlistController.persistWishlistItem()}" value="Add to Wishlist" />
 			</h:form>
 		</div>
 		
