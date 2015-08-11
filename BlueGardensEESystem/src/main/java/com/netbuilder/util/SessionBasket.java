@@ -22,10 +22,8 @@ public class SessionBasket {
 	public SessionBasket(){
 	}
 	
-	public void addToBasket(int productID){
-		System.out.println(productID);
-		basket.getCustomerOrderLines().add(new CustomerOrderLine(productID, 1));
-		System.out.println(basket);
+	public void addToBasket(int productID, int quantity){
+		basket.getCustomerOrderLines().add(new CustomerOrderLine(productID, quantity));
 		for(int i=0; i<basket.getCustomerOrderLines().size(); i++){
 			System.out.println(basket.getCustomerOrderLines().get(i).getProductId());
 			System.out.println(basket.getCustomerOrderLines().get(i).getQuantity());

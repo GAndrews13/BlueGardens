@@ -74,9 +74,6 @@ public class TrackingController {
 			totalPrice += (displayOrderLines.get(i).getQuantity() * displayOrderLines
 					.get(i).getProduct().getPrice());
 		}
-		// find product from id
-		// store product as current customer order line product
-		// print product instead of product ID
 		orderLineCount++;
 		return "tracking";
 	}
