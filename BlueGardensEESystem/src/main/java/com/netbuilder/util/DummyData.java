@@ -131,11 +131,11 @@ public class DummyData {
 
 	public DummyData() {
 		product1 = new Product(1, "Gnomes On Swing", 10, 3, 10, false, 135.00,
-				false, "that's", "ammmaaaazing", "that", "you", "know",
+				false, "height: 30 cm", "material: polyresin", "frost proof and weather resistant", "porousware", "handcrafted",
 				"resources/img/gnomesswing.png", true);
 
 		product2 = new Product(2, "Mini Garden", 100, 30, 100, false, 10.00,
-				false, "that's", "ammmaaaazing", "that", "you", "know",
+				false, "height: 55 cm", "diameter: 12″ ", "made to order", "you", "know",
 				"resources/img/minigarden.png", true);
 
 		product3 = new Product(3, "Notts County Gnome", 70, 50, 180, false,
