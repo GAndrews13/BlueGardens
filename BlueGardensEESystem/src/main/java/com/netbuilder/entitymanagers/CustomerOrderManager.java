@@ -20,6 +20,8 @@ public interface CustomerOrderManager {
 	public void persistCustomerOrders(ArrayList<CustomerOrder> customerOrders);
 
 	public void updateCustomerOrder(CustomerOrder customerOrder);
+	
+	public ArrayList<CustomerOrder> findAll();
 
 	public CustomerOrder findByCustomerOrderId(int customerOrderId); // any ID
 

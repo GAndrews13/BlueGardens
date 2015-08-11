@@ -18,7 +18,7 @@ import com.netbuilder.entitymanagers.ProductManager;
 
 @Alternative
 public class BasketManagerDummy implements BasketManager, Serializable {
-	Basket localbasket = new Basket(0, new ArrayList<CustomerOrderLine>());
+	Basket localbasket = new Basket(1, 1, new ArrayList<CustomerOrderLine>());
 	@Inject
 	ProductManager productManager;
 
