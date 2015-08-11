@@ -2,37 +2,114 @@ package com.netbuilder.controllers;
 
 import java.util.ArrayList;
 
-import javax.enterprise.context.Dependent;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
 import com.netbuilder.service.RegistrationEmail;
-import com.netbuilder.util.CustomerDetails;
 import com.netbuilder.util.LoginUtils;
 
 /**
  * @author jmander
  **/
 
-@Named
-@Dependent
+@ManagedBean(name = "customerRegistrationController")
+@RequestScoped
 public class CustomerRegistrationController {
-	// @Inject
-	private CustomerDetails customerDetails;
 	@Inject
 	private CustomerManager customerManager;
 	@Inject
 	private CustomerLoginManager customerLoginManager;
-	private String confirmPassword;
-	private String confirmEmail;
 	private Customer newCustomer;
 	private CustomerLogin newCustomerLogin;
 	private byte[] customerSalt;
 	public String errormsg;
+	
+	private String firstName;
+	private String lastName;
+	private String username;
+	private String password;
+	private String confirmPassword;
+	private String email;
+	private String confirmEmail;
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getConfirmEmail() {
+		return confirmEmail;
+	}
+
+	public void setConfirmEmail(String confirmEmail) {
+		this.confirmEmail = confirmEmail;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+	private String address;
+	private String contactNumber;
 
 	public String getErrormsg() {
 		return errormsg;
@@ -46,28 +123,39 @@ public class CustomerRegistrationController {
 	private ArrayList<String> usernames = new ArrayList<String>();
 
 	public String registeredCustomer() {
-		if (customerDetails.getFirstName().isEmpty()) {
+		
+		System.out.println(firstName);
+		System.out.println(lastName);
+		System.out.println(username);
+		System.out.println(password);
+		System.out.println(confirmPassword);
+		System.out.println(email);
+		System.out.println(confirmEmail);
+		System.out.println(address);
+		System.out.println(contactNumber);
+
+		if (firstName.isEmpty()) {
 			errormsg = "Please enter a first name";
 			return "registeredCustomer";
 		}
-		if (customerDetails.getLastName().isEmpty()) {
+		if (lastName.isEmpty()) {
 			errormsg = "Please enter a last name";
 			return "registeredCustomer";
 		}
-		if (customerDetails.getUsername().isEmpty()) {
+		if (username.isEmpty()) {	
 			errormsg = "Please enter a username";
 			return "registeredCustomer";
 		}
-		for (CustomerLogin cl : customerLoginManager.findAll()) {
+		for (CustomerLogin cl : customerLoginManager.findAll()) {	
 			usernames.add(cl.getCustomerUsername());
-		}
-		for (String username : usernames) {
-			if (customerDetails.getUsername() == username) {
+		}System.out.println(usernames);
+		for (String username : usernames) {	
+			if (this.username.equals(username)) {
 				errormsg = "This username already exists";
 				return "registeredCustomer";
 			}
 		}
-		if (customerDetails.getPassword().isEmpty()) {
+		if (password.isEmpty()) {
 			errormsg = "Please enter a password";
 			return "registeredCustomer";
 		}
@@ -75,17 +163,15 @@ public class CustomerRegistrationController {
 			errormsg = "Please confirm your password";
 			return "registeredCustomer";
 		}
-		if (confirmPassword != customerDetails.getPassword()) {
-			errormsg = "The passwords do not match";
-			return "registeredCustomer";
-		}
-		if (customerDetails.getEmail().isEmpty()) {
+		if (email.isEmpty()) {
 			errormsg = "Please enter an email";
 			return "registeredCustomer";
 		}
-		customers = customerManager.findAll();
+		for (Customer c : customerManager.findAll()) {	
+			customers.add(c);
+		}System.out.println(customers);
 		for (Customer c : customers) {
-			if (customerDetails.getEmail() == c.getEmail()) {
+			if (this.email.equals(c.getEmail())) {
 				errormsg = "This email already exists";
 				return "registeredCustomer";
 			}
@@ -94,37 +180,52 @@ public class CustomerRegistrationController {
 			errormsg = "Please confirm your email";
 			return "registeredCustomer";
 		}
-		if (confirmEmail != customerDetails.getUsername()) {
-			errormsg = "The emails do not match";
-			return "registeredCustomer";
-		}
-		if (customerDetails.getAddress().isEmpty()) {
+		if (address.isEmpty()) {
 			errormsg = "Please enter an address";
 			return "registeredCustomer";
 		}
-		if (customerDetails.getContactNumber().isEmpty()) {
+		if (contactNumber.isEmpty()) {
 			errormsg = "Please enter a contact number";
 			return "registeredCustomer";
 		}
+		if (confirmPassword.equals(password)) {
+			if (confirmEmail.equals(email)) {
+			}else{
+				errormsg = "The emails do not match";
+				return "registeredCustomer";
+			}
+		}else{
+			errormsg = "The passwords do not match";
+			return "registeredCustomer";
+		}
 
-		newCustomer = new Customer(customerDetails.getFirstName(),
-				customerDetails.getLastName(), customerDetails.getAddress(),
-				customerDetails.getContactNumber(), customerDetails.getEmail(),
+		System.out.println(customerManager.findAll());
+		System.out.println(customerLoginManager.findAll());
+		
+		newCustomer = new Customer(firstName,
+				lastName, address,
+				contactNumber, email,
 				"ACTIVE");
 
 		customerSalt = LoginUtils.getNextSalt();
 
-		newCustomerLogin = new CustomerLogin(newCustomer.getCustomerID(),
-				customerDetails.getUsername(), customerDetails.getPassword(),
+		newCustomerLogin = new CustomerLogin((customerLoginManager.findAll().size()+1),
+				username, password,
 				customerSalt);
 
 		customerManager.persistCustomer(newCustomer);
 		customerLoginManager.persistCustomerLogin(newCustomerLogin);
+		
+		System.out.println("break here?");
+		
+		//new RegistrationEmail(email,
+		//		firstName, username);
 
-		new RegistrationEmail(customerDetails.getEmail(),
-				customerDetails.getFirstName(), customerDetails.getUsername());
-
+		System.out.println(customerManager.findAll());
+		System.out.println(customerLoginManager.findAll());
+		
 		return "login";
+		
 	}
 
 }

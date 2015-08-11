@@ -104,7 +104,7 @@ public class DummyData {
 		this.customers = customers;
 	}
 
-	public void setCustomerLogins(CustomerLogin customerLogin) {
+	public void setCustomerLogin(CustomerLogin customerLogin) {
 		customerLogins.add(customerLogin);
 	}
 
