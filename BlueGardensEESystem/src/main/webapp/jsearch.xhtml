@@ -16,13 +16,14 @@ document.getElementById("demo").innerHTML = "My First JavaScript";
 
 <ui:define name="body">
 	<div class="leftTitle">Search</div>	
+	<hr/>
 	<div id="search">
 	
 		<h:form>
 			<h:panelGrid>
 			<h:outputLabel value="#{searchController.msg}"/><br/>
 			<h:inputText id="searchdetails" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
-			<h:commandButton action="#{searchController.search}" value="Search" /><br/><hr/>
+			<h:commandButton action="#{searchController.search}" value="Search" /><br/>
 			<ui:repeat value="#{searchController.results}" var="product">
 				<p id="productid">Product ID: #{product.getProductID()}</p><br/>
 				Product Name: #{product.getProductName()}<br/><br/>
