@@ -202,10 +202,7 @@ public class CustomerRegistrationController {
 		System.out.println(customerManager.findAll());
 		System.out.println(customerLoginManager.findAll());
 		
-		newCustomer = new Customer(firstName,
-				lastName, address,
-				contactNumber, email,
-				"ACTIVE");
+		newCustomer = new Customer((customerManager.findAll().size()+1), firstName, lastName, address, contactNumber, email, "ACTIVE");
 
 		customerSalt = LoginUtils.getNextSalt();
 
