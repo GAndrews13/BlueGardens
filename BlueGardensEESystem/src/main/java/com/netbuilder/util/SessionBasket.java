@@ -40,9 +40,13 @@ public class SessionBasket {
 	
 	public void addToBasket(int productID, int quantity){
 		basket.getCustomerOrderLines().add(new CustomerOrderLine(productID, quantity));
-		for(int i=0; i<basket.getCustomerOrderLines().size(); i++){
-			System.out.println(basket.getCustomerOrderLines().get(i).getProductId());
-			System.out.println(basket.getCustomerOrderLines().get(i).getQuantity());
+	}
+
+	public void removeFromBasket(int productID) {
+		for(int i = 0; i<basket.getCustomerOrderLines().size(); i++){
+			if(basket.getCustomerOrderLines().get(i).getProductId() == productID){
+				basket.getCustomerOrderLines().remove(i);
+			}
 		}
 	}
 	

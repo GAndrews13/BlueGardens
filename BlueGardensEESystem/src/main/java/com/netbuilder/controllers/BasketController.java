@@ -7,6 +7,8 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import com.netbuilder.entities.Product;
+import com.netbuilder.entitymanagers.CustomerOrderLineManager;
+import com.netbuilder.entitymanagers.CustomerOrderManager;
 import com.netbuilder.entitymanagers.ProductManager;
 import com.netbuilder.util.SessionBasket;
 
@@ -18,6 +20,10 @@ public class BasketController {
 	private SessionBasket sessionBasket;
 	@Inject
 	private ProductManager productManager;
+	@Inject
+	private CustomerOrderManager customerOrderManager;
+	@Inject
+	private CustomerOrderLineManager customerOrderLineManager;
 	private ArrayList<Product> items = new ArrayList<Product>();
 	private int quantity;
 	
@@ -45,7 +51,7 @@ public class BasketController {
 			sessionBasket.addToBasket(productID, quantity);
 			items.add(productManager.findById(productID));
 		}
-		quantity = 0;
+		quantity = 1;
 		return "productCatalog";
 	}
 	
@@ -54,4 +60,13 @@ public class BasketController {
 		double total = sessionBasket.getTotal();
 		return total;
 	}
+	
+	public void checkoutBasket(){
+		System.out.println(customerOrderLineManager.findAll());
+		for(int i=0; i<sessionBasket.getBasket().getCustomerOrderLines().size(); i++){
+			customerOrderLineManager.persistCustomerOrderLine(sessionBasket.getBasket().getCustomerOrderLines().get(i));
+		}
+		System.out.println(customerOrderLineManager.findAll());
+	}
+
 }
