@@ -12,15 +12,16 @@
 	</ui:define>
 	<!-- Defines the title displayed on the page -->
 	<ui:define name="sectiontitle">
-	<h:commandButton action="#{basketController.submitBasket(basketController.bm)}" value="Checkout" />
+	<h2>Checkout</h2>
+	<h3>Your order is ready to be processed, please contact customer services to continue with your order</h3>
 	</ui:define>
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
 		<br/>
 		<p>
-		Total Price: 
+		Total Price:  #{basketController.findTotal()}
 		</p>
-		<h:outputText value="#{basketController.basketTotal}"/>
+		
 		<br/>
 		<div id="checkout">
 			<!-- DISPLAY BASKET ITEMS -->

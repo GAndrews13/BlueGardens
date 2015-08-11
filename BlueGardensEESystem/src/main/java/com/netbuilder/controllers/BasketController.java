@@ -41,8 +41,17 @@ public class BasketController {
 	}
 	
 	public String addProduct(int productID){
-		sessionBasket.addToBasket(productID, quantity);
-		items.add(productManager.findById(productID));
-		return "landingPage";
+		if(quantity!=0){
+			sessionBasket.addToBasket(productID, quantity);
+			items.add(productManager.findById(productID));
+		}
+		quantity = 0;
+		return "productCatalog";
+	}
+	
+	public double findTotal()
+	{
+		double total = sessionBasket.getTotal();
+		return total;
 	}
 }
