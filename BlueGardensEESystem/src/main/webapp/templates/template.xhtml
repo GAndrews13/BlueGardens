@@ -48,10 +48,10 @@
 							<li><a href="contactUs.xhtml"><p class="menuItem">Contact</p></a></li>
 						</ul>
 					</td>
-					<td>
+					<td>						
 						<div class="cartInfo">
-							<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" class="javascriptText">
-								<img src="resources\img\basket.png" alt="Basket" width="20%" height="20%"/>
+							<a href = "javascript:void(0)" onclick = "javascript:basketLogin()" class="javascriptText">
+								<img id="basketDiv" src="resources\img\basket.png" alt="Basket" width="20%" height="20%"/>
 							</a>
 						</div>
 					</td>
@@ -149,6 +149,21 @@
 				window.location = "login.xhtml";
 			}
 		}
+	</script>
+	
+	<script type="text/javascript">
+	function basketLogin()
+	{
+		if(#{loginController.loggedIn != true})
+		{
+			alert("Please login to purchase items");
+			window.location="login.xhtml";
+		}
+		else
+		{
+			document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'
+		}
+	}
 	</script>
 	<!-- End of Javascript -->
 </html>
