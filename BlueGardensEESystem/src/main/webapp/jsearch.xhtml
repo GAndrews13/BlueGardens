@@ -25,16 +25,6 @@ document.getElementById("demo").innerHTML = "My First JavaScript";
 				<p id="productid">Product ID: #{product.getProductID()}</p><br/>
 				Product Name: #{product.getProductName()}<br/><br/>
 				Price: £ #{product.getPrice()}<br/><br/>
-				Current Stock: #{product.getStockLevel()}<br/><br/>
-				About the product: <br/><br/>
-				<ul>
-				<li>#{product.getFeatureOne()}</li>
-				<li>#{product.getFeatureTwo()}</li>
-				<li>#{product.getFeatureThree()}</li>
-				<li>#{product.getFeatureFour()}</li>
-				<li>#{product.getFeatureFive()}</li>
-				</ul>
-				<br/>
 				<div class="links">
 				<a href="productPage.xhtml?product=#{product.getProductID()}"  id="#{product.productID}">	
 				<img class="productImage" src="#{product.getImageLink()}" alt="#{product.getProductName()}" />
