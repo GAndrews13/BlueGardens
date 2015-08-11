@@ -251,6 +251,12 @@ p.questionAnswer{
 	font-size: 2.2vmin;
 }
 
+.carousel-control.right {
+	
+	background-image: url(src/main/webapp/resources/css/img/rightArrow.png);
+	
+}
+
 .section {
 	clear: both;
 	padding: 0px;

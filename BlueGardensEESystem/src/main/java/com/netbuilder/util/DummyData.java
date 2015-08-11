@@ -138,7 +138,7 @@ public class DummyData {
 				false, "height: 55 cm", "diameter: 30 cm ", "made to order", "handcrafted", "weight: 7.5 kg",
 				"resources/img/minigarden.png", true);
 
-		product3 = new Product(3, "Notts County Gnome", 70, 50, 180, true,
+		product3 = new Product(3, "Arsenal Gnome", 70, 50, 180, true,
 				85.00, false, "height: 60 cm", "material: clay", "Notts County Approved", "porousware", "water resistant",
 				"resources/img/nottsCountyGnome.png", false);
 
