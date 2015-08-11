@@ -18,24 +18,24 @@
 	<!-- Contains the actual content of the page -->
 	<ui:define name="body">
 	<div>
-		<p>#{productController.product.name}<br/><br/>
-		#{productController.product.price}<br/><br/>
-		#{productController.product.stockLevel}<br/><br/>
-		#{productController.product.featureOne}<br/><br/>
-		#{productController.product.featureTwo}<br/><br/>
-		#{productController.product.featureThree}<br/><br/>
-		#{productController.product.featureFour}<br/><br/>
-		#{productController.product.featureFive}<br/><br/>
-		</p>
-		<img src="#{productController.product.imageLink}" alt="#{productController.product.productName}"/>
+	<img src="#{productController.product.imageLink}" alt="#{productController.product.productName}"/><br/><br/>
+		#{productController.product.productName}<br/><br/>
+		£ #{productController.product.price}<br/><br/>
+		Remaining stock: #{productController.product.stockLevel}<br/><br/>
+		<ul>
+		<li>#{productController.product.featureOne}</li>
+		<li>#{productController.product.featureTwo}</li>
+		<li>#{productController.product.featureThree}</li>
+		<li>#{productController.product.featureFour}</li>
+		<li>#{productController.product.featureFive}</li>
+		</ul>
+		<br/>
+		
 		<h:form>
-			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}"  value="Add to Basket" /><br/><hr/>
+			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}"  value="Add to Basket" /> <hr/>
+
+			<h:commandButton action="#{wishlistController.persistWishlistItem()}" value="Add to Wishlist" />
 		</h:form>
-		</div>
-		<div>
-			<h:form>
-				<h:button action="#{wishlistController.persistWishlistItem()}" value="Add to Wishlist" />
-			</h:form>
 		</div>
 		
 	</ui:define>
