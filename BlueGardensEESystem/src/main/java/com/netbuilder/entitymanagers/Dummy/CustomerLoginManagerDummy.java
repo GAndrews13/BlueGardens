@@ -17,7 +17,7 @@ public class CustomerLoginManagerDummy implements CustomerLoginManager {
 	private DummyData dd;
 
 	public void persistCustomerLogin(CustomerLogin customerLogin) {
-
+			dd.setCustomerLogin(customerLogin);
 	}
 
 	public long checkDetails(String inUsername, byte[] inPassword) {
