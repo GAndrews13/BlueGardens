@@ -32,7 +32,7 @@ public class ProductController {
 	private ArrayList<Product> porousProducts;
 	private ArrayList<Product> saleProducts;
 	private ArrayList<Product> allProducts = new ArrayList<Product>();
-	
+
 	public ArrayList<Product> getAllProducts() {
 		return allProducts;
 	}
@@ -94,9 +94,13 @@ public class ProductController {
 		pid = pid.replace("[", "");
 		pid = pid.replace("]", "");
 		pid = pid.replace("product=", "");
-		product = productManager.findById(Integer.parseInt(pid));
-		pullCatalog();
+		
+		if(product == null || Integer.parseInt(pid) != product.getProductID()){
+			product = productManager.findById(Integer.parseInt(pid));
+		}
 	}
+	
+	
 
 	public String getLink() {
 		return link;

@@ -28,37 +28,37 @@ public class Basket {
 	@Column(name = "Customer ID", nullable = false)
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int customerId;
+	private long customerId;
 
 	@JoinColumn(name = "POLID", nullable = false)
 	@NotNull
 	@OneToMany
-	private ArrayList<CustomerOrderLine> CustomerOrderLine;
+	private ArrayList<CustomerOrderLine> customerOrderLines;
 
-	public Basket(int customerId, ArrayList<CustomerOrderLine> customerOrderLine) {
+	public Basket(long customerId, ArrayList<CustomerOrderLine> customerOrderLines) {
 
 		this.customerId = customerId;
-		CustomerOrderLine = customerOrderLine;
+		this.customerOrderLines = customerOrderLines;
 	}
 
 	/**
 	 * @author abalagel getters and setters for class variables initialise class
 	 */
-	public int getCustomerId() {
+	public long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
 
-	public ArrayList<CustomerOrderLine> getCustomerOrderLine() {
-		return CustomerOrderLine;
+	public ArrayList<CustomerOrderLine> getCustomerOrderLines() {
+		return customerOrderLines;
 	}
 
-	public void setCustomerOrderLine(
+	public void setCustomerOrderLines(
 			ArrayList<CustomerOrderLine> customerOrderLine) {
-		CustomerOrderLine = customerOrderLine;
+		this.customerOrderLines = customerOrderLine;
 	}
 
 }

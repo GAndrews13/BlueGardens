@@ -5,13 +5,18 @@ package com.netbuilder.controllers;
  * @author jmander 
  */
 
+import java.util.ArrayList;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import com.netbuilder.entities.Basket;
+import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.util.LoggedInUser;
+import com.netbuilder.util.SessionBasket;
 
 @ManagedBean(name = "loginController")
 @SessionScoped
@@ -20,6 +25,8 @@ public class LoginController {
 	private CustomerLoginManager clm;
 	@Inject
 	private LoggedInUser loggedInUser;
+	@Inject
+	private SessionBasket sessionBasket;
 	public String username;
 	private String password;
 	private int userID;
@@ -93,6 +100,7 @@ public class LoginController {
 				setLoggedIn(true);
 				loggedInUser.setUsername(username);
 				loggedInUser.setUserID(clm.checkCustomerID(username));
+				sessionBasket.setBasket(new Basket(loggedInUser.getUserID(), new ArrayList<CustomerOrderLine>()));
 				return "account";
 			} else {
 				errormsg = "Incorrect details";

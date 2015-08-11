@@ -50,7 +50,7 @@ public class BasketManagerDummy implements BasketManager, Serializable {
 	 * @author GAndrews
 	 */
 	public void addProduct(int inProduct, int inQuantity) {
-		System.out.println(inProduct + inQuantity + "VALUES");
+		System.out.println(inProduct + " x " + inQuantity + "VALUES");
 		localbasket.getCustomerOrderLine().add(
 				new CustomerOrderLine(inProduct, inQuantity));
 	}
