@@ -130,44 +130,45 @@ public class DummyData {
 	}
 
 	public DummyData() {
-		product1 = new Product(1, "Gnomes On Swing", 10, 3, 10, false, 135.00,
+		product1 = new Product(1, "Gnomes On Swing", 10, 3, 10, true, 135.00,
 				false, "height: 30 cm", "material: polyresin", "frost proof and weather resistant", "porousware", "handcrafted",
-				"resources/img/gnomesswing.png", true);
+				"resources/img/gnomesswing.png", false);
 
 		product2 = new Product(2, "Mini Garden", 100, 30, 100, false, 10.00,
-				false, "height: 55 cm", "diameter: 12″ ", "made to order", "you", "know",
+				false, "height: 55 cm", "diameter: 30 cm ", "made to order", "handcrafted", "weight: 7.5 kg",
 				"resources/img/minigarden.png", true);
 
-		product3 = new Product(3, "Notts County Gnome", 70, 50, 180, false,
-				85.00, false, "that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/nottsCountyGnome.png", true);
+		product3 = new Product(3, "Notts County Gnome", 70, 50, 180, true,
+				85.00, false, "height: 60 cm", "material: clay", "Notts County Approved", "porousware", "water resistant",
+				"resources/img/nottsCountyGnome.png", false);
 
-		product4 = new Product(4, "Deck", 100, 70, 700, true, 98.00, false,
-				"Wooden Deck", "ammmaaaazing", "that", "you", "know",
+		product4 = new Product(4, "Deck", 100, 70, 700, false, 15.00, true,
+				"£15.00 per metre squared", "material: mahogany", "size: custom ", "water rezistant", "non-slip",
 				"resources/img/floor.png", false);
 
 		product5 = new Product(5, "Machine Gun Gnome", 120, 60, 140, true,
-				35.00, false, "that's", "ammmaaaazing", "that", "you", "know",
+				35.00, false, "height: 37.5 cm", "angry face gnome", "'Say Hello to my little friend!'", "porousware", "handcrafted",
 				"resources/img/gnome.png", false);
 
-		product6 = new Product(6, "Garden Fountain", 104, 63, 130, true, 4.99, false,
-				"that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/fountain.png", false);
+		product6 = new Product(6, "Garden Fountain", 104, 63, 130, false, 4000.99, false,
+				"suitable for outdoors", "material: granite", "size: 2 m", "diameter: 5 m ", "supplied with a pump, liner and hoses",
+				"resources/img/fountain.png", true);
 
-		product7 = new Product(7, "Garden Lights", 150, 13, 163, false, 12.00,
-				true, "that's", "ammmaaaazing", "that", "you", "know",
+		product7 = new Product(7, "Garden Lights", 150, 13, 163, false, 120.00,
+				true, "height: 55 cm ", "diameter: 30 cm", "solar powered", "color: custom", "plants included",
 				"resources/img/lights.png", false);
 
 		product8 = new Product(8, "Garden Bench", 140, 36, 164, false, 700.00,
-				true, "that's", "ammmaaaazing", "that", "you", "know",
+				true, "height: 1 m", "width: 2 m", "material: chestnut", "water resistant", "hand crafted by local carpenters",
 				"resources/img/bench.png", false);
 
-		product9 = new Product(9, "Jacuzzi", 120, 34, 150, false, 15.00, true,
-				"that's", "ammmaaaazing", "that", "you", "know",
-				"resources/img/jacuzzi.png", false);
+		product9 = new Product(9, "Jacuzzi", 120, 34, 150, false, 25000.00, false,
+				"24 carat gold plated", "20 water jets", "in-build heating", "glass holders", "customisable seating",
+				"resources/img/jacuzzi.png", true);
 
-		product10 = new Product(10, "Heater", 230, 25, 300, true, 31.50, true,
-				"You", "are", "a", "wizard", "Harry", "resources/img/heater.png",
+		product10 = new Product(10, "Heater", 230, 25, 300, true, 31.49, true,
+				"material: Tungston steel", "size: 75 cm", "color: metalic black", "rustic design", "suitable for outdoors", 
+				"resources/img/heater.png",
 				true);
 
 		products.add(product1);
