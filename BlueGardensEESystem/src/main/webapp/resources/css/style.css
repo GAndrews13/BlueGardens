@@ -407,6 +407,10 @@ p.questionAnswer{
 	margin: 2cm 5cm 0cm 5cm;
 }
 
+.leftTitle {
+	font: 3em Century Gothic;
+}
+
 .menu {
 	margin: 0 auto;
 	padding: 0;
@@ -494,8 +498,7 @@ p.questionAnswer{
 }
 
 #contentHeader{
-	font: 4em Century Gothic;
-	font-style:italic bold;
+	font: 3em Century Gothic;
 	text-align: center;
 }
 
