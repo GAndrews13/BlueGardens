@@ -35,8 +35,9 @@ public class TrackingController {
 	private ArrayList<CustomerOrderLine> currentCustomerOrderLine = new ArrayList<CustomerOrderLine>();
 	private ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
 	private int orderLineCount = 0;
-	private int totalPrice;
 
+	private int totalPrice;
+	
 	public ArrayList<CustomerOrder> getCustomerOrders() {
 		return customerOrders;
 	}
@@ -60,7 +61,6 @@ public class TrackingController {
 	}
 
 	public String customerOrderLineSearch() {
-		totalPrice = 0;
 		displayOrderLines = new ArrayList<DisplayOrderLine>();
 		currentCustomerOrderLine = customerOrderLines.get(orderLineCount);
 		for (int i = 0; i < currentCustomerOrderLine.size(); i++) {
@@ -69,10 +69,6 @@ public class TrackingController {
 							.getProductId()), currentCustomerOrderLine.get(i)
 							.getQuantity());
 			displayOrderLines.add(currentDisplayOrderLine);
-		}
-		for (int i = 0; i < displayOrderLines.size(); i++) {
-			totalPrice += (displayOrderLines.get(i).getQuantity() * displayOrderLines
-					.get(i).getProduct().getPrice());
 		}
 		orderLineCount++;
 		return "tracking";

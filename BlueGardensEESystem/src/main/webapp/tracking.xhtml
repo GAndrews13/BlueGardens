@@ -18,7 +18,8 @@
 				<h:panelGrid>
 					<ui:repeat value="#{trackingController.customerOrders}" var="order">
 				    	Order ID: #{order.getCustomerOrderID()}<br/>
-				    	Delivery Status: #{order.getStatus()}<br/><br/>
+				    	Delivery Status: #{order.getStatus()}<br/>
+				    	Total Price: #{order.getPrice()}<br/><br/>
 				    	<!-- #{trackingController.customerOrderLineSearch()} -->
 				    	<ui:repeat var="products" value="#{trackingController.displayOrderLines}">
 				    		Product Name: #{products.getProduct().getProductName()} <br/>
