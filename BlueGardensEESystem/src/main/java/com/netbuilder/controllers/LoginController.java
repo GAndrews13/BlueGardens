@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import com.netbuilder.entities.Basket;
 import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
+import com.netbuilder.entitymanagers.CustomerOrderManager;
 import com.netbuilder.util.LoggedInUser;
 import com.netbuilder.util.SessionBasket;
 
@@ -27,6 +28,8 @@ public class LoginController {
 	private LoggedInUser loggedInUser;
 	@Inject
 	private SessionBasket sessionBasket;
+	@Inject
+	private CustomerOrderManager customerOrderManager;
 	public String username;
 	private String password;
 	private int userID;
@@ -100,7 +103,7 @@ public class LoginController {
 				setLoggedIn(true);
 				loggedInUser.setUsername(username);
 				loggedInUser.setUserID(clm.checkCustomerID(username));
-				sessionBasket.setBasket(new Basket(loggedInUser.getUserID(), new ArrayList<CustomerOrderLine>()));
+				sessionBasket.setBasket(new Basket(customerOrderManager.findAll().size()+1, loggedInUser.getUserID(), new ArrayList<CustomerOrderLine>()));
 				return "account";
 			} else {
 				errormsg = "Incorrect details";

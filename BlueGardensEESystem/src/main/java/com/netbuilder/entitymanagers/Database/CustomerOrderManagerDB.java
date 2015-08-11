@@ -152,4 +152,10 @@ public class CustomerOrderManagerDB implements CustomerOrderManager {
 		return co;
 	}
 
+	@Override
+	public ArrayList<CustomerOrder> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -34,11 +34,21 @@ public class Basket {
 	@NotNull
 	@OneToMany
 	private ArrayList<CustomerOrderLine> customerOrderLines;
+	
+	private int customerOrderID;
 
-	public Basket(long customerId, ArrayList<CustomerOrderLine> customerOrderLines) {
-
+	public Basket(int customerOrderID, long customerId, ArrayList<CustomerOrderLine> customerOrderLines) {
+		this.customerOrderID = customerOrderID;
 		this.customerId = customerId;
 		this.customerOrderLines = customerOrderLines;
+	}
+
+	public int getCustomerOrderID() {
+		return customerOrderID;
+	}
+
+	public void setCustomerOrderID(int customerOrderID) {
+		this.customerOrderID = customerOrderID;
 	}
 
 	/**

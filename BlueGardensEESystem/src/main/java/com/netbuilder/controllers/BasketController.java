@@ -6,10 +6,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
+import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
+import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entitymanagers.CustomerOrderLineManager;
 import com.netbuilder.entitymanagers.CustomerOrderManager;
 import com.netbuilder.entitymanagers.ProductManager;
+import com.netbuilder.util.LoggedInUser;
 import com.netbuilder.util.SessionBasket;
 
 @ManagedBean(name="basketController")
@@ -24,6 +27,7 @@ public class BasketController {
 	private CustomerOrderManager customerOrderManager;
 	@Inject
 	private CustomerOrderLineManager customerOrderLineManager;
+	private DeliveryStatus deliveryStatus;
 	private ArrayList<Product> items = new ArrayList<Product>();
 	private int quantity;
 	
@@ -62,11 +66,17 @@ public class BasketController {
 	}
 	
 	public void checkoutBasket(){
+		
 		System.out.println(customerOrderLineManager.findAll());
+		System.out.println(customerOrderManager.findAll());
 		for(int i=0; i<sessionBasket.getBasket().getCustomerOrderLines().size(); i++){
 			customerOrderLineManager.persistCustomerOrderLine(sessionBasket.getBasket().getCustomerOrderLines().get(i));
 		}
+		customerOrderManager.persistCustomerOrder(new CustomerOrder(
+				sessionBasket.getBasket().getCustomerOrderID(), false, sessionBasket.getBasket().getCustomerOrderID(), "Standard delivery",
+				sessionBasket.getBasket().getCustomerId(), 0, deliveryStatus.ORDER_PLACED, findTotal()));
 		System.out.println(customerOrderLineManager.findAll());
+		System.out.println(customerOrderManager.findAll());
 	}
 
 }

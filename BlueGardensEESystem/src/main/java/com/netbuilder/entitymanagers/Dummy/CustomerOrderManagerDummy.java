@@ -109,4 +109,9 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
 		return list;
 	}
 
+	@Override
+	public ArrayList<CustomerOrder> findAll() {
+		return dd.getCustomerOrders();
+	}
+
 }

@@ -39,7 +39,7 @@ public class SessionBasket {
 	}
 	
 	public void addToBasket(int productID, int quantity){
-		basket.getCustomerOrderLines().add(new CustomerOrderLine(productID, quantity));
+		basket.getCustomerOrderLines().add(new CustomerOrderLine(getBasket().getCustomerOrderID(), productID, quantity, false));
 	}
 
 	public void removeFromBasket(int productID) {
