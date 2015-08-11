@@ -34,12 +34,12 @@ public class BasketManagerDummy implements BasketManager, Serializable {
 	@Override
 	public double findTotal() {
 		double total = 0;
-		if (localbasket.getCustomerOrderLine() != null) {
-			for (int i = 0; i < localbasket.getCustomerOrderLine().size(); i++) {
-				total += localbasket.getCustomerOrderLine().get(i)
+		if (localbasket.getCustomerOrderLines() != null) {
+			for (int i = 0; i < localbasket.getCustomerOrderLines().size(); i++) {
+				total += localbasket.getCustomerOrderLines().get(i)
 						.getQuantity()
 						* productManager.findById(
-								localbasket.getCustomerOrderLine().get(i)
+								localbasket.getCustomerOrderLines().get(i)
 										.getProductId()).getPrice();
 			}
 		}
@@ -51,32 +51,32 @@ public class BasketManagerDummy implements BasketManager, Serializable {
 	 */
 	public void addProduct(int inProduct, int inQuantity) {
 		System.out.println(inProduct + " x " + inQuantity + "VALUES");
-		localbasket.getCustomerOrderLine().add(
+		localbasket.getCustomerOrderLines().add(
 				new CustomerOrderLine(inProduct, inQuantity));
 	}
 
 	public void changeQuantity(Product inProduct, int inQuantity) {
-		for (int i = 0; i < localbasket.getCustomerOrderLine().size(); i++) {
-			CustomerOrderLine temp = localbasket.getCustomerOrderLine().get(i);
+		for (int i = 0; i < localbasket.getCustomerOrderLines().size(); i++) {
+			CustomerOrderLine temp = localbasket.getCustomerOrderLines().get(i);
 			if (inProduct.getProductID() == temp.getProductId()) {
 				temp.setQuantity(inQuantity);
-				localbasket.getCustomerOrderLine().set(i, temp);
+				localbasket.getCustomerOrderLines().set(i, temp);
 			}
 		}
 	}
 
 	public void removeProduct(Product inProduct) {
-		for (int i = 0; i < localbasket.getCustomerOrderLine().size(); i++) {
-			if (inProduct.getProductID() == localbasket.getCustomerOrderLine()
+		for (int i = 0; i < localbasket.getCustomerOrderLines().size(); i++) {
+			if (inProduct.getProductID() == localbasket.getCustomerOrderLines()
 					.get(i).getProductId()) {
-				localbasket.getCustomerOrderLine().remove(i);
+				localbasket.getCustomerOrderLines().remove(i);
 			}
 		}
 	}
 
 	@Override
 	public ArrayList<CustomerOrderLine> products() {
-		ArrayList<CustomerOrderLine> POL = localbasket.getCustomerOrderLine();
+		ArrayList<CustomerOrderLine> POL = localbasket.getCustomerOrderLines();
 		if (POL == null) {
 			System.out.println("YEAH");
 			return new ArrayList<CustomerOrderLine>();
