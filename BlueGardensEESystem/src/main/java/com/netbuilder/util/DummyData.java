@@ -139,7 +139,7 @@ public class DummyData {
 				"resources/img/minigarden.png", true);
 
 		product3 = new Product(3, "Arsenal Gnome", 70, 50, 180, true,
-				85.00, false, "height: 60 cm", "material: clay", "Notts County Approved", "porousware", "water resistant",
+				85.00, false, "height: 60 cm", "material: clay", "Arsenal Approved", "porousware", "water resistant",
 				"resources/img/nottsCountyGnome.png", false);
 
 		product4 = new Product(4, "Deck", 100, 70, 700, false, 15.00, true,
