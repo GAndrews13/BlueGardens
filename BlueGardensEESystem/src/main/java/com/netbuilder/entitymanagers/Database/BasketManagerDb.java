@@ -63,4 +63,10 @@ public class BasketManagerDb implements BasketManager {
 		return null;
 	}
 
+	@Override
+	public void addProduct(int productID, int quantity) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
