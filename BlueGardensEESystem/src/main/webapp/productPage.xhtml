@@ -32,9 +32,9 @@
 		<br/>
 		
 		<h:form>
-			<h:commandButton action="#{basketController.addProduct(productController.product.getProductID())}"  value="Add to Basket" /> <hr/>
+			<h:commandButton rendered="#{loginController.loggedIn == true}" action="#{basketController.addProduct(productController.product.getProductID())}"  value="Add to Basket" /> <hr/>
 
-			<h:commandButton action="#{wishlistController.persistWishlistItem()}" value="Add to Wishlist" />
+			<h:commandButton rendered="#{loginController.loggedIn == true}" action="#{wishlistController.persistWishlistItem()}" value="Add to Wishlist" />
 		</h:form>
 		</div>
 		
