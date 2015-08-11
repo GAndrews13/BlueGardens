@@ -22,15 +22,19 @@ document.getElementById("demo").innerHTML = "My First JavaScript";
 			<h:inputText id="searchdetails" value="#{searchController.searchTerm}" maxlength="45" size="20"/><br/>
 			<h:commandButton action="#{searchController.search}" value="Search" /><br/><hr/>
 			<ui:repeat value="#{searchController.results}" var="product">
-				<p id="productid"> #{product.getProductID()}</p><br/><br/>
-				#{product.getProductName()}<br/><br/>
-				£ #{product.getPrice()}<br/><br/>
-				#{product.getStockLevel()}<br/><br/>
-				#{product.getFeatureOne()}<br/><br/>
-				#{product.getFeatureTwo()}<br/><br/>
-				#{product.getFeatureThree()}<br/><br/>
-				#{product.getFeatureFour()}<br/><br/>
-				#{product.getFeatureFive()}<br/><br/>
+				<p id="productid">Product ID: #{product.getProductID()}</p><br/>
+				Product Name: #{product.getProductName()}<br/><br/>
+				Price: £ #{product.getPrice()}<br/><br/>
+				Current Stock: #{product.getStockLevel()}<br/><br/>
+				About the product: <br/><br/>
+				<ul>
+				<li>#{product.getFeatureOne()}</li>
+				<li>#{product.getFeatureTwo()}</li>
+				<li>#{product.getFeatureThree()}</li>
+				<li>#{product.getFeatureFour()}</li>
+				<li>#{product.getFeatureFive()}</li>
+				</ul>
+				<br/>
 				<div class="links">
 				<a href="productPage.xhtml?product=#{product.getProductID()}"  id="#{product.productID}">	
 				<img class="productImage" src="#{product.getImageLink()}" alt="#{product.getProductName()}" />
