@@ -3,6 +3,8 @@ package com.netbuilder.BlueGardensEESystem;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.Product;
@@ -13,11 +15,8 @@ import com.netbuilder.entitymanagers.CustomerOrderManager;
 import com.netbuilder.entitymanagers.ProductManager;
 import com.netbuilder.entitymanagers.WarehouseLocationManager;
 import com.netbuilder.entitymanagers.WarehouseWorkerManager;
-import com.netbuilder.entitymanagers.Dummy.CustomerOrderLineManagerDummy;
-import com.netbuilder.entitymanagers.Dummy.CustomerOrderManagerDummy;
 import com.netbuilder.entitymanagers.Dummy.ProductManagerDummy;
 import com.netbuilder.entitymanagers.Dummy.WarehouseLocationManagerDummy;
-import com.netbuilder.entitymanagers.Dummy.WarehouseWorkerManagerDummy;
 
 public class WarehouseOperation implements Serializable
 {
@@ -25,9 +24,14 @@ public class WarehouseOperation implements Serializable
 	 * 
 	 */
 	private static final long serialVersionUID = -2116270683372912345L;
-	WarehouseWorkerManager wwm = new WarehouseWorkerManagerDummy();
-	CustomerOrderManager com = new CustomerOrderManagerDummy();
-	CustomerOrderLineManager colm = new CustomerOrderLineManagerDummy();
+	@Inject
+	private WarehouseWorkerManager warehouseWorkerManager;
+	@Inject
+	private CustomerOrderManager customerOrderManager;
+	@Inject
+	private CustomerOrderLineManager customerOrderLineManager;
+	@Inject
+	private WarehouseLocationManager warehouseLocationManager;
 	WarehouseLocationManager wlm = new WarehouseLocationManagerDummy();
 	ArrayList<CustomerOrder> openOrders;
 	ArrayList<CustomerOrder> assignedOrders;
@@ -35,8 +39,8 @@ public class WarehouseOperation implements Serializable
 
 	public WarehouseOperation()
 	{
-		openOrders = com.findByDeliveryStatus(DeliveryStatus.ORDER_PLACED);	
-		assignedOrders = com.findByDeliveryStatus(DeliveryStatus.PROCESSING);
+		openOrders = customerOrderManager.findByDeliveryStatus(DeliveryStatus.ORDER_PLACED);	
+		assignedOrders = customerOrderManager.findByDeliveryStatus(DeliveryStatus.PROCESSING);
 	}
 
 	/*
@@ -49,7 +53,7 @@ public class WarehouseOperation implements Serializable
 	
 	public String loginWorker(int id, String password)
 	{
-		WarehouseWorker worker = wwm.findById(id);
+		WarehouseWorker worker = warehouseWorkerManager.findById(id);
 		if (worker.equals(null))
 		{
 			return "Worker does not exist";
@@ -61,7 +65,7 @@ public class WarehouseOperation implements Serializable
 		else if(worker.getPassword().equals(password))
 		{
 			worker.setLoggedIn(true);
-			wwm.updateWarehouseWorker(worker);
+			warehouseWorkerManager.updateWarehouseWorker(worker);
 			return "Worker " + worker.getName() + " is logged in";
 		}
 		return null;
@@ -69,11 +73,11 @@ public class WarehouseOperation implements Serializable
 	
 	public String logoutWorker(int id)
 	{
-		WarehouseWorker worker = wwm.findById(id);
+		WarehouseWorker worker = warehouseWorkerManager.findById(id);
 		if(worker.isLoggedIn())
 		{
 			worker.setLoggedIn(false);
-			wwm.updateWarehouseWorker(worker);
+			warehouseWorkerManager.updateWarehouseWorker(worker);
 			return "Worker " + worker.getName() + " is logged out";
 		}
 		return null;
@@ -82,7 +86,7 @@ public class WarehouseOperation implements Serializable
 	
 	public int assignWorkerToOrder(int id)
 	{
-		WarehouseWorker worker = wwm.findById(id);
+		WarehouseWorker worker = warehouseWorkerManager.findById(id);
 		CustomerOrder order = openOrders.get(1);
 		worker.setAssigned(true);
 		order.setIsAssigned(true);
@@ -93,7 +97,7 @@ public class WarehouseOperation implements Serializable
 	
 	public void setPickingSequence(int coid)
 	{
-		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCustomerOrderID(coid);
+		ArrayList<CustomerOrderLine> currentOrderLines = customerOrderLineManager.findByCustomerOrderID(coid);
 		ArrayList<CustomerOrderLine> pickingSequence = new ArrayList<CustomerOrderLine>();
 		ArrayList<String> ssectionA = new ArrayList<String>();
 		ArrayList<CustomerOrderLine> sectionA = new ArrayList<CustomerOrderLine>();
@@ -148,7 +152,7 @@ public class WarehouseOperation implements Serializable
 
 	public String showNextProduct(int coid)
 	{
-		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCustomerOrderID(coid);
+		ArrayList<CustomerOrderLine> currentOrderLines = customerOrderLineManager.findByCustomerOrderID(coid);
 		int i = 0;
 		while(i<currentOrderLines.size())
 		{
@@ -196,7 +200,7 @@ public class WarehouseOperation implements Serializable
 	
 	public void completeOrder(int id)
 	{
-		WarehouseWorker worker = wwm.findById(id);
+		WarehouseWorker worker = warehouseWorkerManager.findById(id);
 		CustomerOrder order = openOrders.get(1);
 		worker.setAssigned(false);
 		order.setIsAssigned(false);

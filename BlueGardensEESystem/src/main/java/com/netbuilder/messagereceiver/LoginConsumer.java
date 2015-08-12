@@ -14,6 +14,7 @@ import javax.naming.NamingException;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import com.netbuilder.BlueGardensEESystem.WarehouseOperation;
+import com.netbuilder.messagesender.LoginResponseProducer;
 
 public class LoginConsumer implements MessageListener, ExceptionListener{
 	
@@ -104,12 +105,16 @@ public class LoginConsumer implements MessageListener, ExceptionListener{
 	       }
 	       if (authenticateWorker())
 	       {
-	    	   
+	    	   String args[] = {};
+	    	   LoginResponseProducer.main(args);
 	       }
 	     }
 	    } catch (JMSException jmse) {
 	     System.err.println("An exception occurred: "+jmse.getMessage());
-	    }
+	    } catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean authenticateWorker()

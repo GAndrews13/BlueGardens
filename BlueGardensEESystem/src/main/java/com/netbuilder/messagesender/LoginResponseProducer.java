@@ -43,8 +43,6 @@ public class LoginResponseProducer
 	 private Destination destination = null;
 	 private MessageProducer producer = null;
 	 private Message message = null;
-	 private static int id;
-	 private static String password;
 	 Context ctx;
 
 	 /**
@@ -68,7 +66,7 @@ public class LoginResponseProducer
          session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
          // Create the destination (Topic or Queue)
-         destination = session.createQueue("TEST.FOO");
+         destination = session.createQueue("response");
 
          // Create a MessageProducer from the Session to the Topic or Queue
          producer = session.createProducer(destination);
@@ -112,7 +110,7 @@ public class LoginResponseProducer
 	 
 	 private static void readAndSend(LoginResponseProducer qs)throws IOException, JMSException
 	 {
-		 qs.send("Login Response: " + getResponse());
+		 qs.send("Login Response:" + getResponse());
 		 System.out.println("Login Response: " + getResponse()+"\n");
 	 }
 	
