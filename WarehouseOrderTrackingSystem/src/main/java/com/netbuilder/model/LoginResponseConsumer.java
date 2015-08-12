@@ -23,7 +23,7 @@ public class LoginResponseConsumer implements MessageListener, ExceptionListener
 	private MessageConsumer consumer = null;
 	private int id = -1;
 	private String password;
-	private static String response;
+	private static String loginResponse;
 	private boolean quit = false;
 	
 	 /**
@@ -48,7 +48,7 @@ public class LoginResponseConsumer implements MessageListener, ExceptionListener
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
         // Create the destination (Topic or Queue)
-        destination = session.createQueue("TEST.FOO");
+        destination = session.createQueue("response");
 
         // Create a MessageConsumer from the Session to the Topic or Queue
         consumer = session.createConsumer(destination);
@@ -75,21 +75,12 @@ public class LoginResponseConsumer implements MessageListener, ExceptionListener
 	       msgText = msg.toString();
 	     }
 	     
-	     if (msgText.startsWith("Password")) {
+	     if (msgText.startsWith("Login Response:")) {
 		       synchronized(this) {
 		    	   String[]temp = null;
 		    	 System.out.println("Message Received: "+ msgText );
-		    	 temp = msgText.split("Password:");
-		    	 password = temp[1];
-		         this.notifyAll(); // Notify main thread to quit
-		       }
-		     }
-	     if (msgText.startsWith("ID")) {
-		       synchronized(this) {
-		    	   String[]temp = null;
-		    	 System.out.println("Message Received: "+ msgText );
-		    	 temp = msgText.split("Password:");
-		    	 id = Integer.parseInt(temp[1]);
+		    	 temp = msgText.split("Login Response:");
+		    	 loginResponse = temp[1];
 		         this.notifyAll(); // Notify main thread to quit
 		       }
 		     }
@@ -129,10 +120,10 @@ public class LoginResponseConsumer implements MessageListener, ExceptionListener
 		    System.out.println(
 			        "Exited system");
 	}
-
+	 
 	 public static String getResponse()
 	 {
-		 return response;
+		return loginResponse; 
 	 }
 	 
 	@Override
