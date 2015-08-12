@@ -23,8 +23,10 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
 import com.netbuilder.model.ActionWOTS;
+import com.netbuilder.model.DummyData;
 import com.netbuilder.model.LoginProducer;
 import com.netbuilder.model.LoginResponseConsumer;
+import com.netbuilder.model.WarehouseWorker;
 
 public class GUI extends JFrame {
 	private JFrame mainFrame;
@@ -33,16 +35,19 @@ public class GUI extends JFrame {
 	private JTextArea nextproduct;
 	private JTextArea location;
 	private int workerID;
+	private boolean isLoggedIn = false;
 	private String password;
+	private static DummyData dummyData;
 	String response;
 	private JButton button = new JButton("Next order");
-	private Font productfont = new Font("Verdana", Font.ITALIC, 72);
-	private Font locationfont = new Font("Verdana", Font.ITALIC, 50);
-	private Font labelfont = new Font("Verdana", Font.BOLD, 20);
+	private Font productfont = new Font("Verdana", Font.ITALIC, 22);
+	private Font locationfont = new Font("Verdana", Font.ITALIC, 20);
+	private Font labelfont = new Font("Verdana", Font.BOLD, 14);
 	private Image productimage = null;
 	ActionWOTS action;
 
 	public GUI() {
+		dummyData = new DummyData();
 		prepareGUI();
 	}
 
@@ -84,8 +89,17 @@ public class GUI extends JFrame {
 				workerID = Integer.parseInt(JOptionPane.showInputDialog(
 						mainFrame, "Please enter your worker ID", null));
 				password = (JOptionPane.showInputDialog(mainFrame,
-						"Enter your password", null));
-				SwingUtilities.invokeLater(new Runnable() {
+						"Enter your password", null));				
+
+				for(int i = 0; i<dummyData.getWorkers().size(); i++){
+					if(dummyData.getWorkers().get(i).getWorkerId() == workerID && dummyData.getWorkers().get(i).getPassword().equals(password)){
+						isLoggedIn = true;
+						mainLabel.setText("Welcome " + dummyData.getWorkers().get(i).getName() + ", you have no assigned orders");
+					}
+				}	
+				
+				
+				/* SwingUtilities.invokeLater(new Runnable() {
 		            @Override
 		            public void run() {
 		            	LoginProducer lp = new LoginProducer();
@@ -105,9 +119,8 @@ public class GUI extends JFrame {
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}
-				JOptionPane.showMessageDialog(mainFrame,LoginResponseConsumer.getResponse());
-				mainLabel.setText("Welcome, you have no assigned orders");
+				} */
+				
 
 			}
 
@@ -151,7 +164,13 @@ public class GUI extends JFrame {
 	private class ButtonClickListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent AE) {
-			String command = AE.getActionCommand();
+			
+			
+			location.setText("Warehouse Location: " + dummyData.getLocations().get(0).getLocationId());
+			nextproduct.setText("Product ID: " + dummyData.getProducts().get(0).getProductID() + "\nProduct Name: " + dummyData.getProducts().get(0).getProductName() +
+					"\nStock Level: " + dummyData.getProducts().get(0).getStockLevel());
+			
+			/*String command = AE.getActionCommand();
 			switch (command) {
 			case "process":
 				if (button.getText() == "Next Order") {
@@ -165,11 +184,11 @@ public class GUI extends JFrame {
 					button.setText("Next Order");
 				}
 
-			}
+			}*/
 		}
 	}
 
-	private void setImage() {
+	/*private void setImage() {
 		try {
 			URL url = new URL(
 					"http://www.personal.psu.edu/acr117/blogs/audrey/images/image-2.jpg");
@@ -189,5 +208,5 @@ public class GUI extends JFrame {
 		// add more components here
 		mainFrame.add(mainPanel);
 		mainFrame.setVisible(true);
-	}
+	}*/
 }
