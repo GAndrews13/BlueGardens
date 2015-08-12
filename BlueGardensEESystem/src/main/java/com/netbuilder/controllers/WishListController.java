@@ -56,5 +56,14 @@ public class WishListController {
 	public void setRealResults(ArrayList<Product> realResults) {
 		this.realResults = realResults;
 	}
-
+	
+	public String addProduct(int productID){
+		System.out.println("here");
+		System.out.println(productID);
+		System.out.println(wishlistManager.findForUser(loggedInUser.getUserID()));
+		wishlistManager.persistWishlistItem(new WishlistItems(loggedInUser.getUserID(), productID));
+		System.out.println(wishlistManager.findForUser(loggedInUser.getUserID()));
+		return "wishlist";
+	}
+	
 }

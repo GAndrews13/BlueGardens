@@ -36,9 +36,9 @@
 			<h:outputLabel  value="Quantity: " for="quantity"/>
 			<h:inputText id="quantity" value="#{basketController.quantity}" maxlength="3" size="20"/><br/>
 			<h:commandButton rendered="#{loginController.loggedIn == true}" action="#{basketController.addProduct(productController.product.getProductID())}" value="Add To Basket" /><br/>
-			</h:panelGrid>	
+			<h:commandButton rendered="#{loginController.loggedIn == true}" action="#{wishlistController.addProduct(productController.product.getProductID())}" value="Add to Wishlist" />
+		</h:panelGrid>	
 		</h:form>
-			<h:button rendered="#{loginController.loggedIn == true}" action="#{wishlistController.persistWishlistItem()}" value="Add to Wishlist" />
 		</div>
 	</ui:define>
 </ui:composition>
