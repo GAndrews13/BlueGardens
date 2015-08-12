@@ -93,8 +93,8 @@ public class CustomerOrder {
 		return customerID;
 	}
 
-	public void setWorker(WarehouseWorker worker) {
-		this.setWorker(worker);
+	public void setWorker(long workerID) {
+		this.workerID = workerID;
 	}
 
 	public long getWorker() {
