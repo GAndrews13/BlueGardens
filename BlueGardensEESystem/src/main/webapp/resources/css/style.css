@@ -236,6 +236,11 @@ p.questionAnswer{
 	filter: alpha(opacity = 40);
 }
 
+.productCatalogueImage{
+	width: 200%;
+	padding: 10%;
+}
+
 .question {
 	padding-left: 5%;
 	padding-right: 5%;
@@ -320,7 +325,7 @@ p.questionAnswer{
 }
 
 .wishlistImage{
-	width: 200%;
+	width: 100%;
 	padding: 10%;
 }
 
