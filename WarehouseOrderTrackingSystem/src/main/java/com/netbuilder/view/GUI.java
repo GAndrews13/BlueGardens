@@ -156,9 +156,6 @@ public class GUI extends JFrame {
 			case "process":
 				if (button.getText() == "Next Order") {
 					mainLabel.setText("Order has been assigned to you");
-					response = action.setOrder();
-					System.out.println(response);
-					nextproduct.setText("response");
 					button.setText("Collected");
 
 					setImage();

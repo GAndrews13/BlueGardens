@@ -1,6 +1,7 @@
 package com.netbuilder.model;
 
-import java.util.ArrayList;
+
+import com.netbuilder.model.DeliveryStatus;
 
 /**
  * 
@@ -12,7 +13,6 @@ import java.util.ArrayList;
  *         tracking the differing states of the order
  *
  **/
-
 public class CustomerOrder {
 
 	public static final String FIND_BY_CUSTOMER_ORDER_ID = "CustomerOrder.findByCustomerOrderId";
@@ -22,6 +22,33 @@ public class CustomerOrder {
 	public static final String FIND_BY_CUSTOMER = "CustomerOrder.findByCustomer";
 	public static final String FIND_BY_WORKER = "CustomerOrder.findByWorker";
 
+	public CustomerOrder() {
+
+	}
+
+	public CustomerOrder(boolean isAssigned, String deliveryType,
+			long customerID, long workerID, DeliveryStatus status, double price) {
+		this.isAssigned = isAssigned;
+		this.deliveryType = deliveryType;
+		this.customerID = customerID;
+		this.workerID = workerID;
+		this.status = status;
+		this.price = price;
+	}
+
+	public CustomerOrder(int customerOrderID, boolean isAssigned,
+			int trackingID, String deliveryType, long customerID,
+			long workerID, DeliveryStatus status, double price) {
+		this.customerOrderID = customerOrderID;
+		this.isAssigned = isAssigned;
+		this.trackingID = trackingID;
+		this.deliveryType = deliveryType;
+		this.customerID = customerID;
+		this.workerID = workerID;
+		this.status = status;
+		this.price = price;
+	}
+
 	private int customerOrderID;
 
 	private boolean isAssigned;
@@ -30,48 +57,13 @@ public class CustomerOrder {
 
 	private String deliveryType;
 
-	private Customer customer;
-
-	private ArrayList<ProductOrderLine> productOrderLine;
-
-	private WarehouseWorker worker;
+	private long customerID;
+	
+	private long workerID;
 
 	private DeliveryStatus status;
-
-	public CustomerOrder() {
-
-	}
-
-	public CustomerOrder(int trackingID, Customer customer,
-			ArrayList<ProductOrderLine> productOrderLine) {
-		this.trackingID = trackingID;
-		this.customer = customer;
-		this.productOrderLine = productOrderLine;
-	}
-
-	public CustomerOrder(boolean isAssigned, int trackingID,
-			String deliveryType, Customer customer,
-			ArrayList<ProductOrderLine> productOrderLine,
-			WarehouseWorker worker, DeliveryStatus status) {
-		this.isAssigned = isAssigned;
-		this.trackingID = trackingID;
-		this.deliveryType = deliveryType;
-		this.customer = customer;
-		this.productOrderLine = productOrderLine;
-		this.worker = worker;
-		this.status = status;
-	}
-
-	public CustomerOrder(Customer inCustomer,
-			ArrayList<ProductOrderLine> inProductOrderLines) {
-		this.isAssigned = false;
-		this.worker = null;
-		this.deliveryType = null;
-
-		this.customer = inCustomer;
-		this.productOrderLine = inProductOrderLines;
-		this.status = DeliveryStatus.ORDER_PLACED;
-	}
+	
+	private double price;
 
 	public int getCustomerOrderID() {
 		return customerOrderID;
@@ -97,24 +89,16 @@ public class CustomerOrder {
 		this.deliveryType = deliveryType;
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public ArrayList<ProductOrderLine> getProductOrderLines() {
-		return productOrderLine;
-	}
-
-	public void addProductOrderLine(ProductOrderLine p) {
-		productOrderLine.add(p);
+	public long getCustomer() {
+		return customerID;
 	}
 
 	public void setWorker(WarehouseWorker worker) {
 		this.setWorker(worker);
 	}
 
-	public WarehouseWorker getWorker() {
-		return worker;
+	public long getWorker() {
+		return workerID;
 	}
 
 	public DeliveryStatus getStatus() {
@@ -124,5 +108,15 @@ public class CustomerOrder {
 	public void setStatus(DeliveryStatus status) {
 		this.status = status;
 	}
+
+	public double getPrice() {
+		return Math.round(price);
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	
 
 }
