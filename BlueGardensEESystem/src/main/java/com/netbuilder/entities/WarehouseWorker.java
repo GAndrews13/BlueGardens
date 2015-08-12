@@ -42,6 +42,12 @@ public class WarehouseWorker {
 	@Column(name = "isAssigned", nullable = false)
 	@NotNull
 	private boolean isAssigned;
+	@Column(name = "isLoggedIn", nullable = false)
+	@NotNull
+	private boolean isLoggedIn;
+	@Column(name = "password", nullable = false)
+	@NotNull
+	private String password;
 
 	public WarehouseWorker() {
 
@@ -53,11 +59,43 @@ public class WarehouseWorker {
 	 * @param
 	 * @return
 	 */
+
 	public WarehouseWorker(String workerName, String workerAddress,
-			boolean isAssigned) {
+			boolean isAssigned, boolean isLoggedIn, String password) {
+		super();
 		this.workerName = workerName;
 		this.workerAddress = workerAddress;
 		this.isAssigned = isAssigned;
+		this.isLoggedIn = isLoggedIn;
+		this.password = password;
+	}
+	
+	public WarehouseWorker(int workerId, String workerName,
+			String workerAddress, boolean isAssigned, boolean isLoggedIn,
+			String password) {
+		super();
+		this.workerId = workerId;
+		this.workerName = workerName;
+		this.workerAddress = workerAddress;
+		this.isAssigned = isAssigned;
+		this.isLoggedIn = isLoggedIn;
+		this.password = password;
+	}
+
+	public boolean isLoggedIn() {
+		return isLoggedIn;
+	}
+
+	public void setLoggedIn(boolean isLoggedIn) {
+		this.isLoggedIn = isLoggedIn;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {

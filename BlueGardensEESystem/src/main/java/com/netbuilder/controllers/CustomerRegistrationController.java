@@ -123,16 +123,6 @@ public class CustomerRegistrationController {
 	private ArrayList<String> usernames = new ArrayList<String>();
 
 	public String registeredCustomer() {
-		
-		System.out.println(firstName);
-		System.out.println(lastName);
-		System.out.println(username);
-		System.out.println(password);
-		System.out.println(confirmPassword);
-		System.out.println(email);
-		System.out.println(confirmEmail);
-		System.out.println(address);
-		System.out.println(contactNumber);
 
 		if (firstName.isEmpty()) {
 			errormsg = "Please enter a first name";
@@ -148,7 +138,7 @@ public class CustomerRegistrationController {
 		}
 		for (CustomerLogin cl : customerLoginManager.findAll()) {	
 			usernames.add(cl.getCustomerUsername());
-		}System.out.println(usernames);
+		}
 		for (String username : usernames) {	
 			if (this.username.equals(username)) {
 				errormsg = "This username already exists";
@@ -169,7 +159,7 @@ public class CustomerRegistrationController {
 		}
 		for (Customer c : customerManager.findAll()) {	
 			customers.add(c);
-		}System.out.println(customers);
+		}
 		for (Customer c : customers) {
 			if (this.email.equals(c.getEmail())) {
 				errormsg = "This email already exists";
@@ -199,9 +189,6 @@ public class CustomerRegistrationController {
 			return "registeredCustomer";
 		}
 
-		System.out.println(customerManager.findAll());
-		System.out.println(customerLoginManager.findAll());
-		
 		newCustomer = new Customer((customerManager.findAll().size()+1), firstName, lastName, address, contactNumber, email, "ACTIVE");
 
 		customerSalt = LoginUtils.getNextSalt();
@@ -213,13 +200,8 @@ public class CustomerRegistrationController {
 		customerManager.persistCustomer(newCustomer);
 		customerLoginManager.persistCustomerLogin(newCustomerLogin);
 		
-		System.out.println("break here?");
-		
 		//new RegistrationEmail(email,
 		//		firstName, username);
-
-		System.out.println(customerManager.findAll());
-		System.out.println(customerLoginManager.findAll());
 		
 		return "login";
 		
