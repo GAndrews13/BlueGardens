@@ -5,52 +5,96 @@ import java.util.ArrayList;
 
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.CustomerOrderLine;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entities.WarehouseLocation;
 import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entitymanagers.CustomerOrderLineManager;
 import com.netbuilder.entitymanagers.CustomerOrderManager;
+import com.netbuilder.entitymanagers.ProductManager;
 import com.netbuilder.entitymanagers.WarehouseLocationManager;
 import com.netbuilder.entitymanagers.WarehouseWorkerManager;
 import com.netbuilder.entitymanagers.Dummy.CustomerOrderLineManagerDummy;
 import com.netbuilder.entitymanagers.Dummy.CustomerOrderManagerDummy;
+import com.netbuilder.entitymanagers.Dummy.ProductManagerDummy;
 import com.netbuilder.entitymanagers.Dummy.WarehouseLocationManagerDummy;
 import com.netbuilder.entitymanagers.Dummy.WarehouseWorkerManagerDummy;
 
-public class WarehouseOperation implements Serializable {
+public class WarehouseOperation implements Serializable
+{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2116270683372912345L;
 	WarehouseWorkerManager wwm = new WarehouseWorkerManagerDummy();
 	CustomerOrderManager com = new CustomerOrderManagerDummy();
 	CustomerOrderLineManager colm = new CustomerOrderLineManagerDummy();
 	WarehouseLocationManager wlm = new WarehouseLocationManagerDummy();
 	ArrayList<CustomerOrder> openOrders;
 	ArrayList<CustomerOrder> assignedOrders;
+	boolean pickingSequenced;
 
-	public WarehouseOperation() {
-		openOrders = com.findByDeliveryStatus(DeliveryStatus.ORDER_PLACED);
+	public WarehouseOperation()
+	{
+		openOrders = com.findByDeliveryStatus(DeliveryStatus.ORDER_PLACED);	
 		assignedOrders = com.findByDeliveryStatus(DeliveryStatus.PROCESSING);
 	}
 
-	public void assignWorkerToOrder(int id) {
+	/*
+	 * @author David Ogbonnah
+	 * @param id the workers id number
+	 * @return the id number of the customer order assigned to the worker
+	 * 
+	 * Assigns a worker to a new order. Returns an id allowing the picking order can be calculated
+	 */
+	
+	public String loginWorker(int id, String password)
+	{
+		WarehouseWorker worker = wwm.findById(id);
+		if (worker.equals(null))
+		{
+			return "Worker does not exist";
+		}
+		else if(!worker.getPassword().equals(password))
+		{
+			return "Password for worker incorrect";
+		}
+		else if(worker.getPassword().equals(password))
+		{
+			worker.setIsLoggedIn(true);
+			wwm.updateWarehouseWorker(worker);
+			return "Worker " + worker.getName() + " is logged in";
+		}
+		return null;
+	}
+	
+	public String logoutWorker(int id)
+	{
+		WarehouseWorker worker = wwm.findById(id);
+		if(worker.isLoggedIn())
+		{
+			worker.setIsLoggedIn(false);
+			wwm.updateWarehouseWorker(worker);
+			return "Worker " + worker.getName() + " is logged out";
+		}
+		return null;
+	}
+	
+	
+	public int assignWorkerToOrder(int id)
+	{
 		WarehouseWorker worker = wwm.findById(id);
 		CustomerOrder order = openOrders.get(1);
 		worker.setAssigned(true);
 		order.setIsAssigned(true);
 		order.setWorker(worker);
 		order.setStatus(DeliveryStatus.PROCESSING);
+		return order.getCustomerOrderID();
 	}
-
-	public void completeOrder(int id) {
-		WarehouseWorker worker = wwm.findById(id);
-		CustomerOrder order = openOrders.get(1);
-		worker.setAssigned(false);
-		order.setIsAssigned(false);
-		order.setWorker(worker);
-		order.setStatus(DeliveryStatus.READY);
-	}
-
-	public ArrayList<CustomerOrderLine> setPickingOrder(int coid) {
-		ArrayList<CustomerOrderLine> currentOrderLines = colm
-				.findByCustomerOrderID(coid);
-		ArrayList<CustomerOrderLine> pickingOrder = new ArrayList<CustomerOrderLine>();
+	
+	public void setPickingSequence(int coid)
+	{
+		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCustomerOrderID(coid);
+		ArrayList<CustomerOrderLine> pickingSequence = new ArrayList<CustomerOrderLine>();
 		ArrayList<String> ssectionA = new ArrayList<String>();
 		ArrayList<CustomerOrderLine> sectionA = new ArrayList<CustomerOrderLine>();
 		ArrayList<String> ssectionB = new ArrayList<String>();
@@ -87,24 +131,38 @@ public class WarehouseOperation implements Serializable {
 			findRowInSection("H", ssectionH, sectionH, locID, col);
 			findRowInSection("I", ssectionI, sectionI, locID, col);
 		}
+		
+		orderCols(sectionA, pickingSequence);
+		orderCols(sectionB, pickingSequence);
+		orderCols(sectionC, pickingSequence);
+		orderCols(sectionD, pickingSequence);
+		orderCols(sectionE, pickingSequence);
+		orderCols(sectionF, pickingSequence);
+		orderCols(sectionG, pickingSequence);
+		orderCols(sectionH, pickingSequence);
+		orderCols(sectionI, pickingSequence);
+		
+		pickingSequenced = true;
 
-		orderCols(sectionA, pickingOrder);
-		orderCols(sectionB, pickingOrder);
-		orderCols(sectionC, pickingOrder);
-		orderCols(sectionD, pickingOrder);
-		orderCols(sectionE, pickingOrder);
-		orderCols(sectionF, pickingOrder);
-		orderCols(sectionG, pickingOrder);
-		orderCols(sectionH, pickingOrder);
-		orderCols(sectionI, pickingOrder);
-
-		return pickingOrder;
 	}
 
-	public void showNextProduct(int coid) {
-		ArrayList<CustomerOrderLine> currentOrderLines = colm
-				.findByCustomerOrderID(coid);
-
+	public String showNextProduct(int coid)
+	{
+		ArrayList<CustomerOrderLine> currentOrderLines = colm.findByCustomerOrderID(coid);
+		int i = 0;
+		while(i<currentOrderLines.size())
+		{
+			CustomerOrderLine col = currentOrderLines.get(i);
+			if(!col.getIsPicked())
+			{
+				int id = col.getProductId();
+				ProductManager pm = new ProductManagerDummy();
+				Product product = pm.findById(id);
+				return product.getProductName();
+			}
+			i++;
+		}
+		return null;
 	}
 
 	public void findRowInSection(String sec, ArrayList<String> locIDs,
@@ -135,4 +193,15 @@ public class WarehouseOperation implements Serializable {
 			allCols.add(col);
 		}
 	}
+	
+	public void completeOrder(int id)
+	{
+		WarehouseWorker worker = wwm.findById(id);
+		CustomerOrder order = openOrders.get(1);
+		worker.setAssigned(false);
+		order.setIsAssigned(false);
+		order.setWorker(worker);
+		order.setStatus(DeliveryStatus.READY);
+		pickingSequenced = false;
+	} 
 }
