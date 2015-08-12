@@ -142,7 +142,7 @@ public class DummyData {
 				"resources/img/nottsCountyGnome.png", false);
 
 		product4 = new Product(4, "Deck", 100, 70, 700, false, 14.99, true,
-				"£15.00 per metre squared", "material: mahogany", "size: custom ", "water resistant", "non-slip",
+				"price per metre squared", "material: mahogany", "size: custom ", "water resistant", "non-slip",
 				"resources/img/floor.png", false);
 
 		product5 = new Product(5, "Machine Gun Gnome", 120, 60, 140, true,
