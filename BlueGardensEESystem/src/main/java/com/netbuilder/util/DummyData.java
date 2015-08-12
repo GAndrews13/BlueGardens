@@ -284,9 +284,9 @@ public class DummyData {
 		customers.add(customer1);
 		customers.add(customer2);
 
-		customerLogin1 = new CustomerLogin(1, "The Arrow", "th34",
+		customerLogin1 = new CustomerLogin(1, "The Arrow", "badboyqueen@queenconsolidated.com", "th34",
 				LoginUtils.getNextSalt());
-		customerLogin2 = new CustomerLogin(2, "Deathstroke", "sh4d0",
+		customerLogin2 = new CustomerLogin(2, "Deathstroke", "shado@rip.com", "sh4d0",
 				LoginUtils.getNextSalt());
 
 		customerLogins.add(customerLogin1);

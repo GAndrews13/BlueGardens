@@ -1,3 +1,0 @@
-Tag outline
-pagetitle
-	The title displayed in the tab bar

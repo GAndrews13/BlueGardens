@@ -36,9 +36,6 @@
 			com.netbuilder.entitymanagers.Dummy.WarehouseWorkerManagerDummy
 		</class>
 		<class>
-			com.netbuilder.entitymanagers.Dummy.WeeklySalesManagerDummy
-		</class>
-		<class>
 			com.netbuilder.entitymanagers.Dummy.WishlistManagerDummy
 		</class>
 

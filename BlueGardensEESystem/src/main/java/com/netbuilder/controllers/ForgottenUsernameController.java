@@ -1,47 +1,60 @@
 package com.netbuilder.controllers;
 
 import javax.enterprise.context.Dependent;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
-import javax.inject.Named;
-
 import com.netbuilder.entities.Customer;
+import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
-import com.netbuilder.service.ForgottenUsernameEmail;
-import com.netbuilder.util.ForgottenUsernameDetails;
 
 /**
  * @author jmander
  **/
 
-@Named
+@ManagedBean(name = "forgottenUsernameController")
 @Dependent
 public class ForgottenUsernameController {
 	@Inject
 	private CustomerManager customerManager;
-	// @Inject
-	private ForgottenUsernameDetails forgottenUsernameDetails;
-	public String errormsg;
-
-	public String getErrormsg() {
-		return errormsg;
+	@Inject
+	private CustomerLoginManager customerLoginManager;
+	private String email;
+	public String ermsg;
+	
+	public String getEmail() {
+		return email;
 	}
 
-	public void setErrormsg(String errormsg) {
-		this.errormsg = errormsg;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getErmsg() {
+		return ermsg;
+	}
+
+	public void setErmsg(String ermsg) {
+		this.ermsg = ermsg;
 	}
 
 	public String forgottenUsername() {
-		if (forgottenUsernameDetails.getEmail().isEmpty()) {
-			errormsg = "Please enter an email";
+		System.out.println(email);
+		if (email.isEmpty()) {
+			System.out.println("here");
+			ermsg = "Please enter an email";
 			return "forgottenUsername";
 		}
-		Customer email = customerManager.findByEmail(forgottenUsernameDetails
-				.getEmail());
-		if (email == null) {
-			errormsg = "Incorrect details";
-			return "forgottenUsername";
+		
+		for (Customer c : customerManager.findAll()) {
+			if(c.getEmail().equals(email)){
+				System.out.println("Hello");
+				ermsg = customerLoginManager.getCustomerUsername(email);
+				System.out.println(ermsg);
+				return "forgottenUsername";
+			}
+			ermsg = "This email is not registered, please register or re-enter your email";
 		}
-		new ForgottenUsernameEmail(forgottenUsernameDetails.getEmail());
-		return "login";
+		return "forgottenUsername";
 	}
+	
 }
