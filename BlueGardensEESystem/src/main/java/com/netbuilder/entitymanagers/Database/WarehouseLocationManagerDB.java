@@ -48,4 +48,11 @@ public class WarehouseLocationManagerDB implements WarehouseLocationManager {
 			return null;
 		}
 	}
+
+	@Override
+	public void persistWarehouseLocations(
+			ArrayList<WarehouseLocation> warehouseLocations) {
+		// TODO Auto-generated method stub
+		
+	}
 }

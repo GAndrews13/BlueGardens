@@ -3,36 +3,40 @@ package com.netbuilder.entitymanagers.Dummy;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
-
+import javax.inject.Inject;
 import com.netbuilder.entities.WarehouseLocation;
 import com.netbuilder.entitymanagers.WarehouseLocationManager;
+import com.netbuilder.util.DummyData;
 
 /** @author anca */
 
 @Alternative
 public class WarehouseLocationManagerDummy implements WarehouseLocationManager {
-	private ArrayList<WarehouseLocation> warehouseLocations = new ArrayList<WarehouseLocation>();
+	
+	@Inject
+	DummyData dd;
 
 	public void persistWarehouseLocation(WarehouseLocation warehouseLocation) {
-		warehouseLocations.add(warehouseLocation);
+		dd.setLocation(warehouseLocation);
+	}
+	
+	public void persistWarehouseLocations(
+			ArrayList<WarehouseLocation> warehouseLocations) {
+		dd.setLocations(warehouseLocations);		
+	}
+
+	public ArrayList<WarehouseLocation> findByProductID(int id) {
+		ArrayList<WarehouseLocation> list = new ArrayList<WarehouseLocation>();
+		for (WarehouseLocation wl : dd.getLocations()) {
+			if (wl.getProductId() == id) {
+				list.add(wl);
+			}
+		}
+		return list;
 	}
 
 	public void updateWarehouseLocation(WarehouseLocation warehouseLocation) {
-		warehouseLocations.set(warehouseLocations.indexOf(warehouseLocation),
-				warehouseLocation);
-	}
-
-	@Override
-	public ArrayList<WarehouseLocation> findByProductID(int id) {
 		// TODO Auto-generated method stub
-		ArrayList<WarehouseLocation> result = new ArrayList<WarehouseLocation>();
-		for (WarehouseLocation wl : warehouseLocations) {
-			if (wl.getProductId() == id) {
-				result.add(wl);
-			}
-		}
-
-		return result;
 	}
 
 }

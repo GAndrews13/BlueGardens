@@ -13,6 +13,8 @@ import com.netbuilder.entities.WarehouseLocation;
 public interface WarehouseLocationManager {
 
 	public void persistWarehouseLocation(WarehouseLocation warehouseLocation);
+	
+	public void persistWarehouseLocations(ArrayList<WarehouseLocation> warehouseLocations);
 
 	public void updateWarehouseLocation(WarehouseLocation warehouseLocation);
 
