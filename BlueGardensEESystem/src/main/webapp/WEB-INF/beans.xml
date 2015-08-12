@@ -41,9 +41,6 @@
 		<class>
 			com.netbuilder.entitymanagers.Dummy.WishlistManagerDummy
 		</class>
-			<class>
-			com.netbuilder.entitymanagers.Dummy.BasketManagerDummy
-		</class>
 
 		<!--  End of Dummy Bracket -->
 		<!--  Add all your SQL classes into this bracket -->
