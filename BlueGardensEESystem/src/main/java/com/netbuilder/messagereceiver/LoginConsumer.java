@@ -84,7 +84,7 @@ public class LoginConsumer implements MessageListener, ExceptionListener{
 		    	   String[]temp = null;
 		    	 System.out.println("Message Received: "+ msgText );
 		    	 temp = msgText.split("Password:");
-		    	 password = temp[1];
+		    	 password = temp[0];
 		         this.notifyAll(); // Notify main thread to quit
 		       }
 		     }
@@ -92,8 +92,9 @@ public class LoginConsumer implements MessageListener, ExceptionListener{
 		       synchronized(this) {
 		    	   String[]temp = null;
 		    	 System.out.println("Message Received: "+ msgText );
-		    	 temp = msgText.split("Password:");
-		    	 id = Integer.parseInt(temp[1]);
+		    	 temp = msgText.split("ID:");
+		    	 System.out.println("Message id:"+ temp );
+		    	 id = Integer.parseInt(temp[0]);
 		         this.notifyAll(); // Notify main thread to quit
 		       }
 		     }

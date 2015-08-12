@@ -12,14 +12,14 @@ public class Main {
             public void run() {
             	String args[] = {};
             	
-            	try {
-					LoginResponseConsumer.main(args);
-				} catch (Exception e) {
+            	//try {
+					//LoginResponseConsumer.main(args);
+				//} catch (Exception e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
             	
-            }
+            //}
         });
 	}
 }
