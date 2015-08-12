@@ -153,7 +153,7 @@ public class CustomerOrder {
 	}
 
 	public double getPrice() {
-		return price;
+		return Math.round(price);
 	}
 
 	public void setPrice(double price) {
