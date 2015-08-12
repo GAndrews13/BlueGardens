@@ -8,64 +8,62 @@ package com.netbuilder.entitymanagers.Dummy;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
-
+import javax.inject.Inject;
 import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entitymanagers.WarehouseWorkerManager;
+import com.netbuilder.util.DummyData;
 
 @Alternative
 public class WarehouseWorkerManagerDummy implements WarehouseWorkerManager {
-	ArrayList<WarehouseWorker> warehouseWorkers = new ArrayList<WarehouseWorker>();
 
+	@Inject
+	DummyData dd;
+	
 	public void persistWarehouseWorker(WarehouseWorker warehouseWorker) {
-		// TODO Auto-generated method stub
-		this.warehouseWorkers.add(warehouseWorker);
+		dd.setWorker(warehouseWorker);
 	}
 
 	public void persistWarehouseWorker(
 			ArrayList<WarehouseWorker> warehouseWorkers) {
-		// TODO Auto-generated method stub
-		this.warehouseWorkers.addAll(warehouseWorkers);
+		dd.setWorkers(warehouseWorkers);
 	}
 
 	public void updateWarehouseWorker(WarehouseWorker warehouseWorker) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < warehouseWorkers.size(); i++) {
-			this.warehouseWorkers.set(
-					warehouseWorkers.indexOf(warehouseWorker), warehouseWorker);
-		}
-	}
-
-	public WarehouseWorker findByName(String name) {
-		// TODO Auto-generated method stub
-		for (WarehouseWorker w : warehouseWorkers) {
-			if (w.getName().equals(name)) {
-				return w;
+		for (int i = 0; i < dd.getWorkers().size(); i++) {
+			if (warehouseWorker.getWorkerId() == dd.getWorkers().get(i)
+					.getWorkerId()) {
+				dd.setWorker(warehouseWorker);
 			}
 		}
-		return null;
 	}
 
-	// keeping this here for future reference
+	public ArrayList<WarehouseWorker> findByName(String name) {
+		ArrayList<WarehouseWorker> list = new ArrayList<WarehouseWorker>();
+		for (WarehouseWorker w : dd.getWorkers()) {
+			if (w.getName().equals(name)) {
+				list.add(w);
+			}
+		}
+		return list;
+	}
+
 	public WarehouseWorker findById(int id) {
-		// TODO Auto-generated method stub
-		for (WarehouseWorker w : warehouseWorkers) {
+		for (WarehouseWorker w : dd.getWorkers()) {
 			if (w.getWorkerId() == id) {
 				return w;
 			}
 		}
 		return null;
-
 	}
 
-	@Override
-	public WarehouseWorker isAssigned(boolean isAssigned) {
-		// TODO Auto-generated method stub
-		for (WarehouseWorker w : warehouseWorkers) {
-			if (w.isAssigned() == true) {
-				return w;
+	public ArrayList<WarehouseWorker> isAssigned(boolean isAssigned) {
+		ArrayList<WarehouseWorker> list = new ArrayList<WarehouseWorker>();
+		for (WarehouseWorker w : dd.getWorkers()) {
+			if (w.isAssigned() == isAssigned) {
+				list.add(w);
 			}
 		}
-		return null;
+		return list;
 	}
 
 }
