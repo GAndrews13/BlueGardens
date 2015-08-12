@@ -22,7 +22,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
+import com.netbuilder.model.ActionWOTS;
 import com.netbuilder.model.LoginProducer;
+import com.netbuilder.model.LoginResponseConsumer;
 
 public class GUI extends JFrame {
 	private JFrame mainFrame;
@@ -32,11 +34,13 @@ public class GUI extends JFrame {
 	private JTextArea location;
 	private int workerID;
 	private String password;
+	String response;
 	private JButton button = new JButton("Next order");
 	private Font productfont = new Font("Verdana", Font.ITALIC, 72);
 	private Font locationfont = new Font("Verdana", Font.ITALIC, 50);
 	private Font labelfont = new Font("Verdana", Font.BOLD, 20);
 	private Image productimage = null;
+	ActionWOTS action;
 
 	public GUI() {
 		prepareGUI();
@@ -96,7 +100,13 @@ public class GUI extends JFrame {
 						}
 		            }
 		        });
-				JOptionPane.showMessageDialog(mainFrame, "You have logged in");
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(mainFrame,LoginResponseConsumer.getResponse());
 				mainLabel.setText("Welcome, you have no assigned orders");
 
 			}
@@ -146,6 +156,9 @@ public class GUI extends JFrame {
 			case "process":
 				if (button.getText() == "Next Order") {
 					mainLabel.setText("Order has been assigned to you");
+					response = action.setOrder();
+					System.out.println(response);
+					nextproduct.setText("response");
 					button.setText("Collected");
 
 					setImage();
