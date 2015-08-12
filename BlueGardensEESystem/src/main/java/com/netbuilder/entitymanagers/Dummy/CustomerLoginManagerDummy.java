@@ -39,7 +39,7 @@ public class CustomerLoginManagerDummy implements CustomerLoginManager {
 
 	public String getCustomerUsername(String inUserEmail) {
 		for (CustomerLogin cl : dd.getCustomerLogins()) {
-			if (cl.getCustomerEmail() == inUserEmail) {
+			if (cl.getCustomerEmail().equals(inUserEmail)) {
 				return cl.getCustomerUsername();
 			}
 		}
@@ -48,7 +48,7 @@ public class CustomerLoginManagerDummy implements CustomerLoginManager {
 
 	public byte[] getCustomerSalt(String inUsername) {
 		for (CustomerLogin cl : dd.getCustomerLogins()) {
-			if (cl.getCustomerUsername() == inUsername) {
+			if (cl.getCustomerUsername().equals(inUsername)) {
 				return cl.getSalt();
 			}
 		}

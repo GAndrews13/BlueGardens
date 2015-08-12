@@ -1,8 +1,9 @@
 package com.netbuilder.controllers;
 
-import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
+
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.entitymanagers.CustomerManager;
@@ -12,14 +13,14 @@ import com.netbuilder.entitymanagers.CustomerManager;
  **/
 
 @ManagedBean(name = "forgottenUsernameController")
-@Dependent
+@RequestScoped
 public class ForgottenUsernameController {
 	@Inject
 	private CustomerManager customerManager;
 	@Inject
 	private CustomerLoginManager customerLoginManager;
 	private String email;
-	public String ermsg;
+	public String errormsg;
 	
 	public String getEmail() {
 		return email;
@@ -29,30 +30,27 @@ public class ForgottenUsernameController {
 		this.email = email;
 	}
 
-	public String getErmsg() {
-		return ermsg;
+	public String getErrormsg() {
+		return errormsg;
 	}
 
-	public void setErmsg(String ermsg) {
-		this.ermsg = ermsg;
+	public void setErrormsg(String errormsg) {
+		this.errormsg = errormsg;
 	}
+
 
 	public String forgottenUsername() {
-		System.out.println(email);
 		if (email.isEmpty()) {
-			System.out.println("here");
-			ermsg = "Please enter an email";
+			errormsg = "Please enter an email";
 			return "forgottenUsername";
 		}
 		
 		for (Customer c : customerManager.findAll()) {
 			if(c.getEmail().equals(email)){
-				System.out.println("Hello");
-				ermsg = customerLoginManager.getCustomerUsername(email);
-				System.out.println(ermsg);
+				errormsg = "Your username is: " + (customerLoginManager.getCustomerUsername(email));
 				return "forgottenUsername";
 			}
-			ermsg = "This email is not registered, please register or re-enter your email";
+			errormsg = "This email is not registered, please register or re-enter your email";
 		}
 		return "forgottenUsername";
 	}
