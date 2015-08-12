@@ -20,10 +20,10 @@ public interface WarehouseWorkerManager {
 	public void updateWarehouseWorker(WarehouseWorker warehouseWorker);
 
 	// /////// READ /////////
-	public WarehouseWorker findByName(String name);
+	public ArrayList<WarehouseWorker> findByName(String name);
 
 	public WarehouseWorker findById(int id);
 
-	public WarehouseWorker isAssigned(boolean isAssigned);
+	public ArrayList<WarehouseWorker> isAssigned(boolean isAssigned);
 
 }

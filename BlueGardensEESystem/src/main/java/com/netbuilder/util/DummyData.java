@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+
 import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.Product;
+import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entities.WishlistItems;
 
 @Singleton
@@ -20,6 +22,9 @@ public class DummyData {
 	private CustomerLogin customerLogin1;
 	private Customer customer2;
 	private CustomerLogin customerLogin2;
+	private WarehouseWorker worker1;
+	private WarehouseWorker worker2;
+	private WarehouseWorker worker3;
 	private Product product1;
 	private Product product2;
 	private Product product3;
@@ -40,6 +45,9 @@ public class DummyData {
 	private CustomerOrder customerOrder2;
 	private CustomerOrder customerOrder3;
 	private CustomerOrder customerOrder4;
+	private CustomerOrder customerOrder5;
+	private CustomerOrder customerOrder6;
+	private CustomerOrder customerOrder7;
 	private CustomerOrderLine customerOrderLine1;
 	private CustomerOrderLine customerOrderLine2;
 	private CustomerOrderLine customerOrderLine3;
@@ -48,6 +56,16 @@ public class DummyData {
 	private CustomerOrderLine customerOrderLine6;
 	private CustomerOrderLine customerOrderLine7;
 	private CustomerOrderLine customerOrderLine8;
+	private CustomerOrderLine customerOrderLine9;
+	private CustomerOrderLine customerOrderLine10;
+	private CustomerOrderLine customerOrderLine11;
+	private CustomerOrderLine customerOrderLine12;
+	private CustomerOrderLine customerOrderLine13;
+	private CustomerOrderLine customerOrderLine14;
+	private CustomerOrderLine customerOrderLine15;
+	private CustomerOrderLine customerOrderLine16;
+	private CustomerOrderLine customerOrderLine17;
+	private ArrayList<WarehouseWorker> workers = new ArrayList<WarehouseWorker>();
 	private ArrayList<WishlistItems> wishlistProducts = new ArrayList<WishlistItems>();
 	private ArrayList<CustomerOrderLine> customerOrderLines = new ArrayList<CustomerOrderLine>();
 	private ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
@@ -55,6 +73,18 @@ public class DummyData {
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>();
 
+	public ArrayList<WarehouseWorker> getWorkers() {
+		return workers;
+	}
+
+	public void setWorker(WarehouseWorker worker) {
+		workers.add(worker);
+	}
+
+	public void setWorkers(ArrayList<WarehouseWorker> workers) {
+		this.workers.addAll(workers);
+	}
+	
 	public ArrayList<Product> getProducts() {
 		return products;
 	}
@@ -180,6 +210,14 @@ public class DummyData {
 		products.add(product8);
 		products.add(product9);
 		products.add(product10);
+		
+		worker1 = new WarehouseWorker(1, "Tony Stark", "Malibu Beach House, Malibu, 1R0N M4N", false, false, "p3pp3r");
+		worker2 = new WarehouseWorker(2, "Steven Rogers", "SHIELD, Secret Location, CPT US4", false, false, "c4rt3r");
+		worker3 = new WarehouseWorker(3, "Jane Fosters", "1, L0V3 A, N0RS3 G0D" , false, false, "th0r");
+		
+		workers.add(worker1);
+		workers.add(worker2);
+		workers.add(worker3);
 
 		customer1 = new Customer(1, "Oliver", "Queen",
 				"Arrow Cave, Underground, Verdant, The Glades, OL1 V3R", "999",
@@ -207,18 +245,33 @@ public class DummyData {
 		customerOrderLine6 = new CustomerOrderLine(3, 4, 3, false);
 		customerOrderLine7 = new CustomerOrderLine(3, 6, 7, true);
 		customerOrderLine8 = new CustomerOrderLine(4, 9, 1, false);
+		customerOrderLine9 = new CustomerOrderLine(5, 5, 5, false);
+		customerOrderLine10 = new CustomerOrderLine(5, 8, 4, false);
+		customerOrderLine11 = new CustomerOrderLine(5, 9, 7, false);
+		customerOrderLine12 = new CustomerOrderLine(6, 10, 1, false);
+		customerOrderLine13 = new CustomerOrderLine(6, 2, 2, false);
+		customerOrderLine14 = new CustomerOrderLine(6, 3, 7, false);
+		customerOrderLine15 = new CustomerOrderLine(7, 1, 8, false);
+		customerOrderLine16 = new CustomerOrderLine(7, 7, 12, false);
+		customerOrderLine17 = new CustomerOrderLine(7, 6, 10, false);
 		// new CustomerOrderLine(customerOrderID, productId, quantity, isPicked)
 
 		customerOrder1 = new CustomerOrder(1, true, 1, "1st Class", 1, 1,
-				DeliveryStatus.DELIVERED, (3105 +31.49));
+				DeliveryStatus.DELIVERED, (3104.77 +31.99));
 		customerOrder2 = new CustomerOrder(2, true, 2, "1st Class", 1, 2,
-				DeliveryStatus.DISPATCHED, (1440 + 2800 + 999.98));
+				DeliveryStatus.DISPATCHED, (1439.88 + 799.96 + 8999.98));
 		customerOrder3 = new CustomerOrder(3, true, 3, "Standard Delivery", 2,
-				1, DeliveryStatus.PROCESSING, (45 + 3499.93));
+				1, DeliveryStatus.PROCESSING, (59.96 + 31499.93));
 		customerOrder4 = new CustomerOrder(4, false, 4, "1st Class", 1, 0,
-				DeliveryStatus.ORDER_PLACED, (25000));
+				DeliveryStatus.ORDER_PLACED, (24999.99));
+		customerOrder5 = new CustomerOrder(5, false, 5, "1st Class", 1, 0,
+				DeliveryStatus.ORDER_PLACED, (269.95 + 799.96 + 174999.93));
+		customerOrder6 = new CustomerOrder(6, false, 6, "1st Class", 1, 0,
+				DeliveryStatus.ORDER_PLACED, (31.99 + 39.98 + 594.93));
+		customerOrder7 = new CustomerOrder(7, false, 7, "Standard Delivery", 1,
+				0, DeliveryStatus.ORDER_PLACED, (1079.92 + 1439.88 + 44999.90));
 		// new CustomerOrder(customerOrderID, isAssigned, trackingID,
-		// deliveryType, customerID, workerID, status)
+		// deliveryType, customerID, workerID, status, price)
 
 		wishlistProducts.add(wishlist1);
 		wishlistProducts.add(wishlist2);
@@ -231,6 +284,9 @@ public class DummyData {
 		customerOrders.add(customerOrder2);
 		customerOrders.add(customerOrder3);
 		customerOrders.add(customerOrder4);
+		customerOrders.add(customerOrder5);
+		customerOrders.add(customerOrder6);
+		customerOrders.add(customerOrder7);
 
 		customerOrderLines.add(customerOrderLine1);
 		customerOrderLines.add(customerOrderLine2);
@@ -240,6 +296,15 @@ public class DummyData {
 		customerOrderLines.add(customerOrderLine6);
 		customerOrderLines.add(customerOrderLine7);
 		customerOrderLines.add(customerOrderLine8);
+		customerOrderLines.add(customerOrderLine9);
+		customerOrderLines.add(customerOrderLine10);
+		customerOrderLines.add(customerOrderLine11);
+		customerOrderLines.add(customerOrderLine12);
+		customerOrderLines.add(customerOrderLine13);
+		customerOrderLines.add(customerOrderLine14);
+		customerOrderLines.add(customerOrderLine15);
+		customerOrderLines.add(customerOrderLine16);
+		customerOrderLines.add(customerOrderLine17);
 
 	}
 

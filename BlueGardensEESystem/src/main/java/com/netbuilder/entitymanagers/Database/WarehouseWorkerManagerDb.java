@@ -57,17 +57,15 @@ public class WarehouseWorkerManagerDb implements WarehouseWorkerManager {
 
 	}
 
-	public WarehouseWorker findByName(String name) {
+	public ArrayList<WarehouseWorker> findByName(String name) {
 		// TODO Auto-generated method stub
-
 		EntityManager em = pm.CreateEntityManager();
-		TypedQuery<WarehouseWorker> tq = em.createNamedQuery(
-				WarehouseWorker.FIND_OUT_BY_NAME, WarehouseWorker.class);
+		ArrayList<WarehouseWorker> workers = (ArrayList<WarehouseWorker>) em.createQuery(
+				WarehouseWorker.FIND_OUT_BY_NAME, WarehouseWorker.class).getResultList();
 		pm.CloseEntityManager(em);
-		tq.setParameter("name", name);
 		try {
-			return tq.getSingleResult();
-		} catch (NoResultException nre) {
+			return workers;
+		} catch (Exception e) {
 			return null;
 		}
 	}
@@ -87,16 +85,15 @@ public class WarehouseWorkerManagerDb implements WarehouseWorkerManager {
 	}
 
 	@Override
-	public WarehouseWorker isAssigned(boolean isAssigned) {
+	public ArrayList<WarehouseWorker> isAssigned(boolean isAssigned) {
 		// TODO Auto-generated method stub
 		EntityManager em = pm.CreateEntityManager();
-		TypedQuery<WarehouseWorker> tq = em.createNamedQuery(
-				WarehouseWorker.IS_ASSIGNED, WarehouseWorker.class);
+		ArrayList<WarehouseWorker> workers = (ArrayList<WarehouseWorker>) em.createQuery(
+				WarehouseWorker.IS_ASSIGNED, WarehouseWorker.class).getResultList();
 		pm.CloseEntityManager(em);
 		try {
-			return tq.getSingleResult();
-		} catch (NoResultException nre) {
-
+			return workers;
+		} catch (Exception e) {
 			return null;
 		}
 	}
