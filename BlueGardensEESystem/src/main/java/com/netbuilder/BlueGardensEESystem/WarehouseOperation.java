@@ -60,7 +60,7 @@ public class WarehouseOperation implements Serializable
 		}
 		else if(worker.getPassword().equals(password))
 		{
-			worker.setIsLoggedIn(true);
+			worker.setLoggedIn(true);
 			wwm.updateWarehouseWorker(worker);
 			return "Worker " + worker.getName() + " is logged in";
 		}
@@ -72,7 +72,7 @@ public class WarehouseOperation implements Serializable
 		WarehouseWorker worker = wwm.findById(id);
 		if(worker.isLoggedIn())
 		{
-			worker.setIsLoggedIn(false);
+			worker.setLoggedIn(false);
 			wwm.updateWarehouseWorker(worker);
 			return "Worker " + worker.getName() + " is logged out";
 		}
