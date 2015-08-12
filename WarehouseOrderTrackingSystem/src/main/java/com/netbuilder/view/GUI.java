@@ -20,6 +20,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
+
+import com.netbuilder.model.LoginProducer;
 
 public class GUI extends JFrame {
 	private JFrame mainFrame;
@@ -78,7 +81,21 @@ public class GUI extends JFrame {
 						mainFrame, "Please enter your worker ID", null));
 				password = (JOptionPane.showInputDialog(mainFrame,
 						"Enter your password", null));
-				// login logic called from here
+				SwingUtilities.invokeLater(new Runnable() {
+		            @Override
+		            public void run() {
+		            	LoginProducer lp = new LoginProducer();
+		            	lp.setID(workerID);
+		            	lp.setPassword(password);
+		            	String args[] = {};
+		            	try {
+							LoginProducer.main(args);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+		            }
+		        });
 				JOptionPane.showMessageDialog(mainFrame, "You have logged in");
 				mainLabel.setText("Welcome, you have no assigned orders");
 
