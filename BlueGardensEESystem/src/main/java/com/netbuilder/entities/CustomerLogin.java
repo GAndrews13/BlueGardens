@@ -89,8 +89,9 @@ public class CustomerLogin {
 	 * @param inUsername
 	 * @param inPassword
 	 */
-	public CustomerLogin(long customerID, String inUsername, String inPassword,
+	public CustomerLogin(long customerID, String inUsername, String inEmail, String inPassword,
 			byte[] inSalt) {
+		this.customerEmail = inEmail;
 		this.customerID = customerID;
 		this.customerUsername = inUsername;
 		try {

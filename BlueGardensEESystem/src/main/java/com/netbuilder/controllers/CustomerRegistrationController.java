@@ -194,7 +194,7 @@ public class CustomerRegistrationController {
 		customerSalt = LoginUtils.getNextSalt();
 
 		newCustomerLogin = new CustomerLogin((customerLoginManager.findAll().size()+1),
-				username, password,
+				username, email, password,
 				customerSalt);
 
 		customerManager.persistCustomer(newCustomer);
