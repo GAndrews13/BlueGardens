@@ -256,7 +256,7 @@ public class GUI extends JFrame {
 				
 				orderLineCount = 0;
 				
-				button.setActionCommand("process");
+				button.setActionCommand("product");
 				break;
 				
 				
