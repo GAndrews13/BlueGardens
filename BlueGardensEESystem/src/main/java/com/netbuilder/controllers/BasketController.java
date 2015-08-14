@@ -60,7 +60,7 @@ public class BasketController {
 	
 	public double findTotal()
 	{
-		double total = sessionBasket.getTotal();
+		double total = Math.round(sessionBasket.getTotal());
 		return total;
 	}
 	
