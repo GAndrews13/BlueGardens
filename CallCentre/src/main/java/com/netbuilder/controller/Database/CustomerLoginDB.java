@@ -11,7 +11,7 @@ import com.netbuilder.controller.PersistenceManager;
 import com.netbuilder.model.CustomerLogin;
 import com.netbuilder.controller.CustomerLoginManager;
 
-public class CustomerLoginDatabase implements CustomerLoginManager {
+public class CustomerLoginDB implements CustomerLoginManager {
 
 	@Inject
 	private PersistenceManager pm;
