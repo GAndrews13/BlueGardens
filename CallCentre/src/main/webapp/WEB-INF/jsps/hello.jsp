@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+
+<head>
+</head>
+
 <body>
 <h1>${greeting}</h1>
 </body>
+
 </html>
