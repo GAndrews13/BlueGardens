@@ -2,7 +2,7 @@ package com.netbuilder.controller;
 
 import java.util.ArrayList;
 
-import com.netbuilder.entities.Product;
+import com.netbuilder.model.Product;
 
 /**
  * 

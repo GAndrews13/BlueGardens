@@ -6,8 +6,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
-import com.netbuilder.entities.Product;
-import com.netbuilder.entitymanagers.ProductManager;
+import com.netbuilder.model.Product;
+import com.netbuilder.controller.ProductManager;
 
 /**
  * Handles input from the page and passes it to the logic contained within

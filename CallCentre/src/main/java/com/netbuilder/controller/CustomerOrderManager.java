@@ -2,8 +2,8 @@ package com.netbuilder.controller;
 
 import java.util.ArrayList;
 
-import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
-import com.netbuilder.entities.CustomerOrder;
+import com.netbuilder.model.DeliveryStatus;
+import com.netbuilder.model.CustomerOrder;
 
 /**
  * 

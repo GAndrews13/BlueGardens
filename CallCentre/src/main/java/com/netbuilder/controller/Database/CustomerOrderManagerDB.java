@@ -8,10 +8,10 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.validation.ValidationException;
 
-import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
-import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.entities.CustomerOrder;
-import com.netbuilder.entitymanagers.CustomerOrderManager;
+import com.netbuilder.model.DeliveryStatus;
+import com.netbuilder.controller.PersistenceManager;
+import com.netbuilder.model.CustomerOrder;
+import com.netbuilder.controller.CustomerOrderManager;
 
 /**
  * 

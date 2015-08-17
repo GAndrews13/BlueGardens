@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.entities.CustomerOrderLine;
-import com.netbuilder.entitymanagers.CustomerOrderLineManager;
+import com.netbuilder.controller.PersistenceManager;
+import com.netbuilder.model.CustomerOrderLine;
+import com.netbuilder.controller.CustomerOrderLineManager;
 
 /**
  * @author jmander

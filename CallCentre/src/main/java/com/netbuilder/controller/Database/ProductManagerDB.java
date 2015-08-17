@@ -8,10 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
-import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.customannotations.MethodAuthor;
-import com.netbuilder.entities.Product;
-import com.netbuilder.entitymanagers.ProductManager;
+import com.netbuilder.controller.PersistenceManager;
+import com.netbuilder.model.Product;
+import com.netbuilder.controller.ProductManager;
 
 /**
  * 
@@ -23,7 +22,6 @@ public class ProductManagerDB implements ProductManager {
 	@Inject
 	private PersistenceManager pm;
 
-	@MethodAuthor(name = "Gandrews")
 	public void persistProduct(Product product) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
@@ -34,7 +32,6 @@ public class ProductManagerDB implements ProductManager {
 		pm.CloseEntityManager(em);
 	}
 
-	@MethodAuthor(name = "Gandrews")
 	public void persistProducts(ArrayList<Product> products) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
@@ -46,7 +43,6 @@ public class ProductManagerDB implements ProductManager {
 		pm.CloseEntityManager(em);
 	}
 
-	@MethodAuthor(name = "Gandrews")
 	public void updateProduct(Product product) {
 		EntityManager em = pm.CreateEntityManager();
 		em.getTransaction().begin();
@@ -57,7 +53,6 @@ public class ProductManagerDB implements ProductManager {
 		pm.CloseEntityManager(em);
 	}
 
-	@MethodAuthor(name = "Gandrews")
 	public ArrayList<Product> findByName(String name) {
 		EntityManager em = pm.CreateEntityManager();
 		ArrayList<Product> products = (ArrayList<Product>) em.createQuery(

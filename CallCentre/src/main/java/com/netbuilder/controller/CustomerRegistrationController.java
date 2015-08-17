@@ -6,12 +6,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
-import com.netbuilder.entities.Customer;
-import com.netbuilder.entities.CustomerLogin;
-import com.netbuilder.entitymanagers.CustomerLoginManager;
-import com.netbuilder.entitymanagers.CustomerManager;
+import com.netbuilder.model.Customer;
+import com.netbuilder.model.CustomerLogin;
+import com.netbuilder.controller.CustomerLoginManager;
+import com.netbuilder.controller.CustomerManager;
 import com.netbuilder.service.RegistrationEmail;
-import com.netbuilder.util.LoginUtils;
+import com.netbuilder.model.Utility.LoginUtils;
 
 /**
  * @author jmander

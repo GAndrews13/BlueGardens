@@ -8,9 +8,9 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.validation.ValidationException;
 
-import com.netbuilder.BlueGardensEESystem.PersistenceManager;
-import com.netbuilder.entities.Customer;
-import com.netbuilder.entitymanagers.CustomerManager;
+import com.netbuilder.controller.PersistenceManager;
+import com.netbuilder.model.Customer;
+import com.netbuilder.controller.CustomerManager;
 
 /**
  * @author Jake Database implementation for customer using the Persistence
