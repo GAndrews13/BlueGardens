@@ -106,7 +106,7 @@ public class GUI extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(mainFrame,LoginResponseConsumer.getResponse());
+				JOptionPane.showMessageDialog(mainFrame, workerID + " ,You have been logged in");
 				mainLabel.setText("Welcome, you have no assigned orders");
 
 			}
