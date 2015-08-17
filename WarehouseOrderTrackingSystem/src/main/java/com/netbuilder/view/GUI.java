@@ -133,8 +133,14 @@ public class GUI extends JFrame {
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+<<<<<<< HEAD
+				}
+				JOptionPane.showMessageDialog(mainFrame, workerID + " ,You have been logged in");
+				mainLabel.setText("Welcome, you have no assigned orders");
+=======
 				} */
 				
+>>>>>>> branch 'master' of https://github.com/GAndrews13/BlueGardens
 
 			}
 
