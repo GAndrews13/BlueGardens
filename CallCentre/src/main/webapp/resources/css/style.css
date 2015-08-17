@@ -1,0 +1,535 @@
+/* Media rules */
+@media only screen and (max-width: 480px) {
+	.col {
+		margin: 1% 0 1% 0%;
+	}
+	.span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 {
+		width: 100%;
+	}
+}
+
+/* HTML tag rules */
+* { 
+	margin: 0;
+	color: black;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	height:initial;
+}
+
+ a.hovertext {
+    position: relative;
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+  }
+  
+ a.hovertext:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+  }
+  
+ a.hovertext:hover:after, a.hovertext:focus:after {
+    opacity: 1.0;
+  }
+  
+ a.titleText {
+    position:
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+  }
+  
+a.titleText:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 460px;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+  }
+  
+a.titleText:hover:after, a.hovertext:focus:after {
+    opacity: 1.0;
+  }
+
+body {
+    background-image: url("../img/garden-background.png");	
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+p {
+	word-wrap: break-word;
+	font-size: 2vmin;
+}
+
+p.questionAnswer{
+	width: 20em;
+    display: inline-block;
+	word-wrap: break-word;
+}
+
+/* Class tag rules*/
+.basketHeader {
+	text-align: center;
+	font-size: 5vmin; 
+}
+
+.basketTable{
+	width: 100%;
+	text-align: center;
+}
+
+.basketTableColumn{
+	width: 30%;	
+}
+
+.black_overlay {
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 1001;
+	-moz-opacity: 0.8;
+	opacity: .80;
+	filter: alpha(opacity = 80);
+}
+
+.carouselBack{
+	z-index: -1000;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	width: 70%;
+	margin: auto;
+	max-width: 300px;
+	max-height: 300px;
+	min-height: 300px;
+	min-width: 300px;
+}
+
+.center {
+	text-align: center;
+}
+
+
+
+.col {
+	display: block;
+	float: left;
+	margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child {
+	margin-left: 0em;
+}
+
+.content{
+    background-color:rgba(255, 184, 148, .8);
+    border-radius: 35px;
+    word-wrap: break-word;
+    padding: 2em;
+    margin-left: 10em;
+    margin-right: 10em;
+}
+
+.group {
+	zoom: 1; /* For IE 6/7 */
+}
+
+.group:after {
+	clear: both;
+}
+
+.group:before, .group:after {
+	content: "";
+	display: table;
+}
+
+.javascriptText{
+	font-style:italic bold;
+	text-decoration: underline; 
+	font-size: 1.5vmin;
+}
+.landingContent{
+	padding-left: 7em;
+	padding-right: 7em;
+}
+
+.leftStack {
+	float: left;
+	width: 40%;
+}
+
+.links {
+	width: 40%;
+	height: 10%;
+}
+
+.page-wrap {
+	margin-top: 20px;
+	padding: 60px;
+	padding-bottom: 100px;
+	padding-top: 70px;
+}
+
+.page-wrap:after {
+	content: "";
+	display: block;
+}
+
+.product{
+	height: 40%;
+	width: 40%;
+	
+}
+
+.productImage{
+	width: 100%;
+}
+
+.products {
+	height: 350px;
+	width: 200px;
+	background-color: black;
+	position: absolute;
+}
+
+.product-desc {
+	border: solid 1px;
+	font: 14px Verdana italic;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.4;
+	filter: alpha(opacity = 40);
+}
+
+.product-info {
+	border: solid 1px;
+	font: 16px Verdana italic;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.4;
+	filter: alpha(opacity = 40);
+}
+
+.productCatalogueImage{
+	width: 200%;
+	padding: 10%;
+}
+
+.question {
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 5%;
+}
+
+.questionAnswer {
+	
+}
+
+.questionHeader {
+	font-weight: bold;
+	font-size: 2.2vmin;
+}
+
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+.site-header {
+	height: 9%;
+	top: 0;
+	position: fixed;
+	width: 100%;
+	background-color:rgba(137,220,265, 1);
+	opacity: 1;
+	z-index: 50;
+}
+
+.site-header:hover {
+	 opacity: 1;
+}
+.site-footer {
+	height: 5%;
+	background-color:rgba(137,220,265, 1);
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding-bottom: 2em;
+	z-index: 50;
+}
+
+.span_1_of_4 {
+	width: 23.8%;
+}
+
+.span_2_of_4 {
+	width: 49.2%;
+}
+
+.span_3_of_4 {
+	width: 74.6%;
+}
+
+.span_4_of_4 {
+	width: 100%;
+}
+
+.tableHeaderCells {
+	width: 50%;
+}
+
+.white_content {
+	display: none;
+	position: fixed;
+	top: 25%;
+	left: 25%;
+	width: 40%;
+	height: 50%;
+	padding: 16px;
+	border: 16px solid black;
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+}
+
+
+.wishlistColumn{
+	width:10%;
+}
+
+.wishlistImage{
+	width: 100%;
+	padding: 10%;
+}
+
+.wishlistTable{
+	text-align:center;
+	font: 1.8vmin Century Gothic;
+	font-weight:bold;
+	cellspacing:10;
+}
+
+.wishlistTableHeader{
+	font-weight: bold;
+	font-size: 3vmin;
+}
+
+.bodyOverlay {
+	background-color: #ffffff;
+	margin: 0cm 5cm 2cm 5cm;
+}
+
+/* taken from netbuilder.com */
+.bottommenu {	
+	padding: 0;
+	height: 20%;
+	width: 100%;
+	display: block;
+	background: url('bottomMenuImages.png') repeat-x;
+	margin-bottom: 1em;	
+}
+
+.bottommenu li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: inline-block;
+	text-align: centre;
+	width: 20%;
+}
+
+.bottommenu li a {
+	float: left;
+	padding-left: 20%;
+	display: inline-block;
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	background: url('bottomMenuImages.png') 0px -30px no-repeat;
+}
+
+.bottommenu li a span {
+	line-height: 30%;
+	float: left;
+	display: block;
+	background: url('bottomMenuImages.png') 100% -30px no-repeat;
+}
+
+.bottommenu li a:hover {
+	background-position: 0px -60px;
+	color: rgb(255, 255, 255);
+}
+
+.bottommenu li a:hover span {
+	background-position: 100% -60px;
+}
+
+.bottommenu li a.active, .menu li a.active:hover {
+	line-height: 30px;
+	background: url('bottomMenuImages.png') 0px -90px no-repeat;
+	color: rgb(255, 255, 255);
+}
+
+.bottommenu li a.active span, .menu li a.active:hover span {
+	background: url('bottomMenuImages.png') 100% -90px no-repeat;
+}
+
+.container{
+	width: 50%;
+	z-index: 1;
+}
+
+.headerOverlay {
+	background-color: #ffffff;
+	margin: 2cm 5cm 0cm 5cm;
+}
+
+.leftTitle {
+	font: 3em Century Gothic;
+}
+
+.menu {
+	margin: 0 auto;
+	padding: 0;
+	height: 15%;
+	width: 100%;
+	display: block;
+	background: url('topMenuImages.png') repeat-x;
+}
+
+.menu li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: inline;
+	width: 16.6%;
+	float: left;
+	padding-left: 7%;
+}
+
+.menu li a {
+	float: left;
+	padding-left: 3%;
+	display: block;
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	background: url('topMenuImages.png') 0px -30px no-repeat;
+}
+
+.menu li a span {
+	line-height: 30px;
+	float: left;
+	display: block;
+	padding-right: 15px;
+	background: url('topMenuImages.png') 100% -30px no-repeat;
+}
+
+.menu li a:hover {
+	background-position: 0px -60px;
+	color: rgb(255, 255, 255);
+}
+
+.menu li a:hover span {
+	background-position: 100% -60px;
+}
+
+.menu li a.active, .menu li a.active:hover {
+	line-height: 30px;
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
+	background: url('topMenuImages.png') 0px -90px no-repeat;
+	color: rgb(255, 255, 255);
+}
+
+.menu li a.active span, .menu li a.active:hover span {
+	background: url('topMenuImages.png') 100% -90px no-repeat;
+}
+
+.menuItem{
+	font-size: 1.8vmin;
+}
+
+.menuItem:hover{
+	font-size: 2.6vmin;
+}
+
+.productTitle{
+	font-variant: small-caps;
+	font-size: 4.2vmin;
+	text-align: center;
+}
+
+.productDescription {
+	text-align : center;
+}
+
+/* ID tag rules */
+
+#closeBasketCell {
+	text-align: right;
+}
+
+#companytitle {
+	text-align: center;
+}
+
+#contentHeader{
+	font: 3em Century Gothic;
+	text-align: center;
+}
+
+#headerMenuRow{
+	width:75%;
+	padding-left: 15%;
+	
+}
+
+#logo {
+	display: block;
+	max-width : 150%;
+}
+
+#sale {
+	text-transform: uppercase;
+	color: white;
+	text-shadow: 0.5px 0.5px blue;
+	font-family: Comic Sans, Comic Sans MS, cursive;
+}
+
+#sidebarRight {
+	position: relative;
+	float: right;
+}
+
+#tableContentBlog{
+	width:80%;
+}

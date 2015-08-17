@@ -1,19 +1,15 @@
 package com.netbuilder.model.Utility;
-
-import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.netbuilder.model.Basket;
 import com.netbuilder.model.CustomerOrderLine;
 import com.netbuilder.controller.ProductManager;
 
-@SessionScoped
-@Singleton
+
 public class SessionBasket {
 
 	private Basket basket;
-	@Inject
+	@Autowired
 	ProductManager productManager;
 	
 	public Basket getBasket() {
