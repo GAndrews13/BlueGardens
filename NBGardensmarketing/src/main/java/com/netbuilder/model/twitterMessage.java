@@ -2,9 +2,21 @@ package com.netbuilder.model;
 
 import twitter4j.User;
 
+/**
+ * Represents the instance of a twitter post
+ * @author gandrews
+ *
+ */
 public class twitterMessage {
 	private String username;
 	private String message;
+	private String hashtag;
+	public String getHashtag() {
+		return hashtag;
+	}
+	public void setHashtag(String hashtag) {
+		this.hashtag = hashtag;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -26,5 +38,11 @@ public class twitterMessage {
 	{
 		setUsername(inUser.getName());
 		setMessage(inMessage);
+	}
+	
+	@Override
+	public String toString()
+	{
+		return getUsername() + ": " + getMessage();
 	}
 }
