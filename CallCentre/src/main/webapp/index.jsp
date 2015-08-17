@@ -14,28 +14,27 @@
       <tr>
         <td>Name:</td>
         <td><input type="text"
-            name="${}"
             value="$!" /></td>
       </tr>
       <tr>
         <td>Address:</td>
         <td><input type="text"
-            name="${}"
             value="$!" /></td>
       </tr>
       <tr>
         <td>Email:</td>
         <td><input type= "text"
-            name="${}"
             value="$!" /></td>
       </tr>
       <tr>
         <td>Phone Number:</td>
         <td><input type="text"
-            name="${}"
             value="$!" /></td>
       </tr>
     </table>
   </form:form>
+  <a href="hello?name=Eric">Click Here</a>
+  <br/><br/>
+  <a href="customer?name=Eric">Customer</a>
 </body>
 </html>
