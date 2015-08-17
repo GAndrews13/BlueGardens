@@ -15,6 +15,7 @@ import com.netbuilder.entitymanagers.CustomerOrderManager;
 import com.netbuilder.entitymanagers.ProductManager;
 import com.netbuilder.entitymanagers.WarehouseLocationManager;
 import com.netbuilder.entitymanagers.WarehouseWorkerManager;
+import com.netbuilder.entitymanagers.Dummy.CustomerOrderManagerDummy;
 import com.netbuilder.entitymanagers.Dummy.ProductManagerDummy;
 import com.netbuilder.entitymanagers.Dummy.WarehouseLocationManagerDummy;
 
@@ -39,6 +40,7 @@ public class WarehouseOperation implements Serializable
 
 	public WarehouseOperation()
 	{
+		customerOrderManager = new CustomerOrderManagerDummy();
 		openOrders = customerOrderManager.findByDeliveryStatus(DeliveryStatus.ORDER_PLACED);	
 		assignedOrders = customerOrderManager.findByDeliveryStatus(DeliveryStatus.PROCESSING);
 	}

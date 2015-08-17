@@ -32,9 +32,9 @@ public class OrderMessageReceiver {
 		pol.add(new ProductOrderLine(new Product("gnome2", 7, 5, 10, false,
 				10.5, false, "a", "little", "gnome", "in", "the garden",
 				"test", false), 7));
-		orders.add(new CustomerOrder(12, new Customer(123654, "John", "Diggle",
-				"here", "john@diggle.com", "004475249873", "ACTIVE"), pol));
-		System.out.println("Received <" + message + ">");
+	
+		orders.add(new CustomerOrder(1, true, 10001, "standard", 1, 1, DeliveryStatus.PROCESSING, 19.99));
+				System.out.println("Received <" + message + ">");
 
 		context.close();
 		FileSystemUtils.deleteRecursively(new File("activemq-data"));

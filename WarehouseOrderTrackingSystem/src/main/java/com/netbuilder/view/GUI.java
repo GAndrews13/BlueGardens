@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -23,8 +24,14 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
 import com.netbuilder.model.ActionWOTS;
+import com.netbuilder.model.CustomerOrder;
+import com.netbuilder.model.CustomerOrderLine;
+import com.netbuilder.model.DummyData;
 import com.netbuilder.model.LoginProducer;
 import com.netbuilder.model.LoginResponseConsumer;
+import com.netbuilder.model.Product;
+import com.netbuilder.model.WarehouseLocation;
+import com.netbuilder.model.WarehouseWorker;
 
 public class GUI extends JFrame {
 	private JFrame mainFrame;
@@ -33,16 +40,28 @@ public class GUI extends JFrame {
 	private JTextArea nextproduct;
 	private JTextArea location;
 	private int workerID;
+	private boolean isLoggedIn = false;
 	private String password;
+	private static DummyData dummyData;
 	String response;
 	private JButton button = new JButton("Next order");
-	private Font productfont = new Font("Verdana", Font.ITALIC, 72);
-	private Font locationfont = new Font("Verdana", Font.ITALIC, 50);
-	private Font labelfont = new Font("Verdana", Font.BOLD, 20);
+	private Font productfont = new Font("Verdana", Font.ITALIC, 22);
+	private Font locationfont = new Font("Verdana", Font.ITALIC, 20);
+	private Font labelfont = new Font("Verdana", Font.BOLD, 14);
 	private Image productimage = null;
+	private ArrayList<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
+	private ArrayList<CustomerOrderLine> currentOrderLines = new ArrayList<CustomerOrderLine>();;
+	private CustomerOrder currentOrder;
+	private int orderLineCount = 0;
 	ActionWOTS action;
 
 	public GUI() {
+		dummyData = new DummyData();
+		for(CustomerOrder c : dummyData.getCustomerOrders()){
+			if(c.getIsAssigned() == false){
+				customerOrders.add(c);
+			}
+		}
 		prepareGUI();
 	}
 
@@ -84,8 +103,17 @@ public class GUI extends JFrame {
 				workerID = Integer.parseInt(JOptionPane.showInputDialog(
 						mainFrame, "Please enter your worker ID", null));
 				password = (JOptionPane.showInputDialog(mainFrame,
-						"Enter your password", null));
-				SwingUtilities.invokeLater(new Runnable() {
+						"Enter your password", null));				
+
+				for(int i = 0; i<dummyData.getWorkers().size(); i++){
+					if(dummyData.getWorkers().get(i).getWorkerId() == workerID && dummyData.getWorkers().get(i).getPassword().equals(password)){
+						isLoggedIn = true;
+						mainLabel.setText("Welcome " + dummyData.getWorkers().get(i).getName() + ", you have no assigned orders");
+					}
+				}	
+				
+				
+				/* SwingUtilities.invokeLater(new Runnable() {
 		            @Override
 		            public void run() {
 		            	LoginProducer lp = new LoginProducer();
@@ -105,9 +133,14 @@ public class GUI extends JFrame {
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+<<<<<<< HEAD
 				}
 				JOptionPane.showMessageDialog(mainFrame, workerID + " ,You have been logged in");
 				mainLabel.setText("Welcome, you have no assigned orders");
+=======
+				} */
+				
+>>>>>>> branch 'master' of https://github.com/GAndrews13/BlueGardens
 
 			}
 
@@ -151,28 +184,140 @@ public class GUI extends JFrame {
 	private class ButtonClickListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent AE) {
+			
+			if(workerID > 0){
+				
+				if(customerOrders.isEmpty()){
+					location.setText("No Location");
+					nextproduct.setText("N/A");
+					mainLabel.setText("There are no more unassigned customer orders");
+				}else{
+			
 			String command = AE.getActionCommand();
 			switch (command) {
 			case "process":
 				if (button.getText() == "Next Order") {
-					mainLabel.setText("Order has been assigned to you");
-					response = action.setOrder();
-					System.out.println(response);
-					nextproduct.setText("response");
-					button.setText("Collected");
 
-					setImage();
-				} else {
+					button.setText("Next Product");
+					
+					break;
+				}
+			
+			case "product":
+				
+				//----------------------------------------------------------------------------------------------
+				
+				if(orderLineCount == 0){
+					customerOrders.get(0).setWorker(workerID);
+					customerOrders.get(0).setIsAssigned(true);
+					currentOrder = customerOrders.get(0);
+					customerOrders.remove(0);
+					
+					for(CustomerOrderLine col : dummyData.getCustomerOrderLines()){
+						if(currentOrder.getCustomerOrderID() == col.getCustomerOrderID()){
+							currentOrderLines.add(col);
+						}
+					}
+								
+					location.setText("Warehouse Location: " + findByProduct(currentOrderLines.get(0).getProductId()).getLocationId());
+					nextproduct.setText("Product ID: " + currentOrderLines.get(0).getProductId() + "\nProduct Name: "
+					+ findByID(currentOrderLines.get(0).getProductId()).getProductName() +
+							"\nQuantity: " + currentOrderLines.get(0).getQuantity());
+					currentOrderLines.get(0).setIsPicked(true);
+					
+					button.setActionCommand("product");
+					
+					orderLineCount++;
+				}
+				
+				//----------------------------------------------------------------------------------------------
+				
+				mainLabel.setText("Order has been assigned to you");
+				button.setText("Next Product");
+				
+				if(currentOrderLines.size() > 0){
+					location.setText("Warehouse Location: " + findByProduct(currentOrderLines.get(0).getProductId()).getLocationId());
+					nextproduct.setText("Product ID: " + currentOrderLines.get(0).getProductId() + "\nProduct Name: "
+					+ findByID(currentOrderLines.get(0).getProductId()).getProductName() +
+							"\nQuantity: " + currentOrderLines.get(0).getQuantity());
+					currentOrderLines.remove(0);
+					button.setActionCommand("product");
+				}else{
+					button.setActionCommand("collected");
+				}
+				break;
+				
+			case "collected":
+				
+				mainLabel.setText("Order Collected");
+				button.setText("Next Order");
+				
+				location.setText("No Location");
+				nextproduct.setText("N/A");
+				
+				if(currentOrderLines.size() > 0){
+					updateOrder(currentOrder.getCustomerOrderID());
+					updateOrderLines(currentOrder.getCustomerOrderID());
+				}
+				
+				orderLineCount = 0;
+				
+				button.setActionCommand("product");
+				break;
+				
+				
+				 default: 
 					mainLabel.setText("No orders are assigned to you");
 
 					button.setText("Next Order");
-				}
+				
 
+			}
+				}
+			
+		}else if (workerID == 0){
+			mainLabel.setText("Please log in");
+		}
+		
+		}
+	}
+
+	
+	public WarehouseLocation findByProduct(int productID){
+		for(WarehouseLocation wl : dummyData.getLocations()){
+			if(wl.getProductId() == productID){
+				return wl;
+			}
+		}
+		return null;
+	}
+	
+	public Product findByID(int productID){
+		for(Product p : dummyData.getProducts()){
+			if(p.getProductID() == productID){
+				return p;
+			}
+		}
+		return null;
+	}
+	
+	public void updateOrder (int customerOrderID){
+		for(CustomerOrder co : dummyData.getCustomerOrders()){
+			if(co.getCustomerOrderID() == customerOrderID){
+				co.setIsAssigned(true);
+			}
+		}
+	}
+	
+	public void updateOrderLines (int customerOrderID){
+		for(CustomerOrderLine col : dummyData.getCustomerOrderLines()){
+			if(col.getCustomerOrderID() == customerOrderID){
+				col.setIsPicked(true);
 			}
 		}
 	}
 
-	private void setImage() {
+	/*private void setImage() {
 		try {
 			URL url = new URL(
 					"http://www.personal.psu.edu/acr117/blogs/audrey/images/image-2.jpg");
@@ -192,5 +337,5 @@ public class GUI extends JFrame {
 		// add more components here
 		mainFrame.add(mainPanel);
 		mainFrame.setVisible(true);
-	}
+	}*/
 }

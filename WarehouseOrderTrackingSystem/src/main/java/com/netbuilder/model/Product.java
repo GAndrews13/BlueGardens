@@ -1,24 +1,29 @@
 package com.netbuilder.model;
 
+
 /**
  * 
  * @author JamesThompson This Entity is used as the mapping for the products
  *         table
  */
+
 public class Product {
-	public static final String FIND_BY_OUT_STOCK = "Product.findByOutStock";
-	public static final String FIND_BY_PRODUCT_ID = "Product.findByProductId";
-	public static final String FIND_BY_NAME = "Product.findByName";
-	public static final String FIND_BY_SALE = "Product.findBySale";
-	public static final String FIND_BY_POUROUSWARE = "Product.findByPourousware";
-	public static final String FIND_BY_TRENDING = "Product.findByTrending";
-	public static final String FIND_BY_IMAGE_LINK = "Product.findByImageLink";
+
 	private int productID;
+
+
 	private String productName;
+
 	private int stockLevel;
+
 	private int minimumThreshold;
+
 	private int recommendedLevel;
+
+
 	private boolean isPorousware;
+
+
 	private double price;
 
 	/**
@@ -28,17 +33,28 @@ public class Product {
 	 * 
 	 * @author lczornyj
 	 */
+
+
 	private boolean isSale;
 
 	// FEATURE 1 AND FEATURE 2 ARE THE ONES THAT ARE VISABLE IN THE LANDING
 	// PAGE, MAKE SURE THESE ARE THE MAIN FEATURES
 	// THAT YOU WANT VISABLE FOR THE USER.
+
 	private String featureOne;
+
+
 	private String featureTwo;
+
 	private String featureThree;
+
+
 	private String featureFour;
+
 	private String featureFive;
+
 	private String imageLink;
+
 	private boolean isTrending;
 
 	/**
