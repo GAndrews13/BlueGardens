@@ -10,7 +10,7 @@ public class Main {
 		SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-            	String args[] = {};
+            	String[] args = {};
             	
             	//try {
 					//LoginResponseConsumer.main(args);

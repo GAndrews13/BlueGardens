@@ -25,9 +25,9 @@ public class LoginConsumer implements MessageListener, ExceptionListener{
 	private Session session = null;
 	private Destination destination = null;
 	private MessageConsumer consumer = null;
-	private int id = -1;
-	private String password;
-	private static String response;
+	private static int id = -1;
+	private static String password = "";
+	private static String response = "";
 	private boolean quit = false;
 	
 	 /**
@@ -72,44 +72,44 @@ public class LoginConsumer implements MessageListener, ExceptionListener{
 	public void onMessage(Message msg)
 	{
 	    try {
-	     String msgText;
-	     if (msg instanceof TextMessage) {
-	       msgText = ((TextMessage)msg).getText();
-	     } else {
-	       msgText = msg.toString();
-	     }
-	     
-	     if (msgText.startsWith("Password")) {
-		       synchronized(this) {
-		    	   String[]temp = null;
-		    	 System.out.println("Message Received: "+ msgText );
-		    	 temp = msgText.split("Password:");
-		    	 password = temp[0];
+		     String msgText;
+		     if (msg instanceof TextMessage) {
+		       msgText = ((TextMessage)msg).getText();
+		     } else {
+		       msgText = msg.toString();
+		     }
+		     
+		     if (msgText.startsWith("Password")) {
+			       synchronized(this) {
+			    	 System.out.println("Message Received: "+ msgText );
+			    	 password = msgText.substring(9);
+			         this.notifyAll(); // Notify main thread to quit
+			       }
+			     }
+		     if (msgText.startsWith("ID")) 
+		     {
+			       synchronized(this) {
+			    	 System.out.println("Message Received: "+ msgText );
+			    	 id = Integer.parseInt(msgText.substring(3));
+			         this.notifyAll(); // Notify main thread to quit
+			       }
+			 }
+	
+		     if (msgText.equalsIgnoreCase("quit")) 
+		     {
+		       synchronized(this) 
+		       {
+		         quit = true;
 		         this.notifyAll(); // Notify main thread to quit
 		       }
 		     }
-	     if (msgText.startsWith("ID")) {
-		       synchronized(this) {
-		    	   String[]temp = null;
-		    	 System.out.println("Message Received: "+ msgText );
-		    	 temp = msgText.split("ID:");
-		    	 System.out.println("Message id:"+ temp );
-		    	 id = Integer.parseInt(temp[0]);
-		         this.notifyAll(); // Notify main thread to quit
-		       }
+		     
+		     if (authenticateWorker())
+		     {
+		    	   String[] args = {};
+		    	   LoginResponseProducer.main(args);
 		     }
-
-	     if (msgText.equalsIgnoreCase("quit")) {
-	       synchronized(this) {
-	         quit = true;
-	         this.notifyAll(); // Notify main thread to quit
-	       }
-	       if (authenticateWorker())
-	       {
-	    	   String args[] = {};
-	    	   LoginResponseProducer.main(args);
-	       }
-	     }
+		     
 	    } catch (JMSException jmse) {
 	     System.err.println("An exception occurred: "+jmse.getMessage());
 	    } catch (Exception e) {
@@ -120,7 +120,7 @@ public class LoginConsumer implements MessageListener, ExceptionListener{
 	
 	public boolean authenticateWorker()
 	{
-		if(!(id == -1) && !(password.equals(null)))
+		if(id > -1 && !password.equals(""))
 		{
 			WarehouseOperation wo = new WarehouseOperation();
 			response = wo.loginWorker(id, password);
@@ -136,7 +136,7 @@ public class LoginConsumer implements MessageListener, ExceptionListener{
 		   //  System.out.println("Usage: java examples.jms.queue.QueueReceive WebLogicURL");
 		   //  return;
 		   // }
-		    
+	    	 
 		    LoginConsumer qr = new LoginConsumer();
 		    qr.init();
 
