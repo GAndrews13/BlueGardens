@@ -13,6 +13,11 @@ public class loggingHandle {
 	private static final String eventLogPath = "eventLog.txt";
 	
 	
+	/**
+	 * Used to log all errors within the system
+	 * @param e The exception noted within the program
+	 * @param inErrorLocation The location within the code, this provides us with a location the exception has been passed from
+	 */
 	public static void errorLog(Exception e, String inErrorLocation)
 	{
 		File file = new File(errorLogPath);
@@ -31,6 +36,7 @@ public class loggingHandle {
 				bw.write(
 						String.format("ERROR (%s) @ %s: %s", dateFormat.format(cal.getTime()),inErrorLocation, e.getMessage())
 						);
+				System.out.println(String.format("ERROR (%s) @ %s: %s", dateFormat.format(cal.getTime()),inErrorLocation, e.getMessage()));
 				bw.flush();
 				bw.close();
 			}
@@ -41,6 +47,11 @@ public class loggingHandle {
 		}
 	}
 	
+	/**
+	 * Used to log all actions completed within the system
+	 * @param inLocation
+	 * @param inMessage
+	 */
 	public static void log(String inLocation, String inMessage)
 	{
 		File file = new File(eventLogPath);
@@ -59,6 +70,7 @@ public class loggingHandle {
 				bw.write(
 						String.format("Event (%s) @ %s: %s", dateFormat.format(cal.getTime()),inLocation, inMessage)
 						);
+				System.out.println(String.format("Event (%s) @ %s: %s", dateFormat.format(cal.getTime()),inLocation, inMessage));
 				bw.flush();
 				bw.close();
 			}
