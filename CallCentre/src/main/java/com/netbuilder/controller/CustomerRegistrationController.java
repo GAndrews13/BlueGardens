@@ -1,10 +1,7 @@
 package com.netbuilder.controller;
 
 import java.util.ArrayList;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
+import org.springframework.stereotype.Controller;
 
 import com.netbuilder.model.Customer;
 import com.netbuilder.model.CustomerLogin;
@@ -17,12 +14,9 @@ import com.netbuilder.model.Utility.LoginUtils;
  * @author jmander
  **/
 
-@ManagedBean(name = "customerRegistrationController")
-@RequestScoped
+@Controller
 public class CustomerRegistrationController {
-	@Inject
 	private CustomerManager customerManager;
-	@Inject
 	private CustomerLoginManager customerLoginManager;
 	private Customer newCustomer;
 	private CustomerLogin newCustomerLogin;

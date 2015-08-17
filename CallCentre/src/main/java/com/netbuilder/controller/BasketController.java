@@ -1,10 +1,7 @@
 package com.netbuilder.controller;
 
 import java.util.ArrayList;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
+import org.springframework.stereotype.Controller;
 
 import com.netbuilder.model.DeliveryStatus;
 import com.netbuilder.model.CustomerOrder;
@@ -14,17 +11,12 @@ import com.netbuilder.controller.CustomerOrderManager;
 import com.netbuilder.controller.ProductManager;
 import com.netbuilder.model.Utility.SessionBasket;
 
-@ManagedBean(name="basketController")
-@SessionScoped
+@Controller
 public class BasketController {
 
-	@Inject
 	private SessionBasket sessionBasket;
-	@Inject
 	private ProductManager productManager;
-	@Inject
 	private CustomerOrderManager customerOrderManager;
-	@Inject
 	private CustomerOrderLineManager customerOrderLineManager;
 	private DeliveryStatus deliveryStatus;
 	private ArrayList<Product> items = new ArrayList<Product>();

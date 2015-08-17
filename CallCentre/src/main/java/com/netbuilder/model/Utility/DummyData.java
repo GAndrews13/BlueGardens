@@ -2,9 +2,6 @@ package com.netbuilder.model.Utility;
 
 import java.util.ArrayList;
 
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-
 import com.netbuilder.model.DeliveryStatus;
 import com.netbuilder.model.Customer;
 import com.netbuilder.model.CustomerLogin;
@@ -13,8 +10,6 @@ import com.netbuilder.model.CustomerOrderLine;
 import com.netbuilder.model.Product;
 import com.netbuilder.model.WarehouseWorker;
 
-@Singleton
-@Startup
 public class DummyData {
 
 	private Customer customer1;

@@ -1,10 +1,7 @@
 package com.netbuilder.controller;
 
 import java.util.ArrayList;
-
-import javax.enterprise.context.RequestScoped;
-import javax.faces.bean.ManagedBean;
-import javax.inject.Inject;
+import org.springframework.stereotype.Controller;
 
 import com.netbuilder.model.Product;
 import com.netbuilder.controller.ProductManager;
@@ -16,10 +13,8 @@ import com.netbuilder.controller.ProductManager;
  * @author Jake
  *
  */
-@ManagedBean(name = "searchController")
-@RequestScoped
+@Controller
 public class SearchController {
-	@Inject
 	private ProductManager productManager;
 	private String searchTerm;
 	private ArrayList<Product> results;
