@@ -1,21 +1,16 @@
 package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
-
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
+import com.netbuilder.model.DeliveryStatus;
+import com.netbuilder.model.CustomerOrder;
+import com.netbuilder.controller.CustomerOrderManager;
+import com.netbuilder.model.Utility.DummyData;
 
-import com.netbuilder.BlueGardensEESystem.DeliveryStatus;
-import com.netbuilder.entities.CustomerOrder;
-import com.netbuilder.entitymanagers.CustomerOrderManager;
-import com.netbuilder.util.DummyData;
-
-/**
- * 
- * @author jmander
- * 
- *         Customer Order Manager with dummy data
- *
+/** 
+ * @author jmander 
+ * Customer Order Manager with dummy data *
  **/
 @Alternative
 public class CustomerOrderManagerDummy implements CustomerOrderManager {

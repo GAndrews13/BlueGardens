@@ -1,13 +1,11 @@
 package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
-
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
-
-import com.netbuilder.entities.CustomerOrderLine;
-import com.netbuilder.entitymanagers.CustomerOrderLineManager;
-import com.netbuilder.util.DummyData;
+import com.netbuilder.model.CustomerOrderLine;
+import com.netbuilder.controller.CustomerOrderLineManager;
+import com.netbuilder.model.Utility.DummyData;
 
 /**
  * 

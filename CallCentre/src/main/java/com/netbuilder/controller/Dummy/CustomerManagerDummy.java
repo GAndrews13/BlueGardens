@@ -1,7 +1,6 @@
 package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
-
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
@@ -9,9 +8,9 @@ import javax.inject.Inject;
  * @author Jake
  *  Dummy class for testing if the customer entity can be manipulated	
  */
-import com.netbuilder.entities.Customer;
-import com.netbuilder.entitymanagers.CustomerManager;
-import com.netbuilder.util.DummyData;
+import com.netbuilder.model.Customer;
+import com.netbuilder.controller.CustomerManager;
+import com.netbuilder.model.Utility.DummyData;
 
 /**
  * @author jmander and Jake and abalagel

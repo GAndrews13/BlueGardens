@@ -1,13 +1,11 @@
 package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
-
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
-
-import com.netbuilder.entities.Product;
-import com.netbuilder.entitymanagers.ProductManager;
-import com.netbuilder.util.DummyData;
+import com.netbuilder.model.Product;
+import com.netbuilder.controller.ProductManager;
+import com.netbuilder.model.Utility.DummyData;
 
 /**
  * 
