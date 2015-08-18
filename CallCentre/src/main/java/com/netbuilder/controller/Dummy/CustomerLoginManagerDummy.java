@@ -3,8 +3,6 @@ package com.netbuilder.controller.Dummy;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
-
 import com.netbuilder.model.CustomerLogin;
 import com.netbuilder.controller.CustomerLoginManager;
 import com.netbuilder.model.Utility.DummyData;
@@ -18,8 +16,7 @@ import com.netbuilder.model.Utility.LoginUtils;
 @Alternative
 public class CustomerLoginManagerDummy implements CustomerLoginManager {
 
-	@Inject
-	private DummyData dd;
+	DummyData dd = new DummyData();
 
 	public void persistCustomerLogin(CustomerLogin customerLogin) {
 			dd.setCustomerLogin(customerLogin);

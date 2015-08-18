@@ -2,7 +2,6 @@ package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
 import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
 import com.netbuilder.model.Product;
 import com.netbuilder.controller.ProductManager;
 import com.netbuilder.model.Utility.DummyData;
@@ -14,8 +13,7 @@ import com.netbuilder.model.Utility.DummyData;
 @Alternative
 public class ProductManagerDummy implements ProductManager {
 
-	@Inject
-	private DummyData dd;
+	DummyData dd = new DummyData();
 
 	public void persistProduct(Product product) {
 		dd.setProduct(product);
