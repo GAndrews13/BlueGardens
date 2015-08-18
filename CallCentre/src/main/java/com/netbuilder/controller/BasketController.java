@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.netbuilder.controller.Dummy.CustomerManagerDummy;
+import com.netbuilder.controller.Dummy.CustomerOrderManagerDummy;
 import com.netbuilder.controller.Dummy.ProductManagerDummy;
 import com.netbuilder.model.Customer;
 import com.netbuilder.model.Product;
@@ -25,6 +26,7 @@ public class BasketController {
 	public ModelAndView showMessage(@RequestParam (value = "id", required = false, defaultValue = "0") String id)
 	{ 
 		CustomerManagerDummy customerManagerDummy = new CustomerManagerDummy();
+		CustomerOrderManagerDummy customerOrderManagerDummy = new CustomerOrderManagerDummy();
 		ProductManagerDummy productManagerDummy = new ProductManagerDummy();
 		Customer customer = new Customer();
 		customer = customerManagerDummy.findByID(Long.parseLong(id));
@@ -37,7 +39,7 @@ public class BasketController {
 		mv.addObject("surName",customer.getLastName().toUpperCase());
 		mv.addObject("firstName",customer.getFirstName());
 		mv.addObject("customerID",id);
-		mv.addObject("customerOrderID","1");
+		mv.addObject("customerOrderID",(customerOrderManagerDummy.findAll().size()+1));
 		mv.addObject("products", products);
 		return mv;
 	}

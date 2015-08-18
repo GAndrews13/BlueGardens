@@ -4,13 +4,15 @@
 <html>
 
 <head>
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Basket</title>
 </head>
 
 <body>
-
-	<center>
+<div id="contentHeader">
+Basket
+</div>
 	
 		<table>
 			<tr>
@@ -38,7 +40,6 @@
 		    ${product.getStockLevel()}<br/>
 		    ${product.getPrice()}<br/><br/><br/>
 		</c:forEach>
-		
-	</center>
+
 </body>
 </html>
