@@ -8,34 +8,22 @@
   <title>Call Centre Application</title>
 </head>
 <body>
-  <h1>Add New Customer</h1>
-  <form:form commandName="exercise">
-    <table>
-      <tr>
-        <td>Name:</td>
-        <td><input type="text"
-            name="${}"
-            value="$!" /></td>
-      </tr>
-      <tr>
-        <td>Address:</td>
-        <td><input type="text"
-            name="${}"
-            value="$!" /></td>
-      </tr>
-      <tr>
-        <td>Email:</td>
-        <td><input type= "text"
-            name="${}"
-            value="$!" /></td>
-      </tr>
-      <tr>
-        <td>Phone Number:</td>
-        <td><input type="text"
-            name="${}"
-            value="$!" /></td>
-      </tr>
-    </table>
-  </form:form>
+  <table>
+		<tr>
+			<th rowspan="2">
+				<!--<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/>  --> 
+				<a href="index.jsp"><img src="..resources/img/logo.png" id="logo" alt="NBGardens"/></a>
+			</th>
+			<td>
+			</td>
+			<td>
+				<span>
+				</span>
+			</td>
+			<td>
+			</td>
+		</tr>
+	</table>
+	
 </body>
 </html>

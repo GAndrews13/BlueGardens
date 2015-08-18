@@ -6,13 +6,14 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <title>Call Centre Application</title>
+  <link href="resources/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<table>
 		<tr>
 			<th rowspan="2">
 				<!--<img src="../images/NB-Gardens.png" alt="NB Gardens" width=180px height=90px/>  --> 
-				<a href="landingPage.xhtml"><img src="resources/img/logo.png" id="logo" alt="NBGardens"/></a>
+				<a href="index.jsp"><img src="resources/img/logo.png" id="logo" alt="NBGardens"/></a>
 			</th>
 			<td>
 			</td>
