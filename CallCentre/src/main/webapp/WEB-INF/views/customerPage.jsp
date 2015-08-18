@@ -3,14 +3,54 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Spring 4 MVC -HelloWorld</title>
+<title>Customer Details</title>
 </head>
 <body>
 	<center>
-		<h2>Customer Details</h2>
-		<h2>
-			${message} ${name}
-		</h2>
+		<table>
+			<tr>
+				<th colspan="2">
+					Customer Name: ${surName}, ${firstName}
+				</th>
+			</tr>
+			<tr>
+				<th colspan="2">
+					Status: ${accountStatus}
+				</th>
+			</tr>
+			<tr>
+				<td>
+					Customer ID:
+				</td>
+				<td>
+					${id}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Email: 
+				</td>
+				<td>
+					${email}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Contact Number:  
+				</td>
+				<td>
+					${contactNumber}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Address: 
+				</td>
+				<td>
+					${address}
+				</td>
+			</tr>
+		</table>
 	</center>
 </body>
 </html>
