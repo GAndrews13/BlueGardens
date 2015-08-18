@@ -7,5 +7,30 @@
 </head>
 <body>
 
+	<fieldset>
+		
+	<legend>Customer Search:</legend>
+		
+	<form method="get" action="customer" >
+	  	<input name="id" title="ID" value="" size="30" maxlength="2048" />
+	  	<input type="submit" value="     Search by ID     " width="100">
+	</form>
+	
+	<br/><br/>
+	
+	<form method="get" action="customer" >
+		<input name="name" title="Name" value="" size="30" maxlength="2048" />
+	  	<input type="submit" value="   Search by name   " size="100">
+	</form>
+	
+	<br/><br/>
+	
+	<form method="get" action="customer" >
+		<input name="username" title="Username" value="" size="30" maxlength="2048" />
+	  	<input type="submit" value="Search by username" maxlength="100">
+	</form>
+	
+	</fieldset>
+
 </body>
 </html>
