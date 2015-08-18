@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-</head>
-<body>
-	<div id="fb-root"></div>
+<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
+				return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=403001713105454";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		
+		function postToFeed(title, desc, url, image){
+			var obj = {method: 'feed',link: url, picture: 'http://www.url.com/images/'+image,name: title,description: desc};
+			function callback(response){}
+			FB.ui(obj, callback);
+			}
+	</script>
+<div id="fb-root"></div>
 	<script>
 		window.fbAsyncInit = function() {
 			FB.init({
@@ -18,20 +29,66 @@
 		};
 	</script>
 
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
 	<div data-role="tabs" id="tabs-1">
 		<div data-role="navbar">
 			<ul>
-				<li><a href="#tab-1a" data-ajax="false">Tab 1</a></li>
-				<li><a href="#tab-1b" data-ajax="false">Tab 2</a></li>
-				<li><a href="#tab-1c" data-ajax="false">Tab 3</a></li>
+				<li><a href="#tab-1a" data-ajax="false" data-theme="a">Facebook</a></li>
+				<li><a href="#tab-1b" data-ajax="false" data-theme="a">Twitter</a></li>
+				<li><a href="#tab-1c" data-ajax="false" data-theme="a">Update</a></li>
+				<li><a href="#tab-1d" data-ajax="false" data-theme="a">Metrics</a></li>
 			</ul>
 		</div>
 		<div id="tab-1a" class="ui-body-d ui-content">
-			<h4>Twitter Panel</h4>
-			<div id="fb-root"></div>
-	<table>
-		<tr>
+			<h4>Facebook</h4>
+			<td>
+				<div id="fb-root"></div>
+				<div class="fb-page fb_iframe_widget"
+					data-href="https://www.facebook.com/pages/NB-Gardens/1451279795195170"
+					data-small-header="false" data-adapt-container-width="true"
+					data-hide-cover="false" data-show-facepile="true"
+					data-show-posts="true" fb-xfbml-state="rendered"
+					fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=113869198637480&amp;container_width=588&amp;
+hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;sdk=joey&amp;
+show_facepile=true&amp;show_posts=true&amp;small_header=false">
+					<span style="width: 340px; height: 384px; vertical-align: bottom;">
+						<iframe name="f240358ac6cd2c8" width="1000px" height="1000px"
+							title="fb:page Facebook Social Plugin"
+							src="https://www.facebook.com/v2.3/plugins/page.php?adapt_container_width=true&amp;app_id=113869198637480&amp;channel=https%3A%2F%2Fs-static.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FX9pYjJn4xhW.js%3Fversion%3D41%23cb%3Df1399277ae16a01%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ff26033454e3ee62%26relation%3Dparent.parent&amp;
+container_width=588&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;
+sdk=joey&amp;show_facepile=true&amp;show_posts=true&amp;small_header=false"
+							frameborder="0" scrolling="no" allowfullscreen="true"
+							style="border: medium; border-image: none; width: 340px; height: 384px; visibility: visible;"
+							allowtransparency="true"></iframe>
+					</span>
+					<div
+					data-href="https://www.facebook.com/sirgarth11"
+					data-numposts="5" class="fb-comments fb_iframe_widget"
+					fb-xfbml-state="rendered">
+					<span style="height: 251px; width: 550px;"><iframe
+							id="f12ed842e4" name="f3d1b24ab8" scrolling="no"
+							title="Facebook Social Plugin" class="fb_ltr"
+							src="https://www.facebook.com/plugins/comments.php?api_key=113869198637480&amp;channel_url=https%3A%2F%2Fs-static.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F7tUlZKGPU61.js%3Fversion%3D41%23cb%3Df2ce903b0c%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ffc131a3f%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;numposts=5&amp;sdk=joey&amp;version=v2.3&amp;width=550"
+							style="border: none; overflow: hidden; height: 500px; width: 800px;"></iframe></span>
+				</div>
+				<div>
+					<h3>Click "On a page you manage" before you post"</h3>
+					
+				 	
+				 	<a href="http://www.facebook.com/sharer.php?u=https://www.facebook.com/pages/NB-Gardens/1451279795195170" target="_blank">
+        				<img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+    				</a>
+				</div>
+				</div>
+			</td>
+		</div>
+		<div id="tab-1b" class="ui-body-d ui-content">
+			<h4>Twitter</h4>
 			<td><a class="twitter-timeline"
 				href="https://twitter.com/NB_Gardens"
 				data-widget-id="633264212714913792">Tweets by @NB_Gardens</a> <script>
@@ -61,65 +118,12 @@
 					}(document, "script", "twitter-wjs");
 				</script></td>
 		</div>
-		
-		<div id="tab-1b" class="ui-body-d ui-content">
-		<script>
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id))
-				return;
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=403001713105454";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-		
-		function postToFeed(title, desc, url, image){
-			var obj = {method: 'feed',link: url, picture: 'http://www.url.com/images/'+image,name: title,description: desc};
-			function callback(response){}
-			FB.ui(obj, callback);
-			}
-	</script>
-		<h4>NBGardens News feed</h4>
-						<div id="fb-root"></div>
-				<div class="fb-page fb_iframe_widget"
-					data-href="https://www.facebook.com/pages/NB-Gardens/1451279795195170"
-					data-small-header="false" data-adapt-container-width="true"
-					data-hide-cover="false" data-show-facepile="true"
-					data-show-posts="true" fb-xfbml-state="rendered"
-					fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=113869198637480&amp;container_width=588&amp;
-hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;sdk=joey&amp;
-show_facepile=true&amp;show_posts=true&amp;small_header=false">
-					<span style="width: 340px; height: 384px; vertical-align: bottom;">
-						<iframe name="f240358ac6cd2c8" width="1000px" height="1000px"
-							title="fb:page Facebook Social Plugin"
-							src="https://www.facebook.com/v2.3/plugins/page.php?adapt_container_width=true&amp;app_id=113869198637480&amp;channel=https%3A%2F%2Fs-static.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FX9pYjJn4xhW.js%3Fversion%3D41%23cb%3Df1399277ae16a01%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ff26033454e3ee62%26relation%3Dparent.parent&amp;
-container_width=588&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;
-sdk=joey&amp;show_facepile=true&amp;show_posts=true&amp;small_header=false"
-							frameborder="0" scrolling="no" allowfullscreen="true"
-							style="border: medium; border-image: none; width: 340px; height: 384px; visibility: visible;"
-							allowtransparency="true"></iframe>
-					</span>
-				</div>
-			<h4>Post to Facebook</h4>
-			<div
-					data-href="https://www.facebook.com/sirgarth11"
-					data-numposts="5" class="fb-comments fb_iframe_widget"
-					fb-xfbml-state="rendered">
-					<span style="height: 251px; width: 550px;"><iframe
-							id="f12ed842e4" name="f3d1b24ab8" scrolling="no"
-							title="Facebook Social Plugin" class="fb_ltr"
-							src="https://www.facebook.com/plugins/comments.php?api_key=113869198637480&amp;channel_url=https%3A%2F%2Fs-static.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F7tUlZKGPU61.js%3Fversion%3D41%23cb%3Df2ce903b0c%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ffc131a3f%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FNB-Gardens%2F1451279795195170&amp;locale=en_GB&amp;numposts=5&amp;sdk=joey&amp;version=v2.3&amp;width=550"
-							style="border: none; overflow: hidden; height: 500px; width: 800px;"></iframe></span>
-				</div>
-				
-		</div>
 		<div id="tab-1c" class="ui-body-d ui-content">
-			<h4>Update Advertisement images</h4>
+			<h4>Update</h4>
 			<form action="http://www.cs.tut.fi/cgi-bin/run/~jkorpela/echo.cgi"
 				enctype="multipart/form-data" method="post">
 				<p>
-					<p>Please select web element to override</p>
+					<h3>Please select web element to override</h3>
 				<select>
   				<option value="volvo">Ad top</option>
   				<option value="bentley">Ad bottom</option>
@@ -134,20 +138,12 @@ sdk=joey&amp;show_facepile=true&amp;show_posts=true&amp;small_header=false"
 				<input type="submit" value="Send">
 				</div>
 				</form>
-				
-				
-				<div>
-					<h3>Click "On a page you manage" before you post"</h3>
-					
-				 	
-				 	<a href="http://www.facebook.com/sharer.php?u=https://www.facebook.com/pages/NB-Gardens/1451279795195170" target="_blank">
-        				<img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-    				</a>
-				</div>
-				
-			</td>
+		</div>
+		<div id="tab-1d" class="ui-body-d ui-content">
+			<h4>Metrics</h4>
 		</div>
 	</div>
+	
 
 </body>
 </html>
