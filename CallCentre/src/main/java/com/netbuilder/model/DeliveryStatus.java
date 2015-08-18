@@ -1,5 +1,9 @@
 package com.netbuilder.model;
 
+/**
+ * @author david ogbonnah
+ * **/
+
 public enum DeliveryStatus {
 
 	DELIVERED("Delivered"), DISPATCHED("Dispatched"), PROCESSING("Processed"), READY(

@@ -8,6 +8,10 @@ import com.netbuilder.entities.Basket;
 import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entitymanagers.ProductManager;
 
+/**
+ * @author jmander
+ * **/
+
 @SessionScoped
 @Singleton
 public class SessionBasket {

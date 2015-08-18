@@ -11,6 +11,10 @@ import com.netbuilder.BlueGardensEESystem.PersistenceManager;
 import com.netbuilder.entities.CustomerLogin;
 import com.netbuilder.entitymanagers.CustomerLoginManager;
 
+/**
+ * @author gandrews
+ * **/
+
 public class CustomerLoginDB implements CustomerLoginManager {
 
 	@Inject

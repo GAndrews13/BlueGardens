@@ -11,6 +11,10 @@ import com.netbuilder.controller.CustomerOrderManager;
 import com.netbuilder.controller.ProductManager;
 import com.netbuilder.model.Utility.SessionBasket;
 
+/**
+ * @author jmander
+ * **/
+
 @Controller
 public class BasketController {
 

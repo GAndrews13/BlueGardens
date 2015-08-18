@@ -5,6 +5,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
+/**
+ * @author david ogbonnah
+ * **/
+
 //@Singleton
 public class PersistenceManager {
 

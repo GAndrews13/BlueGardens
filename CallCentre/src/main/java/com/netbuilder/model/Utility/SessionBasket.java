@@ -5,6 +5,9 @@ import com.netbuilder.model.Basket;
 import com.netbuilder.model.CustomerOrderLine;
 import com.netbuilder.controller.ProductManager;
 
+/**
+ * @author jmander
+ * **/
 
 public class SessionBasket {
 

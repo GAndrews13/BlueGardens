@@ -10,6 +10,10 @@ import com.netbuilder.model.CustomerOrderLine;
 import com.netbuilder.model.Product;
 import com.netbuilder.model.WarehouseWorker;
 
+/**
+ * @author jmander
+ * **/
+
 public class DummyData {
 
 	private Customer customer1;

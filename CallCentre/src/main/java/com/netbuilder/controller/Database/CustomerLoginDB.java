@@ -11,6 +11,10 @@ import com.netbuilder.controller.PersistenceManager;
 import com.netbuilder.model.CustomerLogin;
 import com.netbuilder.controller.CustomerLoginManager;
 
+/**
+ * @author gandrews
+ * **/
+
 public class CustomerLoginDB implements CustomerLoginManager {
 
 	@Inject

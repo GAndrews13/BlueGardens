@@ -14,6 +14,10 @@ import com.netbuilder.entitymanagers.CustomerOrderManager;
 import com.netbuilder.entitymanagers.ProductManager;
 import com.netbuilder.util.SessionBasket;
 
+/**
+ * @author jmander
+ * **/
+
 @ManagedBean(name="basketController")
 @SessionScoped
 public class BasketController {
