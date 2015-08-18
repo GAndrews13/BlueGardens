@@ -1,12 +1,19 @@
 package com.netbuilder.controller;
 
 import java.util.ArrayList;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.netbuilder.model.Customer;
 import com.netbuilder.model.CustomerLogin;
 import com.netbuilder.controller.CustomerLoginManager;
 import com.netbuilder.controller.CustomerManager;
+import com.netbuilder.controller.Dummy.CustomerLoginManagerDummy;
+import com.netbuilder.controller.Dummy.CustomerManagerDummy;
 import com.netbuilder.service.RegistrationEmail;
 import com.netbuilder.model.Utility.LoginUtils;
 
@@ -16,6 +23,47 @@ import com.netbuilder.model.Utility.LoginUtils;
 
 @Controller
 public class CustomerRegistrationController {
+
+	@RequestMapping("/customerRegistration")
+	public ModelAndView customerSearchTest(){
+		
+		ModelAndView mv = new ModelAndView("customerRegistration");
+		return mv;
+		
+	}
+	
+	@RequestMapping("/registeredCustomer")
+	public ModelAndView showNewMessage(@RequestParam (required=true) Map<String,String> requestParams)
+	{ 	
+	  	
+		System.out.println("we here");
+		
+		CustomerManagerDummy customerManagerDummy = new CustomerManagerDummy();
+		CustomerLoginManagerDummy customerLoginManagerDummy = new CustomerLoginManagerDummy();
+		Customer customer = new Customer((customerManagerDummy.findAll().size()+1), requestParams.get("firstName"), requestParams.get("lastName"),
+				requestParams.get("address"), requestParams.get("contactNumber"), requestParams.get("email"), "ACTIVE");
+		CustomerLogin customerLogin = new CustomerLogin((customerManagerDummy.findAll().size()+1), requestParams.get("username"), requestParams.get("email"),
+				requestParams.get("password"), LoginUtils.getNextSalt());
+
+
+		
+		ModelAndView mv = new ModelAndView("registeredCustomer");
+		mv.addObject("lastName",requestParams.get("lastName").toUpperCase());
+		mv.addObject("firstName",requestParams.get("firstName"));
+		mv.addObject("accountStatus","ACTIVE");
+		mv.addObject("username", requestParams.get("username"));
+		mv.addObject("id",(customerManagerDummy.findAll().size()+1));
+		mv.addObject("email",requestParams.get("email"));
+		mv.addObject("contactNumber",requestParams.get("contactNumber"));
+		mv.addObject("address",requestParams.get("address"));
+		
+		customerManagerDummy.persistCustomer(customer);
+		customerLoginManagerDummy.persistCustomerLogin(customerLogin);
+		
+		 return mv;
+		 		
+	}
+	/*
 	private CustomerManager customerManager;
 	private CustomerLoginManager customerLoginManager;
 	private Customer newCustomer;
@@ -199,6 +247,6 @@ public class CustomerRegistrationController {
 		
 		return "login";
 		
-	}
+	}*/
 
 }

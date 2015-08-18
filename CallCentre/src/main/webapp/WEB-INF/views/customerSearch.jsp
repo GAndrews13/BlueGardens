@@ -19,18 +19,15 @@
 	<br/><br/>
 	
 	<form method="get" action="customer" >
-		<input name="name" title="Name" value="" size="30" maxlength="2048" />
-	  	<input type="submit" value="   Search by name   " size="100">
-	</form>
-	
-	<br/><br/>
-	
-	<form method="get" action="customer" >
 		<input name="username" title="Username" value="" size="30" maxlength="2048" />
 	  	<input type="submit" value="Search by username" maxlength="100">
 	</form>
 	
 	</fieldset>
+	
+	<br/><br/>
+	
+	<a href="basket?id=1">Basket</a>
 
 </body>
 </html>

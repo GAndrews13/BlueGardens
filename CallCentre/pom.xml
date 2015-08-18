@@ -6,7 +6,6 @@
   <packaging>war</packaging>
   
   <dependencies>
- 
  	<dependency>
 		<groupId>javax</groupId>
 		<artifactId>javaee-api</artifactId>
@@ -84,8 +83,12 @@
 		<artifactId>spring-oxm</artifactId>
 		<version>4.2.0.RELEASE</version>
 	</dependency>
-   
-   
+	
+	<dependency>
+		<groupId>org.apache.activemq</groupId>
+		<artifactId>activemq-core</artifactId>
+		<version>5.7.0</version>
+	</dependency>
   </dependencies>
   
   <properties>
