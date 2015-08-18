@@ -36,7 +36,7 @@
 				</td>
 				<td>${product.getStockLevel()}<br />
 				</td>
-				<td><a href="#"> Add to basket</a></td>
+				<td><a href=""> Add to basket</a></td>
 			</tr>
 		</c:forEach>
 	</table>

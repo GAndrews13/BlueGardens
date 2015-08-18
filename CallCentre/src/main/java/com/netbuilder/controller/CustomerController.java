@@ -47,7 +47,6 @@ public class CustomerController {
 			customer = customerManagerDummy.findByID(id);
 			if(customer!= null)
 			{
-
 			//String surName ="Error",firstName ="Error",accountStatus ="Error",email ="Error",contactNumber ="Error",address ="Error";
 			mv.addObject("surName",customer.getLastName());
 			mv.addObject("firstName",customer.getFirstName());
