@@ -15,6 +15,10 @@ import com.netbuilder.entities.WarehouseLocation;
 import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entities.WishlistItems;
 
+/**
+ * @author jmander
+ * **/
+
 @Singleton
 @Startup
 public class DummyData {

@@ -10,6 +10,11 @@ import com.netbuilder.entitymanagers.CustomerLoginManager;
 import com.netbuilder.util.DummyData;
 import com.netbuilder.util.LoginUtils;
 
+/**
+ * @author gandrews
+ * @author jmander
+ * **/
+
 @Alternative
 public class CustomerLoginManagerDummy implements CustomerLoginManager {
 
