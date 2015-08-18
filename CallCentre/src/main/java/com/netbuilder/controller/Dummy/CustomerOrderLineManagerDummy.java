@@ -2,7 +2,6 @@ package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
 import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
 import com.netbuilder.model.CustomerOrderLine;
 import com.netbuilder.controller.CustomerOrderLineManager;
 import com.netbuilder.model.Utility.DummyData;
@@ -15,8 +14,8 @@ import com.netbuilder.model.Utility.DummyData;
 
 @Alternative
 public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
-	@Inject
-	DummyData dd;
+
+	DummyData dd = new DummyData();
 
 	public void persistCustomerOrderLine(CustomerOrderLine customerOrderLine) {
 		dd.setCustomerOrderLine(customerOrderLine);
