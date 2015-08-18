@@ -2,6 +2,9 @@ package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
 
+
+import javax.enterprise.inject.Alternative;
+
 /**
  * @author Jake
  *  Dummy class for testing if the customer entity can be manipulated	
@@ -13,7 +16,7 @@ import com.netbuilder.model.Utility.DummyData;
 /**
  * @author jmander and Jake and abalagel
  * **/
-
+@Alternative
 public class CustomerManagerDummy implements CustomerManager {
 	/**
 	 * @author Jake Add new customer into array list
