@@ -22,6 +22,9 @@ import javax.validation.constraints.Size;
 public class Customer {
 	public static final String FIND_BY_OUT_STOCK = "Customer.findByOutStock";
 	public static final String FIND_BY_NAME = "Customer.findByName";
+	
+	public Customer() {
+	}
 
 	/**
 	 * @author Jake Attributes for customer including unique ID for customer
