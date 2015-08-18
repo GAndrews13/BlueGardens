@@ -1,8 +1,6 @@
 package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
-import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
 
 /**
  * @author Jake
@@ -16,14 +14,12 @@ import com.netbuilder.model.Utility.DummyData;
  * @author jmander and Jake and abalagel
  * **/
 
-@Alternative
 public class CustomerManagerDummy implements CustomerManager {
 	/**
 	 * @author Jake Add new customer into array list
 	 */
 
-	@Inject
-	private DummyData dd;
+	DummyData dd = new DummyData();
 
 	public void persistCustomer(Customer customer) {
 		dd.setCustomer(customer);

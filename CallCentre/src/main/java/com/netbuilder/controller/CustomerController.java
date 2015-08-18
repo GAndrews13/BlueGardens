@@ -12,6 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.netbuilder.controller.Dummy.CustomerManagerDummy;
+import com.netbuilder.model.Utility.DummyData;
  
 @Controller
 public class CustomerController {
@@ -22,6 +25,10 @@ public class CustomerController {
 	@RequestMapping("/customer")
 	public ModelAndView showMessage(@RequestParam (required=true) Map<String,String> requestParams)
 	{ 
+		CustomerManagerDummy customerManagerDummy = new CustomerManagerDummy();
+		
+		System.out.println(customerManagerDummy.findAll().get(0).getFirstName());
+		
 		ModelAndView mv = new ModelAndView("customerPage");
 		String surName ="Error",firstName ="Error",accountStatus ="Error",id ="Error",email ="Error",contactNumber ="Error",address ="Error";
 		mv.addObject("surName",requestParams.get("surName"));

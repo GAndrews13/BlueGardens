@@ -15,7 +15,7 @@ public class HelloWorldController {
  
 	@RequestMapping("/hello")
 	public ModelAndView showMessage(
-			@RequestParam(value = "name", required = false, defaultValue = "World") String name) { 
+			@RequestParam(value = "name", required = false, defaultValue = "Tony Stark") String name) { 
 		ModelAndView mv = new ModelAndView("helloworld");
 		mv.addObject("message", message);
 		mv.addObject("name", name);

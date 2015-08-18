@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import com.netbuilder.model.Customer;
 
 public interface CustomerManager {
+	
 	/**
 	 * @author Jake Create a customer
 	 */
