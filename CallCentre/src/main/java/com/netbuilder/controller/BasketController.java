@@ -1,72 +1,45 @@
 package com.netbuilder.controller;
-
-import java.util.ArrayList;
-import org.springframework.stereotype.Controller;
-
-import com.netbuilder.model.DeliveryStatus;
-import com.netbuilder.model.CustomerOrder;
-import com.netbuilder.model.Product;
-import com.netbuilder.controller.CustomerOrderLineManager;
-import com.netbuilder.controller.CustomerOrderManager;
-import com.netbuilder.controller.ProductManager;
-import com.netbuilder.model.Utility.SessionBasket;
-
+ 
 /**
  * @author jmander
  * **/
 
+
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.netbuilder.controller.Dummy.CustomerManagerDummy;
+import com.netbuilder.controller.Dummy.ProductManagerDummy;
+import com.netbuilder.model.Customer;
+import com.netbuilder.model.Product;
+ 
 @Controller
-public class BasketController {
-
-	private SessionBasket sessionBasket;
-	private ProductManager productManager;
-	private CustomerOrderManager customerOrderManager;
-	private CustomerOrderLineManager customerOrderLineManager;
-	private DeliveryStatus deliveryStatus;
-	private ArrayList<Product> items = new ArrayList<Product>();
-	private int quantity;
+public class BasketController { 
+	private ArrayList<Product> products;
 	
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public ArrayList<Product> getItems() {
-		return items;
-	}
-
-	public void setItems(ArrayList<Product> items) {
-		this.items = items;
-	}
-
-	public BasketController(){
+	@RequestMapping("/basket")
+	public ModelAndView showMessage(@RequestParam (value = "id", required = false, defaultValue = "0") String id)
+	{ 
+		CustomerManagerDummy customerManagerDummy = new CustomerManagerDummy();
+		ProductManagerDummy productManagerDummy = new ProductManagerDummy();
+		Customer customer = new Customer();
+		customer = customerManagerDummy.findByID(Long.parseLong(id));
+		products = new ArrayList<Product>();
+		products = productManagerDummy.findAll();
+		
+		ModelAndView mv = new ModelAndView("basket");
+		
+		//String surName ="Error",firstName ="Error",accountStatus ="Error",email ="Error",contactNumber ="Error",address ="Error";
+		mv.addObject("surName",customer.getLastName().toUpperCase());
+		mv.addObject("firstName",customer.getFirstName());
+		mv.addObject("customerID",id);
+		mv.addObject("customerOrderID","1");
+		mv.addObject("products", products);
+		return mv;
 	}
 	
-	public String addProduct(int productID){
-		if(quantity!=0){
-			sessionBasket.addToBasket(productID, quantity);
-			items.add(productManager.findById(productID));
-		}
-		quantity = 1;
-		return "productCatalog";
-	}
-	
-	public double findTotal()
-	{
-		double total = Math.round(sessionBasket.getTotal());
-		return total;
-	}
-	
-	public void checkoutBasket(){
-		for(int i=0; i<sessionBasket.getBasket().getCustomerOrderLines().size(); i++){
-			customerOrderLineManager.persistCustomerOrderLine(sessionBasket.getBasket().getCustomerOrderLines().get(i));
-		}
-		customerOrderManager.persistCustomerOrder(new CustomerOrder(
-				sessionBasket.getBasket().getCustomerOrderID(), false, sessionBasket.getBasket().getCustomerOrderID(), "Standard delivery",
-				sessionBasket.getBasket().getCustomerId(), 0, deliveryStatus.ORDER_PLACED, findTotal()));
-	}
-
 }
