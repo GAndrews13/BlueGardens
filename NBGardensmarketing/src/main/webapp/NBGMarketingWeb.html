@@ -117,20 +117,47 @@ sdk=joey&amp;show_facepile=true&amp;show_posts=true&amp;small_header=false"
 		</div>
 		<div id="tab-1c" class="ui-body-d ui-content">
 			<h4>Update</h4>
-			<form action="http://www.cs.tut.fi/cgi-bin/run/~jkorpela/echo.cgi"
+			<script type="text/javascript">
+			function uploadFile(input){
+				//Creates a file reader
+				var reader = new FileReader();
+				//When the file loader is created set the file readers output to the image src
+				reader.onload = function(e) {
+				    // get loaded data and render thumbnail.
+				    document.getElementById("testImage").src = e.target.result;
+				    //var link = document.getElementById("downloadButton");
+				    var link = document.createElement("a");
+				    var selector = document.getElementById("selector");
+					link.download = selector.options[selector.selectedIndex].value.replace(" ","");
+					var uri = e.target.result;
+					link.href = uri;
+					document.body.appendChild(link);
+					link.click();
+					document.body.removeChild(link);				
+					delete link;
+
+					
+				};				
+				// read the image file as a data URL, which can then be pointed to and acts as a web address
+				reader.readAsDataURL(document.getElementById("imageFile").files[0]);
+								
+				}				
+			</script>						
+			<form action="javascript:uploadFile(this)"
 				enctype="multipart/form-data" method="post">				
 				<h3>Please select web element to override</h3>
-				<select>
-  				<option value="volvo">Ad top</option>
-  				<option value="bentley">Ad bottom</option>
-  				<option value="mercedes">Slider image 1</option>
-  				<option value="audi">Slider image 2</option>
+				<select id="selector">
+		  				<option value="slider1">Slider 1</option>
+		  				<option value="slider2">Slider 2</option>
+		  				<option value="slider3">Slider 3</option>
+		  				<option value="slider4">Slider 4</option>
 				</select>
-				<br>
-				Please specify a file, or a set of files:<br>
-				<input type="file" name="datafile" size="40">				
+				<br/>
+				Please specify a file, or a set of files:<br/>
+				<input type="file" name="datafile" size="40"  id="imageFile">				
 				<input type="submit" value="Send">				
-				</form>
+				</form>			
+				<img id="testImage" src=""/>									
 		</div>
 		<div id="tab-1d" class="ui-body-d ui-content">
 			<h4>Metrics</h4>
