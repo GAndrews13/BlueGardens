@@ -22,6 +22,7 @@ public class ProcessEmail
 	private PDDocument document = new PDDocument();
 	private PDPage page1 = new PDPage(PDPage.PAGE_SIZE_A4);
 	private static PDFont defaultFont = PDType1Font.HELVETICA;
+	private static PDFont headingFont = PDType1Font.HELVETICA_BOLD;
 	PDPageContentStream content;
 	
 	public ProcessEmail()
@@ -65,7 +66,7 @@ public class ProcessEmail
 			content.moveTo(30, 10);
 			//Draw line (Estimated position and length)
 			content.setLineWidth(1);
-			content.addLine(100, 700, 300, 700);
+			content.addLine(80, 700, 300, 700);
 			content.closeAndStroke();
 			
 			content.beginText();
@@ -74,7 +75,7 @@ public class ProcessEmail
 			content.drawString("First Name");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(120, 680, 300, 680);
+			content.addLine(108, 680, 300, 680);
 			content.closeAndStroke();
 			
 			content.beginText();
@@ -83,7 +84,7 @@ public class ProcessEmail
 			content.drawString("Surname");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(110, 660, 300, 660);
+			content.addLine(105, 660, 300, 660);
 			content.closeAndStroke();
 			
 			content.beginText();
@@ -92,7 +93,7 @@ public class ProcessEmail
 			content.drawString("Telephone");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(110, 640, 300, 640);
+			content.addLine(108, 640, 300, 640);
 			content.closeAndStroke();
 			
 			content.beginText();
@@ -101,7 +102,7 @@ public class ProcessEmail
 			content.drawString("Mobile");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(100, 620, 300, 620);
+			content.addLine(86, 620, 300, 620);
 			content.closeAndStroke();
 			
 			content.beginText();
@@ -110,7 +111,7 @@ public class ProcessEmail
 			content.drawString("Email");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(100, 600, 300, 600);
+			content.addLine(80, 600, 300, 600);
 			content.closeAndStroke();
 			
 			content.beginText();
@@ -134,32 +135,32 @@ public class ProcessEmail
 			content.closeAndStroke();
 			
 			content.beginText();
-			content.setFont(PDType1Font.HELVETICA, 12);
-			content.moveTextPositionByAmount(50, 555);
+			content.setFont(defaultFont, 12);
+			content.moveTextPositionByAmount(50, 575);
 			content.drawString("Please fill out the form in BLOCK CAPITALS");
 			content.endText();
 			
 			content.beginText();
-			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
-			content.moveTextPositionByAmount(55, 535);
+			content.setFont(headingFont, 12);
+			content.moveTextPositionByAmount(55, 555);
 			content.drawString("Qty.");
 			content.endText();
 			
 			content.beginText();
-			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
-			content.moveTextPositionByAmount(120, 535);
+			content.setFont(headingFont, 12);
+			content.moveTextPositionByAmount(120, 555);
 			content.drawString("Product ID");
 			content.endText();
 			
 			content.beginText();
-			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
-			content.moveTextPositionByAmount(310, 535);
+			content.setFont(headingFont, 12);
+			content.moveTextPositionByAmount(310, 555);
 			content.drawString("Product Name");
 			content.endText();
 			
 			content.beginText();
-			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
-			content.moveTextPositionByAmount(510, 535);
+			content.setFont(headingFont, 12);
+			content.moveTextPositionByAmount(510, 555);
 			content.drawString("Price");
 			content.endText();
 			
@@ -192,11 +193,15 @@ public class ProcessEmail
 		for(int i = 0; i<= rows; ++i)
 		{
 			try {
-				if(i == 1)
+				if(i == 0)
 				{
 					content.setLineWidth(3);
+					content.drawLine(margin, nextY, margin+tableWidth, nextY);
 				}
-				content.drawLine(margin, nextY, margin+tableWidth, nextY);
+				else
+				{
+					content.drawLine(margin, nextY, margin+tableWidth, nextY);
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -215,7 +220,7 @@ public class ProcessEmail
 		//draw the columns
 	    float nextx = margin+50;
 	    for (int i = 0; i <= columns; i++) {
-	        content.drawLine(nextx, y-25, nextx, y-tableHeight);
+	        content.drawLine(nextx, y, nextx, y-tableHeight);
 	        nextx += columnWidth;
 	    }
 		
