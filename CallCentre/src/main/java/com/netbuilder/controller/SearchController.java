@@ -21,7 +21,7 @@ import com.netbuilder.controller.Dummy.ProductManagerDummy;
  */
 @Controller
 public class SearchController {
-	private ProductManagerDummy productManager;
+	ProductManagerDummy productManager = new ProductManagerDummy();
 	private String searchTerm;
 	private ArrayList<Product> results;
 	private String msg = "Please enter a product name to search for";
@@ -86,48 +86,60 @@ public class SearchController {
 	@RequestMapping("/productSearch")
 	public ModelAndView productSearch(@RequestParam (required=false) Map<String,String> requestParams){
 		ModelAndView mv = new ModelAndView("productSearch");
-
+		System.out.println("Searching");
 		try
 		{
+			System.out.println("Stage 1");
 			results = new ArrayList<Product>();
 			results = productManager.findAll();
+			System.out.println("Stage 2");
 			String infoRequest;
 		
 			ArrayList<Product> returnList = new ArrayList<Product>();
 			
 			if(requestParams.containsKey("productName"))
 			{
+				System.out.println("Search: Product Name");
 				infoRequest = requestParams.get("productName");
 				for(Product p : results)
 				{
-					if(p.getProductName().contains(infoRequest))
+					if(p.getProductName().toLowerCase().contains(infoRequest.toLowerCase()))
 					{
+						System.out.println("Product Found");
 						returnList.add(p);
 					}
+				}
+				if(returnList.isEmpty())
+				{
+					System.out.println("Product Not Found");
 				}
 			}
 			else if(requestParams.containsKey("productID"))
 			{
+				System.out.println("Search: Product ID");
 				infoRequest=requestParams.get("productID");
 				for(Product p : results)
 				{
 					if(p.getProductID() == Long.parseLong(infoRequest))
 					{
+						System.out.println("Product Found");		
 						returnList.add(p);
 						break;
 					}
 				}
+				if(returnList.isEmpty())
+				{
+					System.out.println("Product Not Found");
+				}
 			}
+			mv.addObject("products", returnList);
 			
-			for(Product p: returnList)
-			{
-				//add all products to the MV
-				
-			}
+			System.out.println("Returning MV");
+			return mv;
 		}
 		catch (Exception e)
 		{
-			System.out.println(e.toString());
+			System.out.println("Error: "+ e.toString());
 		}
 		return mv;
 	}
