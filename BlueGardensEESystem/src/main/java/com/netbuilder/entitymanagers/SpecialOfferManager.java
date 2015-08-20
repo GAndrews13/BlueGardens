@@ -1,6 +1,5 @@
 package com.netbuilder.entitymanagers;
 
-import com.netbuilder.entities.Discount;
 import com.netbuilder.entities.SpecialOffer;
 
 /**

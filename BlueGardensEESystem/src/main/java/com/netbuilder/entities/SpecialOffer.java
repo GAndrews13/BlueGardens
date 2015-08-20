@@ -46,14 +46,5 @@ public class SpecialOffer {
 		this.startTime = inStartTime;
 		this.endTime = inEndTime;
 		this.discountCode = inDiscountCode;
-	}
-	
-	public SpecialOffer(String inSpecialOfferID, Date inStartTime, Date inEndTime, long inProductID, double inDiscount, String inDiscountType)
-	{
-		this.specialOfferID = inSpecialOfferID;
-		this.startTime = inStartTime;
-		this.endTime = inEndTime;
-		
-		Discount discount = new Discount(inProductID,inDiscount,inDiscountType);
-	}
+	}	
 }

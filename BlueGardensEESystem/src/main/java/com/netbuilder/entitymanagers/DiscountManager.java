@@ -11,9 +11,7 @@ import com.netbuilder.entities.Discount;
 public interface DiscountManager {
 	public void persistDiscount(Discount inDiscount);
 	
-	public void disableDiscount(Discount inDiscount);
-	
-	public void findDiscountById(long inDiscountID);
+	public Discount findDiscountById(long inDiscountID);
 	
 	public void updateDiscount(Discount inDiscount);
 	
