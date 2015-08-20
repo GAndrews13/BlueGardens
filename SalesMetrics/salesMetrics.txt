@@ -1,0 +1,200 @@
+5,Machine Gun Gnome,55.0,557,547,10
+10,Heater,32.0,2000,1841,159
+1,Gnomes on Swing,135.0,2000,1937,63
+3,Arsenal Gnome,85.0,2000,1874,126
+2,Mini Garden,20.0,1200,1197,3
+7,Garden Lights,120.0,600,530,70
+4,Deck,15.0,648,575,73
+6,Garden Fountain,4500.0,400,374,26
+8,Garden Bench,200.0,600,562,38
+9,Jacuzzi,25000.0,380,327,53
+5,Machine Gun Gnome,55.0,2000,1445,555
+10,Heater,32.0,1841,1556,285
+1,Gnomes on Swing,135.0,1937,1829,108
+3,Arsenal Gnome,85.0,1874,1549,325
+2,Mini Garden,20.0,1197,1109,88
+7,Garden Lights,120.0,2000,1925,75
+4,Deck,15.0,575,436,139
+6,Garden Fountain,4500.0,374,315,59
+8,Garden Bench,200.0,562,550,12
+9,Jacuzzi,25000.0,1200,1187,13
+5,Machine Gun Gnome,55.0,1445,948,497
+10,Heater,32.0,1556,1147,409
+1,Gnomes on Swing,135.0,1829,1756,73
+3,Arsenal Gnome,85.0,1549,1055,494
+2,Mini Garden,20.0,1109,1017,92
+7,Garden Lights,120.0,1925,1881,44
+4,Deck,15.0,436,318,118
+6,Garden Fountain,4500.0,1200,1113,87
+8,Garden Bench,200.0,550,542,8
+9,Jacuzzi,25000.0,1187,1174,13
+5,Machine Gun Gnome,55.0,2000,1888,112
+10,Heater,32.0,1147,1023,124
+1,Gnomes on Swing,135.0,1756,1588,168
+3,Arsenal Gnome,85.0,1055,853,202
+2,Mini Garden,20.0,1017,905,112
+7,Garden Lights,120.0,1881,1814,67
+4,Deck,15.0,1200,1171,29
+6,Garden Fountain,4500.0,1113,1110,3
+8,Garden Bench,200.0,542,526,16
+9,Jacuzzi,25000.0,1174,1171,3
+5,Machine Gun Gnome,55.0,1888,1512,376
+10,Heater,32.0,1023,582,441
+1,Gnomes on Swing,135.0,1588,1487,101
+3,Arsenal Gnome,85.0,853,762,91
+2,Mini Garden,20.0,905,867,38
+7,Garden Lights,120.0,1814,1750,64
+4,Deck,15.0,1171,1003,168
+6,Garden Fountain,4500.0,1110,1017,93
+8,Garden Bench,200.0,526,525,1
+9,Jacuzzi,25000.0,1171,1142,29
+5,Machine Gun Gnome,55.0,1512,1381,131
+10,Heater,32.0,2000,1546,454
+1,Gnomes on Swing,135.0,1487,1449,38
+3,Arsenal Gnome,85.0,2000,1632,368
+2,Mini Garden,20.0,867,837,30
+7,Garden Lights,120.0,1750,1725,25
+4,Deck,15.0,1003,982,21
+6,Garden Fountain,4500.0,1017,1015,2
+8,Garden Bench,200.0,525,498,27
+9,Jacuzzi,25000.0,1142,1083,59
+5,Machine Gun Gnome,55.0,1381,1336,45
+10,Heater,32.0,1546,1092,454
+1,Gnomes on Swing,135.0,1449,1252,197
+3,Arsenal Gnome,85.0,1632,1449,183
+2,Mini Garden,20.0,837,732,105
+7,Garden Lights,120.0,1725,1607,118
+4,Deck,15.0,982,882,100
+6,Garden Fountain,4500.0,1015,1006,9
+8,Garden Bench,200.0,498,475,23
+9,Jacuzzi,25000.0,1083,1064,19
+5,Machine Gun Gnome,55.0,1336,1024,312
+10,Heater,32.0,1092,991,101
+1,Gnomes on Swing,135.0,1252,1085,167
+3,Arsenal Gnome,85.0,1449,986,463
+2,Mini Garden,20.0,732,664,68
+7,Garden Lights,120.0,1607,1560,47
+4,Deck,15.0,882,655,227
+6,Garden Fountain,4500.0,1006,989,17
+8,Garden Bench,200.0,475,451,24
+9,Jacuzzi,25000.0,1064,1062,2
+5,Machine Gun Gnome,55.0,2000,1529,471
+10,Heater,32.0,991,948,43
+1,Gnomes on Swing,135.0,1085,1026,59
+3,Arsenal Gnome,85.0,986,801,185
+2,Mini Garden,20.0,664,621,43
+7,Garden Lights,120.0,1560,1533,27
+4,Deck,15.0,655,552,103
+6,Garden Fountain,4500.0,989,903,86
+8,Garden Bench,200.0,451,438,13
+9,Jacuzzi,25000.0,1062,1051,11
+5,Machine Gun Gnome,55.0,1529,1518,11
+10,Heater,32.0,948,562,386
+1,Gnomes on Swing,135.0,1026,913,113
+3,Arsenal Gnome,85.0,801,521,280
+2,Mini Garden,20.0,621,504,117
+7,Garden Lights,120.0,1533,1520,13
+4,Deck,15.0,552,400,152
+6,Garden Fountain,4500.0,903,865,38
+8,Garden Bench,200.0,438,406,32
+9,Jacuzzi,25000.0,1051,1046,5
+5,Machine Gun Gnome,55.0,1518,1097,421
+10,Heater,32.0,2000,1908,92
+1,Gnomes on Swing,135.0,913,750,163
+3,Arsenal Gnome,85.0,2000,1648,352
+2,Mini Garden,20.0,504,386,118
+7,Garden Lights,120.0,1520,1500,20
+4,Deck,15.0,400,328,72
+6,Garden Fountain,4500.0,865,816,49
+8,Garden Bench,200.0,406,367,39
+9,Jacuzzi,25000.0,1046,1005,41
+5,Machine Gun Gnome,55.0,1097,826,271
+10,Heater,32.0,1908,1484,424
+1,Gnomes on Swing,135.0,750,658,92
+3,Arsenal Gnome,85.0,1648,1493,155
+2,Mini Garden,20.0,386,379,7
+7,Garden Lights,120.0,1500,1471,29
+4,Deck,15.0,1200,1041,159
+6,Garden Fountain,4500.0,816,753,63
+8,Garden Bench,200.0,367,330,37
+9,Jacuzzi,25000.0,1005,984,21
+5,Machine Gun Gnome,55.0,826,798,28
+10,Heater,32.0,1484,1300,184
+1,Gnomes on Swing,135.0,2000,1837,163
+3,Arsenal Gnome,85.0,1493,1061,432
+2,Mini Garden,20.0,379,313,66
+7,Garden Lights,120.0,1471,1348,123
+4,Deck,15.0,1041,963,78
+6,Garden Fountain,4500.0,753,748,5
+8,Garden Bench,200.0,330,322,8
+9,Jacuzzi,25000.0,984,963,21
+5,Machine Gun Gnome,55.0,798,779,19
+10,Heater,32.0,1300,1236,64
+1,Gnomes on Swing,135.0,1837,1736,101
+3,Arsenal Gnome,85.0,1061,847,214
+2,Mini Garden,20.0,1200,1086,114
+7,Garden Lights,120.0,1348,1294,54
+4,Deck,15.0,963,958,5
+6,Garden Fountain,4500.0,748,648,100
+8,Garden Bench,200.0,322,318,4
+9,Jacuzzi,25000.0,963,950,13
+5,Machine Gun Gnome,55.0,779,528,251
+10,Heater,32.0,1236,1228,8
+1,Gnomes on Swing,135.0,1736,1538,198
+3,Arsenal Gnome,85.0,2000,1649,351
+2,Mini Garden,20.0,1086,1000,86
+7,Garden Lights,120.0,1294,1197,97
+4,Deck,15.0,958,944,14
+6,Garden Fountain,4500.0,648,551,97
+8,Garden Bench,200.0,318,301,17
+9,Jacuzzi,25000.0,950,904,46
+5,Machine Gun Gnome,55.0,2000,1517,483
+10,Heater,32.0,1228,862,366
+1,Gnomes on Swing,135.0,1538,1405,133
+3,Arsenal Gnome,85.0,1649,1176,473
+2,Mini Garden,20.0,1000,965,35
+7,Garden Lights,120.0,1197,1070,127
+4,Deck,15.0,944,871,73
+6,Garden Fountain,4500.0,551,452,99
+8,Garden Bench,200.0,1200,1179,21
+9,Jacuzzi,25000.0,904,885,19
+5,Machine Gun Gnome,55.0,1517,1399,118
+10,Heater,32.0,862,522,340
+1,Gnomes on Swing,135.0,1405,1374,31
+3,Arsenal Gnome,85.0,1176,1121,55
+2,Mini Garden,20.0,965,895,70
+7,Garden Lights,120.0,1070,975,95
+4,Deck,15.0,871,654,217
+6,Garden Fountain,4500.0,452,451,1
+8,Garden Bench,200.0,1179,1151,28
+9,Jacuzzi,25000.0,885,869,16
+5,Machine Gun Gnome,55.0,1399,1282,117
+10,Heater,32.0,2000,1866,134
+1,Gnomes on Swing,135.0,1374,1224,150
+3,Arsenal Gnome,85.0,1121,938,183
+2,Mini Garden,20.0,895,764,131
+7,Garden Lights,120.0,975,952,23
+4,Deck,15.0,654,442,212
+6,Garden Fountain,4500.0,451,394,57
+8,Garden Bench,200.0,1151,1146,5
+9,Jacuzzi,25000.0,869,867,2
+5,Machine Gun Gnome,55.0,1282,1181,101
+10,Heater,32.0,1866,1312,554
+1,Gnomes on Swing,135.0,1224,1059,165
+3,Arsenal Gnome,85.0,938,907,31
+2,Mini Garden,20.0,764,670,94
+7,Garden Lights,120.0,952,853,99
+4,Deck,15.0,442,307,135
+6,Garden Fountain,4500.0,1200,1188,12
+8,Garden Bench,200.0,1146,1117,29
+9,Jacuzzi,25000.0,867,866,1
+5,Machine Gun Gnome,55.0,1181,1091,90
+10,Heater,32.0,1312,1291,21
+1,Gnomes on Swing,135.0,1059,946,113
+3,Arsenal Gnome,85.0,907,517,390
+2,Mini Garden,20.0,670,564,106
+7,Garden Lights,120.0,853,776,77
+4,Deck,15.0,1200,1194,6
+6,Garden Fountain,4500.0,1188,1078,110
+8,Garden Bench,200.0,1117,1104,13
+9,Jacuzzi,25000.0,866,842,24

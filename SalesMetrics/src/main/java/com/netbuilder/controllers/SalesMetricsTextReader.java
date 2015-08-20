@@ -33,7 +33,7 @@ public class SalesMetricsTextReader {
 	public SalesMetricsTextReader(){
 		ArrayList<String> salesMetricValues = new ArrayList<String>();
 		try {
-			for (String line : Files.readAllLines(Paths.get("C://Users//jmander//workspace//salesMetrics.txt"))) {
+			for (String line : Files.readAllLines(Paths.get("C://Users//jmander//workspace//BlueGardens//SalesMetrics//salesMetrics.txt"))) {
 			    for (String part : line.split("\r\n")) {
 			        salesMetricValues.add(part);
 			    }
