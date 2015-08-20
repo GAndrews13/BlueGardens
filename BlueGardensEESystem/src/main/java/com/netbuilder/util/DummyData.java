@@ -1,5 +1,6 @@
 package com.netbuilder.util;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.ejb.Singleton;
@@ -14,6 +15,13 @@ import com.netbuilder.entities.Product;
 import com.netbuilder.entities.WarehouseLocation;
 import com.netbuilder.entities.WarehouseWorker;
 import com.netbuilder.entities.WishlistItems;
+
+/**
+ * @author GAndrews
+ * @author ABalagel
+ */
+import com.netbuilder.entities.Discount;
+import com.netbuilder.entities.SpecialOffer;
 
 /**
  * @author jmander
@@ -89,6 +97,40 @@ public class DummyData {
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	private ArrayList<CustomerLogin> customerLogins = new ArrayList<CustomerLogin>();
 	
+
+	/**
+	 * @author GAndrews
+	 * @author ABalagel
+	 */
+	private Discount discount1;
+	private Discount discount2;
+	private Discount discount3;
+	private Discount discount4;
+	private Discount discount5;
+	private ArrayList<Discount> discounts = new ArrayList<Discount>();
+	private SpecialOffer specialOffer1;
+	private SpecialOffer specialOffer2;
+	private SpecialOffer specialOffer3;
+	private SpecialOffer specialOffer4;
+	private SpecialOffer specialOffer5;
+	private ArrayList<SpecialOffer> specialOffers = new ArrayList<SpecialOffer>();
+	
+	public ArrayList<Discount> getDiscounts() {
+		return discounts;
+	}
+
+	public void setDiscounts(ArrayList<Discount> discounts) {
+		this.discounts = discounts;
+	}
+
+	public ArrayList<SpecialOffer> getSpecialOffers() {
+		return specialOffers;
+	}
+
+	public void setSpecialOffers(ArrayList<SpecialOffer> specialOffers) {
+		this.specialOffers = specialOffers;
+	}
+
 	public ArrayList<WarehouseLocation> getLocations() {
 		return locations;
 	}
@@ -186,6 +228,7 @@ public class DummyData {
 		this.wishlistProducts.addAll(wishlistProducts);
 	}
 
+	@SuppressWarnings({ "deprecation", "deprecation", "deprecation" })
 	public DummyData() {
 		product1 = new Product(1, "Gnomes On Swing", 10, 3, 10, true, 134.99,
 				false, "height: 30 cm", "material: polyresin", "frost proof and weather resistant", "porousware", "handcrafted",
@@ -365,6 +408,33 @@ public class DummyData {
 		customerOrderLines.add(customerOrderLine16);
 		customerOrderLines.add(customerOrderLine17);
 
+		/**
+		 * @author GAndrews
+		 * @author ABalagel
+		 */
+		discount1 = new Discount(1, 5, "FLAT");
+		discount2 = new Discount(3, 7, "PERCENTAGE");
+		discount3 = new Discount(5, 10, "PERCENTAGE");
+		discount4 = new Discount(7, 2, "FLAT");
+		discount5 = new Discount(6, 1.45, "FLAT");
+				
+		specialOffer1 = new SpecialOffer("SO1", new Date(20, 8, 2015), new Date(20, 8, 2016), 1);
+		specialOffer2 = new SpecialOffer("SO1", new Date(20, 8, 2015), new Date(21, 5, 2016), 2);
+		specialOffer3 = new SpecialOffer("SO1", new Date(20, 8, 2015), new Date(23, 8, 2016), 3);
+		specialOffer4 = new SpecialOffer("SO1", new Date(20, 8, 2015), new Date(14, 3, 2017), 4);
+		specialOffer5 = new SpecialOffer("SO1", new Date(20, 8, 2015), new Date(8, 2, 2018), 5);
+		
+		discounts.add(discount1);
+		discounts.add(discount2);
+		discounts.add(discount3);
+		discounts.add(discount4);
+		discounts.add(discount5);
+
+		specialOffers.add(specialOffer1);
+		specialOffers.add(specialOffer2);
+		specialOffers.add(specialOffer3);
+		specialOffers.add(specialOffer4);
+		specialOffers.add(specialOffer5);
 	}
 
 }
