@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<alternatives>
+	<!--  Add all your dummy classes into this bracket -->
+		<class>
+			com.netbuilder.entitymanagers.Dummy.SalesMetricsManagerDummy
+		</class>
+		<class>
+			com.netbuilder.entitymanagers.Dummy.TotalSalesMetricsManagerDummy
+		</class>
+	</alternatives>
+
+</beans>
