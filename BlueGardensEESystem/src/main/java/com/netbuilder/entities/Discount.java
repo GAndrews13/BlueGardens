@@ -24,6 +24,10 @@ public class Discount {
 		this.productID = productID;
 	}
 	
-	
+	public Discount(long inProductID, double inDiscountLevel)
+	{
+		this.productID = inProductID;
+		this.discountLevel = inDiscountLevel;
+	}
 	
 }

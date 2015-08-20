@@ -1,6 +1,5 @@
 package com.netbuilder.entities;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public class SpecialOffer {
@@ -34,5 +33,11 @@ public class SpecialOffer {
 		this.discountCode = discountCode;
 	}
 	
-	
+	public SpecialOffer(String inSpecialOfferID, Date inStartTime, Date inEndTime, long inDiscountCode)
+	{
+		this.specialOfferID = inSpecialOfferID;
+		this.startTime = inStartTime;
+		this.endTime = inEndTime;
+		this.discountCode = inDiscountCode;
+	}
 }
