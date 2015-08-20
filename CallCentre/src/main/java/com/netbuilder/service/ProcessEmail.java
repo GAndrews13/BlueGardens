@@ -21,23 +21,23 @@ public class ProcessEmail
 {
 	private PDDocument document = new PDDocument();
 	private PDPage page1 = new PDPage(PDPage.PAGE_SIZE_A4);
-	private PDRectangle rectangle = page1.getMediaBox();
 	private static PDFont defaultFont = PDType1Font.HELVETICA;
 	PDPageContentStream content;
 	
 	public ProcessEmail()
 	{
-		
+		//Add new c
+		document.addPage(page1);
+		try {
+			content = new PDPageContentStream(document, page1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void createEmailForm() throws IOException
-	{
-		
-		document.addPage(page1);
-		
-		
-		content = new PDPageContentStream(document, page1);
-		
+	{	
 		//Draws Image on the top of the document
 		try {
 			BufferedImage awtImage = ImageIO.read(new File("C:/Users/David/workspace/BlueGardens/CallCentre/src/main/java/com/netbuilder/service/logo.png"));
@@ -119,9 +119,9 @@ public class ProcessEmail
 			content.drawString("Address");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(375, 700, 520, 700);
-			content.addLine(320, 680, 520, 680);
-			content.addLine(320, 660, 520, 660);
+			content.addLine(375, 700, 540, 700);
+			content.addLine(320, 680, 540, 680);
+			content.addLine(320, 660, 540, 660);
 			content.closeAndStroke();
 			
 			content.beginText();
@@ -130,19 +130,41 @@ public class ProcessEmail
 			content.drawString("Postcode");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(380, 640, 520, 640);
+			content.addLine(380, 640, 540, 640);
 			content.closeAndStroke();
 			
-
-			content.close();
+			content.beginText();
+			content.setFont(PDType1Font.HELVETICA, 12);
+			content.moveTextPositionByAmount(50, 555);
+			content.drawString("Please fill out the form in BLOCK CAPITALS");
+			content.endText();
 			
-			//Save PDF
-			try {
-				document.save("OrderForm.pdf");
-			} catch (COSVisitorException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			content.beginText();
+			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
+			content.moveTextPositionByAmount(55, 535);
+			content.drawString("Qty.");
+			content.endText();
+			
+			content.beginText();
+			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
+			content.moveTextPositionByAmount(120, 535);
+			content.drawString("Product ID");
+			content.endText();
+			
+			content.beginText();
+			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
+			content.moveTextPositionByAmount(310, 535);
+			content.drawString("Product Name");
+			content.endText();
+			
+			content.beginText();
+			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
+			content.moveTextPositionByAmount(510, 535);
+			content.drawString("Price");
+			content.endText();
+			
+			
+			
 			
 			
 		} catch (IOException e) {
@@ -152,91 +174,142 @@ public class ProcessEmail
 		
 	}
 	
-	public static void drawTable(PDPage page, PDPageContentStream contentStream, float y,
-			float margin, String[][] content) throws IOException 
+	public void drawTable() throws IOException 
 	{
-		final int rows = 10;
-		final int columns = 4;
-		final float rowHeight = 20f;
-		final float tableWidth = page.findMediaBox().getWidth()-(2*margin);
+		float margin = 40;
+		float y = 550;
+		final int rows = 15;
+		final int columns = 6;
+		final float rowHeight = 25;
+		final float tableWidth = page1.findMediaBox().getWidth()-(2*margin);
+		float boxWidth = 125;
 		final float tableHeight = rowHeight * rows;
-		final float columnWidth = tableHeight/(float)columns;
-		final float cellMargin = 5f;
+		final float columnWidth = boxWidth/(float)columns;
+		final float cellMargin = 5;
 		
 		//Draw Rows
 		float nextY = y;
 		for(int i = 0; i<= rows; ++i)
 		{
 			try {
-				contentStream.drawLine(margin, nextY, margin+tableWidth, nextY);
+				if(i == 1)
+				{
+					content.setLineWidth(3);
+				}
+				content.drawLine(margin, nextY, margin+tableWidth, nextY);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			nextY-=rowHeight;
+			content.setLineWidth(1);
 		}
 		
 		//Draw columns
-		float nextX = margin;
-		for(int i = 0; i<= columns; ++i)
-		{
-			try {
-				contentStream.drawLine(nextX, y, nextX, y-tableHeight);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			nextX+=columnWidth;
-		}
+		content.drawLine(margin, y, margin, y-tableHeight);
+		content.drawLine(margin+50, y, margin+50, y-tableHeight);
+		content.drawLine(margin+175, y, margin+175, y-tableHeight);
+		content.drawLine(margin+460, y, margin+460, y-tableHeight);
+		content.drawLine(margin+515, y, margin+515, y-tableHeight);
 		
-		//Fun bit
-	/*	try {
-			contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+		//draw the columns
+	    float nextx = margin+50;
+	    for (int i = 0; i <= columns; i++) {
+	        content.drawLine(nextx, y-25, nextx, y-tableHeight);
+	        nextx += columnWidth;
+	    }
+		
+		try {
+			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} */
-		
-		float textX = margin + cellMargin;
-		float textY = y-15;
-		for(int i = 0; i < content.length; ++i)
-		{
-			for(int j = 0; j < content[i].length; ++j)
-			{
-				String text = content[i][j];
-				contentStream.beginText();
-				contentStream.moveTextPositionByAmount(textX, textY);
-				contentStream.drawString(text);
-				contentStream.endText();
-				textX += columnWidth;
-			}
-			textY -= rowHeight;
-			textX = margin + cellMargin;
-		}
-		
-		
+		} 
 	
 	}
 	
+	public void closeDoc() throws IOException
+	{
+		content.close();
+		//Save PDF
+		try {
+			document.save("OrderForm.pdf");
+		} catch (COSVisitorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
+	public void cardDetails() throws IOException
+	{	
+		//card number and boxes for entry
+		content.beginText();
+		content.setFont(PDType1Font.HELVETICA_BOLD, 12);
+		content.moveTextPositionByAmount(50, 150);
+		content.drawString("Card No:");
+		content.endText();
+		
+		content.drawLine(110, 160, 320, 160);
+		content.drawLine(110, 145, 320, 145);
+		
+		int x = 110;
+		int yStart = 160;
+		int yEnd = 145;
+		for(int i = 0; i < 15; ++i)
+		{
+			content.drawLine(x, yStart, x, yEnd);
+			x = x + 15;
+		}
+		
+		//Expiry Date 
+		content.beginText();
+		content.setFont(PDType1Font.HELVETICA_BOLD, 12);
+		content.moveTextPositionByAmount(50, 115);
+		content.drawString("Expiry Date:___ / ___");
+		content.endText();
+		
+		// Signature 
+		content.beginText();
+		content.setFont(PDType1Font.HELVETICA_BOLD, 12);
+		content.moveTextPositionByAmount(370, 115);
+		content.drawString("Signature:");
+		content.endText();
+		
+		content.drawLine(370, 100, 550, 100);
+		content.drawLine(370, 60, 550, 60);
+		content.drawLine(370, 100, 370, 60);
+		content.drawLine(550, 100, 550, 60);
+	}
+		
 	
 	public static void main(String[] args)
 	{
-		ProcessEmail PE = new ProcessEmail();
+		ProcessEmail pe = new ProcessEmail();
 		try {
-			PE.createEmailForm();
+			pe.createEmailForm();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//Call table function 
-				String[][] contents = {{"Qty","Product ID","Product Name", "Price"}};
-				try {
-					drawTable(PE.page1, PE.content, 500, 100, contents);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		try {
+			pe.drawTable();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pe.cardDetails();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			pe.closeDoc();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
