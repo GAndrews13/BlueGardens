@@ -55,111 +55,111 @@ public class ProcessEmail
 			
 			//Open text stream
 			content.beginText();
-			content.setFont(defaultFont, 12);
+			content.setFont(defaultFont, 14);
 			//estimated position below
-			content.moveTextPositionByAmount(50, 700);
+			content.moveTextPositionByAmount(40, 725);
 			//Write text
-			content.drawString("Title");
+			content.drawString("TITLE");
 			//end that stream
 			content.endText();
 			//move position to draw line (may not work)
 			content.moveTo(30, 10);
 			//Draw line (Estimated position and length)
 			content.setLineWidth(1);
-			content.addLine(80, 700, 300, 700);
+			content.addLine(80, 725, 300, 725);
 			content.closeAndStroke();
 			
 			content.beginText();
-			content.setFont(defaultFont, 12);
-			content.moveTextPositionByAmount(50, 680);
-			content.drawString("First Name");
+			content.setFont(defaultFont, 14);
+			content.moveTextPositionByAmount(40, 700);
+			content.drawString("FIRST NAME");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(108, 680, 300, 680);
+			content.addLine(125, 700, 300, 700);
 			content.closeAndStroke();
 			
 			content.beginText();
-			content.setFont(defaultFont, 12);
-			content.moveTextPositionByAmount(50, 660);
-			content.drawString("Surname");
+			content.setFont(defaultFont, 14);
+			content.moveTextPositionByAmount(40, 675);
+			content.drawString("SURNAME");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(105, 660, 300, 660);
+			content.addLine(110, 675, 300, 675);
 			content.closeAndStroke();
 			
 			content.beginText();
-			content.setFont(defaultFont, 12);
-			content.moveTextPositionByAmount(50, 640);
-			content.drawString("Telephone");
+			content.setFont(defaultFont, 14);
+			content.moveTextPositionByAmount(40, 650);
+			content.drawString("TELEPHONE");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(108, 640, 300, 640);
+			content.addLine(125, 650, 300, 650);
 			content.closeAndStroke();
 			
 			content.beginText();
-			content.setFont(defaultFont, 12);
-			content.moveTextPositionByAmount(50, 620);
-			content.drawString("Mobile");
+			content.setFont(defaultFont, 14);
+			content.moveTextPositionByAmount(40, 625);
+			content.drawString("MOBILE");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(86, 620, 300, 620);
+			content.addLine(95, 625, 300, 625);
 			content.closeAndStroke();
 			
 			content.beginText();
-			content.setFont(defaultFont, 12);
-			content.moveTextPositionByAmount(50, 600);
-			content.drawString("Email");
+			content.setFont(defaultFont, 14);
+			content.moveTextPositionByAmount(40, 600);
+			content.drawString("EMAIL");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(80, 600, 300, 600);
+			content.addLine(85, 600, 300, 600);
 			content.closeAndStroke();
 			
 			content.beginText();
-			content.setFont(defaultFont, 12);
-			content.moveTextPositionByAmount(320, 700);
-			content.drawString("Address");
+			content.setFont(defaultFont, 14);
+			content.moveTextPositionByAmount(320, 725);
+			content.drawString("ADDRESS");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(375, 700, 540, 700);
-			content.addLine(320, 680, 540, 680);
-			content.addLine(320, 660, 540, 660);
+			content.addLine(390, 725, 555, 725);
+			content.addLine(320, 700, 555, 700);
+			content.addLine(320, 675, 555, 675);
 			content.closeAndStroke();
 			
 			content.beginText();
-			content.setFont(defaultFont, 12);
-			content.moveTextPositionByAmount(320, 640);
-			content.drawString("Postcode");
+			content.setFont(defaultFont, 14);
+			content.moveTextPositionByAmount(320, 650);
+			content.drawString("POSTCODE");
 			content.endText();
 			content.setLineWidth(1);
-			content.addLine(380, 640, 540, 640);
+			content.addLine(400, 650, 555, 650);
 			content.closeAndStroke();
 			
 			content.beginText();
-			content.setFont(defaultFont, 12);
+			content.setFont(defaultFont, 14);
 			content.moveTextPositionByAmount(50, 575);
 			content.drawString("Please fill out the form in BLOCK CAPITALS");
 			content.endText();
 			
 			content.beginText();
-			content.setFont(headingFont, 12);
+			content.setFont(headingFont, 14);
 			content.moveTextPositionByAmount(55, 555);
 			content.drawString("Qty.");
 			content.endText();
 			
 			content.beginText();
-			content.setFont(headingFont, 12);
+			content.setFont(headingFont, 14);
 			content.moveTextPositionByAmount(120, 555);
 			content.drawString("Product ID");
 			content.endText();
 			
 			content.beginText();
-			content.setFont(headingFont, 12);
+			content.setFont(headingFont, 14);
 			content.moveTextPositionByAmount(310, 555);
 			content.drawString("Product Name");
 			content.endText();
 			
 			content.beginText();
-			content.setFont(headingFont, 12);
+			content.setFont(headingFont, 14);
 			content.moveTextPositionByAmount(510, 555);
 			content.drawString("Price");
 			content.endText();
@@ -210,7 +210,7 @@ public class ProcessEmail
 			content.setLineWidth(1);
 		}
 		
-		//Draw columns
+		/*Draw columns
 		content.drawLine(margin, y, margin, y-tableHeight);
 		content.drawLine(margin+50, y, margin+50, y-tableHeight);
 		content.drawLine(margin+175, y, margin+175, y-tableHeight);
@@ -223,6 +223,7 @@ public class ProcessEmail
 	        content.drawLine(nextx, y, nextx, y-tableHeight);
 	        nextx += columnWidth;
 	    }
+	    */
 		
 		try {
 			content.setFont(PDType1Font.HELVETICA_BOLD, 12);
