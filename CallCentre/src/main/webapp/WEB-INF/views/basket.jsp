@@ -27,7 +27,7 @@
 					<ul class="menu">
 						<li><a href="index" class="active"><span>Home</span></a></li>
 						<li><a href="customerSearch"><span>Customer Search</span></a></li>
-						<li><a href="customerPage"><span>Customer Page</span></a></li>
+						<li><a href="productSearch"><span>Product Search</span></a></li>
 						<li><a href="basket"><span>Basket</span></a></li>
 					</ul>
 				</td>
@@ -43,15 +43,18 @@
 Basket
 </div>
 		<a href="javascript:history.back()">Back</a>
+		<p class="errorText">
+			${errorMessage}
+		</p>
 		<table>
 			<tr>
 				<th colspan="2">
-					Customer Name: ${surName}, ${firstName}
+					Customer Name: ${customer.getLastName()}, ${customer.getFirstName()}
 				</th>
 			</tr>
 			<tr>
 				<th colspan="2">
-					Customer ID: ${customerID}
+					Customer ID: ${customer.getCustomerID()}
 				</th>
 			</tr>
 			<tr>
@@ -61,14 +64,23 @@ Basket
 			</tr>
 		</table>
 		
+		<table>
 		<c:forEach items="${products}" var="product">
-		<br/>
-		<img src="${product.getImageLink()}" /> <br/>
-		    Product ID: ${product.getProductID()}<br/>
-		    Product Name:${product.getProductName()}<br/>
-		    Stock Level: ${product.getStockLevel()}<br/>
-		   	Product Price: ${product.getPrice()}<br/><br/><br/>
+			<tr>	
+				<td>
+				<img src="${product.getProduct().getImageLink()}" /> <br/>
+				</td>
+				<td>
+		    		Product ID: ${product.getProductId()}<br/><br/>
+		    		Product Name:${product.getProduct().getProductName()}<br/><br/>
+		    		Quantity: ${product.getQuantity()}<br/><br/>
+		   			Price: ${product.getProduct().getPrice()}<br/><br/>
+		   			Total Price: ${product.getTotalCost()}<br/><br/>
+		   		</td>
+		   	</tr>
 		</c:forEach>
+		</table>
+		<a class="h2" href="basket?clear=true"> Clear Basket </a>
 	</center>
 	</div>
 	

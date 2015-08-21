@@ -17,7 +17,7 @@
 			<tr>
 				<th rowspan="2">
 					<img src="resources/img/logo.png" alt="NB Gardens" width=180px height=90px />
-				</th>
+				</th> 
 				<td width="80%">
 					
 				</td>
@@ -59,14 +59,19 @@
 		</tr>
 		<c:forEach items="${products}" var="product">
 			<tr>
-				<td>${product.getProductName()}</td>
-				<td>${product.getPrice()}<br />
-				<br />
-				<br />
-				</td>
-				<td>${product.getStockLevel()}<br />
-				</td>
-				<td><a href=""> Add to basket</a></td>
+				<form action="basket?" method="get">
+					<td>${product.getProductName()}</td>
+					<td>${product.getStockLevel()}<br/>
+					<td>${product.getPrice()}<br/>
+					<td>
+						<input type="hidden" name="productId" value="${product.getProductID()}">
+						Quantity:
+						<input name="qnt" id="qnt4" value="1" type="int" maxlength="3" size="10">
+					</td>
+					<td>
+						<input type="submit" value="Add To Basket">
+					</td>
+				</form>
 			</tr>
 		</c:forEach>
 	</table>

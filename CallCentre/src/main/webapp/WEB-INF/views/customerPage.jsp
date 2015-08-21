@@ -27,7 +27,7 @@
 					<ul class="menu">
 						<li><a href="index" class="active"><span>Home</span></a></li>
 						<li><a href="customerSearch"><span>Customer Search</span></a></li>
-						<li><a href="customerPage"><span>Customer Page</span></a></li>
+						<li><a href="productSearch"><span>Product Search</span></a></li>
 						<li><a href="basket"><span>Basket</span></a></li>
 					</ul>
 				</td>
@@ -86,6 +86,8 @@
 					</td>
 				</tr>
 			</table>
+			<a href="basket?userId=${id}"> Select Customer For Order</a>
+			
 		</center>
 	</div>
 	

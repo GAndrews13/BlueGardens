@@ -157,6 +157,13 @@ p.questionAnswer{
     margin-left: 10em;
     margin-right: 10em;
     margin-top: 10em;
+    margin-bottom: 10em;
+}
+
+.errorText{
+	color: red;
+	font-size: xx-large;
+	font-weight: bolder;	
 }
 
 .group {

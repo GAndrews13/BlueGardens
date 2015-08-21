@@ -10,8 +10,11 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.netbuilder.controller.ProductManager;
+import com.netbuilder.controller.Dummy.ProductManagerDummy;
+
 /**
- * 
+ *  
  * @author Jake Customer Order Line Entity
  */
 @Entity
@@ -101,5 +104,19 @@ public class CustomerOrderLine {
 	public boolean getIsPicked() {
 		return isPicked;
 	}
-
+	
+	/**
+	 * @author GAndrews
+	 */
+	public Product getProduct()
+	{
+		ProductManager pm = new ProductManagerDummy();
+		return pm.findById(getProductId());
+	}
+	public double getTotalCost()
+	{
+		ProductManager pm = new ProductManagerDummy();
+		Product p = pm.findById(getProductId()); 
+		return p.getPrice() * getQuantity(); 
+	}
 }

@@ -99,13 +99,11 @@ public class SearchController {
 			
 			if(requestParams.containsKey("productName"))
 			{
-				System.out.println("Search: Product Name");
 				infoRequest = requestParams.get("productName");
 				for(Product p : results)
 				{
 					if(p.getProductName().toLowerCase().contains(infoRequest.toLowerCase()))
 					{
-						System.out.println("Product Found");
 						returnList.add(p);
 					}
 				}
@@ -116,13 +114,11 @@ public class SearchController {
 			}
 			else if(requestParams.containsKey("productID"))
 			{
-				System.out.println("Search: Product ID");
 				infoRequest=requestParams.get("productID");
 				for(Product p : results)
 				{
 					if(p.getProductID() == Long.parseLong(infoRequest))
-					{
-						System.out.println("Product Found");		
+					{		
 						returnList.add(p);
 						break;
 					}
@@ -133,8 +129,6 @@ public class SearchController {
 				}
 			}
 			mv.addObject("products", returnList);
-			
-			System.out.println("Returning MV");
 			return mv;
 		}
 		catch (Exception e)
