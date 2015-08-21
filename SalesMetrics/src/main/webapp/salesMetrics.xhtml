@@ -12,25 +12,26 @@
 <ui:define name="pagetitle">Sales Metrics</ui:define>
 <ui:define name="sectiontitle">Sales Metrics</ui:define>	
 <ui:define name="body">
+#{salesMetricsController.getProductByID()}
 <hr/>
 			<!-- #{salesMetricsController.search()} -->
-		
-			<table class = "wishlistTable">
+
+			<table border="1">
 				<tr class="wishlistTableHeader">
 					<td>
-						Product ID
+						<a href="salesMetrics.xhtml?sort=1"  id="#{1}">Product ID</a>
 					</td>
 					<td>
-						Product Name
+						<a href="">Product Name</a>
 					</td>
 					<td>
-						Price
+						<a href="salesMetrics.xhtml?sort=2">Price</a>
 					</td>
 					<td>
-						Total Amount Sold
+						<a href="salesMetrics.xhtml?sort=3">Total Amount Sold</a>
 					</td>
 					<td>
-						Total Days
+						<a href="">Total Days</a>
 					</td>
 				</tr>
 				
@@ -53,7 +54,9 @@
 						</td>
 					</tr>
 				</ui:repeat>
+
 			</table>
+
 
 </ui:define>
 </ui:composition>

@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.GET;
 
 import com.netbuilder.entitymanagers.SalesMetricsManager;
 import com.netbuilder.entitymanagers.TotalSalesMetricsManager;
@@ -23,7 +26,8 @@ public class SalesMetricsController {
 	private TotalSalesMetricsManager totalSalesMetricsManager;
 	private ArrayList<TotalSalesMetric> results = new ArrayList<TotalSalesMetric>();
 	private boolean itemExists = false;
-
+	private TotalSalesMetric swap;
+	
 	public SalesMetricsController() {
 	}
 
@@ -36,6 +40,12 @@ public class SalesMetricsController {
 	}
 
 	public String search() {
+		initialiseData();
+		results = totalSalesMetricsManager.findAll();
+		return "salesMetrics";
+	}
+	
+	public void initialiseData(){
 		for(SalesMetricsValue smv : salesMetricsManager.findAll()){
 			itemExists = totalSalesMetricsManager.checkExists(smv.getProductID());
 			if(itemExists){
@@ -46,8 +56,61 @@ public class SalesMetricsController {
 			}
 			itemExists = false;
 		}
-		results = totalSalesMetricsManager.findAll();
-		return "salesMetrics";
+	}
+	
+	@GET
+	// @Path("salesMetrics.xhtml")
+	public void getProductByID() {
+		HttpServletRequest hsr = (HttpServletRequest) FacesContext
+				.getCurrentInstance().getExternalContext().getRequest();
+		String pid = hsr.getQueryString();
+		pid = pid.replace("[", "");
+		pid = pid.replace("]", "");
+		pid = pid.replace("sort=", "");
+		
+		if(Integer.parseInt(pid)==1){
+			initialiseData();
+			results = totalSalesMetricsManager.findAll();
+			for (int i=0; i<results.size()-1; i++){
+				for (int j=0; j<results.size()-1; j++){
+					if(results.get(j).getProductID() > results.get(j+1).getProductID()){
+						swap = results.get(j);
+						results.set(j, results.get(j+1));
+						results.set(j+1, swap);
+					}
+				}
+			}
+		}
+		if(Integer.parseInt(pid)==0){
+			initialiseData();
+		}
+		if(Integer.parseInt(pid)==2){
+			initialiseData();
+			results = totalSalesMetricsManager.findAll();
+			for (int i=0; i<results.size()-1; i++){
+				for (int j=0; j<results.size()-1; j++){
+					if(results.get(j).getProductPrice() < results.get(j+1).getProductPrice()){
+						swap = results.get(j);
+						results.set(j, results.get(j+1));
+						results.set(j+1, swap);
+					}
+				}
+			}
+		}
+		if(Integer.parseInt(pid)==3){
+			initialiseData();
+			results = totalSalesMetricsManager.findAll();
+			for (int i=0; i<results.size()-1; i++){
+				for (int j=0; j<results.size()-1; j++){
+					if(results.get(j).getTotalSold() < results.get(j+1).getTotalSold()){
+						swap = results.get(j);
+						results.set(j, results.get(j+1));
+						results.set(j+1, swap);
+					}
+				}
+			}
+		}
+
 	}
 	
 }

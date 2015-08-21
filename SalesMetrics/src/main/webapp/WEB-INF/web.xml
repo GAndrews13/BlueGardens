@@ -17,7 +17,7 @@
 
 	<!-- Welcome page -->
 	<welcome-file-list>
-		<welcome-file>salesMetrics.xhtml</welcome-file>
+		<welcome-file>NBGMarketingWeb.html</welcome-file>
 	</welcome-file-list>
 
 	<!-- JSF mapping -->
