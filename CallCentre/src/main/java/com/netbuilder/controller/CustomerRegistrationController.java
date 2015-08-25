@@ -1,20 +1,14 @@
 package com.netbuilder.controller;
 
-import java.util.ArrayList;
 import java.util.Map;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.netbuilder.model.Customer;
 import com.netbuilder.model.CustomerLogin;
-import com.netbuilder.controller.CustomerLoginManager;
-import com.netbuilder.controller.CustomerManager;
 import com.netbuilder.controller.Dummy.CustomerLoginManagerDummy;
 import com.netbuilder.controller.Dummy.CustomerManagerDummy;
-import com.netbuilder.service.RegistrationEmail;
 import com.netbuilder.model.Utility.LoginUtils;
 
 /**
@@ -34,17 +28,92 @@ public class CustomerRegistrationController {
 	
 	@RequestMapping("/registeredCustomer")
 	public ModelAndView showNewMessage(@RequestParam (required=true) Map<String,String> requestParams)
-	{ 	
-	  	
-		System.out.println("we here");
+	{
 		
 		CustomerManagerDummy customerManagerDummy = new CustomerManagerDummy();
 		CustomerLoginManagerDummy customerLoginManagerDummy = new CustomerLoginManagerDummy();
-		Customer customer = new Customer((customerManagerDummy.findAll().size()+1), requestParams.get("firstName"), requestParams.get("lastName"),
-				requestParams.get("address"), requestParams.get("contactNumber"), requestParams.get("email"), "ACTIVE");
-		CustomerLogin customerLogin = new CustomerLogin((customerManagerDummy.findAll().size()+1), requestParams.get("username"), requestParams.get("email"),
-				requestParams.get("password"), LoginUtils.getNextSalt());
 
+		if (requestParams.get("firstName").isEmpty()) {
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","A first name was not entered, please try again");
+			return mv;
+		}
+		
+		if (requestParams.get("lastName").isEmpty()) {
+			ModelAndView mv = new ModelAndView("failedCustomer");	
+			mv.addObject("errorMessage","A last name was not entered, please try again");
+			return mv;
+		}
+		
+		if (requestParams.get("username").isEmpty()) {
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","A username was not entered, please try again");
+			return mv;
+		}
+		
+		for(CustomerLogin cl : customerLoginManagerDummy.findAll()){
+			if(cl.getCustomerUsername().equals(requestParams.get("username"))){
+				ModelAndView mv = new ModelAndView("failedCustomer");
+				mv.addObject("errorMessage","This username is already taken, please try again");
+				return mv;
+			}
+		}
+		
+		if (requestParams.get("password").isEmpty()) {
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","A password was not entered, please try again");
+			return mv;
+		}
+		
+		if (requestParams.get("confirmPassword").isEmpty()) {
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","The password was not confirmed, please try again");
+			return mv;
+		}
+		
+		if(requestParams.get("password").equals(requestParams.get("confirmPassword")) == false){
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","The passwords do not match, please try again");
+			return mv;
+		}
+		
+		if (requestParams.get("email").isEmpty()) {
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","An email address was not entered, please try again");
+			return mv;
+		}
+		
+		for(Customer c : customerManagerDummy.findAll()){
+			if(c.getEmail().equals(requestParams.get("email"))){
+				ModelAndView mv = new ModelAndView("failedCustomer");
+				mv.addObject("errorMessage","This email address is already taken, please try again");
+				return mv;
+			}
+		}
+		
+		if (requestParams.get("confirmEmail").isEmpty()) {
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","The email address was not confirmed, please try again");
+			return mv;
+		}
+		
+		if(requestParams.get("email").equals(requestParams.get("confirmEmail")) == false){
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","The email addresses do not match, please try again");
+			return mv;
+		}
+		
+		if (requestParams.get("address").isEmpty()) {
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","An address was not entered, please try again");
+			return mv;
+		}
+		
+		if (requestParams.get("contactNumber").isEmpty()) {
+			ModelAndView mv = new ModelAndView("failedCustomer");
+			mv.addObject("errorMessage","A contact number was not entered, please try again");
+			return mv;
+		}
 
 		
 		ModelAndView mv = new ModelAndView("registeredCustomer");
@@ -57,112 +126,15 @@ public class CustomerRegistrationController {
 		mv.addObject("contactNumber",requestParams.get("contactNumber"));
 		mv.addObject("address",requestParams.get("address"));
 		
-		customerManagerDummy.persistCustomer(customer);
-		customerLoginManagerDummy.persistCustomerLogin(customerLogin);
+		customerManagerDummy.persistCustomer(new Customer((customerManagerDummy.findAll().size()+1), requestParams.get("firstName"), requestParams.get("lastName"),
+				requestParams.get("address"), requestParams.get("contactNumber"), requestParams.get("email"), "ACTIVE"));
+		customerLoginManagerDummy.persistCustomerLogin(new CustomerLogin((customerManagerDummy.findAll().size()+1), requestParams.get("username"), requestParams.get("email"),
+				requestParams.get("password"), LoginUtils.getNextSalt()));
 		
 		 return mv;
 		 		
 	}
 	/*
-	private CustomerManager customerManager;
-	private CustomerLoginManager customerLoginManager;
-	private Customer newCustomer;
-	private CustomerLogin newCustomerLogin;
-	private byte[] customerSalt;
-	public String errormsg;
-	
-	private String firstName;
-	private String lastName;
-	private String username;
-	private String password;
-	private String confirmPassword;
-	private String email;
-	private String confirmEmail;
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getConfirmEmail() {
-		return confirmEmail;
-	}
-
-	public void setConfirmEmail(String confirmEmail) {
-		this.confirmEmail = confirmEmail;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getContactNumber() {
-		return contactNumber;
-	}
-
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
-	}
-
-	private String address;
-	private String contactNumber;
-
-	public String getErrormsg() {
-		return errormsg;
-	}
-
-	public void setErrormsg(String errormsg) {
-		this.errormsg = errormsg;
-	}
-
-	private ArrayList<Customer> customers = new ArrayList<Customer>();
-	private ArrayList<String> usernames = new ArrayList<String>();
 
 	public String registeredCustomer() {
 
