@@ -114,6 +114,9 @@ public class CustomerManagerDB implements CustomerManager {
 		return customer;
 	}
 
+	/**
+	 * Return a customer via their ID
+	 */
 	@Override
 	public Customer findByID(long inID) {
 		EntityManager em = pm.CreateEntityManager();

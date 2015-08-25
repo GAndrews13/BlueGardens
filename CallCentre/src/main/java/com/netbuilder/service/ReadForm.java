@@ -12,6 +12,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 
 import net.sourceforge.tess4j.*;
+import net.sourceforge.tess4j.ITessAPI.TessBaseAPI;
 import net.sourceforge.tess4j.util.LoadLibs;
 
 public class ReadForm {
@@ -25,7 +26,7 @@ public class ReadForm {
     
 	public void createImage() throws IOException
 	{
-		PDDocument doc = PDDocument.load(new File("OrderForm.pdf"));
+		PDDocument doc = PDDocument.load(new File("OrderForm2.pdf"));
 		List<PDPage>pages =  doc.getDocumentCatalog().getAllPages();
 		PDPage page = pages.get(0);
 		BufferedImage image =page.convertToImage();

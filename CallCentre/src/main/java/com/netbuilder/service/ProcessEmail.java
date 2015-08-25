@@ -41,7 +41,7 @@ public class ProcessEmail
 	{	
 		//Draws Image on the top of the document
 		try {
-			BufferedImage awtImage = ImageIO.read(new File("C:/Users/David/workspace/BlueGardens/CallCentre/src/main/java/com/netbuilder/service/logo.png"));
+			BufferedImage awtImage = ImageIO.read(new File("C:/Users/Jake/workspace/BlueGardens/CallCentre/src/main/java/com/netbuilder/service/logo.png"));
 			PDPixelMap ximage = new PDPixelMap(document, awtImage);
 			float scale = 1.0f;
 			content.drawXObject(ximage, 50, 750, ximage.getWidth()*scale, ximage.getHeight()*scale);
