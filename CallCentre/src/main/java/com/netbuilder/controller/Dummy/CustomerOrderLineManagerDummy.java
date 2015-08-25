@@ -16,16 +16,25 @@ import com.netbuilder.model.Utility.DummyData;
 public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 
 	DummyData dd = new DummyData();
-
+	
+	/**
+	 * persist the current customer order line
+	 */
 	public void persistCustomerOrderLine(CustomerOrderLine customerOrderLine) {
 		dd.setCustomerOrderLine(customerOrderLine);
 	}
 
+	/**
+	 * persist all customer order lines
+	 */
 	public void persistCustomerOrderLines(
 			ArrayList<CustomerOrderLine> customerOrderLines) {
 		dd.setCustomerOrderLines(customerOrderLines);
 	}
 
+	/**
+	 * Return arrayList of customer order lines that contains the customer order ID
+	 */
 	public ArrayList<CustomerOrderLine> findByCustomerOrderID(
 			int customerOrderID) {
 		ArrayList<CustomerOrderLine> list = new ArrayList<CustomerOrderLine>();
@@ -37,6 +46,9 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 		return list;
 	}
 
+	/**
+	 * Return arrayList of customer order lines that contain a given quantity
+	 */
 	public ArrayList<CustomerOrderLine> findByQuantity(int quantity) {
 		ArrayList<CustomerOrderLine> list = new ArrayList<CustomerOrderLine>();
 		for (CustomerOrderLine co : dd.getCustomerOrderLines()) {
@@ -46,7 +58,10 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 		}
 		return list;
 	}
-
+	
+	/**
+	 * Update a customer order line that is passed in with one that is being persisted 
+	 */
 	public void updateCustomerOrderLine(CustomerOrderLine customerOrderLine) {
 		for (int i = 0; i < dd.getCustomerOrderLines().size(); i++) {
 			if (customerOrderLine.getCustomerOrderID() == dd
@@ -57,10 +72,16 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 		}
 	}
 
+	/**
+	 * Return all customer order lines
+	 */
 	public ArrayList<CustomerOrderLine> findAll() {
 		return dd.getCustomerOrderLines();
 	}
-
+	
+	/**
+	 * Return all customer order lines that contain a certain product
+	 */
 	public ArrayList<CustomerOrderLine> finyByProductID(int productID) {
 		ArrayList<CustomerOrderLine> list = new ArrayList<CustomerOrderLine>();
 		for (CustomerOrderLine co : dd.getCustomerOrderLines()) {

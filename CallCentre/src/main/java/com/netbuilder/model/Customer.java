@@ -102,7 +102,9 @@ public class Customer {
 		this.email = email;
 		this.accountSTATUS = accountSTATUS;
 	}
-
+	/**
+	 * Alternative Constructor  customer so instances of customer cannot have null values
+	 */
 	public Customer(long customerID, String firstName, String lastName,
 			String address, String contactNUM, String email,
 			String accountSTATUS) {

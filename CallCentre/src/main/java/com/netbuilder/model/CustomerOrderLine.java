@@ -24,6 +24,10 @@ import com.netbuilder.controller.Dummy.ProductManagerDummy;
 		@NamedQuery(name = CustomerOrderLine.FIND_BY_QUANTITY, query = "SELECT * FROM CustomerOrderLine where QUANTITY = quantity"),
 		@NamedQuery(name = CustomerOrderLine.FIND_BY_PRODUCT_ID, query = "SELECT c FROM CustomerOrderLine c WHERE CUSTOMER ID = :productid") })
 public class CustomerOrderLine {
+	
+	/**
+	 * SQL query Strings
+	 */
 	public static final String FIND_BY_CO_ID = "CustomerOrderLine.findByCOID";
 	public static final String FIND_BY_PRODUCT_ID = "CustomerOrderLine.findByPID";
 	public static final String FIND_BY_QUANTITY = "CustomerOrderLine.findByQUANTITY";
@@ -61,7 +65,14 @@ public class CustomerOrderLine {
 		this.productId = productID;
 		this.quantity = Quantity;
 	}
-
+	
+	/**
+	 * Constructor
+	 * @param customerOrderID
+	 * @param productId
+	 * @param quantity
+	 * @param isPicked
+	 */
 	public CustomerOrderLine(int customerOrderID, int productId, int quantity,
 			boolean isPicked) {
 		CustomerOrderID = customerOrderID;
