@@ -1,10 +1,13 @@
 package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
+
 import javax.enterprise.inject.Alternative;
+
 import com.netbuilder.model.Product;
 import com.netbuilder.controller.ProductManager;
 import com.netbuilder.model.Utility.DummyData;
+import com.netbuilder.service.DummyDataLoader;
 
 /**
  * 
@@ -13,28 +16,26 @@ import com.netbuilder.model.Utility.DummyData;
 @Alternative
 public class ProductManagerDummy implements ProductManager {
 
-	DummyData dd = new DummyData();
-
 	public void persistProduct(Product product) {
-		dd.setProduct(product);
+		DummyDataLoader.dd().setProduct(product);
 	}
 
 	public void persistProducts(ArrayList<Product> products) {
-		dd.setProducts(products);
+		DummyDataLoader.dd().setProducts(products);
 	}
 
 	public void updateProduct(Product product) {
-		for (int i = 0; i < dd.getProducts().size(); i++) {
-			if (product.getProductID() == dd.getProducts().get(i)
+		for (int i = 0; i < DummyDataLoader.dd().getProducts().size(); i++) {
+			if (product.getProductID() == DummyDataLoader.dd().getProducts().get(i)
 					.getProductID()) {
-				dd.setProduct(product);
+				DummyDataLoader.dd().setProduct(product);
 			}
 		}
 	}
 
 	public ArrayList<Product> findByName(String name) {
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : dd.getProducts()) {
+		for (Product p : DummyDataLoader.dd().getProducts()) {
 			if (p.getProductName().equals(name))
 				list.add(p);
 		}
@@ -43,7 +44,7 @@ public class ProductManagerDummy implements ProductManager {
 
 	public ArrayList<Product> findByPrice(double price) {
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : dd.getProducts()) {
+		for (Product p : DummyDataLoader.dd().getProducts()) {
 			if (p.getPrice() == price) {
 				list.add(p);
 			}
@@ -53,7 +54,7 @@ public class ProductManagerDummy implements ProductManager {
 
 	public ArrayList<Product> findByOutStock() {
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : dd.getProducts()) {
+		for (Product p : DummyDataLoader.dd().getProducts()) {
 			if (p.getStockLevel() == 0) {
 				list.add(p);
 			}
@@ -62,7 +63,7 @@ public class ProductManagerDummy implements ProductManager {
 	}
 
 	public Product findById(int id) {
-		for (Product p : dd.getProducts()) {
+		for (Product p : DummyDataLoader.dd().getProducts()) {
 			if (p.getProductID() == id) {
 				return p;
 			}
@@ -71,12 +72,12 @@ public class ProductManagerDummy implements ProductManager {
 	}
 
 	public ArrayList<Product> findAll() {
-		return dd.getProducts();
+		return DummyDataLoader.dd().getProducts();
 	}
 
 	public ArrayList<Product> findByPriceLessThan(double price) {
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : dd.getProducts()) {
+		for (Product p : DummyDataLoader.dd().getProducts()) {
 			if (p.getPrice() <= price) {
 				list.add(p);
 			}
@@ -93,7 +94,7 @@ public class ProductManagerDummy implements ProductManager {
 	 */
 	public ArrayList<Product> findBySale() {
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : dd.getProducts()) {
+		for (Product p : DummyDataLoader.dd().getProducts()) {
 			if (p.isSale() == true) {
 				list.add(p);
 			}
@@ -110,7 +111,7 @@ public class ProductManagerDummy implements ProductManager {
 
 	public ArrayList<Product> findByPourousware(boolean isPourousware) {
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : dd.getProducts()) {
+		for (Product p : DummyDataLoader.dd().getProducts()) {
 			if (p.isPorousware() == isPourousware) {
 				list.add(p);
 			}
@@ -127,7 +128,7 @@ public class ProductManagerDummy implements ProductManager {
 	public ArrayList<Product> findByTrending() {
 
 		ArrayList<Product> list = new ArrayList<Product>();
-		for (Product p : dd.getProducts()) {
+		for (Product p : DummyDataLoader.dd().getProducts()) {
 			if (p.isTrending() == true) {
 				list.add(p);
 			}
@@ -136,7 +137,7 @@ public class ProductManagerDummy implements ProductManager {
 	}
 
 	public Product findByImageLink(String link) {
-		for (Product p : dd.getProducts()) {
+		for (Product p : DummyDataLoader.dd().getProducts()) {
 			if (p.getImageLink().equals(link)) {
 				return p;
 			}

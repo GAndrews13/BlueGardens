@@ -3,7 +3,9 @@ package com.netbuilder.controller.Dummy;
 import java.util.ArrayList;
 
 
+
 import javax.enterprise.inject.Alternative;
+
 
 /**
  * @author Jake
@@ -12,6 +14,7 @@ import javax.enterprise.inject.Alternative;
 import com.netbuilder.model.Customer;
 import com.netbuilder.controller.CustomerManager;
 import com.netbuilder.model.Utility.DummyData;
+import com.netbuilder.service.DummyDataLoader;
 
 /**
  * @author jmander and Jake and abalagel
@@ -25,11 +28,11 @@ public class CustomerManagerDummy implements CustomerManager {
 	DummyData dd = new DummyData();
 
 	public void persistCustomer(Customer customer) {
-		dd.setCustomer(customer);
+		DummyDataLoader.dd().setCustomer(customer);
 	}
 
 	public void persistCustomers(ArrayList<Customer> customers) {
-		dd.setCustomers(customers);
+		DummyDataLoader.dd().setCustomers(customers);
 	}
 
 	/**
@@ -38,7 +41,7 @@ public class CustomerManagerDummy implements CustomerManager {
 	 */
 	public ArrayList<Customer> findByStatus(String status) {
 		ArrayList<Customer> list = new ArrayList<Customer>();
-		for (Customer c : dd.getCustomers()) {
+		for (Customer c : DummyDataLoader.dd().getCustomers()) {
 			if (c.getAccountSTATUS().equals(status))
 				list.add(c);
 		}
@@ -50,10 +53,10 @@ public class CustomerManagerDummy implements CustomerManager {
 	 *         information
 	 */
 	public void updateCustomer(Customer customer) {
-		for (int i = 0; i < dd.getCustomers().size(); i++) {
-			if (customer.getCustomerID() == dd.getCustomers().get(i)
+		for (int i = 0; i < DummyDataLoader.dd().getCustomers().size(); i++) {
+			if (customer.getCustomerID() == DummyDataLoader.dd().getCustomers().get(i)
 					.getCustomerID()) {
-				dd.setCustomer(customer);
+				DummyDataLoader.dd().setCustomer(customer);
 			}
 		}
 	}
@@ -62,7 +65,7 @@ public class CustomerManagerDummy implements CustomerManager {
 	 * @author Jake Look in array for customer with a set firstname
 	 */
 	public Customer findByFirstName(String firstname) {
-		for (Customer c : dd.getCustomers()) {
+		for (Customer c : DummyDataLoader.dd().getCustomers()) {
 			if (c.getFirstName() == firstname) {
 				return c;
 			}
@@ -74,7 +77,7 @@ public class CustomerManagerDummy implements CustomerManager {
 	 * @author Jake Look in array for customer with a set lastname
 	 */
 	public Customer findByLastName(String lastname) {
-		for (Customer c : dd.getCustomers()) {
+		for (Customer c : DummyDataLoader.dd().getCustomers()) {
 			if (c.getFirstName() == lastname) {
 				return c;
 			}
@@ -86,7 +89,7 @@ public class CustomerManagerDummy implements CustomerManager {
 	 * @author Jake Find a customer using the email attribute
 	 */
 	public Customer findByEmail(String email) {
-		for (Customer c : dd.getCustomers()) {
+		for (Customer c : DummyDataLoader.dd().getCustomers()) {
 			if (c.getEmail() == email) {
 				return c;
 			}
@@ -98,7 +101,7 @@ public class CustomerManagerDummy implements CustomerManager {
 	 * @author Jake Find a customer using the email attribute
 	 */
 	public ArrayList<Customer> findAll() {
-		return dd.getCustomers();
+		return DummyDataLoader.dd().getCustomers();
 	}
 
 	/**
@@ -106,7 +109,7 @@ public class CustomerManagerDummy implements CustomerManager {
 	 */
 	@Override
 	public Customer findByID(long inID) {
-		for (Customer c : dd.getCustomers()) {
+		for (Customer c : DummyDataLoader.dd().getCustomers()) {
 			if (c.getCustomerID() == inID) {
 				return c;
 			}

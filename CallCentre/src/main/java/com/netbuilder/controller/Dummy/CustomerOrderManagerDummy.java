@@ -1,11 +1,14 @@
 package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
+
 import javax.enterprise.inject.Alternative;
+
 import com.netbuilder.model.DeliveryStatus;
 import com.netbuilder.model.CustomerOrder;
 import com.netbuilder.controller.CustomerOrderManager;
 import com.netbuilder.model.Utility.DummyData;
+import com.netbuilder.service.DummyDataLoader;
 
 /** 
  * @author jmander 
@@ -17,25 +20,25 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
 	DummyData dd = new DummyData();
 
 	public void persistCustomerOrder(CustomerOrder customerOrder) {
-		dd.setCustomerOrder(customerOrder);
+		DummyDataLoader.dd().setCustomerOrder(customerOrder);
 		;
 	}
 
 	public void persistCustomerOrders(ArrayList<CustomerOrder> customerOrders) {
-		dd.setCustomerOrders(customerOrders);
+		DummyDataLoader.dd().setCustomerOrders(customerOrders);
 	}
 
 	public void updateCustomerOrder(CustomerOrder customerOrder) {
-		for (int i = 0; i < dd.getCustomerOrders().size(); i++) {
-			if (customerOrder.getCustomerOrderID() == dd.getCustomerOrders()
+		for (int i = 0; i < DummyDataLoader.dd().getCustomerOrders().size(); i++) {
+			if (customerOrder.getCustomerOrderID() == DummyDataLoader.dd().getCustomerOrders()
 					.get(i).getCustomerOrderID()) {
-				dd.setCustomerOrder(customerOrder);
+				DummyDataLoader.dd().setCustomerOrder(customerOrder);
 			}
 		}
 	}
 
 	public CustomerOrder findByCustomerOrderId(int customerOrderId) {
-		for (CustomerOrder co : dd.getCustomerOrders()) {
+		for (CustomerOrder co : DummyDataLoader.dd().getCustomerOrders()) {
 			if (co.getCustomerOrderID() == customerOrderId) {
 				return co;
 			}
@@ -45,7 +48,7 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
 
 	public ArrayList<CustomerOrder> findByisAssigned(boolean isAssigned) {
 		ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
-		for (CustomerOrder co : dd.getCustomerOrders()) {
+		for (CustomerOrder co : DummyDataLoader.dd().getCustomerOrders()) {
 			if (co.getIsAssigned() == isAssigned) {
 				list.add(co);
 			}
@@ -54,7 +57,7 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
 	}
 
 	public CustomerOrder findByTrackingId(int trackingId) {
-		for (CustomerOrder co : dd.getCustomerOrders()) {
+		for (CustomerOrder co : DummyDataLoader.dd().getCustomerOrders()) {
 			if (co.getTrackingID() == trackingId) {
 				return co;
 			}
@@ -64,7 +67,7 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
 
 	public ArrayList<CustomerOrder> findByDeliveryType(String deliveryType) {
 		ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
-		for (CustomerOrder co : dd.getCustomerOrders()) {
+		for (CustomerOrder co : DummyDataLoader.dd().getCustomerOrders()) {
 			if (co.getDeliveryType() == deliveryType) {
 				list.add(co);
 			}
@@ -74,7 +77,7 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
 
 	public ArrayList<CustomerOrder> findByCustomer(long customerID) {
 		ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
-		for (CustomerOrder co : dd.getCustomerOrders()) {
+		for (CustomerOrder co : DummyDataLoader.dd().getCustomerOrders()) {
 			if (co.getCustomer() == customerID) {
 				list.add(co);
 			}
@@ -84,7 +87,7 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
 
 	public ArrayList<CustomerOrder> findByWorker(long workerID) {
 		ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
-		for (CustomerOrder co : dd.getCustomerOrders()) {
+		for (CustomerOrder co : DummyDataLoader.dd().getCustomerOrders()) {
 			if (co.getWorker() == workerID) {
 				list.add(co);
 			}
@@ -94,7 +97,7 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
 
 	public ArrayList<CustomerOrder> findByDeliveryStatus(DeliveryStatus status) {
 		ArrayList<CustomerOrder> list = new ArrayList<CustomerOrder>();
-		for (CustomerOrder co : dd.getCustomerOrders()) {
+		for (CustomerOrder co : DummyDataLoader.dd().getCustomerOrders()) {
 			if (co.getStatus() == status) {
 				list.add(co);
 			}
@@ -104,7 +107,7 @@ public class CustomerOrderManagerDummy implements CustomerOrderManager {
 
 	@Override
 	public ArrayList<CustomerOrder> findAll() {
-		return dd.getCustomerOrders();
+		return DummyDataLoader.dd().getCustomerOrders();
 	}
 
 }

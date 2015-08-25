@@ -1,10 +1,13 @@
 package com.netbuilder.controller.Dummy;
 
 import java.util.ArrayList;
+
 import javax.enterprise.inject.Alternative;
+
 import com.netbuilder.model.CustomerOrderLine;
 import com.netbuilder.controller.CustomerOrderLineManager;
 import com.netbuilder.model.Utility.DummyData;
+import com.netbuilder.service.DummyDataLoader;
 
 /**
  * 
@@ -21,7 +24,7 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 	 * persist the current customer order line
 	 */
 	public void persistCustomerOrderLine(CustomerOrderLine customerOrderLine) {
-		dd.setCustomerOrderLine(customerOrderLine);
+		DummyDataLoader.dd().setCustomerOrderLine(customerOrderLine);
 	}
 
 	/**
@@ -29,7 +32,7 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 	 */
 	public void persistCustomerOrderLines(
 			ArrayList<CustomerOrderLine> customerOrderLines) {
-		dd.setCustomerOrderLines(customerOrderLines);
+		DummyDataLoader.dd().setCustomerOrderLines(customerOrderLines);
 	}
 
 	/**
@@ -38,7 +41,7 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 	public ArrayList<CustomerOrderLine> findByCustomerOrderID(
 			int customerOrderID) {
 		ArrayList<CustomerOrderLine> list = new ArrayList<CustomerOrderLine>();
-		for (CustomerOrderLine co : dd.getCustomerOrderLines()) {
+		for (CustomerOrderLine co : DummyDataLoader.dd().getCustomerOrderLines()) {
 			if (co.getCustomerOrderID() == customerOrderID) {
 				list.add(co);
 			}
@@ -51,7 +54,7 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 	 */
 	public ArrayList<CustomerOrderLine> findByQuantity(int quantity) {
 		ArrayList<CustomerOrderLine> list = new ArrayList<CustomerOrderLine>();
-		for (CustomerOrderLine co : dd.getCustomerOrderLines()) {
+		for (CustomerOrderLine co : DummyDataLoader.dd().getCustomerOrderLines()) {
 			if (co.getQuantity() == quantity) {
 				list.add(co);
 			}
@@ -63,10 +66,10 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 	 * Update a customer order line that is passed in with one that is being persisted 
 	 */
 	public void updateCustomerOrderLine(CustomerOrderLine customerOrderLine) {
-		for (int i = 0; i < dd.getCustomerOrderLines().size(); i++) {
+		for (int i = 0; i < DummyDataLoader.dd().getCustomerOrderLines().size(); i++) {
 			if (customerOrderLine.getCustomerOrderID() == dd
 					.getCustomerOrderLines().get(i).getCustomerOrderID()) {
-				dd.setCustomerOrderLine(customerOrderLine);
+				DummyDataLoader.dd().setCustomerOrderLine(customerOrderLine);
 				;
 			}
 		}
@@ -76,7 +79,7 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 	 * Return all customer order lines
 	 */
 	public ArrayList<CustomerOrderLine> findAll() {
-		return dd.getCustomerOrderLines();
+		return DummyDataLoader.dd().getCustomerOrderLines();
 	}
 	
 	/**
@@ -84,7 +87,7 @@ public class CustomerOrderLineManagerDummy implements CustomerOrderLineManager {
 	 */
 	public ArrayList<CustomerOrderLine> finyByProductID(int productID) {
 		ArrayList<CustomerOrderLine> list = new ArrayList<CustomerOrderLine>();
-		for (CustomerOrderLine co : dd.getCustomerOrderLines()) {
+		for (CustomerOrderLine co : DummyDataLoader.dd().getCustomerOrderLines()) {
 			if (co.getProductId() == productID) {
 				list.add(co);
 			}
