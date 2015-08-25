@@ -83,25 +83,28 @@ public class SearchController {
 		return "jsearch";
 	}
 
+	/**
+	 * The code that is run when the user navigates to the product search page
+	 * @param requestParams The query string that was being fed through to the productSearch page
+	 * @return the ModelAndView that returns the assigned variables and details to the jsp pages
+	 */
 	@RequestMapping("/productSearch")
 	public ModelAndView productSearch(@RequestParam (required=false) Map<String,String> requestParams){
 		ModelAndView mv = new ModelAndView("productSearch");
-		System.out.println("Searching");
 		try
 		{
-			System.out.println("Stage 1");
 			results = new ArrayList<Product>();
 			results = productManager.findAll();
-			System.out.println("Stage 2");
 			String infoRequest;
 		
 			ArrayList<Product> returnList = new ArrayList<Product>();
-			
+			//if the user is searching by product name this section of the code is run
 			if(requestParams.containsKey("productName"))
 			{
 				infoRequest = requestParams.get("productName");
 				for(Product p : results)
 				{
+					//ignores case when searching for any product name containing the initial search query
 					if(p.getProductName().toLowerCase().contains(infoRequest.toLowerCase()))
 					{
 						returnList.add(p);
@@ -112,6 +115,7 @@ public class SearchController {
 					System.out.println("Product Not Found");
 				}
 			}
+			//If the query string contains product id the user is searching for a product by its ID
 			else if(requestParams.containsKey("productID"))
 			{
 				infoRequest=requestParams.get("productID");
@@ -128,6 +132,7 @@ public class SearchController {
 					System.out.println("Product Not Found");
 				}
 			}
+			//Returns a list of products, independent on a search by ID or name
 			mv.addObject("products", returnList);
 			return mv;
 		}

@@ -113,6 +113,11 @@ public class CustomerOrderLine {
 		ProductManager pm = new ProductManagerDummy();
 		return pm.findById(getProductId());
 	}
+	
+	/**
+	 * Returns the total cost of the product order line (quantity * product cost) 
+	 * @return
+	 */
 	public double getTotalCost()
 	{
 		ProductManager pm = new ProductManagerDummy();
